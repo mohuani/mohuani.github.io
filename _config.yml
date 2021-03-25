@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 积雪筱草
-subtitle: ''
-description: ''
-keywords:
+title: 积雪筱草的Blog
+subtitle: '流水账'
+description: '搬砖人'
+keywords: "Bug工程师"
 author: mohuani
 language: zh-Hans
 timezone: ''
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
