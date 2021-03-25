@@ -1,247 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Java反射的三种实现方式 | 积雪筱草</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Java反射的三种实现方式 Foo foo &#x3D; new Foo(); 123456789101112131415161718第一种：通过Object类的getClass方法Class cla &#x3D; foo.getClass();第二种：通过对象实例方法获取对象Class cla &#x3D; foo.class;第三种：通过Class.forName方式Class cla &#x3D; Class.forName(&amp;q">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java反射的三种实现方式">
-<meta property="og:url" content="https://mohuani.github.io/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/index.html">
-<meta property="og:site_name" content="积雪筱草">
-<meta property="og:description" content="Java反射的三种实现方式 Foo foo &#x3D; new Foo(); 123456789101112131415161718第一种：通过Object类的getClass方法Class cla &#x3D; foo.getClass();第二种：通过对象实例方法获取对象Class cla &#x3D; foo.class;第三种：通过Class.forName方式Class cla &#x3D; Class.forName(&amp;q">
-<meta property="og:locale">
-<meta property="article:published_time" content="2021-03-24T11:36:38.000Z">
-<meta property="article:modified_time" content="2021-03-25T17:25:37.389Z">
-<meta property="article:author" content="mohuani">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="积雪筱草" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">积雪筱草</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-Java/基础知识/Java反射的三种实现方式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Java反射的三种实现方式
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Java反射的三种实现方式</p>
-<p>Foo foo = new Foo();</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">第一种：通过Object类的getClass方法</span><br><span class="line">Class cla = foo.getClass();</span><br><span class="line"></span><br><span class="line">第二种：通过对象实例方法获取对象</span><br><span class="line">Class cla = foo.class;</span><br><span class="line"></span><br><span class="line">第三种：通过Class.forName方式</span><br><span class="line">Class cla = Class.forName(<span class="string">&quot;xx.xx.Foo&quot;</span>);</span><br><span class="line"></span><br><span class="line">对于有空构造函数的类 可以直接用字节码文件获取实例：</span><br><span class="line">Object o = clazz.newInstance();　　<span class="comment">// 会调用空参构造器 如果没有则会报错</span></span><br><span class="line"></span><br><span class="line">对于没有空的构造函数的类则需要先获取到他的构造对象 在通过该构造方法类获取实例：</span><br><span class="line">Constroctor constroctor = clazz.getConstructor(String.class, <span class="keyword">int</span>.class); <span class="comment">// 获取构造函数 </span></span><br><span class="line">Object obj = constroctor.newInstance(<span class="string">&quot;jack&quot;</span>, <span class="number">18</span>); <span class="comment">// 通过构造器对象的newInstance方法进行对象的初始化</span></span><br><span class="line"></span><br><span class="line">Constroctor constroctor = clazz.getConstructors(); <span class="comment">// 获取所有的构造函数 </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgramMain</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Persons person = getInstance(<span class="string">&quot;english&quot;</span>);</span><br><span class="line">        person.say();</span><br><span class="line"></span><br><span class="line">        Persons person2 = getInstanceByReflector(Chinese.class);</span><br><span class="line">        person2.say();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Persons <span class="title">getInstance</span><span class="params">(String name)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Persons person = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (name.equalsIgnoreCase(<span class="string">&quot;Chinese&quot;</span>)) &#123;</span><br><span class="line">            person = <span class="keyword">new</span> Chinese();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (name.equalsIgnoreCase(<span class="string">&quot;English&quot;</span>)) &#123;</span><br><span class="line">            person = <span class="keyword">new</span> English();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;请传递正确的参数&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> person;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过反射</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> personClass</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Persons <span class="title">getInstanceByReflector</span><span class="params">(Class personClass)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Persons person = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            person = (Persons) personClass.getConstructor().newInstance();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;请传入正确的参数&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> person;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="获取构造函数"><a href="#获取构造函数" class="headerlink" title="获取构造函数"></a>获取构造函数</h5><p>1、知道构造函数精确的参数类型的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">Constructor c=c1.getConstructor(String.class,Integer.class);<span class="comment">//参数可以为空，根据知道的参数类型和个数来写</span></span><br></pre></td></tr></table></figure>
-
-<p>2、不知道构造函数精确的参数类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	Constructor[] constructors=c1.getConstructors();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; constructors.length; i++) &#123;</span><br><span class="line">		 Class [] parameters= constructors[i].getParameterTypes();<span class="comment">//获得构造函数的参数列表</span></span><br><span class="line">		 <span class="keyword">if</span>(parameters.length&lt;=<span class="number">0</span>)</span><br><span class="line">		 &#123;</span><br><span class="line">			 </span><br><span class="line">			 System.out.println(<span class="string">&quot;一个无参的构造函数&quot;</span>);</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span></span><br><span class="line">		 &#123;</span><br><span class="line">			 String [] typeName=<span class="keyword">new</span> String[parameters.length];</span><br><span class="line">			 <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;typeName.length;j++)</span><br><span class="line">			 &#123;</span><br><span class="line">				 typeName[j]= parameters[j].getSimpleName();<span class="comment">//获取参数的类型名	 </span></span><br><span class="line">			 &#125;</span><br><span class="line">			 System.out.println(String.join(<span class="string">&quot;,&quot;</span>, typeName));</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建实例对象"><a href="#创建实例对象" class="headerlink" title="创建实例对象"></a>创建实例对象</h5><p>通过构造函数去创建，调用Constructor对象的newInstance()方法创建对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">Chinese chinese=(Chinese) c1.getConstructor().newInstance();</span><br><span class="line">chinese.say();</span><br></pre></td></tr></table></figure>
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
 
-<h5 id="获取方法并执行"><a href="#获取方法并执行" class="headerlink" title="获取方法并执行"></a>获取方法并执行</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、获取所有的非<span class="keyword">private</span>方法</span><br><span class="line">		Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">		Object chinese= c1.getConstructor().newInstance();</span><br><span class="line">		Method[] methods1= c1.getMethods();<span class="comment">//获取所有的非private方法，并且父类的方法也会获取</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;methods1.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			Class[] parameters= methods1[i].getParameterTypes();</span><br><span class="line">			<span class="keyword">if</span>(parameters.length&lt;=<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				 System.out.println(methods1[i].getName()+<span class="string">&quot;()&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				String [] typeName=<span class="keyword">new</span> String[parameters.length];</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;parameters.length;j++)</span><br><span class="line">				&#123;</span><br><span class="line">					</span><br><span class="line">					typeName[j]=parameters[j].getSimpleName();</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(methods1[i].getName()+<span class="string">&quot;(&quot;</span>+String.join(<span class="string">&quot;,&quot;</span>,typeName)+<span class="string">&quot;)&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、获取所有的当前类定义的所有方法，包括私有方法</span><br><span class="line">		Method[] methods1= c1.getDeclaredMethods();<span class="comment">//获取当前类定义的所有，包括私有方法</span></span><br><span class="line"><span class="number">3</span>、获取指定方法名的方法</span><br><span class="line">	    Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">		Object chinese= c1.getConstructor().newInstance();</span><br><span class="line">	    Method setNumber=	c1.getDeclaredMethod(<span class="string">&quot;setNumber&quot;</span>, Integer.class);<span class="comment">//如果方法没有参数就可以不用写，另外需要注意参数类型和定义方法的参数类型保持一致</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、获取父类的私有方法</span><br><span class="line">		Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	    Class c2=	c1.getSuperclass();</span><br><span class="line">	    <span class="comment">//通过c2去获取父类中的私有方法</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、执行方法</span><br><span class="line">		Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">		Object chinese= c1.getConstructor().newInstance();</span><br><span class="line">	    Method setNumber=	c1.getDeclaredMethod(<span class="string">&quot;setNumber&quot;</span>, Integer.class);<span class="comment">//如果方法没有参数就可以不用写，另外需要注意参数类型和定义方法的参数类型保持一致</span></span><br><span class="line">	    setNumber.invoke(chinese, <span class="number">1</span>);	<span class="comment">//第一个参数是实例对象，后面的参数是调用方法所需的参数</span></span><br></pre></td></tr></table></figure>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<h5 id="获取字段"><a href="#获取字段" class="headerlink" title="获取字段"></a>获取字段</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>、获取所有非<span class="keyword">private</span>类型的字段，包括父类的</span><br><span class="line">	 Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	 Object object=	c1.getConstructor().newInstance();</span><br><span class="line">	 Field [] fields=  c1.getFields();<span class="comment">//或者所有的非private类型的字段，包括父类的</span></span><br><span class="line">	 <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fields.length;i++)</span><br><span class="line">	 &#123;</span><br><span class="line">		 System.out.println(fields[i].getName());</span><br><span class="line">	 &#125;</span><br><span class="line">	 </span><br><span class="line"><span class="number">2</span>、获取当前类所有字段，包括私有的</span><br><span class="line">	 Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	 Object object=	c1.getConstructor().newInstance();</span><br><span class="line">	 Field [] fields=  c1.getDeclaredFields();<span class="comment">//获取当前类中所有的字段</span></span><br><span class="line">	 <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fields.length;i++)</span><br><span class="line">	 &#123;</span><br><span class="line">		 System.out.println(fields[i].getName());</span><br><span class="line">	 &#125;</span><br><span class="line">	 </span><br><span class="line"><span class="number">3</span>、获取父类的所有字段，包括私有的</span><br><span class="line"></span><br><span class="line">	    Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	    Class c2=	c1.getSuperclass();</span><br><span class="line">	    <span class="comment">//通过c2去获取父类中的私有字段</span></span><br><span class="line"><span class="number">4</span>、获取指定的字段</span><br><span class="line">	 Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	 Object object=	c1.getConstructor().newInstance();</span><br><span class="line">	 Field field=  c1.getDeclaredField(<span class="string">&quot;Age&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、使用</span><br><span class="line">	 Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	 Object object1=	c1.getConstructor().newInstance();</span><br><span class="line">	 Field field=  c1.getDeclaredField(<span class="string">&quot;Age&quot;</span>);</span><br><span class="line">	 field.setAccessible(<span class="keyword">true</span>);<span class="comment">//如果字段是私有的，需要先这是允许访问</span></span><br><span class="line">	 <span class="comment">//取值</span></span><br><span class="line">	 Object  object2=field.get(object1);</span><br><span class="line">	 System.out.println(object2);</span><br><span class="line">	 <span class="comment">//赋值</span></span><br><span class="line">	 field.set(object1, <span class="number">21</span>);</span><br><span class="line">	 <span class="comment">//取值</span></span><br><span class="line">	 Object  object3=field.get(object1);</span><br><span class="line">	 System.out.println(object3);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" data-id="ckmp5cz3m001l1onh6bfb64gk" data-title="Java反射的三种实现方式" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E4%B8%AD%E7%9A%84session%E5%92%8Ccookie/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          Java中的session和cookie
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%BA%8F%E5%88%97%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Java序列化</div>
-    </a>
-  
-</nav>
-
-  
-</article>
+{% block page_class %}page-post-detail{% endblock %}
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+{% block content %}
 
-  
-    
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">Google资深工程师深度讲解Go语言11-http及其他标准库</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/Beego/">Beego</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 mohuani<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

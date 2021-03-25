@@ -1,352 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>MySQL数据库性能分析和优化 | 积雪筱草</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="课程地址：https:&#x2F;&#x2F;www.imooc.com&#x2F;learn&#x2F;194 推荐文章：https:&#x2F;&#x2F;www.zam9.com&#x2F;blog&#x2F;mysql_opt01 MySQL数据库优化SQL语句优化慢查询 如何发现有问题的SQL？ 使用mysql慢查询日志对有效率问题的SQL进行监控 1234567891011121314151617&#x2F;&#x2F;查看慢查询日志是否开启show variab">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySQL数据库性能分析和优化">
-<meta property="og:url" content="https://mohuani.github.io/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/index.html">
-<meta property="og:site_name" content="积雪筱草">
-<meta property="og:description" content="课程地址：https:&#x2F;&#x2F;www.imooc.com&#x2F;learn&#x2F;194 推荐文章：https:&#x2F;&#x2F;www.zam9.com&#x2F;blog&#x2F;mysql_opt01 MySQL数据库优化SQL语句优化慢查询 如何发现有问题的SQL？ 使用mysql慢查询日志对有效率问题的SQL进行监控 1234567891011121314151617&#x2F;&#x2F;查看慢查询日志是否开启show variab">
-<meta property="og:locale">
-<meta property="article:published_time" content="2021-03-24T11:36:38.000Z">
-<meta property="article:modified_time" content="2021-03-25T17:25:37.405Z">
-<meta property="article:author" content="mohuani">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="积雪筱草" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">积雪筱草</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-数据库/MySQL/MySQL数据库性能分析和优化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      MySQL数据库性能分析和优化
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>课程地址：<a target="_blank" rel="noopener" href="https://www.imooc.com/learn/194">https://www.imooc.com/learn/194</a></p>
-<p>推荐文章：<a target="_blank" rel="noopener" href="https://www.zam9.com/blog/mysql_opt01">https://www.zam9.com/blog/mysql_opt01</a></p>
-<h3 id="MySQL数据库优化"><a href="#MySQL数据库优化" class="headerlink" title="MySQL数据库优化"></a>MySQL数据库优化</h3><h4 id="SQL语句优化"><a href="#SQL语句优化" class="headerlink" title="SQL语句优化"></a>SQL语句优化</h4><p><strong>慢查询</strong></p>
-<p>如何发现有问题的SQL？</p>
-<p>使用mysql慢查询日志对有效率问题的SQL进行监控</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查看慢查询日志是否开启</span><br><span class="line">show variables like &#39;slow_query_log&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;查看慢查询日志存储位置</span><br><span class="line">show variables like &#39;slow_query_log_file&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;开启慢查询日志</span><br><span class="line">set global slow_query_log&#x3D;on;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;指定慢查询日志存储位置</span><br><span class="line">set global show_query_log_file&#x3D;&#39;&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;homestead-slow.log&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;记录没有使用索引的sql</span><br><span class="line">set global log_queries_not_using_indexes&#x3D;on;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;记录查询超过1s的sql</span><br><span class="line">set global long_query_time&#x3D;1;</span><br></pre></td></tr></table></figure>
-
-<p>慢查询日志所包含的内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#User@Host:root[root] @localhost[]&#x2F;&#x2F;执行sql的主机信息</span><br><span class="line">#Query_time:0.0000024 Lock_time:0.00 Rows_sent:0 Rows_esamined:0&#x2F;&#x2F;sql的执行信息</span><br><span class="line">SET timestamp&#x3D;1402389324&#x2F;&#x2F;sql执行时间</span><br><span class="line">select * from store; &#x2F;&#x2F;sql的内容</span><br></pre></td></tr></table></figure>
-
-<p><strong>MySQL慢查询日志分析工具之mysqldumpslow（mysql官方）</strong></p>
-<p>安装完MySQL后，默认就带了mysqldumpslow，很常用的一个工具。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查看参数列表</span><br><span class="line">mysqldumpslow -h</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;分析慢查询日志中前三条比较慢的sql</span><br><span class="line">mysqldumpslow -t 3 &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;homestead-slow.log | more </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;输出样式效果</span><br><span class="line">Count:1 Time:0.00s Lock&#x3D;0.00s Rows&#x3D;10.0</span><br><span class="line">root[rppt]@localhost</span><br><span class="line">select * from store</span><br></pre></td></tr></table></figure>
-
-<p><strong>MySQL慢查询日志分析工具之pt-query-digest</strong></p>
-<p>分析结果比mysqldumpslow更详细全面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;输出到文件</span><br><span class="line">pt-query-digest slow-log &gt; slow_log.report</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;输出到数据表</span><br><span class="line">pt-query-digest slow.log -review \</span><br><span class="line">	h&#x3D;127.0.0.1,D&#x3D;test,p&#x3D;root,P&#x3D;3306,u&#x3D;root,t&#x3D;query_review \</span><br><span class="line">	--create-reviewtable \</span><br><span class="line">	--review-history t&#x3D;hostname_slow</span><br></pre></td></tr></table></figure>
-
-<p>基本使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查看参数列表</span><br><span class="line">pt-query-digest --help</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;分析慢查询日志中前三条比较慢的sql</span><br><span class="line">pt-query-digest &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;homestead-slow.log | more </span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;输出分为三部分</span><br><span class="line">1.显示除了日志的时间范围，以及总的sql数量和不同的sql数量</span><br><span class="line">2.Response Time:响应时间占比 Calls:sql执行次数</span><br><span class="line">3.sql的具体日志</span><br></pre></td></tr></table></figure>
-
-<p>如何通过慢查询日志发现有问题的SQL？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.查询次数多且每次查询占用时间长的SQL</span><br><span class="line">通常为pt-query-digest分析的前几个查询</span><br><span class="line"></span><br><span class="line">2.IO大的SQL（数据库主要瓶颈出现在IO层次）</span><br><span class="line">注意pt-query-digest分析中的Rows examine项</span><br><span class="line"></span><br><span class="line">3.未命中索引的SQL</span><br><span class="line">注意pt-query-digest分析中的Rows examine和Rows Send的对比</span><br></pre></td></tr></table></figure>
-
-<p>通过explain查询和分析SQL的执行计划</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select customer_id,,first_name,last_name from customer;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>select_type</th>
-<th>table</th>
-<th>type</th>
-<th>possible_keys</th>
-<th>key</th>
-<th>key_len</th>
-<th>ref</th>
-<th>rows</th>
-<th>Extra</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>SIMPLE</td>
-<td>customer</td>
-<td>ALL</td>
-<td>NULL</td>
-<td>NULL</td>
-<td>NULL</td>
-<td>NULL</td>
-<td>671</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>该数据关于哪张表。</td>
-<td>示连接使用了何种类型。从好到差const,eq_reg,ref,range,index和ALL。</td>
-<td>可能应用在该表的索引，空，没有可能的索引。</td>
-<td>实际使用的索引。空，没有使用索引。</td>
-<td>使用的索引长度。不损失精度下，越短越好。</td>
-<td>显示索引的哪一列被使用了，常数。</td>
-<td>mysql认为必须检查的数据的行数。</td>
-<td>注意：Using filesort,Using tempoary</td>
-</tr>
-</tbody></table>
-<p>Count()和Max()的优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查询最后支付时间--优化max()函数</span><br><span class="line">explain select max(payment_date) from payment;</span><br><span class="line">create index idx_paydate on payment(payment_data);&#x2F;&#x2F;给payment_date建立索引(覆盖索引)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;在一条SQL中同时查出2006年和2007年电影的数量--优化Count()函数</span><br><span class="line">select count(release_year&#x3D;&#39;2006&#39; or null) as &#39;2006年电影数量&#39;，count(release_year&#x3D;&#39;2007&#39; or null) as &#39;2007年电影数量&#39; from film;</span><br><span class="line">&#x2F;&#x2F;有关count()函数</span><br><span class="line">https:&#x2F;&#x2F;blog.csdn.net&#x2F;wendychiang1991&#x2F;article&#x2F;details&#x2F;70909958&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>子查询优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">通常情况下，需要把子查询优化为join查询，但在优化时要注意关联键是否有一对多的关系，要注意重复数据。(distinct去重)</span><br><span class="line">&#x2F;&#x2F;查询sandra出演的所有影片</span><br><span class="line">explain select title,release_year,LENGTH from film</span><br><span class="line">where film_id in (</span><br><span class="line">select film_id from film_actor where actor_id in (</span><br><span class="line">select actor_id from actor where first_name&#x3D;&#39;sandra&#39;));</span><br></pre></td></tr></table></figure>
-
-<p>group by的优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;改前 临时表</span><br><span class="line">explain select actor.first_name,actor_last_name,count(*) from sakila.film_actor</span><br><span class="line">inner join sakila.actor USING(actor_id)</span><br><span class="line">group by film_actor.actor_id;</span><br><span class="line">&#x2F;&#x2F;改后 结合子查询 索引</span><br><span class="line">explain select actor.first_name,actor.last_name,c.cnt from sakila.film_actor</span><br><span class="line">inner join (</span><br><span class="line">select actor_id,count(*) as cnt from sakila.film_actor group by actor_id) as c USING(actor_id);</span><br></pre></td></tr></table></figure>
-
-<p>limit优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">limit常用于分页处理，时常会伴随order by 从句使用，因此大多时候会使用Filesorts这样会造成大量的IO问题。</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;文件排序，IO大</span><br><span class="line">explain select film_id,description from sakila.film order by title limit 50,5;</span><br><span class="line">1.优化：使用有索引的列或主键进行order by操作（order by film_id）</span><br><span class="line">2.记录上次返回的主键，在下次查询的时候用主键过滤，避免了数据量大时扫描过多的记录</span><br><span class="line">select film_id,description from sakila.film where film_if&gt;55 and film_id&lt;&#x3D;60 order by film_id limit 1,5; </span><br><span class="line">页数越大，IO越大</span><br></pre></td></tr></table></figure>
-
-<h4 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h4><p>如何选择合适的列建立索引？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.在where从句，group by从句，order by从句，on从句中出现的列(select)</span><br><span class="line">2.索引字段越小越好(表每页数据才会更多，IO效率会更高)</span><br><span class="line">3.离散度大的列放到联合索引的前面</span><br><span class="line">select * from payment where staff_id&#x3D;2 and customer_id&#x3D;584;</span><br><span class="line">index(staff_id,customer_id)好？还是index(customer_id,staff_id)好？</span><br><span class="line">由于customer_id的离散度更大(重复率小,可选择性更大)，所以应该使用index(customer_id,staff_id)</span><br></pre></td></tr></table></figure>
-
-<p>索引优化SQL的方法</p>
-<p>索引的维护及优化–重复及冗余索引</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">冗余索引是指多个索引的前缀列相同，或是在联合索引中包含了主键的索引。如下：key(name,id)就是一个冗余索引</span><br><span class="line">create table test(</span><br><span class="line">id int not null primary key,</span><br><span class="line">name varchar(10) not null,</span><br><span class="line">key(name,id)</span><br><span class="line">)engine&#x3D;innodb;</span><br><span class="line">&#x2F;&#x2F;可以删除冗余索引，达到优化效果。</span><br><span class="line"></span><br><span class="line">使用pt-duplicate-key-checker工具检查重复及冗余索引</span><br><span class="line">pt-duplicate-key-checker \</span><br><span class="line">-uroot \</span><br><span class="line">-p &#39;&#39; \</span><br><span class="line">-h 127.0.0.1</span><br></pre></td></tr></table></figure>
-
-<p>索引维护的方法–删除不用索引</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">目前mysql中还没有记录索引的使用情况，但是在PerconMySQL和MariaDB中可通过INDEX_STATISTICS表来查看哪些索引未使用，但在mysql中目前只能通过慢查日志配合pt-index-usage工具来进行索引使用情况分析。</span><br><span class="line">pt-index-usage \</span><br><span class="line">	-uroot -p&#39;&#39; \</span><br><span class="line">	mysql-slow.log</span><br></pre></td></tr></table></figure>
-
-<h4 id="数据库表结构优化"><a href="#数据库表结构优化" class="headerlink" title="数据库表结构优化"></a>数据库表结构优化</h4><p>1、选择<strong>合适</strong>的数据类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.使用可以存下你的数据的最小的数据类型</span><br><span class="line">2.使用简单的数据类型。int要比varchar类型在mysql处理上更简单</span><br><span class="line">3.尽可能的使用not null定义字段</span><br><span class="line">4.尽量少用text类型，非用不可时最好考虑分表</span><br><span class="line">*使用int来存储日志时间，利用FROM_UNIXTINE()(得到日期),UNIX_TIMESTAMP()(得到时间戳)两个函数来进行转换</span><br><span class="line">*使用bigint来存ip地址，利用INET_ATON(),INET_NTOA()两个函数来进行转换</span><br></pre></td></tr></table></figure>
-
-<p>2、表的范式化和反范式化</p>
-<p><strong>范式化</strong>是指数据库设计的规范，目前说到范式化一般是指第三设计范式，也就是要求数据表中不存在非关键字段对任意候选关键字段的传递函数依赖则符合第三范式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">不符合第三范式要求的表存在下列问题：</span><br><span class="line">1.数据冗余：（分类，分类描述）对于每一个商品都会进行记录</span><br><span class="line">2.数据的插入异常</span><br><span class="line">3.数据的更新异常</span><br><span class="line">4.数据的删除异常</span><br></pre></td></tr></table></figure>
-
-<p><strong>反范式化</strong>是指为了查询效率的考虑把原本符合第三范式的表适当的增加冗余，以达到优化查询的目的，反范式化是一种以空间来换取时间的操作。</p>
-<p>3、表的拆分</p>
-<p>垂直拆分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">所谓的垂直拆分，就是把原来一个有很多列的表拆分成多个表，这解决了表的宽度问题。通常垂直拆分可以按以下原则进行：</span><br><span class="line">1.把不常用的字段单独存放到一个表中</span><br><span class="line">2.把大字段独立存放到一个表中</span><br><span class="line">3.把经常一起使用的字段放到一起</span><br></pre></td></tr></table></figure>
-
-<p>水平拆分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">表的水平拆分是为了解决单表的数据量过大的问题，水平拆分的表每一个表的结构都是完全一致的。</span><br><span class="line">常用的水平拆分方法为：</span><br><span class="line">1.对id进行hash运算，如果要拆分成5个表则使用mod(id,5)去除0-4个值</span><br><span class="line">2.针对不同的hashID把数据存到不同的表中</span><br></pre></td></tr></table></figure>
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
 
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-<h4 id="系统配置优化"><a href="#系统配置优化" class="headerlink" title="系统配置优化"></a>系统配置优化</h4><p>1、操作系统配置优化</p>
-<p>数据库是基于操作系统的，目前大多数mysql都是安装在Linux系统之上，所以对于操作系统的一些参数配置也会影响到MYSQL的性能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">网络方面的配置，要修改&#x2F;etc&#x2F;stysctl.conf文件</span><br><span class="line">#增加tcp支持的队列数</span><br><span class="line">net.ipv4.tcp_max_syn_backlog &#x3D; 65535</span><br><span class="line">#减少断开链接是，资源回收</span><br><span class="line">net.ipv4.tcp_max_tw_buckets &#x3D; 8000</span><br><span class="line">net.ipv4.tcp_tw_reuse &#x3D; 1</span><br><span class="line">net.ipv4.tcp_tw_recycle &#x3D; 1</span><br><span class="line">net.ipv4.tcp_fin_timeout &#x3D; 10</span><br><span class="line"></span><br><span class="line">打开文件数的限制，可以使用ulimit -a 查看目录的各位限制，可以修改&#x2F;etcsecurity&#x2F;limitsconf文件，增加一下内容以修改打开文件数量的限制</span><br><span class="line">*soft nofile 65535</span><br><span class="line">*hard nofile 65535</span><br><span class="line">除此之外最好在mysql服务器上关闭iptables，selinux等防火墙软件。</span><br></pre></td></tr></table></figure>
-
-<p>2、MySQL数据库优化</p>
-<p>MySQL配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql可以通过启动时指定配置参数和使用配置文件两种方法进行配置，在大数情况下配置文件位于&#x2F;etc&#x2F;my.cnf或是&#x2F;etc&#x2F;mysql&#x2F;my.cnf在windows系统配置文件可以是位于C:&#x2F;windows&#x2F;my.ini文件，mysql查找配置文件的顺序可以通过一下方法获得</span><br><span class="line">&#x2F;usr&#x2F;sbin&#x2F;mysqld --verbose --help | grep -A 1 &#39; Default options &#39;</span><br></pre></td></tr></table></figure>
-
-<p>MySQL配置文件–常用参数说明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1.innodb_buffer_pool_size &gt;&#x3D; total MB</span><br><span class="line">非常重要的一个参数，用于配置innodb的缓冲池，如果数据库中只有innodb表，则推荐配置量为总内存的75%</span><br><span class="line"></span><br><span class="line">2.innodb_buffer_pool__instances</span><br><span class="line">MySQL5.5中新增加参数，可以控制缓冲池的个数，默认情况下只有一个缓冲池。</span><br><span class="line"></span><br><span class="line">3.innodb_log_buffer_size</span><br><span class="line">innodb log缓冲的大小，由于日志最长每秒钟就会刷新所以一般不用太大。</span><br><span class="line"></span><br><span class="line">4.innodb_flush_log_at_trx_commit</span><br><span class="line">关键参数，对innodb的IO效率影响很大。默认值为1，可取0，1，2三个值，一般建议为2，但如果数据安全性要求比较高则使用默认值1.</span><br><span class="line"></span><br><span class="line">5.innodb_read_io_threads   innodb_write_io_threads</span><br><span class="line">以上两个参数决定了Innodb读写的IO进程数，默认为4.</span><br><span class="line"></span><br><span class="line">6.innodb_file_per_table</span><br><span class="line">关键参数，控制innodb每一个表使用独立的表空间，默认为off，也就是所有表都会建立在共享表空间中。</span><br><span class="line"></span><br><span class="line">7.innodb_stats_on_metadata</span><br><span class="line">决定了mysql在什么情况下会刷新innodb表的统计信息。</span><br></pre></td></tr></table></figure>
-
-<p>3、第三方配置工具</p>
-<p>链接地址：<a target="_blank" rel="noopener" href="https://tools.percona.com/wizard">https://tools.percona.com/wizard</a></p>
-<h4 id="服务器硬件优化"><a href="#服务器硬件优化" class="headerlink" title="服务器硬件优化"></a>服务器硬件优化</h4><p>如何选择cpu？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.mysql有一些工作只能使用到单核cpu，Replicate,SQL...</span><br><span class="line">2.mysql对cpu核数的支持并不是越多越快。mysql5.5使用的服务器不要超过30核</span><br></pre></td></tr></table></figure>
-
-<p>磁盘IO优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">常用RAID级别简介</span><br><span class="line">RAID0：也称条带，就是把多个磁盘链接成一个硬盘使用，这个级别IO最好</span><br><span class="line">RAID1：也称镜像，要求至少有两个磁盘，每组磁盘存储的数据相同</span><br><span class="line">RAID5：也是把多个硬盘合并成一个逻辑盘使用，数据读写时会建立奇偶校验信息，分别存储在不同磁盘上。</span><br><span class="line">RAID1+0：就是RAID1和RAID0的结合。同时具备两个级别的优缺点。一般建议数据库使用这个级别。</span><br><span class="line"></span><br><span class="line">SNA和NAT是否适合数据库？</span><br><span class="line">1.常用于高可用解决方案</span><br><span class="line">2.顺序读写效率很高，但是随机读写不如人意</span><br><span class="line">3.数据库随机读写比率很高</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/" data-id="ckmp5cz3x00211onhgnqx18i1" data-title="MySQL数据库性能分析和优化" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2021/03/24/PHP/Laravel/PHP%20%20namespace%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          PHP  namespace
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">MySql  ERROR 1698 (28000)</div>
-    </a>
-  
-</nav>
-
-  
-</article>
+{% block page_class %}page-post-detail{% endblock %}
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+{% block content %}
 
-  
-    
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">Google资深工程师深度讲解Go语言11-http及其他标准库</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/Beego/">Beego</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 mohuani<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

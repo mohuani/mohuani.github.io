@@ -1,294 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>PHPUnit单元测试 | 积雪筱草</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="###前言单元测试这个问题对于新人来说总感觉没意思，感觉单元测试做不做都没啥问题，有时候还总觉得做单元测试很浪费时间。我总感觉 PHP 的开发者们并没有对 PHP 的质量有所追求，让大部分的开发者总以为浏览器访问就没有问题，所以很多时候，做 PHP 开发的，就没有单元测试的这些概念了。能不能有点追求？作为一个开发者，或者说是一个产品的经手人，就应该用心地去做好每个细节，一次比一次要更好。但是做单元">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PHPUnit单元测试">
-<meta property="og:url" content="https://mohuani.github.io/2021/03/24/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/index.html">
-<meta property="og:site_name" content="积雪筱草">
-<meta property="og:description" content="###前言单元测试这个问题对于新人来说总感觉没意思，感觉单元测试做不做都没啥问题，有时候还总觉得做单元测试很浪费时间。我总感觉 PHP 的开发者们并没有对 PHP 的质量有所追求，让大部分的开发者总以为浏览器访问就没有问题，所以很多时候，做 PHP 开发的，就没有单元测试的这些概念了。能不能有点追求？作为一个开发者，或者说是一个产品的经手人，就应该用心地去做好每个细节，一次比一次要更好。但是做单元">
-<meta property="og:locale">
-<meta property="article:published_time" content="2021-03-24T11:36:38.000Z">
-<meta property="article:modified_time" content="2021-03-25T17:25:37.389Z">
-<meta property="article:author" content="mohuani">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="积雪筱草" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">积雪筱草</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-PHP/PHPUnit单元测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      PHPUnit单元测试
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>###前言<br>单元测试这个问题对于新人来说总感觉没意思，感觉单元测试做不做都没啥问题，有时候还总觉得做单元测试很浪费时间。我总感觉 PHP 的开发者们并没有对 PHP 的质量有所追求，让大部分的开发者总以为浏览器访问就没有问题，所以很多时候，做 PHP 开发的，就没有单元测试的这些概念了。能不能有点追求？作为一个开发者，或者说是一个产品的经手人，就应该用心地去做好每个细节，一次比一次要更好。但是做单元测试，质量检查，是需要一定的时间和人力投入的，但我敢保证地说，你花时间投入的，绝对不会是没用的，一定对你，对项目来说，是一个质的提升，只要你肯投入时间用心去做。</p>
-<p>单元测试是对单独的代码对象进行测试的过程，比如对函数、类、方法进行测试。单元测试可以使用任意一段已经写好的测试代码，也可以使用一些已经存在的测试框架，比如JUnit、PHPUnit或者Cantata++，单元测试框架提供了一系列共同、有用的功能来帮助人们编写自动化的检测单元，例如检查一个实际的值是否符合我们期望的值的断言。单元测试框架经常会包含每个测试的报告，以及给出你已经覆盖到的代码覆盖率。总之一句话，使用 phpunit 进行自动测试，会使你的代码更健壮，减少后期维护的成本，也是一种比较标准的规范。现如今流行的PHP框架都带了单元测试，如Laraval,Symfony,Yii2等，单元测试已经成了标配。另外，单元测试用例是通过命令操控测试脚本的，而不是通过浏览器访问URL的。</p>
-<p>直接简单讲讲 PHPUnit吧。<br>官网：<a target="_blank" rel="noopener" href="https://phpunit.de/">https://phpunit.de/</a><br>中文版官网：<a target="_blank" rel="noopener" href="http://www.phpunit.cn/">http://www.phpunit.cn/</a><br>###1.安装<br>习惯用 composer，使用 composer 安装吧。关于composer的安装可以参考<a target="_blank" rel="noopener" href="https://www.phpcomposer.com/">https://www.phpcomposer.com/</a> 的介绍。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer require --dev phpunit&#x2F;phpunit ^6.5</span><br><span class="line">&#x2F;&#x2F;这里的 ^6.5 是版本号</span><br></pre></td></tr></table></figure>
-<p>###2.PHPunit的已引入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">use PHPUnit\Framework\TestCase;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;类名不能以Test开头，否则无法运行</span><br><span class="line">class DemoTest extends TestCase </span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;Todo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###3.输出格式的解读。</p>
-<p>.    成功<br>F    失败<br>E 错误<br>R 有风险<br>S 跳过<br>I 未完成</p>
-<p>###4.常见的断言方法<br>详细的断言方法和参数详解可以参考PHPUnit中文网站的文档<a target="_blank" rel="noopener" href="https://phpunit.readthedocs.io/zh_CN/latest/assertions.html">https://phpunit.readthedocs.io/zh_CN/latest/assertions.html</a></p>
-<p>1.判断一个数组中是否含有指定的key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertArrayHasKey()</span><br></pre></td></tr></table></figure>
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
 
-<p>2.判断是否含有数组形式的子集</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertArraySubset()</span><br></pre></td></tr></table></figure>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+
+{% block page_class %}page-post-detail{% endblock %}
 
 
-<p>3.判断数组中是否含有指定的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertContains()</span><br></pre></td></tr></table></figure>
-<p>4.判断数组中不含指定的值，与3相反</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertNotContains()</span><br></pre></td></tr></table></figure>
-<p>5.判断数组中的数据是否仅是指定的数据类型，比如interger，float，boolean，object，string等。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertContainsOnly()</span><br></pre></td></tr></table></figure>
-<p>6.与5相反，比如interger，float，boolean，object，string等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertNotContainsOnly()</span><br></pre></td></tr></table></figure>
-<p>7.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertContainsOnlyInstancesOf()</span><br></pre></td></tr></table></figure>
-<p>8.判断数组的长度和指定的数组长度是否相等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertCount()</span><br></pre></td></tr></table></figure>
-<p>9.判断指定的多个数组的值是否相等，数组的元素顺序和值都会进行判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertEquals()</span><br></pre></td></tr></table></figure>
+{% block content %}
 
-<p>10.与9相反</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertNotEquals()</span><br></pre></td></tr></table></figure>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-
-<p>###5.字符串的常用断言方法<br>1.判断字符串中是否含有某个字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertContains()</span><br></pre></td></tr></table></figure>
-<p>2.判断字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertEquals()</span><br></pre></td></tr></table></figure>
-<p>3.判断字符串与指定的正则表达式能否匹配</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertRegExp()</span><br></pre></td></tr></table></figure>
-<p>4.判断字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringMatchesFormat()</span><br></pre></td></tr></table></figure>
-<p>5.判断字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringMatchesFormatFile()</span><br></pre></td></tr></table></figure>
-<p>6.判断字符串与指定字符是否相等，assertSame()采用===判断，assertEquals()采用==判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertSame()</span><br></pre></td></tr></table></figure>
-<p>7.与6相反</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertNotSame()</span><br></pre></td></tr></table></figure>
-<p>8.判断字符串是否以指定的字符结尾</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringEndsWith()</span><br></pre></td></tr></table></figure>
-<p>9.判断字符串是否与指定的文件内容相等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringEqualsFile()</span><br></pre></td></tr></table></figure>
-<p>10.判断字符串是否以指定的字符开头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringStartsWith()</span><br></pre></td></tr></table></figure>
-<p>###6.类的断言方法<br>1.判断类中是否含有指定的某个属性，不管这个属性是否为static，public，private，protected都可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertClassHasAttribute()</span><br></pre></td></tr></table></figure>
-<p>2.判断类中是否含有静态属性，只判断是否有static修饰</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertClassHasStaticAttribute()</span><br></pre></td></tr></table></figure>
-<p>3.判断类是否相等，会判断类里面的值，单不判断数据类型，采用==判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertEquals()</span><br></pre></td></tr></table></figure>
-<p>4.判断一个类是否来自一个指定的继承类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertInstanceOf()</span><br></pre></td></tr></table></figure>
-<p>5.断言一个类的实例是否含有指定的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertObjectHasAttribute()</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" data-id="ckmp5cz2q000l1onh5rmd6xcm" data-title="PHPUnit单元测试" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2021/03/24/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          PHP7的基本变量
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/03/24/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">PHP消息队列实现及应用</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">Google资深工程师深度讲解Go语言11-http及其他标准库</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/Beego/">Beego</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 mohuani<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

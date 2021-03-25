@@ -1,242 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Java中的session和cookie | 积雪筱草</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="cookiecookie是小段文本信息，在网络服务器上生成，并发给浏览器，通过使用cookie可以记录一些请求数据。流览器将cookie以key&#x2F;value的形式保存到客户端的某个指定目录下。在使用cookie时，应确保客户端上允许使用cookie，如果客户端禁止使用cookie的话，将导致cookie失效。 1234567891011读取cookieCookie [] cookies&#x3D;reque">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java中的session和cookie">
-<meta property="og:url" content="https://mohuani.github.io/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E4%B8%AD%E7%9A%84session%E5%92%8Ccookie/index.html">
-<meta property="og:site_name" content="积雪筱草">
-<meta property="og:description" content="cookiecookie是小段文本信息，在网络服务器上生成，并发给浏览器，通过使用cookie可以记录一些请求数据。流览器将cookie以key&#x2F;value的形式保存到客户端的某个指定目录下。在使用cookie时，应确保客户端上允许使用cookie，如果客户端禁止使用cookie的话，将导致cookie失效。 1234567891011读取cookieCookie [] cookies&#x3D;reque">
-<meta property="og:locale">
-<meta property="article:published_time" content="2021-03-24T11:36:38.000Z">
-<meta property="article:modified_time" content="2021-03-25T17:25:37.389Z">
-<meta property="article:author" content="mohuani">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="积雪筱草" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">积雪筱草</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-Java/基础知识/Java中的session和cookie" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E4%B8%AD%E7%9A%84session%E5%92%8Ccookie/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Java中的session和cookie
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><p>cookie是小段文本信息，在网络服务器上生成，并发给浏览器，通过使用cookie可以记录一些请求数据。流览器将cookie以key/value的形式保存到客户端的某个指定目录下。<br>在使用cookie时，应确保客户端上允许使用cookie，如果客户端禁止使用cookie的话，将导致cookie失效。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">读取cookie</span><br><span class="line">Cookie [] cookies=request.getCookies();</span><br><span class="line"><span class="keyword">for</span>(Cookie item:cookies)</span><br><span class="line">&#123;</span><br><span class="line">   System.out.println(item.getName()+”:”+URLDecoder.decode(item.getValue()));</span><br><span class="line">\\System.out.println(item.getName()+”:”+ item.getValue());</span><br><span class="line"></span><br><span class="line">设置cookie</span><br><span class="line">Cookie cookie=<span class="keyword">new</span> Cookie(“userName”,”pwz”);</span><br><span class="line">response.addCookie(cookie);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果指定名称的cookie已经存在了，那么执行addCookie方法后，新添加的cookie值将会覆盖旧值。</p>
-<p>注意<br>在向cookie保存的信息中如果包含了中文，则需要先使用java.net.URLDecoder类下的encode()方法对信息编码。而在读取这个cookie信息的时候，需要使用decode()方法对信息进行解码</p>
-<h5 id="cookie的作用域"><a href="#cookie的作用域" class="headerlink" title="cookie的作用域"></a>cookie的作用域</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1、setPath()</span><br><span class="line">通过setPath可以限制cookies的使用范围，cookie默认的使用方范围实在它产生的目录及其目录之内的目录，产生目录外的目录中都不能使用次cookie。</span><br><span class="line">假设在tomcat的webapp目录下有两个项目weba和webb，</span><br><span class="line">如果在保存cookie时将setPath()的参数设置为“&#x2F;”那么在weba和webb中都能使用次cookie;</span><br><span class="line">如果设置为“&#x2F;weba”或者”&#x2F;web&#x2F;”,那么只能在weba下面使用；</span><br><span class="line">如果在weba中创建的cookie，而path设置为”&#x2F;webb&#x2F;”那么在weba中也无法使用，只能在webb中使用</span><br><span class="line">2、setDomain()</span><br><span class="line">A机所在的域：www.a.com,A有应用weba </span><br><span class="line">B机所在的域：b.com，B有应用webb </span><br><span class="line">1）在weba下面设置cookie的时候，增加cookie.setDomain(“.b.com”);，这样在webb下面就可以取到cookie。</span><br><span class="line"></span><br><span class="line">2）输入url访问webapp_b的时候，必须输入域名才能解析。比如说在A机器输入：http:&#x2F;&#x2F;haha.b.com:8080&#x2F;webb,可以获取weba在客户端设置的cookie，而B机器访问本机的应用，输入：http:&#x2F;&#x2F;localhost:8080&#x2F;webb则不可以获得cookie。</span><br><span class="line"></span><br><span class="line">3）设置了cookie.setDomain(“.b.com”);，还可以在默认的www.a.com下面共享</span><br></pre></td></tr></table></figure>
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
 
-<h5 id="cookie的有效期"><a href="#cookie的有效期" class="headerlink" title="cookie的有效期"></a>cookie的有效期</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、如果没有显示设置cookie的有效期，那么cookie的有效期就是浏览器关闭后失效</span><br><span class="line">2、如果setMaxAge()的参数为整数，那么就cookie一直到指定时候后失效，这个过程中无论浏览器是否关闭，cookie中保存的信息都会有效。</span><br><span class="line">3、如果setMaxAge()的参数为0，那么就表示删除该cookie。</span><br><span class="line">4、如果setMaxAge()的参数为负数，那么cookie就是临时保存，不会持久化保存到浏览器指定的目录中去。当窗口或者子窗口关闭后就会失效。</span><br><span class="line">5、setMaxAge的参数单位是秒</span><br></pre></td></tr></table></figure>
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+
+{% block page_class %}page-post-detail{% endblock %}
 
 
+{% block content %}
 
-<h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><p> session在网络中被称为会话，和cookie的功能类似，用于保存请求信息。用户可以通过session在引用程序的web页面之间进行跳转，使整个会话一直保存，知道浏览器关闭。但是如果一个会话长时间没有向服务器发出请求，那么这个会话会自动关闭失效。这个时间取决于服务器，例如，tomcat服务器默认为30秒，这个时间可以通过程序进行修改。<br>实际上，一个会话过程可以理解为一次打电话，通过从拿起电话开始，到挂断电话为止，在这过程中，你可以聊很多话题，甚至是重复的话题。一个会话也是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">保存会话信息</span><br><span class="line">session.setAttribute(String name,Object object);</span><br><span class="line">name是会话信息中的名字，object是会话名字所代表的值。</span><br><span class="line"></span><br><span class="line">读取会话信息</span><br><span class="line">session.getAttribute(String name);</span><br><span class="line">点用此方法的返回值是Object类型的，因此在使用之前需要对其进行类型转化。</span><br><span class="line"></span><br><span class="line">移除指定的会话</span><br><span class="line">session.removeAttribute(String name);</span><br><span class="line">注：如果要需要的会话名不存在，那么将会抛出异常</span><br><span class="line"></span><br><span class="line">设置session有效时间</span><br><span class="line">在浏览器长时间没有向服务器发出请求的情况下，可以设置session在多少时间后过期</span><br><span class="line">session.setMaxInactiveInterval(int time)&#x2F;&#x2F;单位是秒</span><br><span class="line"></span><br><span class="line">销毁session</span><br><span class="line">session.invalidate();</span><br><span class="line">session对象销毁后，就不可以在当前请求中继续使用该session对象了，如果销毁后再调用就会抛出异常。当浏览器重新发出请求后，服务器会重新创建一个session对象，之前的session对象失效。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E4%B8%AD%E7%9A%84session%E5%92%8Ccookie/" data-id="ckmp5cz3l001k1onh24xkh09e" data-title="Java中的session和cookie" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java-%E6%B3%A8%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          Java-注解
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Java反射的三种实现方式</div>
-    </a>
-  
-</nav>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
 
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">Google资深工程师深度讲解Go语言11-http及其他标准库</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/Beego/">Beego</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 mohuani<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}
