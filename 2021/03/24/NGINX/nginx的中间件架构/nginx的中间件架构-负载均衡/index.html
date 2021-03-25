@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   
   
-  <title>nginx的中间件架构-负载均衡 | Hexo</title>
+  <title>nginx的中间件架构-负载均衡 | 积雪筱草</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="upstream 负载均衡调度状态 调度算法 url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2  代理缓存 proxy_cache 完整 部分   缓存过期周期 缓存的维度 如何清除指定缓存 如何让指定页面不进行缓存 大文件分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx的中间件架构-负载均衡">
 <meta property="og:url" content="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="积雪筱草">
 <meta property="og:description" content="upstream 负载均衡调度状态 调度算法 url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2  代理缓存 proxy_cache 完整 部分   缓存过期周期 缓存的维度 如何清除指定缓存 如何让指定页面不进行缓存 大文件分">
 <meta property="og:locale">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190208163713131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70">
@@ -32,12 +32,12 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190209225518691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019020922562388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2021-03-24T11:36:38.000Z">
-<meta property="article:modified_time" content="2021-03-25T17:05:19.705Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2021-03-25T17:17:10.957Z">
+<meta property="article:author" content="mohuani">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190208163713131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="积雪筱草" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -65,7 +65,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">积雪筱草</a>
       </h1>
       
     </div>
@@ -137,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" data-id="ckmp4mtki001szwp674t4ge9x" data-title="nginx的中间件架构-负载均衡" class="article-share-link">Teilen</a>
+      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" data-id="ckmp522hx001s33t6d3hh82vy" data-title="nginx的中间件架构-负载均衡" class="article-share-link">Teilen</a>
       
       
       
@@ -229,7 +229,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2021 John Doe<br>
+      &copy; 2021 mohuani<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
