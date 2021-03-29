@@ -8,7 +8,7 @@ subtitle: '流水账'
 description: '搬砖人'
 keywords: "Bug工程师"
 author: mohuani
-language: zh-CN
+language: en
 timezone: ''
 
 # URL
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: fluid
+theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
