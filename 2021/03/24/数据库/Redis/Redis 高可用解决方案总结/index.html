@@ -1,37 +1,235 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Redis 高可用解决方案总结 | 积雪筱草的Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Redis 高可用解决方案总结：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s?__biz&#x3D;MzI3ODcxMzQzMw&#x3D;&#x3D;&amp;mid&#x3D;2247487221&amp;idx&#x3D;1&amp;sn&#x3D;1c3182ad46e8781a04f49ec8ad53f482&amp;chksm&#x3D;eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis 高可用解决方案总结">
+<meta property="og:url" content="https://mohuani.github.io/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="积雪筱草的Blog">
+<meta property="og:description" content="Redis 高可用解决方案总结：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s?__biz&#x3D;MzI3ODcxMzQzMw&#x3D;&#x3D;&amp;mid&#x3D;2247487221&amp;idx&#x3D;1&amp;sn&#x3D;1c3182ad46e8781a04f49ec8ad53f482&amp;chksm&#x3D;eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-24T11:36:38.000Z">
+<meta property="article:modified_time" content="2021-03-29T11:56:19.955Z">
+<meta property="article:author" content="mohuani">
+<meta property="article:tag" content="Bug工程师">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="积雪筱草的Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">积雪筱草的Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">流水账</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-数据库/Redis/Redis 高可用解决方案总结" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/" class="article-date">
+  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Redis 高可用解决方案总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Redis 高可用解决方案总结：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mohuani.github.io/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/" data-id="ckmujcvjm002911sg59nycw1g" data-title="Redis 高可用解决方案总结" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          深入理解 Mysql 索引底层原理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">redis-list</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-{% block page_class %}page-post-detail{% endblock %}
+  
+    
 
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
-
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/29/%E8%BF%90%E7%BB%B4/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/29/Git/Git%20Commit%20Template/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/29/Git/git%20submoudle/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 mohuani<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,37 +1,277 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>PHP  namespace | 积雪筱草的Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="#命名空间的作用域 1.函数的namespace 各自命名空间调用各自命名空间的函数  1234567891011121314151617181920212223242526&lt;?phpnamespace a&amp;#123;    function hello()    &amp;#123;        return &#39;命名空间&#39; . __NAMESPACE__ . &#39;&lt;b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP  namespace">
+<meta property="og:url" content="https://mohuani.github.io/2021/03/24/PHP/Laravel/PHP%20%20namespace%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="积雪筱草的Blog">
+<meta property="og:description" content="#命名空间的作用域 1.函数的namespace 各自命名空间调用各自命名空间的函数  1234567891011121314151617181920212223242526&lt;?phpnamespace a&amp;#123;    function hello()    &amp;#123;        return &#39;命名空间&#39; . __NAMESPACE__ . &#39;&lt;b">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdn.net/20180410160251563?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180410161125940?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180410162810247?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180410163339119?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdn.net/20180410164321969?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="article:published_time" content="2021-03-24T11:36:38.000Z">
+<meta property="article:modified_time" content="2021-03-29T11:56:19.939Z">
+<meta property="article:author" content="mohuani">
+<meta property="article:tag" content="Bug工程师">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180410160251563?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+  
+    <link rel="alternate" href="/atom.xml" title="积雪筱草的Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">积雪筱草的Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">流水账</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-PHP/Laravel/PHP  namespace（一）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/24/PHP/Laravel/PHP%20%20namespace%EF%BC%88%E4%B8%80%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      PHP  namespace
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#命名空间的作用域</p>
+<h3 id="1-函数的namespace"><a href="#1-函数的namespace" class="headerlink" title="1.函数的namespace"></a><strong>1.函数的namespace</strong></h3><ul>
+<li>各自命名空间调用各自命名空间的函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace a</span><br><span class="line">&#123;</span><br><span class="line">    function hello()</span><br><span class="line">    &#123;</span><br><span class="line">        return &#39;命名空间&#39; . __NAMESPACE__ . &#39;&lt;br&gt;函数名称是：&#39; . __FUNCTION__;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace b</span><br><span class="line">&#123;</span><br><span class="line">    function hello()</span><br><span class="line">    &#123;</span><br><span class="line">        return &#39;命名空间&#39; . __NAMESPACE__ . &#39;&lt;br&gt;函数名称是：&#39; . __FUNCTION__;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace</span><br><span class="line">&#123;</span><br><span class="line">    echo a\hello();     &#x2F;&#x2F;调用a空间中的hello</span><br><span class="line">    echo &#39;&lt;hr&gt;&#39;;</span><br><span class="line">    echo b\hello();     &#x2F;&#x2F;调用b空间中的hello</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>运行的结果</p>
+<p><img src="https://img-blog.csdn.net/20180410160251563?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<ul>
+<li>还可以在b的命名空间中调用a命名空间中的函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace a</span><br><span class="line">&#123;</span><br><span class="line">    function hello()</span><br><span class="line">    &#123;</span><br><span class="line">        return &#39;命名空间&#39; . __NAMESPACE__ . &#39;&lt;br&gt;函数名称是：&#39; . __FUNCTION__;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace b</span><br><span class="line">&#123;</span><br><span class="line">    function hello()</span><br><span class="line">    &#123;</span><br><span class="line">        return \a\hello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace</span><br><span class="line">&#123;</span><br><span class="line">    echo a\hello();     &#x2F;&#x2F;调用a空间中的hello</span><br><span class="line">    echo &#39;&lt;hr&gt;&#39;;</span><br><span class="line">    echo b\hello();     &#x2F;&#x2F;b调用a空间中的hello</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="https://img-blog.csdn.net/20180410161125940?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h3 id="2-类的命名空间"><a href="#2-类的命名空间" class="headerlink" title="2.类的命名空间"></a><strong>2.类的命名空间</strong></h3><ul>
+<li>各自命名空间调用各自命名空间的函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace a</span><br><span class="line">&#123;</span><br><span class="line">    class A</span><br><span class="line">    &#123;</span><br><span class="line">        public $name &#x3D; &#39;mohuani&#39;;</span><br><span class="line">        public function say()</span><br><span class="line">        &#123;</span><br><span class="line">            $namespace &#x3D; &#39;命名空间：&#39; . __NAMESPACE__;</span><br><span class="line">            $className &#x3D; &#39;类名&#39; . __CLASS__;</span><br><span class="line">            $methodName &#x3D; &#39;方法名&#39; . __METHOD__;</span><br><span class="line">            return $namespace . &#39;&lt;br&gt;&#39; . $className . &#39;&lt;br&gt;&#39; . $methodName . &#39;&lt;br&gt;&#39; . $this-&gt;name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">namespace b</span><br><span class="line">&#123;</span><br><span class="line">    class A</span><br><span class="line">    &#123;</span><br><span class="line">        public $name &#x3D; &#39;mohuani&#39;;</span><br><span class="line">        public function say()</span><br><span class="line">        &#123;</span><br><span class="line">            $namespace &#x3D; &#39;命名空间：&#39; . __NAMESPACE__;</span><br><span class="line">            $className &#x3D; &#39;类名&#39; . __CLASS__;</span><br><span class="line">            $methodName &#x3D; &#39;方法名&#39; . __METHOD__;</span><br><span class="line">            return $namespace . &#39;&lt;br&gt;&#39; . $className . &#39;&lt;br&gt;&#39; . $methodName . &#39;&lt;br&gt;&#39; . $this-&gt;name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace</span><br><span class="line">&#123;</span><br><span class="line">    echo (new a\A)-&gt;say();</span><br><span class="line">    echo &#39;&lt;hr&gt;&#39;;</span><br><span class="line">    echo (new b\A)-&gt;say();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="https://img-blog.csdn.net/20180410162810247?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<ul>
+<li>在b的空间中调用a空间中的类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace a</span><br><span class="line">&#123;</span><br><span class="line">    class A</span><br><span class="line">    &#123;</span><br><span class="line">        public $name &#x3D; &#39;陌花拟&#39;;</span><br><span class="line">        public function say()</span><br><span class="line">        &#123;</span><br><span class="line">            $namespace &#x3D; &#39;命名空间：&#39; . __NAMESPACE__;</span><br><span class="line">            $className &#x3D; &#39;类名&#39; . __CLASS__;</span><br><span class="line">            $methodName &#x3D; &#39;方法名&#39; . __METHOD__;</span><br><span class="line">            return $namespace . &#39;&lt;br&gt;&#39; . $className . &#39;&lt;br&gt;&#39; . $methodName . &#39;&lt;br&gt;&#39; . $this-&gt;name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">namespace b</span><br><span class="line">&#123;</span><br><span class="line">    class A</span><br><span class="line">    &#123;</span><br><span class="line">        public $name &#x3D; &#39;mohuani&#39;;</span><br><span class="line">        public function say()</span><br><span class="line">        &#123;</span><br><span class="line">            $namespace &#x3D; &#39;命名空间：&#39; . __NAMESPACE__;</span><br><span class="line">            $className &#x3D; &#39;类名&#39; . __CLASS__;</span><br><span class="line">            $methodName &#x3D; &#39;方法名&#39; . __METHOD__;</span><br><span class="line">            $temp &#x3D; (new \a\A)-&gt;name;</span><br><span class="line">            return $namespace . &#39;&lt;br&gt;&#39; . $className . &#39;&lt;br&gt;&#39; . $methodName . &#39;&lt;br&gt;&#39; . $temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace</span><br><span class="line">&#123;</span><br><span class="line">    echo (new a\A)-&gt;say();</span><br><span class="line">    echo &#39;&lt;hr&gt;&#39;;</span><br><span class="line">    echo (new b\A)-&gt;say();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<p><img src="https://img-blog.csdn.net/20180410163339119?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>###<strong>3.常量的命名空间</strong></p>
+<ul>
+<li>const创建的常量，受命名空间的限制 </li>
+<li>define创建的常量，不受命名空间的限制</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace a</span><br><span class="line">&#123;</span><br><span class="line">    const SITE_NAME &#x3D; &#39;陌花拟&#39;;</span><br><span class="line">    &#x2F;&#x2F;define(&#39;SITE_NAME&#39;,&#39;陌花拟&#39;)</span><br><span class="line">    &#x2F;&#x2F;define创建的常量，不收命名空间的限制</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">namespace b</span><br><span class="line">&#123;</span><br><span class="line">    const SITE_NAME &#x3D; &#39;mohuani&#39;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace</span><br><span class="line">&#123;</span><br><span class="line">    echo a\SITE_NAME;</span><br><span class="line">    echo &#39;&lt;hr&gt;&#39;;</span><br><span class="line">    echo b\SITE_NAME;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<p><img src="https://img-blog.csdn.net/20180410164321969?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mohuani.github.io/2021/03/24/PHP/Laravel/PHP%20%20namespace%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="ckmujcvji002311sgb8juha1y" data-title="PHP  namespace" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/03/24/PHP/Laravel/Laravel-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Laravel-事件监听
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MySQL数据库性能分析和优化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-{% block page_class %}page-post-detail{% endblock %}
+  
+    
 
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
-
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/29/%E8%BF%90%E7%BB%B4/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/29/Git/Git%20Commit%20Template/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/29/Git/git%20submoudle/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 mohuani<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

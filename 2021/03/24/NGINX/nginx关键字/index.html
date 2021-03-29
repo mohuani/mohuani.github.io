@@ -1,37 +1,287 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>nginx关键字 | 积雪筱草的Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="对关键字的解释会慢慢加上 master进程：worker进程：pass_proxy  core Nginx.c：daemonmaster_processtimer_resolutionpidlock_fileworker_processesdebug_pointsuserworker_priorityworker_cpu_affinityworker_rlimit_nofileworker_rli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx关键字">
+<meta property="og:url" content="https://mohuani.github.io/2021/03/24/NGINX/nginx%E5%85%B3%E9%94%AE%E5%AD%97/index.html">
+<meta property="og:site_name" content="积雪筱草的Blog">
+<meta property="og:description" content="对关键字的解释会慢慢加上 master进程：worker进程：pass_proxy  core Nginx.c：daemonmaster_processtimer_resolutionpidlock_fileworker_processesdebug_pointsuserworker_priorityworker_cpu_affinityworker_rlimit_nofileworker_rli">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-24T11:36:38.000Z">
+<meta property="article:modified_time" content="2021-03-29T11:56:19.939Z">
+<meta property="article:author" content="mohuani">
+<meta property="article:tag" content="Bug工程师">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="积雪筱草的Blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">积雪筱草的Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">流水账</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-NGINX/nginx关键字" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/24/NGINX/nginx%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-date">
+  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      nginx关键字
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>对关键字的解释会慢慢加上</p>
+<p>master进程：<br>worker进程：<br>pass_proxy</p>
+<hr>
+<p>core Nginx.c：<br>daemon<br>master_process<br>timer_resolution<br>pid<br>lock_file<br>worker_processes<br>debug_points<br>user<br>worker_priority<br>worker_cpu_affinity<br>worker_rlimit_nofile<br>worker_rlimit_core<br>worker_rlimit_sigpending<br>working_directory<br>worker_threads<br>thread_stack_size</p>
+<p>core Ngx_conf_file.c:<br>include</p>
+<p>event Ngx_devpoll_modules.c:<br>devpoll_changes<br>devpoll_events</p>
+<p>event Ngx_epoll_modules.c:<br>epoll_events</p>
+<p>event Ngx_event.c:<br>events<br>worker_connections<br>connections<br>use<br>multi_accept<br>accept_mutex<br>accept_mutex_delay<br>debug_connection</p>
+<p>core Ngx_eventport_modules.c:<br>eventport_events</p>
+<p>core Ngx_event_openssl.c:<br>ssl_engine</p>
+<p>http Ngx_http.c:<br>http</p>
+<p>http modules Ngx_http_access_modules.c:<br>allow<br>deny</p>
+<p>http modules Ngx_http_addition_filter_modules.c:<br>add_before_body<br>add_after_body</p>
+<p>http modules Ngx_http_auth_basic_modules.c:<br>auth_basic<br>auth_basic_user_file</p>
+<p>http modules Ngx_http_autoindex_module.c:<br>autoindex<br>autoindex_localtime<br>autoindex_exact_size</p>
+<p>http modules Ngx_http_browser_module.c:<br>modern_browser<br>ancient_browser<br>modern_browser_value<br>ancient_browser_value</p>
+<p>http modules Ngx_http_charset_filter_module.c:<br>charset<br>source_charset<br>override_charset<br>charset_map</p>
+<p>http Ngx_http_copy_filter_module.c:<br>output_buffers</p>
+<p>http Ngx_http_core_module.c:<br>variables_hash_max_size<br>variables_hash_bucket_size<br>server_names_hash_max_size<br>server_names_hash_bucket_size<br>server<br>connection_pool_size<br>request_pool_size<br>client_header_timeout<br>client_header_buffer_size<br>large_client_header_buffers<br>optimize_server_names<br>optimize_host_names<br>ignore_invalid_headers<br>location<br>listen<br>server_name<br>types_hash_max_size<br>types_hash_bucket_size<br>types<br>default_type<br>root<br>alias<br>limit_except<br>client_max_body_size<br>client_body_buffer_size<br>client_body_timeout<br>client_body_temp_path<br>client_body_in_file_only<br>sendfile<br>tcp_nopush<br>tcp_nodelay<br>send_timeout<br>send_lowat<br>postpone_output<br>limit_rate<br>keepalive_timeout<br>satisfy_any<br>internal<br>lingering_time<br>lingering_timeout<br>reset_timedout_connection<br>port_in_redirect<br>msie_padding<br>msie_refresh<br>log_not_found<br>recursive_error_pages<br>error_page<br>post_action<br>error_log<br>open_file_cache</p>
+<p>http modules ngx_http_dav_module.c:<br>dav_methods<br>create_full_put_path<br>dav_access</p>
+<p>http modules ngx_http_empty_gif_module.c:<br>empty_gif</p>
+<p>http modules ngx_http_fastcgi_module.c:<br>fastcgi_pass<br>fastcgi_index<br>fastcgi_ignore_client_abort<br>fastcgi_connect_timeout<br>fastcgi_send_timeout<br>fastcgi_send_lowat<br>fastcgi_buffer_size<br>fastcgi_header_buffer_size<br>fastcgi_pass_request_headers<br>fastcgi_pass_request_body<br>fastcgi_intercept_errors<br>fastcgi_redirect_errors<br>fastcgi_read_timeout<br>fastcgi_buffers<br>fastcgi_busy_buffers_size<br>fastcgi_temp_path<br>fastcgi_max_temp_file_size<br>fastcgi_temp_file_write_size<br>fastcgi_next_upstream<br>fastcgi_upstream_max_fails<br>fastcgi_upstream_fail_timeout<br>fastcgi_param<br>fastcgi_pass_header<br>fastcgi_hide_header</p>
+<p>http modules ngx_http_flv_modules.c:<br>flv</p>
+<p>http modules ngx_http_geo_modules.c:<br>geo</p>
+<p>http modules ngx_http_gzip_filter_modules.c:<br>gzip<br>gzip_buffers<br>gzip_types<br>gzip_comp_level<br>gzip_window<br>gzip_hash<br>gzip_no_buffer<br>gzip_http_version<br>gzip_proxied<br>gzip_min_length</p>
+<p>http modules ngx_http_headers_filter_modules.c:<br>expires<br>add_header</p>
+<p>http modules ngx_http_index_modules.c:<br>index<br>index_cache</p>
+<p>http modules ngx_http_log_modules.c:<br>log_format<br>access_log</p>
+<p>http modules ngx_http_map_modules.c:<br>map<br>map_hash_max_size<br>map_hash_bucket_size</p>
+<p>http modules ngx_http_memcached_modules.c:<br>memcached_pass<br>memcached_connect_timeout<br>memcached_send_timeout<br>memcached_buffer_size<br>memcached_read_timeout<br>memcached_next_upstream<br>memcached_upstream_max_fails<br>memcached_upstream_fail_timeout</p>
+<p>mysql ngx_http_mysql_test.c<br>mysql_test</p>
+<p>http modules ngx_http_perl_modules.c:<br>perl_modules<br>perl_require<br>perl<br>perl_set</p>
+<p>http modules ngx_http_proxy_modules.c:<br>proxy_pass<br>proxy_redirect<br>proxy_buffering<br>proxy_ignore_client_abort<br>proxy_connect_timeout<br>proxy_send_timeout<br>proxy_send_lowat<br>proxy_intercept_errors<br>proxy_redirect_errors<br>proxy_set_header<br>proxy_set_body<br>proxy_method<br>proxy_pass_request_headers<br>proxy_pass_request_body<br>proxy_buffer_size<br>proxy_header_buffer_size<br>proxy_read_timeout<br>proxy_buffers<br>proxy_busy_buffers_size<br>proxy_temp_path<br>proxy_max_temp_file_size<br>proxy_temp_file_write_size<br>proxy_next_upstream<br>proxy_upstream_max_fails<br>proxy_upstream_fail_timeout<br>proxy_pass_header<br>proxy_hide_header</p>
+<p>http modules ngx_http_realip_module.c:<br>set_real_ip_from<br>real_ip_header</p>
+<p>http modules ngx_http_referer_module.c:<br>valid_referers</p>
+<p>http modules ngx_http_rewrite_module.c:<br>rewrite<br>return<br>break<br>if<br>set<br>rewrite_log<br>uninitialized_variable_warn</p>
+<p>http modules ngx_http_ssi_filter_module.c:<br>ssi<br>ssi_silent_errors<br>ssi_ignore_recycled_buffers<br>ssi_min_file_chunk<br>ssi_value_length<br>ssi_types</p>
+<p>http modules Ngx_http_ssl_module.c:<br>ssl<br>ssl_certificate<br>ssl_certificate_key<br>ssl_protocols<br>ssl_ciphers<br>ssl_verify_client<br>ssl_verify_depth<br>ssl_client_certificate<br>ssl_prefer_server_ciphers<br>ssl_session_timeout</p>
+<p>http modules Ngx_http_static_module.c:<br>redirect_cache</p>
+<p>http modules Ngx_http_status_module.c:<br>status</p>
+<p>http modules Ngx_http_stub_status_module.c:<br>stub_status</p>
+<p>http Ngx_http_upstream.c:<br>upstream<br>server</p>
+<p>http modules Ngx_http_upstream_ip_hash_module.c：<br>ip_hash</p>
+<p>http modules Ngx_http_userid_filter_module.c：<br>userid<br>userid_service<br>userid_name<br>userid_domain<br>userid_path<br>userid_expires<br>userid_p3p<br>userid_mark</p>
+<p>imap Ngx_imap.c：<br>imap</p>
+<p>imap Ngx_imap_auth_http_module.c:<br>auth_http<br>auth_http_timeout<br>auth_http_header</p>
+<p>imap Ngx_imap_core_module.c:<br>server<br>listen<br>protocol<br>imap_client_buffer<br>so_keepalive<br>timeout<br>pop3_capabilities<br>imap_capabilities<br>server_name<br>auth</p>
+<p>imap Ngx_imap_proxy_module.c:<br>proxy<br>proxy_buffer<br>proxy_timeout<br>proxy_pass_error_message</p>
+<p>imap Ngx_imap_ssl_module.c:<br>ssl<br>starttls<br>ssl_certificate<br>ssl_certificate_key<br>ssl_protocols<br>ssl_ciphers<br>ssl_prefer_server_ciphers<br>ssl_session_timeout</p>
+<p>event modules Ngx_iocp_module.c:<br>iocp_threads<br>post_acceptex<br>acceptex_read</p>
+<p>event modules Ngx_kqueue_module.c:<br>kqueue_changes<br>kqueue_events</p>
+<p>core Ngx_log.c:<br>error_log</p>
+<p>event modules Ngx_rtsig_module.c:<br>rtsig_signo<br>rtsig_overflow_events<br>rtsig_overflow_test<br>rtsig_overflow_threshold</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E5%85%B3%E9%94%AE%E5%AD%97/" data-id="ckmujcvi9000j11sgdli99tra" data-title="nginx关键字" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/03/24/NGINX/nginx%20%20resolver/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          nginx  resolver
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/03/24/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">深入浅出nginx9-10</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-{% block page_class %}page-post-detail{% endblock %}
+  
+    
 
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
-
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/03/29/%E8%BF%90%E7%BB%B4/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/29/Git/Git%20Commit%20Template/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/29/Git/git%20submoudle/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 mohuani<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
