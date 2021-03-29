@@ -105,3 +105,96 @@ deploy:
   type: git
   repo: git@github.com:mohuani/mohuani.github.io.git
   branch: gh-pages
+
+
+# 下面是新增的配置
+
+navbar:
+  blog_title: 积雪筱草的Blog
+  menu:
+    - { key: 'home', link: '/', icon: 'iconfont icon-home-fill' }
+    - { key: 'tag', link: '/tags/', icon: 'iconfont icon-tags-fill' }
+    - { key: 'about', link: '/about/', icon: 'iconfont icon-user-fill', name: '联系我' }
+
+menu:
+  - {
+      key: '文档',
+      icon: 'iconfont icon-books',
+      submenu: [
+        { key: '主题博客', link: 'https://hexo.fluid-dev.com/' },
+        { key: '配置指南', link: 'https://hexo.fluid-dev.com/docs/guide/' },
+        { key: '图标用法', link: 'https://hexo.fluid-dev.com/docs/icon/' }
+      ]
+  }
+
+lazyload:
+  enable: true
+  loading_img: /img/loading.gif
+  onlypost: false
+  offset_factor: 2
+
+font:  # 主题字体配置
+  font_size: 16px        # 全局字号
+  font_family:           # 全局字体族
+  code_font_size: 85%    # 代码的字号
+
+web_analytics:  # 网页访问统计
+  enable: false # 默认为false，启用网页统计改为true即可
+  baidu:  # 百度统计的Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串
+  google:  # Google统计的Tracking ID，参见 https://analytics.google.com/analytics/web/
+  tencent:  # 腾讯统计的H5 App id，参见 https://mta.qq.com/h5/manage/ctr_app_manage (开启高级功能才有cid)
+    sid:
+    cid:
+  woyaola:  # 51.la站点统计ID，参见 https://www.51.la/user/site/index
+  cnzz:  # 友盟/cnzz站点统计web_id，参见 https://web.umeng.com/main.php?c=site&a=show
+  leancloud:  # LeanCloud 计数统计，可用于 PV UV 展示，如果 web_analytics.enable 没有开启，PV UV 展示只会查询，不会增加
+    app_id:
+    app_key:
+    server_url:  # REST API 服务器地址，国际版不填
+
+footer:
+  statistics:
+    enable: false
+    source: "busuanzi"  # 可选 leancloud | busuanzi  根据自己需求选择
+    pv_format: "总访问量 {} 次"  # 显示的文本，{}是数字的占位符（必须包含)，下同
+    uv_format: "总访客数 {} 人"
+
+# 文章摘要
+index:
+  auto_excerpt:
+    enable: true
+
+# # 文章跳转方式
+# index:
+#   post_url_target: _blank
+
+
+# 代码块
+code:
+  copy_btn: true
+  highlight:
+    enable: true
+    line_number: true
+    lib: "highlightjs"
+    highlightjs:
+      style: 'Github Gist'
+      bg_color: false
+    prismjs:
+      style: "default"
+      preprocess: true
+
+post:
+  comments:
+    enable: true
+    type: disqus
+disqus:
+  shortname: fluid
+
+
+tag:
+  tagcloud:
+    min_font: 15
+    max_font: 30
+    unit: px  # 字号单位
+    start_color: "#BBBBEE"
+    end_color: "#337ab7"
