@@ -206,10 +206,10 @@
             <div class="markdown-body">
               <p>项目以往 gitee提交代码为例子</p>
 <ul>
-<li>1、创建公钥<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">ssh<span class="hljs-literal">-keygen</span> <span class="hljs-literal">-t</span> rsa <span class="hljs-literal">-C</span> “git@gitee.com”<br></code></pre></td></tr></table></figure>
+<li>1、创建公钥<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">ssh<span class="hljs-literal">-keygen</span> <span class="hljs-literal">-t</span> rsa <span class="hljs-literal">-C</span> “git@gitee.com”<br></code></pre></div></td></tr></table></figure>
 执行完毕该命令后，会在 “/c/Users/xxxx/.ssh/” 目录下面生成3个文件</li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell">id_rsa<br>id_rsa.pub<br>known_hosts<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">id_rsa<br>id_rsa.pub<br>known_hosts<br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li>2、进入将创建好的公钥内容（id_rsa.pub）复制到如下的地址中，这样你就可以有权限对自己的远程仓库进行 <strong>pull</strong> 等操作。</li>
@@ -221,17 +221,17 @@
 <li><p>4、Git 全局设置:</p>
 </li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">git config -<span class="hljs-literal">-global</span> user.name <span class="hljs-string">&quot;积雪草&quot;</span><br>git config -<span class="hljs-literal">-global</span> user.email <span class="hljs-string">&quot;wfk2975019671@sina.com&quot;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">git config -<span class="hljs-literal">-global</span> user.name <span class="hljs-string">&quot;积雪草&quot;</span><br>git config -<span class="hljs-literal">-global</span> user.email <span class="hljs-string">&quot;wfk2975019671@sina.com&quot;</span><br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li>5、本地没有仓库的话，创建 git 仓库:</li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs powershell">mkdir test<br><span class="hljs-built_in">cd</span> test<br>git init<br>touch README.md<br>git add README.md<br>git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;first commit&quot;</span><br>git remote add origin git@gitee.com:mohuani/test.git<br>git push <span class="hljs-literal">-u</span> origin master<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">mkdir test<br><span class="hljs-built_in">cd</span> test<br>git init<br>touch README.md<br>git add README.md<br>git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;first commit&quot;</span><br>git remote add origin git@gitee.com:mohuani/test.git<br>git push <span class="hljs-literal">-u</span> origin master<br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li>6、本地已有仓库</li>
 </ul>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">cd</span> existing_git_repo<br>git remote add origin git@gitee.com:mohuani/test.git<br>git push <span class="hljs-literal">-u</span> origin master<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-built_in">cd</span> existing_git_repo<br>git remote add origin git@gitee.com:mohuani/test.git<br>git push <span class="hljs-literal">-u</span> origin master<br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li>7、分支管理<br>参考 <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰老师的文章–Git教程</a> </li>
