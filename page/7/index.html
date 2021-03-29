@@ -1,663 +1,716 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="搬砖人">
+  <meta name="author" content="mohuani">
+  <meta name="keywords" content="Bug工程师">
   
   <title>积雪筱草的Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="搬砖人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="积雪筱草的Blog">
-<meta property="og:url" content="https://mohuani.github.io/page/7/index.html">
-<meta property="og:site_name" content="积雪筱草的Blog">
-<meta property="og:description" content="搬砖人">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="mohuani">
-<meta property="article:tag" content="Bug工程师">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="积雪筱草的Blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mohuani.github.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">积雪筱草的Blog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">流水账</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-          <a class="main-nav-link" href="/">Home</a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
-      </nav>
-      <nav id="sub-nav">
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Java/基础知识/Java反射的三种实现方式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">Java反射的三种实现方式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Java反射的三种实现方式</p>
-<p>Foo foo = new Foo();</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">第一种：通过Object类的getClass方法</span><br><span class="line">Class cla = foo.getClass();</span><br><span class="line"></span><br><span class="line">第二种：通过对象实例方法获取对象</span><br><span class="line">Class cla = foo.class;</span><br><span class="line"></span><br><span class="line">第三种：通过Class.forName方式</span><br><span class="line">Class cla = Class.forName(<span class="string">&quot;xx.xx.Foo&quot;</span>);</span><br><span class="line"></span><br><span class="line">对于有空构造函数的类 可以直接用字节码文件获取实例：</span><br><span class="line">Object o = clazz.newInstance();　　<span class="comment">// 会调用空参构造器 如果没有则会报错</span></span><br><span class="line"></span><br><span class="line">对于没有空的构造函数的类则需要先获取到他的构造对象 在通过该构造方法类获取实例：</span><br><span class="line">Constroctor constroctor = clazz.getConstructor(String.class, <span class="keyword">int</span>.class); <span class="comment">// 获取构造函数 </span></span><br><span class="line">Object obj = constroctor.newInstance(<span class="string">&quot;jack&quot;</span>, <span class="number">18</span>); <span class="comment">// 通过构造器对象的newInstance方法进行对象的初始化</span></span><br><span class="line"></span><br><span class="line">Constroctor constroctor = clazz.getConstructors(); <span class="comment">// 获取所有的构造函数 </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgramMain</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Persons person = getInstance(<span class="string">&quot;english&quot;</span>);</span><br><span class="line">        person.say();</span><br><span class="line"></span><br><span class="line">        Persons person2 = getInstanceByReflector(Chinese.class);</span><br><span class="line">        person2.say();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Persons <span class="title">getInstance</span><span class="params">(String name)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Persons person = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (name.equalsIgnoreCase(<span class="string">&quot;Chinese&quot;</span>)) &#123;</span><br><span class="line">            person = <span class="keyword">new</span> Chinese();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (name.equalsIgnoreCase(<span class="string">&quot;English&quot;</span>)) &#123;</span><br><span class="line">            person = <span class="keyword">new</span> English();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;请传递正确的参数&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> person;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过反射</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> personClass</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Persons <span class="title">getInstanceByReflector</span><span class="params">(Class personClass)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Persons person = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            person = (Persons) personClass.getConstructor().newInstance();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;请传入正确的参数&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> person;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="获取构造函数"><a href="#获取构造函数" class="headerlink" title="获取构造函数"></a>获取构造函数</h5><p>1、知道构造函数精确的参数类型的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">Constructor c=c1.getConstructor(String.class,Integer.class);<span class="comment">//参数可以为空，根据知道的参数类型和个数来写</span></span><br></pre></td></tr></table></figure>
-
-<p>2、不知道构造函数精确的参数类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	Constructor[] constructors=c1.getConstructors();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; constructors.length; i++) &#123;</span><br><span class="line">		 Class [] parameters= constructors[i].getParameterTypes();<span class="comment">//获得构造函数的参数列表</span></span><br><span class="line">		 <span class="keyword">if</span>(parameters.length&lt;=<span class="number">0</span>)</span><br><span class="line">		 &#123;</span><br><span class="line">			 </span><br><span class="line">			 System.out.println(<span class="string">&quot;一个无参的构造函数&quot;</span>);</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">else</span></span><br><span class="line">		 &#123;</span><br><span class="line">			 String [] typeName=<span class="keyword">new</span> String[parameters.length];</span><br><span class="line">			 <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;typeName.length;j++)</span><br><span class="line">			 &#123;</span><br><span class="line">				 typeName[j]= parameters[j].getSimpleName();<span class="comment">//获取参数的类型名	 </span></span><br><span class="line">			 &#125;</span><br><span class="line">			 System.out.println(String.join(<span class="string">&quot;,&quot;</span>, typeName));</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建实例对象"><a href="#创建实例对象" class="headerlink" title="创建实例对象"></a>创建实例对象</h5><p>通过构造函数去创建，调用Constructor对象的newInstance()方法创建对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">Chinese chinese=(Chinese) c1.getConstructor().newInstance();</span><br><span class="line">chinese.say();</span><br></pre></td></tr></table></figure>
-
-
-<h5 id="获取方法并执行"><a href="#获取方法并执行" class="headerlink" title="获取方法并执行"></a>获取方法并执行</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、获取所有的非<span class="keyword">private</span>方法</span><br><span class="line">		Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">		Object chinese= c1.getConstructor().newInstance();</span><br><span class="line">		Method[] methods1= c1.getMethods();<span class="comment">//获取所有的非private方法，并且父类的方法也会获取</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;methods1.length;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			Class[] parameters= methods1[i].getParameterTypes();</span><br><span class="line">			<span class="keyword">if</span>(parameters.length&lt;=<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				 System.out.println(methods1[i].getName()+<span class="string">&quot;()&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				String [] typeName=<span class="keyword">new</span> String[parameters.length];</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;parameters.length;j++)</span><br><span class="line">				&#123;</span><br><span class="line">					</span><br><span class="line">					typeName[j]=parameters[j].getSimpleName();</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println(methods1[i].getName()+<span class="string">&quot;(&quot;</span>+String.join(<span class="string">&quot;,&quot;</span>,typeName)+<span class="string">&quot;)&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、获取所有的当前类定义的所有方法，包括私有方法</span><br><span class="line">		Method[] methods1= c1.getDeclaredMethods();<span class="comment">//获取当前类定义的所有，包括私有方法</span></span><br><span class="line"><span class="number">3</span>、获取指定方法名的方法</span><br><span class="line">	    Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">		Object chinese= c1.getConstructor().newInstance();</span><br><span class="line">	    Method setNumber=	c1.getDeclaredMethod(<span class="string">&quot;setNumber&quot;</span>, Integer.class);<span class="comment">//如果方法没有参数就可以不用写，另外需要注意参数类型和定义方法的参数类型保持一致</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、获取父类的私有方法</span><br><span class="line">		Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	    Class c2=	c1.getSuperclass();</span><br><span class="line">	    <span class="comment">//通过c2去获取父类中的私有方法</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、执行方法</span><br><span class="line">		Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">		Object chinese= c1.getConstructor().newInstance();</span><br><span class="line">	    Method setNumber=	c1.getDeclaredMethod(<span class="string">&quot;setNumber&quot;</span>, Integer.class);<span class="comment">//如果方法没有参数就可以不用写，另外需要注意参数类型和定义方法的参数类型保持一致</span></span><br><span class="line">	    setNumber.invoke(chinese, <span class="number">1</span>);	<span class="comment">//第一个参数是实例对象，后面的参数是调用方法所需的参数</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="获取字段"><a href="#获取字段" class="headerlink" title="获取字段"></a>获取字段</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>、获取所有非<span class="keyword">private</span>类型的字段，包括父类的</span><br><span class="line">	 Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	 Object object=	c1.getConstructor().newInstance();</span><br><span class="line">	 Field [] fields=  c1.getFields();<span class="comment">//或者所有的非private类型的字段，包括父类的</span></span><br><span class="line">	 <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fields.length;i++)</span><br><span class="line">	 &#123;</span><br><span class="line">		 System.out.println(fields[i].getName());</span><br><span class="line">	 &#125;</span><br><span class="line">	 </span><br><span class="line"><span class="number">2</span>、获取当前类所有字段，包括私有的</span><br><span class="line">	 Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	 Object object=	c1.getConstructor().newInstance();</span><br><span class="line">	 Field [] fields=  c1.getDeclaredFields();<span class="comment">//获取当前类中所有的字段</span></span><br><span class="line">	 <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fields.length;i++)</span><br><span class="line">	 &#123;</span><br><span class="line">		 System.out.println(fields[i].getName());</span><br><span class="line">	 &#125;</span><br><span class="line">	 </span><br><span class="line"><span class="number">3</span>、获取父类的所有字段，包括私有的</span><br><span class="line"></span><br><span class="line">	    Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	    Class c2=	c1.getSuperclass();</span><br><span class="line">	    <span class="comment">//通过c2去获取父类中的私有字段</span></span><br><span class="line"><span class="number">4</span>、获取指定的字段</span><br><span class="line">	 Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	 Object object=	c1.getConstructor().newInstance();</span><br><span class="line">	 Field field=  c1.getDeclaredField(<span class="string">&quot;Age&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、使用</span><br><span class="line">	 Class c1=Class.forName(<span class="string">&quot;pers.pwz.cmdemo.Chinese&quot;</span>);</span><br><span class="line">	 Object object1=	c1.getConstructor().newInstance();</span><br><span class="line">	 Field field=  c1.getDeclaredField(<span class="string">&quot;Age&quot;</span>);</span><br><span class="line">	 field.setAccessible(<span class="keyword">true</span>);<span class="comment">//如果字段是私有的，需要先这是允许访问</span></span><br><span class="line">	 <span class="comment">//取值</span></span><br><span class="line">	 Object  object2=field.get(object1);</span><br><span class="line">	 System.out.println(object2);</span><br><span class="line">	 <span class="comment">//赋值</span></span><br><span class="line">	 field.set(object1, <span class="number">21</span>);</span><br><span class="line">	 <span class="comment">//取值</span></span><br><span class="line">	 Object  object3=field.get(object1);</span><br><span class="line">	 System.out.println(object3);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" data-id="ckmujocna001o2vrs297haz66" data-title="Java反射的三种实现方式" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Java/基础知识/Java序列化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%BA%8F%E5%88%97%E5%8C%96/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h4><p>Java 中提供了一种对象持久化保存的技术。常规的对象，在程序结束后就会被回收处理，如果想要对象能被持久化保存下来方便下次使用，就需要使用到对象的序列化和反序列化。<br>序列化成功的条件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、该类必须实现java.io.Serializable接口</span><br><span class="line">2、类的所有字段都必须是可序列化的（属性类型是实现类java.io.Serializable接口的）；</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">序列化是排除某个字段</span><br><span class="line">只需要用transient关键字修饰这个字段。</span><br></pre></td></tr></table></figure>
-
-<h5 id="序列化-1"><a href="#序列化-1" class="headerlink" title="序列化"></a>序列化</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> pers.pwz.cmdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgramMain</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</span><br><span class="line">		Persons p=<span class="keyword">new</span> Persons();</span><br><span class="line">		p.Age=<span class="number">10</span>;</span><br><span class="line">		p.Name=<span class="string">&quot;pwz&quot;</span>;</span><br><span class="line">		p.Height=<span class="number">170</span>;</span><br><span class="line">		p.Weight=<span class="number">60</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			File myFile=<span class="keyword">new</span> File(<span class="string">&quot;.\\temp&quot;</span>);</span><br><span class="line">			<span class="keyword">if</span>(!myFile.exists())</span><br><span class="line"></span><br><span class="line">			&#123;</span><br><span class="line">				myFile.mkdirs();</span><br><span class="line">			&#125;</span><br><span class="line">					</span><br><span class="line">			FileOutputStream fo=<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;.\\temp\\persons.ser&quot;</span>);</span><br><span class="line">			ObjectOutputStream oo = <span class="keyword">new</span> ObjectOutputStream(fo);</span><br><span class="line">			oo.writeObject(p);</span><br><span class="line">			oo.close();</span><br><span class="line">			fo.close();</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Persons</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>//这是个标记接口</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> Age;</span><br><span class="line">	<span class="keyword">public</span> String Name;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span> Height;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span> Weight;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(Name+<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> pers.pwz.cmdemo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectInputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgramMain</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>  </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;	</span><br><span class="line">			FileInputStream fo=<span class="keyword">new</span> FileInputStream(<span class="string">&quot;.\\temp\\persons.ser&quot;</span>);</span><br><span class="line">			ObjectInputStream oo = <span class="keyword">new</span> ObjectInputStream(fo);</span><br><span class="line">			Persons p=(Persons) oo.readObject();</span><br><span class="line">			p.sayHello();</span><br><span class="line">			oo.close();</span><br><span class="line">			fo.close();</span><br><span class="line">			</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;<span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Persons</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>//这是个标记接口</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> Age;</span><br><span class="line">	<span class="keyword">public</span> String Name;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span> Height;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span> Weight;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(Name+<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%BA%8F%E5%88%97%E5%8C%96/" data-id="ckmujocna001p2vrsbtnqgfka" data-title="Java序列化" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-NGINX/nginx的中间件架构/nginx的中间件架构-HTTPS服务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx的中间件架构-HTTPS服务</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="secure-link-module"><a href="#secure-link-module" class="headerlink" title="secure_link_module"></a>secure_link_module</h4><p><img src="https://img-blog.csdnimg.cn/20190210115918944.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/201902101159349.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210120132744.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="geoip-module"><a href="#geoip-module" class="headerlink" title="geoip_module"></a>geoip_module</h4><p><img src="https://img-blog.csdnimg.cn/20190210122757753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="http-geoip-module使用场景"><a href="#http-geoip-module使用场景" class="headerlink" title="http_geoip_module使用场景"></a>http_geoip_module使用场景</h4><p><img src="https://img-blog.csdnimg.cn/20190210122938312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210123713696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="生成秘钥和CA证书"><a href="#生成秘钥和CA证书" class="headerlink" title="生成秘钥和CA证书"></a>生成秘钥和CA证书</h4><p><img src="https://img-blog.csdnimg.cn/20190210152829845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/" data-id="ckmujocnb001q2vrsf5cl9zlf" data-title="nginx的中间件架构-HTTPS服务" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-NGINX/nginx的中间件架构/nginx的中间件架构-Lua开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">nginx的中间件架构-Lua开发</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="Lua介绍"><a href="#Lua介绍" class="headerlink" title="Lua介绍"></a>Lua介绍</h4><p><img src="https://img-blog.csdnimg.cn/20190210160956312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161027419.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161049801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161115210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161258232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161322352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="nginx调用Lua指令"><a href="#nginx调用Lua指令" class="headerlink" title="nginx调用Lua指令"></a>nginx调用Lua指令</h4><p><img src="https://img-blog.csdnimg.cn/20190210163932385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="nginx-lua-api（lua调用nginx）"><a href="#nginx-lua-api（lua调用nginx）" class="headerlink" title="nginx lua api（lua调用nginx）"></a>nginx lua api（lua调用nginx）</h4><p><img src="https://img-blog.csdnimg.cn/20190210164213535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/" data-id="ckmujocnc001r2vrsgbfu0tg2" data-title="nginx的中间件架构-Lua开发" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-NGINX/nginx的中间件架构/nginx的中间件架构-web静态资源" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">nginx的中间件架构-web静态资源</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="http-x-forwarded-for"><a href="#http-x-forwarded-for" class="headerlink" title="http_x_forwarded_for"></a>http_x_forwarded_for</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http_x_forwarded_for &#x3D; Client IP, Proxy1 IP, Client2 IP, Client3 IP...</span><br></pre></td></tr></table></figure>
-<h4 id="http-auth-basic-module配置"><a href="#http-auth-basic-module配置" class="headerlink" title="http_auth_basic_module配置"></a>http_auth_basic_module配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		auth_basic string | off;</span><br><span class="line">Default:	auth_basic off;</span><br><span class="line">Context:	http, server, location, limit_except</span><br><span class="line"> ------</span><br><span class="line">Syntax:		auth_basic_user_file file;</span><br><span class="line">Default:	—</span><br><span class="line">Context:	http, server, location, limit_except</span><br><span class="line"> ------</span><br><span class="line"> location ~ ^&#x2F;admin.html &#123;</span><br><span class="line">		root	&#x2F;opt&#x2F;app&#x2F;code;</span><br><span class="line">		auth_basic 	&quot;Auth access test ! imput your password !&quot;;</span><br><span class="line">		auth_basic_user_file	&#x2F;etc&#x2F;nginx&#x2F;auth_conf;  &#x2F;&#x2F; auth_conf文件存放已经保存的用户名和密码</span><br><span class="line">		index	index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http_auth_basic_module的局限性：</span><br><span class="line">1、用户信息依赖文件</span><br><span class="line">2、操作管理机械，效率低下</span><br><span class="line"></span><br><span class="line">解决方案：</span><br><span class="line">1、nginx结合Lua实现高效验证</span><br><span class="line">2、nginx和LDAP打通，利用nginx-auth-ladp模块</span><br></pre></td></tr></table></figure>
-<h4 id="Nginx作为静态资源web服务-配置语法"><a href="#Nginx作为静态资源web服务-配置语法" class="headerlink" title="Nginx作为静态资源web服务_配置语法"></a>Nginx作为静态资源web服务_配置语法</h4><ul>
-<li>   文件读取<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		sendfile on | off;</span><br><span class="line">Default: 	sendfile off;</span><br><span class="line">Context:	http, server, location, if in location</span><br><span class="line">引读：-with-file-aio 异步文件读取</span><br></pre></td></tr></table></figure></li>
-<li>tcp_nopush<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		tcp_nopush on | off;</span><br><span class="line">Default: 	tcp_nopush off;</span><br><span class="line">Context:	http, server, location;</span><br><span class="line">作用：sendfile开启的情况下，提高网络包的传输效率</span><br></pre></td></tr></table></figure></li>
-<li>tcp_nodelay</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		tcp_nodelay on | off;</span><br><span class="line">Default: 	tcp_nodelay off;</span><br><span class="line">Context:	http, server, location;</span><br><span class="line">作用：keepalive连接下，提高网络包的额传输实时性</span><br></pre></td></tr></table></figure>
-<ul>
-<li>压缩</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">压缩</span><br><span class="line">Syntax:		gzip on | off;</span><br><span class="line">Default: 	gzip off;</span><br><span class="line">Context:	http, server, location, if in location;</span><br><span class="line">作用：压缩传输</span><br><span class="line">------</span><br><span class="line">压缩比</span><br><span class="line">Syntax:		gzip_comp_level level;</span><br><span class="line">Default: 	gzip_comp_level 1;</span><br><span class="line">Context:	http, server, location;</span><br><span class="line">------</span><br><span class="line">压缩版本</span><br><span class="line">Syntax:		gzip_http_version 1.0 | 1.1;</span><br><span class="line">Default: 	gzip_http_version 1.1;</span><br><span class="line">Context:	http, server, location;</span><br><span class="line">------</span><br><span class="line">拓展nginx压缩模块</span><br><span class="line">http_gzip_static_module - 预读gzip功能</span><br><span class="line">http_gunzip_module - 引用支持gunzip的压缩格式</span><br></pre></td></tr></table></figure>
-<h4 id="expires"><a href="#expires" class="headerlink" title="expires"></a>expires</h4><p>添加 Cache-Control、Expires头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		expires [modified] time;</span><br><span class="line">					expires eposh | max | off;</span><br><span class="line">Default: 	expires off;</span><br><span class="line">Context:	http, server, location, if in location;</span><br></pre></td></tr></table></figure>
-<h4 id="跨域访问"><a href="#跨域访问" class="headerlink" title="跨域访问"></a>跨域访问</h4><p>Access-Control-Allow-Origin</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		add_header name value [always];</span><br><span class="line">Default: 	-;</span><br><span class="line">Context:	http, server, location, if in location;</span><br></pre></td></tr></table></figure>
-<h4 id="防盗链-http-refer"><a href="#防盗链-http-refer" class="headerlink" title="防盗链 http_refer"></a>防盗链 http_refer</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		valid_referers none | block | server_names | string...;</span><br><span class="line">Default: 	-;</span><br><span class="line">Context:	http, server, location;</span><br><span class="line">------</span><br><span class="line">valid_referers none blocked 116.62.103.228;</span><br><span class="line">if ($valid_referer) &#123;</span><br><span class="line">	return 403;</span><br><span class="line">&#125;</span><br><span class="line">root &#x2F;opt&#x2F;app&#x2F;code&#x2F;images;</span><br><span class="line">示例</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/" data-id="ckmujocnc001s2vrsbvoq3ny9" data-title="nginx的中间件架构-web静态资源" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-NGINX/nginx的中间件架构/nginx的中间件架构-代理服务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">nginx的中间件架构-代理服务</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="代理区别"><a href="#代理区别" class="headerlink" title="代理区别"></a>代理区别</h4><p>正向代理代理的对象是客户端<br>反向代理代理的对象是服务端</p>
-<h4 id="proxy-pass"><a href="#proxy-pass" class="headerlink" title="proxy_pass"></a>proxy_pass</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">配置语法</span><br><span class="line">Syntax:		proxy_pass URL;</span><br><span class="line">Default:	-;</span><br><span class="line">Context:	location, if in location, limit_except;</span><br><span class="line">------</span><br><span class="line">http:&#x2F;&#x2F;localhost:8080&#x2F;uri&#x2F;</span><br><span class="line">https:&#x2F;&#x2F;192.168.1.1:8080&#x2F;uri&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="缓冲区"><a href="#缓冲区" class="headerlink" title="缓冲区"></a>缓冲区</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		proxy_buffering on | off;</span><br><span class="line">Default:	proxy_buffering on;</span><br><span class="line">Context:	http, server, location;</span><br><span class="line">拓展： proxy_buffer_size, proxy_buffers, proxy_busy_buffers_size</span><br></pre></td></tr></table></figure>
-<h4 id="跳转重定向"><a href="#跳转重定向" class="headerlink" title="跳转重定向"></a>跳转重定向</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		proxy_redirect default; proxy_redirect off; proxy_redirect redirect replacement;</span><br><span class="line">Default:	proxy_redirect ;</span><br><span class="line">Context:	server, location;</span><br></pre></td></tr></table></figure>
-<h4 id="头信息"><a href="#头信息" class="headerlink" title="头信息"></a>头信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		proxy_set_header field value;</span><br><span class="line">Default:	proxy_set_header Host $proxy_host;</span><br><span class="line">				proxy_set_header Connection close;</span><br><span class="line">Context:	server, location;</span><br><span class="line">扩展：proxy_hide_header, proxy_set_body</span><br></pre></td></tr></table></figure>
-<h4 id="超时"><a href="#超时" class="headerlink" title="超时"></a>超时</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Syntax:		proxy_connect_timeout time;</span><br><span class="line">Default:	proxy_connect_timeout 60s;</span><br><span class="line">Context:	server, location;</span><br><span class="line">扩展：proxy_read_timeout, proxy_send_timeout  </span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/" data-id="ckmujocnd001t2vrshpvy9iow" data-title="nginx的中间件架构-代理服务" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-NGINX/nginx的中间件架构/nginx的中间件架构-性能优化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">nginx的中间件架构-性能优化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="location匹配优先级"><a href="#location匹配优先级" class="headerlink" title="location匹配优先级"></a>location匹配优先级</h4><p> ~ 区分大小写，~~*不区分大小写<br><img src="https://img-blog.csdnimg.cn/20190210204325483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="try-files"><a href="#try-files" class="headerlink" title="try_files"></a>try_files</h4><p>场景：用于文件缓存<br><img src="https://img-blog.csdnimg.cn/20190210205237263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="root和alias的区别"><a href="#root和alias的区别" class="headerlink" title="root和alias的区别"></a>root和alias的区别</h4><p><img src="https://img-blog.csdnimg.cn/20190210205600926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210205627916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="传递用户的真实ip"><a href="#传递用户的真实ip" class="headerlink" title="传递用户的真实ip"></a>传递用户的真实ip</h4><p>在代理1处直接获取用户的ip，然后通过层层代理透传到后端<br><img src="https://img-blog.csdnimg.cn/20190210210042226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="其他常见错误"><a href="#其他常见错误" class="headerlink" title="其他常见错误"></a>其他常见错误</h4><p><img src="https://img-blog.csdnimg.cn/20190210210327967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="文件句柄优化"><a href="#文件句柄优化" class="headerlink" title="文件句柄优化"></a>文件句柄优化</h4><p><img src="https://img-blog.csdnimg.cn/20190210213216549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 针对用户进行修改<br> <img src="https://img-blog.csdnimg.cn/20190210213355529.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 针对进程限制<br> <img src="https://img-blog.csdnimg.cn/20190210213510966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="cpu亲和绑定"><a href="#cpu亲和绑定" class="headerlink" title="cpu亲和绑定"></a>cpu亲和绑定</h4><p><img src="https://img-blog.csdnimg.cn/20190211223904157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="gzip兼容"><a href="#gzip兼容" class="headerlink" title="gzip兼容"></a>gzip兼容</h4><p><img src="https://img-blog.csdnimg.cn/20190211225553944.png" alt="在这里插入图片描述"></p>
-<h4 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h4><p><img src="https://img-blog.csdnimg.cn/20190211230042274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190211230546667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" data-id="ckmujocnd001u2vrs2yog2lg4" data-title="nginx的中间件架构-性能优化" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-NGINX/nginx的中间件架构/nginx的中间件架构-负载均衡" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx的中间件架构-负载均衡</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="upstream"><a href="#upstream" class="headerlink" title="upstream"></a>upstream</h4><p><img src="https://img-blog.csdnimg.cn/20190208163713131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="负载均衡调度状态"><a href="#负载均衡调度状态" class="headerlink" title="负载均衡调度状态"></a>负载均衡调度状态</h4><p><img src="https://img-blog.csdnimg.cn/20190208163801717.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h4><p><img src="https://img-blog.csdnimg.cn/2019020816472012.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="url-hash"><a href="#url-hash" class="headerlink" title="url_hash"></a>url_hash</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Syntax:	hash key [consistent];</span><br><span class="line">Default:	-;</span><br><span class="line">Context:	upstream;</span><br><span class="line">this directive appeared in version 1.7.2</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20190208165904559.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="代理缓存"><a href="#代理缓存" class="headerlink" title="代理缓存"></a>代理缓存</h4><p><img src="https://img-blog.csdnimg.cn/20190208170329684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="proxy-cache"><a href="#proxy-cache" class="headerlink" title="proxy_cache"></a>proxy_cache</h4><ul>
-<li>完整<br><img src="https://img-blog.csdnimg.cn/20190208170515936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>部分</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/2019020817072612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="缓存过期周期"><a href="#缓存过期周期" class="headerlink" title="缓存过期周期"></a>缓存过期周期</h4><p><img src="https://img-blog.csdnimg.cn/20190208170807576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="缓存的维度"><a href="#缓存的维度" class="headerlink" title="缓存的维度"></a>缓存的维度</h4><p><img src="https://img-blog.csdnimg.cn/20190208170844518.png" alt="在这里插入图片描述"></p>
-<h4 id="如何清除指定缓存"><a href="#如何清除指定缓存" class="headerlink" title="如何清除指定缓存"></a>如何清除指定缓存</h4><p><img src="https://img-blog.csdnimg.cn/20190208171702548.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="如何让指定页面不进行缓存"><a href="#如何让指定页面不进行缓存" class="headerlink" title="如何让指定页面不进行缓存"></a>如何让指定页面不进行缓存</h4><p><img src="https://img-blog.csdnimg.cn/20190208171754843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="大文件分片请求"><a href="#大文件分片请求" class="headerlink" title="大文件分片请求"></a>大文件分片请求</h4><p><img src="https://img-blog.csdnimg.cn/20190208172159437.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190208172303566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190208172232265.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h4 id="rewrite规则"><a href="#rewrite规则" class="headerlink" title="rewrite规则"></a>rewrite规则</h4><ul>
-<li>这里的规则可以用于写一个维护页面<br><img src="https://img-blog.csdnimg.cn/20190209222155472.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h4 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h4>beak不会建立新的请求，last还会建立一个新的请求过来。向某个域名进行请求，301请求一次后再次请求不会经过服务器，302请求一次后再次请求还需求经过服务器<br><img src="https://img-blog.csdnimg.cn/20190209223509646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h4 id="rewrite规则优先级"><a href="#rewrite规则优先级" class="headerlink" title="rewrite规则优先级"></a>rewrite规则优先级</h4><img src="https://img-blog.csdnimg.cn/20190209225518691.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019020922562388.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" data-id="ckmujocne001v2vrs5g5ngz4u" data-title="nginx的中间件架构-负载均衡" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/Laravel/Laravel - DB - facade实现CURD" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/">Laravel - DB - facade实现CURD</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>新建的数据表SQL</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> students(</span><br><span class="line">    `id` <span class="type">INT</span> AUTO_INCREMENT <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">    `name` <span class="type">VARCHAR</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">    `age` TINYINT UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;年龄&#x27;</span>,</span><br><span class="line">    `sex` TINYINT UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">10</span> COMMENT <span class="string">&#x27;性别&#x27;</span>,</span><br><span class="line">    `created_at` <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;新增时间&#x27;</span>,</span><br><span class="line">    `updated_at` <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;修改时间&#x27;</span></span><br><span class="line">)ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>UTF8 AUTO_INCREMENT<span class="operator">=</span><span class="number">1001</span> COMMENT<span class="operator">=</span><span class="string">&#x27;学生表&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>在控制器中实现基本的CURD</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">DB</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">	    <span class="comment">//查询操作</span></span><br><span class="line">        <span class="variable">$student</span> = DB::select(<span class="string">&#x27;select * from student&#x27;</span>);</span><br><span class="line">        var_dump(<span class="variable">$student</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//插入操作</span></span><br><span class="line">        <span class="variable">$bool</span> = DB::insert(<span class="string">&#x27;insert into student (name, age) values (?, ?)&#x27;</span>,</span><br><span class="line">            [<span class="string">&#x27;imooc&#x27;</span>, <span class="number">19</span>]);</span><br><span class="line">        var_dump(<span class="variable">$bool</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//更新操作</span></span><br><span class="line">        <span class="variable">$num</span> = DB::update(<span class="string">&#x27;update student set age = ? where name = ?&#x27;</span>,</span><br><span class="line">            [<span class="number">20</span>, <span class="string">&#x27;wfk&#x27;</span>]);</span><br><span class="line">        var_dump(<span class="variable">$num</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//查询操作</span></span><br><span class="line">        <span class="variable">$student</span> = DB::select(<span class="string">&#x27;select * from student where id &gt; ?&#x27;</span>,</span><br><span class="line">            [<span class="number">1001</span>]);</span><br><span class="line">        var_dump(<span class="variable">$student</span>);</span><br><span class="line">        dd(<span class="variable">$student</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//删除操作</span></span><br><span class="line">        <span class="variable">$num</span> = DB::delete(<span class="string">&#x27;delete from student where id &gt; ?&#x27;</span>, [<span class="number">1001</span>]);</span><br><span class="line">        var_dump(<span class="variable">$num</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/" data-id="ckmujocnf001w2vrsaexv724e" data-title="Laravel - DB - facade实现CURD" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/Laravel/Laravel - Eloquent ORM数据处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20Eloquent%20ORM%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/Laravel/Laravel%20-%20Eloquent%20ORM%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">Laravel - Eloquent ORM数据处理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>#Laravel - Eloquent ORM数据处理</p>
-<ul>
-<li>将数据库和Model进行绑定</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class Student extends Model</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 指定表名</span><br><span class="line">    protected $table &#x3D; &#39;student&#39;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 指定id</span><br><span class="line">    protected $primaryKey &#x3D; &#39;id&#39;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 指定允许批量赋值的字段</span><br><span class="line">    protected $fillable &#x3D; [&#39;name&#39;, &#39;age&#39;];</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 指定不允许批量赋值的字段</span><br><span class="line">    protected $guarded &#x3D; [];</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;自动维护时间戳</span><br><span class="line">    public $timestamp &#x3D; true;</span><br><span class="line"></span><br><span class="line">    protected function getDateFormat()</span><br><span class="line">    &#123;</span><br><span class="line">        return time();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    protected function asDateTime($val)</span><br><span class="line">    &#123;</span><br><span class="line">        return $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>1. 使用模型查询数据</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public function orm1()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;all()</span><br><span class="line">    $student &#x3D; Student::all();</span><br><span class="line">    dd($student);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;find()</span><br><span class="line">    Student::find(1001);</span><br><span class="line">    dd($student);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;findOrFail()</span><br><span class="line">    $student &#x3D; Student::findOrFail(1001);</span><br><span class="line">    dd($student);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2.使用模型新增数据</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public function orm2()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;使用模型新增数据</span><br><span class="line">    $student &#x3D; new Student();</span><br><span class="line">    $student-&gt;name &#x3D; &#39;sean1&#39;;</span><br><span class="line">    $student-&gt;age &#x3D; 19;</span><br><span class="line">    $bool &#x3D; $student-&gt;save();</span><br><span class="line">    dd($bool);</span><br><span class="line"></span><br><span class="line">    $student &#x3D; Student::find(1012);</span><br><span class="line">    echo $student-&gt;created_at;</span><br><span class="line">    echo date(&#39;Y-m-d H:i:s&#39;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;使用模型的Create()方法新增数据</span><br><span class="line">    $student &#x3D; Student::create(</span><br><span class="line">        [&#39;name&#39; &#x3D;&gt; &#39;imooc&#39;, &#39;age&#39; &#x3D;&gt; 18]</span><br><span class="line">    );</span><br><span class="line">    dd($student);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;firstOrCreate()</span><br><span class="line">    $student &#x3D; Student::firstOrCreate(</span><br><span class="line">        [&#39;name&#39; &#x3D;&gt; &#39;imoocs&#39;, &#39;age&#39; &#x3D;&gt; 18]</span><br><span class="line">    );</span><br><span class="line">    dd($student);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;firstOrNew()</span><br><span class="line">    $student &#x3D; Student::firstOrNew(</span><br><span class="line">        [&#39;name&#39; &#x3D;&gt; &#39;imoocss&#39;, &#39;age&#39; &#x3D;&gt; 18]</span><br><span class="line">    );</span><br><span class="line">    $bool &#x3D; $student-&gt;save();</span><br><span class="line">    dd($student);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>3.通过模型更新数据</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public function orm3()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;通过模型更新数据</span><br><span class="line">    $student &#x3D; Student::find(1014);</span><br><span class="line">    $student-&gt;name &#x3D; &#39;kitty&#39;;</span><br><span class="line">    $bool &#x3D; $student-&gt;save();</span><br><span class="line">    var_dump($bool);</span><br><span class="line"></span><br><span class="line">    $sum &#x3D; Student::where(&#39;id&#39;, &#39;&gt;&#39;, 1013)-&gt;update(</span><br><span class="line">        [&#39;age&#39; &#x3D;&gt; 32]</span><br><span class="line">    );</span><br><span class="line">    var_dump($sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.通过模型删除数据</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public function orm4()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;通过主键查找</span><br><span class="line">    $bool &#x3D; Student::find(1005)-&gt;delete();</span><br><span class="line">    dd($bool);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;通过主键删除税数据</span><br><span class="line">    $num &#x3D; Student::detroy(1013);</span><br><span class="line">    $num &#x3D; Student::detroy(1013, 1014);</span><br><span class="line">    $num &#x3D; Student::detroy([1013,1014]);</span><br><span class="line">    var_dump($num);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;通过where条件删除数据</span><br><span class="line">    $num &#x3D; Student::where(&#39;id&#39;, &#39;&gt;&#39;, &#39;1007&#39;)-&gt;delete();</span><br><span class="line">    var_dump($num);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/Laravel/Laravel%20-%20Eloquent%20ORM%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/" data-id="ckmujocnf001x2vrs8zhx3bsv" data-title="Laravel - Eloquent ORM数据处理" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/03/30/%E8%BF%90%E7%BB%B4/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">mac环境变量</a>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
-          <li>
-            <a href="/2021/03/29/Git/Git%20Commit%20Template/">Git Commit Template</a>
-          </li>
         
-          <li>
-            <a href="/2021/03/29/Git/git%20submoudle/">git submoudle</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
+</nav>
 
-  
-</aside>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">Java反射的三种实现方式</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">
+          
+          
+            
+          
+          Java反射的三种实现方式
+Foo foo = new Foo();
+123456789101112131415161718第一种：通过Object类的getClass方法Class cla = foo.getClass();第二种：通过对象实例方法获取对象Class cla = foo.class;第三种：通过Class.forName方式Class cla = Class.forName(&q
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 mohuani<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
+    </article>
   </div>
-</footer>
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%BA%8F%E5%88%97%E5%8C%96/">
+          
+          
+            
+          
+          序列化Java 中提供了一种对象持久化保存的技术。常规的对象，在程序结束后就会被回收处理，如果想要对象能被持久化保存下来方便下次使用，就需要使用到对象的序列化和反序列化。序列化成功的条件
+121、该类必须实现java.io.Serializable接口2、类的所有字段都必须是可序列化的（属性类型是实现类java.io.Serializable接口的）；
+
+12序列化是排除某个字段只需要用trans
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx的中间件架构-HTTPS服务</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">
+          
+          
+            
+          
+          secure_link_module
+geoip_module
+http_geoip_module使用场景
+生成秘钥和CA证书
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">nginx的中间件架构-Lua开发</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">
+          
+          
+            
+          
+          Lua介绍
+nginx调用Lua指令
+nginx lua api（lua调用nginx）
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">nginx的中间件架构-web静态资源</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">
+          
+          
+            
+          
+          http_x_forwarded_for1http_x_forwarded_for = Client IP, Proxy1 IP, Client2 IP, Client3 IP...
+http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_basic string | off;Default:	auth_ba
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">nginx的中间件架构-代理服务</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">
+          
+          
+            
+          
+          代理区别正向代理代理的对象是客户端反向代理代理的对象是服务端
+proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	location, if in location, limit_except;------http://localhost:8080/uri/https://192.168.1.1:8080/uri/
+缓冲
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">nginx的中间件架构-性能优化</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+          
+          
+            
+          
+          location匹配优先级 ~ 区分大小写，~~*不区分大小写
+try_files场景：用于文件缓存
+root和alias的区别
+传递用户的真实ip在代理1处直接获取用户的ip，然后通过层层代理透传到后端
+其他常见错误
+文件句柄优化 针对用户进行修改  针对进程限制 
+cpu亲和绑定
+gzip兼容
+安全
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx的中间件架构-负载均衡</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+          
+          
+            
+          
+          upstream
+负载均衡调度状态
+调度算法
+url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2
+
+代理缓存
+proxy_cache
+完整
+部分
+
+
+缓存过期周期
+缓存的维度
+如何清除指定缓存
+如何让指定页面不进行缓存
+大文件分
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/">Laravel - DB - facade实现CURD</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/">
+          
+          
+            
+          
+          新建的数据表SQL
+12345678CREATE TABLE IF NOT EXISTS students(    `id` INT AUTO_INCREMENT PRIMARY KEY,    `name` VARCHAR(255) NOT NULL DEFAULT &#x27;&#x27; COMMENT &#x27;姓名&#x27;,    `age` TINYINT UNSIGNED NO
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20Eloquent%20ORM%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">Laravel - Eloquent ORM数据处理</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20Eloquent%20ORM%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
+          
+          
+            
+          
+          #Laravel - Eloquent ORM数据处理
+
+将数据库和Model进行绑定
+
+123456789101112131415161718192021222324252627282930313233&lt;?phpnamespace App;use Illuminate\Database\Eloquent\Model;class Student extends Model&#123;    
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/6/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#board">8</a><a class="page-number" href="/page/9/#board">9</a><a class="page-number" href="/page/10/#board">10</a><a class="extend next" rel="next" href="/page/8/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     
 
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
 
 
 
 
 
-  </div>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 </body>
 </html>

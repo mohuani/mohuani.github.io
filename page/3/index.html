@@ -1,715 +1,691 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="搬砖人">
+  <meta name="author" content="mohuani">
+  <meta name="keywords" content="Bug工程师">
   
   <title>积雪筱草的Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="搬砖人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="积雪筱草的Blog">
-<meta property="og:url" content="https://mohuani.github.io/page/3/index.html">
-<meta property="og:site_name" content="积雪筱草的Blog">
-<meta property="og:description" content="搬砖人">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="mohuani">
-<meta property="article:tag" content="Bug工程师">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="积雪筱草的Blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
 
-  
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mohuani.github.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">积雪筱草的Blog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">流水账</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-          <a class="main-nav-link" href="/">Home</a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
-      </nav>
-      <nav id="sub-nav">
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mohuani.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-NGINX/深入浅出nginx9-10" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">深入浅出nginx9-10</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="https://img-blog.csdnimg.cn/20190702002835367.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190702002932802.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av46744851/?p=10">https://www.bilibili.com/video/av46744851/?p=10</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/" data-id="ckmujocm6000k2vrs5o6j92o5" data-title="深入浅出nginx9-10" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/PHP 水印  验证码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">PHP 水印  验证码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><strong>PHP水印</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a25511a9bd25726528c0df256433354a.png" alt="PHP水印"></p>
-<hr>
-<p><strong>PHP验证码处理</strong></p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/20a0a84e2cc9836d36e41e6496fbe783.png" alt="PHP验证码处理"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/" data-id="ckmujocm7000l2vrs2d8v0jz6" data-title="PHP 水印  验证码" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/PHP7的基本变量" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/">PHP7的基本变量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="课程地址：https-www-imooc-com-learn-1085"><a href="#课程地址：https-www-imooc-com-learn-1085" class="headerlink" title="课程地址：https://www.imooc.com/learn/1085"></a>课程地址：<a target="_blank" rel="noopener" href="https://www.imooc.com/learn/1085">https://www.imooc.com/learn/1085</a></h4><p><img src="https://img-blog.csdnimg.cn/20190428145419579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428145455679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/" data-id="ckmujocm7000m2vrsf1tjb6un" data-title="PHP7的基本变量" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/PHPUnit单元测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">PHPUnit单元测试</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>###前言<br>单元测试这个问题对于新人来说总感觉没意思，感觉单元测试做不做都没啥问题，有时候还总觉得做单元测试很浪费时间。我总感觉 PHP 的开发者们并没有对 PHP 的质量有所追求，让大部分的开发者总以为浏览器访问就没有问题，所以很多时候，做 PHP 开发的，就没有单元测试的这些概念了。能不能有点追求？作为一个开发者，或者说是一个产品的经手人，就应该用心地去做好每个细节，一次比一次要更好。但是做单元测试，质量检查，是需要一定的时间和人力投入的，但我敢保证地说，你花时间投入的，绝对不会是没用的，一定对你，对项目来说，是一个质的提升，只要你肯投入时间用心去做。</p>
-<p>单元测试是对单独的代码对象进行测试的过程，比如对函数、类、方法进行测试。单元测试可以使用任意一段已经写好的测试代码，也可以使用一些已经存在的测试框架，比如JUnit、PHPUnit或者Cantata++，单元测试框架提供了一系列共同、有用的功能来帮助人们编写自动化的检测单元，例如检查一个实际的值是否符合我们期望的值的断言。单元测试框架经常会包含每个测试的报告，以及给出你已经覆盖到的代码覆盖率。总之一句话，使用 phpunit 进行自动测试，会使你的代码更健壮，减少后期维护的成本，也是一种比较标准的规范。现如今流行的PHP框架都带了单元测试，如Laraval,Symfony,Yii2等，单元测试已经成了标配。另外，单元测试用例是通过命令操控测试脚本的，而不是通过浏览器访问URL的。</p>
-<p>直接简单讲讲 PHPUnit吧。<br>官网：<a target="_blank" rel="noopener" href="https://phpunit.de/">https://phpunit.de/</a><br>中文版官网：<a target="_blank" rel="noopener" href="http://www.phpunit.cn/">http://www.phpunit.cn/</a><br>###1.安装<br>习惯用 composer，使用 composer 安装吧。关于composer的安装可以参考<a target="_blank" rel="noopener" href="https://www.phpcomposer.com/">https://www.phpcomposer.com/</a> 的介绍。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer require --dev phpunit&#x2F;phpunit ^6.5</span><br><span class="line">&#x2F;&#x2F;这里的 ^6.5 是版本号</span><br></pre></td></tr></table></figure>
-<p>###2.PHPunit的已引入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">use PHPUnit\Framework\TestCase;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;类名不能以Test开头，否则无法运行</span><br><span class="line">class DemoTest extends TestCase </span><br><span class="line">&#123;</span><br><span class="line">	&#x2F;&#x2F;Todo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###3.输出格式的解读。</p>
-<p>.    成功<br>F    失败<br>E 错误<br>R 有风险<br>S 跳过<br>I 未完成</p>
-<p>###4.常见的断言方法<br>详细的断言方法和参数详解可以参考PHPUnit中文网站的文档<a target="_blank" rel="noopener" href="https://phpunit.readthedocs.io/zh_CN/latest/assertions.html">https://phpunit.readthedocs.io/zh_CN/latest/assertions.html</a></p>
-<p>1.判断一个数组中是否含有指定的key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertArrayHasKey()</span><br></pre></td></tr></table></figure>
-
-
-<p>2.判断是否含有数组形式的子集</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertArraySubset()</span><br></pre></td></tr></table></figure>
-
-
-<p>3.判断数组中是否含有指定的值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertContains()</span><br></pre></td></tr></table></figure>
-<p>4.判断数组中不含指定的值，与3相反</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertNotContains()</span><br></pre></td></tr></table></figure>
-<p>5.判断数组中的数据是否仅是指定的数据类型，比如interger，float，boolean，object，string等。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertContainsOnly()</span><br></pre></td></tr></table></figure>
-<p>6.与5相反，比如interger，float，boolean，object，string等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertNotContainsOnly()</span><br></pre></td></tr></table></figure>
-<p>7.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertContainsOnlyInstancesOf()</span><br></pre></td></tr></table></figure>
-<p>8.判断数组的长度和指定的数组长度是否相等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertCount()</span><br></pre></td></tr></table></figure>
-<p>9.判断指定的多个数组的值是否相等，数组的元素顺序和值都会进行判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertEquals()</span><br></pre></td></tr></table></figure>
-
-<p>10.与9相反</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertNotEquals()</span><br></pre></td></tr></table></figure>
-
-
-<p>###5.字符串的常用断言方法<br>1.判断字符串中是否含有某个字符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertContains()</span><br></pre></td></tr></table></figure>
-<p>2.判断字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertEquals()</span><br></pre></td></tr></table></figure>
-<p>3.判断字符串与指定的正则表达式能否匹配</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertRegExp()</span><br></pre></td></tr></table></figure>
-<p>4.判断字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringMatchesFormat()</span><br></pre></td></tr></table></figure>
-<p>5.判断字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringMatchesFormatFile()</span><br></pre></td></tr></table></figure>
-<p>6.判断字符串与指定字符是否相等，assertSame()采用===判断，assertEquals()采用==判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertSame()</span><br></pre></td></tr></table></figure>
-<p>7.与6相反</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertNotSame()</span><br></pre></td></tr></table></figure>
-<p>8.判断字符串是否以指定的字符结尾</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringEndsWith()</span><br></pre></td></tr></table></figure>
-<p>9.判断字符串是否与指定的文件内容相等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringEqualsFile()</span><br></pre></td></tr></table></figure>
-<p>10.判断字符串是否以指定的字符开头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertStringStartsWith()</span><br></pre></td></tr></table></figure>
-<p>###6.类的断言方法<br>1.判断类中是否含有指定的某个属性，不管这个属性是否为static，public，private，protected都可以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertClassHasAttribute()</span><br></pre></td></tr></table></figure>
-<p>2.判断类中是否含有静态属性，只判断是否有static修饰</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertClassHasStaticAttribute()</span><br></pre></td></tr></table></figure>
-<p>3.判断类是否相等，会判断类里面的值，单不判断数据类型，采用==判断</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertEquals()</span><br></pre></td></tr></table></figure>
-<p>4.判断一个类是否来自一个指定的继承类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertInstanceOf()</span><br></pre></td></tr></table></figure>
-<p>5.断言一个类的实例是否含有指定的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertObjectHasAttribute()</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" data-id="ckmujocm8000n2vrsex837oho" data-title="PHPUnit单元测试" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/PHP消息队列实现及应用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/">PHP消息队列实现及应用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>直接放置传送门：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/dump/p/8243868.html">https://www.cnblogs.com/dump/p/8243868.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/" data-id="ckmujocm8000o2vrs5u503w2v" data-title="PHP消息队列实现及应用" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/PHP的自动加载机制" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">PHP的自动加载机制</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>我们在写PHP代码的时候，总会遇到这种情况（A.php需要引入XXX.php才能正常运行），代码结构比较小的话，通常我们都是直接通过 include 或者 require 直接引入，如果需要引入的文件不多的话，还可以接受，但是如果引入的文件达到几十个以上，再用 include 和 require 就显得比较繁琐，影响代码的美观。因此我们需要引入PHP文件的自动加载机制。</p>
-<h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>使用 __autoload() 函数</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// __autoload — Attempt to load undefined class</span></span><br><span class="line"><span class="comment">// void __autoload ( string $class )</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__autoload</span>(<span class="params"><span class="variable">$class</span></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">require_once</span>( <span class="variable">$class</span>.<span class="string">&quot;.php&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" data-id="ckmujocm9000p2vrs1kt5fzjn" data-title="PHP的自动加载机制" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/PHP简单图形图像处理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">PHP简单图形图像处理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>#PHP简单图形图像处理</p>
-<h2 id="引语"><a href="#引语" class="headerlink" title="引语"></a>引语</h2><p>php不仅仅局限于html的输出，还可以创建和操作各种各样的图像文件，如GIF、PNG、JPEG、WBMP、XBM等。</p>
-<p>php还可以将图像流直接显示在浏览器中。</p>
-<p>要处理图像，就要用到php的GD库。</p>
-<p>ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到“;extension=php_gd2.dll”，将选项前的分号删除，保存，再重启Apache服务器即可。</p>
-<hr>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>在php中创建一个图像一般需要四个步骤：</p>
-<ul>
-<li><p>1.创建一个背景图像，以后的所有操作都是基于此背景。</p>
-</li>
-<li><p>2.在图像上绘图等操作。</p>
-</li>
-<li><p>3.输出最终图像。</p>
-</li>
-<li><p>4.销毁内存中的图像资源。</p>
-</li>
-</ul>
-<hr>
-<h2 id="1-创建背景图像"><a href="#1-创建背景图像" class="headerlink" title="1.创建背景图像"></a>1.创建背景图像</h2><p>下面的函数可以返回一个图像标识符，代表了一个宽为x_size像素、高为y_size像素的背景，默认为黑色。</p>
-<blockquote>
-<p>resource imagecreatetruecolor(int x_size , int y_size)</p>
-</blockquote>
-<p>在图像上绘图需要两个步骤：首先需要选择颜色。通过imagecolorallocate()函数创建颜色对象。</p>
-<blockquote>
-<p>int imagecolorallocate(resource image, int red, int green, int blue) </p>
-</blockquote>
-<p>然后将颜色绘制到图像上。</p>
-<blockquote>
-<p>bool imagefill(resource image, int x, int y, int color) </p>
-</blockquote>
-<p>imagefill()函数会在image图像的坐标（x，y）处用color颜色进行填充。</p>
-<hr>
-<h2 id="2-在图像上绘图"><a href="#2-在图像上绘图" class="headerlink" title="2.在图像上绘图"></a>2.在图像上绘图</h2><blockquote>
-<p>bool iamgeline(resource image, int begin_x, int begin_y, int end_x, int end_y, int color) </p>
-</blockquote>
-<p>imageline()函数用color颜色在图像image中画出一条从（begin_x,begin_y）到（end_x,end_y）的线段。</p>
-<blockquote>
-<p>bool imagestring(resource image, int font, int begin_x, int begin_y, string s, int color ) </p>
-</blockquote>
-<p>imagestring()函数用color颜色将字符串s画到图像image的（begin_x,begin_y）处（这是字符串的左上角坐标）。如果font等于1,2,3,4或5，则使用内置字体，同时数字代表字体的粗细。如果font字体不是内置的，则需要导入字体库后使用。</p>
-<hr>
-<h2 id="3-输出最终图像"><a href="#3-输出最终图像" class="headerlink" title="3.输出最终图像"></a>3.输出最终图像</h2><p>创建图像以后就可以输出图形或者保存到文件中了，如果需要输出到浏览器中需要使用header()函数发送一个图形的报头“欺骗”浏览器，使它认为运行的php页面是一个图像。</p>
-<blockquote>
-<p>header(“Content-type: image/png”); </p>
-</blockquote>
-<p>发送数据报头以后，利用imagepng()函数输出图形。后面的filename可选，代表生成的图像文件的保存名称。</p>
-<blockquote>
-<p>bool image(resource image [, string filename]) </p>
-</blockquote>
-<hr>
-<h2 id="4-销毁相关的内存资源"><a href="#4-销毁相关的内存资源" class="headerlink" title="4.销毁相关的内存资源"></a>4.销毁相关的内存资源</h2><p>最后需要销毁图像占用的内存资源。</p>
-<blockquote>
-<p>bool imagedestroy(resource image) </p>
-</blockquote>
-<p><strong>例子:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">$width&#x3D;300;                                          &#x2F;&#x2F;图像宽度</span><br><span class="line">$height&#x3D;200;                                         &#x2F;&#x2F;图像高度</span><br><span class="line">   $img&#x3D;imagecreatetruecolor($width,$height);           &#x2F;&#x2F;创建图像</span><br><span class="line">   $white&#x3D;imagecolorallocate($img,255,255,255);         &#x2F;&#x2F;白色</span><br><span class="line">   $black&#x3D;imagecolorallocate($img,0,0,0);               &#x2F;&#x2F;黑色</span><br><span class="line">   $red&#x3D;imagecolorallocate($img,255,0,0);               &#x2F;&#x2F;红色</span><br><span class="line">   $green&#x3D;imagecolorallocate($img,0,255,0);             &#x2F;&#x2F;绿色</span><br><span class="line">   $blue&#x3D;imagecolorallocate($img,0,0,255);              &#x2F;&#x2F;蓝色</span><br><span class="line">   imagefill($img,0,0,$white);                          &#x2F;&#x2F;将背景设置为白色</span><br><span class="line">   imageline($img,20,20,260,150,$red);                  &#x2F;&#x2F;画出一条红色的线</span><br><span class="line">   imagestring($img,5,50,50,&quot;hello,world!!&quot;,$blue);     &#x2F;&#x2F;显示蓝色的文字</span><br><span class="line">   header(&quot;content-type: image&#x2F;png&quot;);                   &#x2F;&#x2F;输出图像的MIME类型</span><br><span class="line">   imagepng($img);                                      &#x2F;&#x2F;输出一个PNG图像数据</span><br><span class="line">   imagedestroy($img);                                   &#x2F;&#x2F;清空内存</span><br><span class="line"> ?&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" data-id="ckmujocmc000q2vrs7dcm9xw3" data-title="PHP简单图形图像处理" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-PHP/PHP设计模式（适配器模式）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/">PHP设计模式（适配器模式）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="设计动机"><a href="#设计动机" class="headerlink" title="设计动机"></a>设计动机</h4><p>假如我们又这样软件系统，我们希望它能够和一个新的库搭配使用，但是这个库所提供的接口与我们的软件系统不兼容，我们不想改变现有代码就能解决这个问题，怎么办？这个时候我们就需要将这个新的库接口转换成我们所需要的接口，这就是适配器模式设计动机。</p>
-<h4 id="模式定义"><a href="#模式定义" class="headerlink" title="模式定义"></a>模式定义</h4><ol>
-<li><p>适配器模式就是将一个类的接口，转换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。</p>
-</li>
-<li><p>在适配器模式中，我们可以定义一个包装类，包装不兼容接口的对象，这个包装类就是适配器，它所包装的对象就是适配者。</p>
-</li>
-<li><p>适配器提供给客户需要的接口，适配器的实现就是将客户的请求转换成对适配者的相应的接口的引用。也就是说，当客户调用适配器的方法时，适配器方法内部将调用适配者的方法，客户并不是直接访问适配者的，而是通过调用适配器方法访问适配者。因为适配器可以使互不兼容的类能够“合作愉快”。</p>
-</li>
-</ol>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p> <strong>1. 首先我们定义一个数据库操作对外，公用的API接口，里面主要设计了connect()   query()   close()  方法。</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">IMooc</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IDatabase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">connect</span>(<span class="params"><span class="variable">$host</span>, <span class="variable">$user</span>, <span class="variable">$passwd</span>, <span class="variable">$dbname</span></span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">query</span>(<span class="params"><span class="variable">$sql</span></span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">close</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> <strong>2. 使用mysql实现</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace IMooc\Database;</span><br><span class="line"></span><br><span class="line">use IMooc\IDatabase;</span><br><span class="line"></span><br><span class="line">class MySQL implements IDatabase</span><br><span class="line">&#123;</span><br><span class="line">    protected $conn;</span><br><span class="line">    function connect($host, $user, $passwd, $dbname)</span><br><span class="line">    &#123;</span><br><span class="line">        $conn &#x3D; mysql_connect($host, $user, $passwd);</span><br><span class="line">        mysql_select_db($dbname, $conn);</span><br><span class="line">        $this-&gt;conn &#x3D; $conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function query($sql)</span><br><span class="line">    &#123;</span><br><span class="line">        $res &#x3D; mysql_query($sql, $this-&gt;conn);</span><br><span class="line">        return $res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function close()</span><br><span class="line">    &#123;</span><br><span class="line">        mysql_close($this-&gt;conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>3. 使用mysqli实现</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace IMooc\Database;</span><br><span class="line"></span><br><span class="line">use IMooc\IDatabase;</span><br><span class="line"></span><br><span class="line">class MySQLi implements IDatabase</span><br><span class="line">&#123;</span><br><span class="line">    protected $conn;</span><br><span class="line"></span><br><span class="line">    function connect($host, $user, $passwd, $dbname)</span><br><span class="line">    &#123;</span><br><span class="line">        $conn &#x3D; mysqli_connect($host, $user, $passwd, $dbname);</span><br><span class="line">        $this-&gt;conn &#x3D; $conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function query($sql)</span><br><span class="line">    &#123;</span><br><span class="line">        return mysqli_query($this-&gt;conn, $sql);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function close()</span><br><span class="line">    &#123;</span><br><span class="line">        mysqli_close($this-&gt;conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> <strong>4. 使用PDO实现</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">namespace IMooc\Database;</span><br><span class="line"></span><br><span class="line">use IMooc\IDatabase;</span><br><span class="line"></span><br><span class="line">class PDO implements IDatabase</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;**</span><br><span class="line">     * @var \PDO</span><br><span class="line">     *&#x2F;</span><br><span class="line">    protected $conn;</span><br><span class="line">    function connect($host, $user, $passwd, $dbname)</span><br><span class="line">    &#123;</span><br><span class="line">        $conn &#x3D; new \PDO(&quot;mysql:host&#x3D;$host;dbname&#x3D;$dbname&quot;, $user, $passwd);</span><br><span class="line">        $this-&gt;conn &#x3D; $conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function query($sql)</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;conn-&gt;query($sql);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function close()</span><br><span class="line">    &#123;</span><br><span class="line">        unset($this-&gt;conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/" data-id="ckmujocmd000r2vrs9bfr5pia" data-title="PHP设计模式（适配器模式）" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-分布式/分布式之系统底层原理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">分布式之系统底层原理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>分布式之系统底层原理：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/KKrxuVCrjlXXWMPTXQ-fvA">https://mp.weixin.qq.com/s/KKrxuVCrjlXXWMPTXQ-fvA</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" data-id="ckmujocme000s2vrs21ar52aq" data-title="分布式之系统底层原理" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-分布式/分布式系统的流言蜚语" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B5%81%E8%A8%80%E8%9C%9A%E8%AF%AD/" class="article-date">
-  <time class="dt-published" datetime="2021-03-24T11:36:38.000Z" itemprop="datePublished">2021-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B5%81%E8%A8%80%E8%9C%9A%E8%AF%AD/">分布式系统的流言蜚语</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>分布式系统的流言蜚语：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxOTc0NzExNg==&amp;mid=2665515873&amp;idx=1&amp;sn=bf79a5a52c1ea3d2f7a1bb644866d1d6&amp;chksm=80d67322b7a1fa3429c36a418d3c3804688a9f01bea8a27b8ed46528ce6a40eb923d0ef5c45c&amp;scene=0&amp;xtrack=1&amp;key=bf4cf7f356eb2752dfab3431b61181e235018df6317ce9084d1e48e46a5e3a454b221538f9d88192d04d0a34283d416f08274ccf3bbcff5acf783e271bca10ab84ad7a7e6b5648d6f5ead23ea625dafc&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=MzAxOTc0NzExNg==&amp;mid=2665515873&amp;idx=1&amp;sn=bf79a5a52c1ea3d2f7a1bb644866d1d6&amp;chksm=80d67322b7a1fa3429c36a418d3c3804688a9f01bea8a27b8ed46528ce6a40eb923d0ef5c45c&amp;scene=0&amp;xtrack=1&amp;key=bf4cf7f356eb2752dfab3431b61181e235018df6317ce9084d1e48e46a5e3a454b221538f9d88192d04d0a34283d416f08274ccf3bbcff5acf783e271bca10ab84ad7a7e6b5648d6f5ead23ea625dafc&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://mohuani.github.io/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B5%81%E8%A8%80%E8%9C%9A%E8%AF%AD/" data-id="ckmujocmf000t2vrs3slnddmr" data-title="分布式系统的流言蜚语" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/03/30/%E8%BF%90%E7%BB%B4/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">mac环境变量</a>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
-          <li>
-            <a href="/2021/03/29/Git/Git%20Commit%20Template/">Git Commit Template</a>
-          </li>
         
-          <li>
-            <a href="/2021/03/29/Git/git%20submoudle/">git submoudle</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
-          </li>
-        
-          <li>
-            <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
+</nav>
 
-  
-</aside>
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">深入浅出nginx9-10</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">
+          
+          
+            
+          
+          
+https://www.bilibili.com/video/av46744851/?p=10
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 mohuani<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
+    </article>
   </div>
-</footer>
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">PHP 水印  验证码</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">
+          
+          
+            
+          
+          PHP水印
+
+
+PHP验证码处理
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/">PHP7的基本变量</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/">
+          
+          
+            
+          
+          课程地址：https://www.imooc.com/learn/1085
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">PHPUnit单元测试</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+          
+          
+            
+          
+          ###前言单元测试这个问题对于新人来说总感觉没意思，感觉单元测试做不做都没啥问题，有时候还总觉得做单元测试很浪费时间。我总感觉 PHP 的开发者们并没有对 PHP 的质量有所追求，让大部分的开发者总以为浏览器访问就没有问题，所以很多时候，做 PHP 开发的，就没有单元测试的这些概念了。能不能有点追求？作为一个开发者，或者说是一个产品的经手人，就应该用心地去做好每个细节，一次比一次要更好。但是做单元
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/">PHP消息队列实现及应用</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/">
+          
+          
+            
+          
+          直接放置传送门：https://www.cnblogs.com/dump/p/8243868.html
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">PHP的自动加载机制</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+          
+          
+            
+          
+          原因我们在写PHP代码的时候，总会遇到这种情况（A.php需要引入XXX.php才能正常运行），代码结构比较小的话，通常我们都是直接通过 include 或者 require 直接引入，如果需要引入的文件不多的话，还可以接受，但是如果引入的文件达到几十个以上，再用 include 和 require 就显得比较繁琐，影响代码的美观。因此我们需要引入PHP文件的自动加载机制。
+方法一使用 __aut
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">PHP简单图形图像处理</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+          
+          
+            
+          
+          #PHP简单图形图像处理
+引语php不仅仅局限于html的输出，还可以创建和操作各种各样的图像文件，如GIF、PNG、JPEG、WBMP、XBM等。
+php还可以将图像流直接显示在浏览器中。
+要处理图像，就要用到php的GD库。
+ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到“;extension=php_gd2.dll”，将选项前的分号删除，保存，再重启Apache
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/">PHP设计模式（适配器模式）</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/">
+          
+          
+            
+          
+          设计动机假如我们又这样软件系统，我们希望它能够和一个新的库搭配使用，但是这个库所提供的接口与我们的软件系统不兼容，我们不想改变现有代码就能解决这个问题，怎么办？这个时候我们就需要将这个新的库接口转换成我们所需要的接口，这就是适配器模式设计动机。
+模式定义
+适配器模式就是将一个类的接口，转换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。
+
+在适配器模式中，我们可以定义一个包装类，包
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">分布式之系统底层原理</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">
+          
+          
+            
+          
+          分布式之系统底层原理：https://mp.weixin.qq.com/s/KKrxuVCrjlXXWMPTXQ-fvA
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B5%81%E8%A8%80%E8%9C%9A%E8%AF%AD/">分布式系统的流言蜚语</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%B5%81%E8%A8%80%E8%9C%9A%E8%AF%AD/">
+          
+          
+            
+          
+          分布式系统的流言蜚语：https://mp.weixin.qq.com/s?__biz=MzAxOTc0NzExNg==&amp;mid=2665515873&amp;idx=1&amp;sn=bf79a5a52c1ea3d2f7a1bb644866d1d6&amp;chksm=80d67322b7a1fa3429c36a418d3c3804688a9f01bea8a27b8ed46528ce6a
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     
 
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
 
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
 
 
 
 
 
-  </div>
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 </body>
 </html>
