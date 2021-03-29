@@ -178,7 +178,7 @@ code:
     lib: "highlightjs"
     highlightjs:
       style: 'Github Gist'
-      bg_color: false
+      bg_color: true
     prismjs:
       style: "default"
       preprocess: true
