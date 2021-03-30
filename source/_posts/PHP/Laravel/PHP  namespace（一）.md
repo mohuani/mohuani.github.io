@@ -12,7 +12,7 @@ draft: true
 
  - 各自命名空间调用各自命名空间的函数
 
-```
+```php
 <?php
 
 namespace a
@@ -48,7 +48,7 @@ namespace
 
  - 还可以在b的命名空间中调用a命名空间中的函数
 
-```
+```php
 <?php
 
 namespace a
@@ -89,7 +89,7 @@ namespace
  - 各自命名空间调用各自命名空间的函数
 
 
-```
+```php
 <?php
 
 namespace a
@@ -144,7 +144,7 @@ namespace
  - 在b的空间中调用a空间中的类
 
 
-```
+```php
 <?php
 
 namespace a
@@ -202,7 +202,7 @@ namespace
  - const创建的常量，受命名空间的限制 
  - define创建的常量，不受命名空间的限制
 
-```
+```php
 <?php
 
 namespace a
