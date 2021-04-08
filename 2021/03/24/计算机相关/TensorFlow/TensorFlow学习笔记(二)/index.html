@@ -18,7 +18,7 @@
   <meta name="author" content="mohuani">
   <meta name="keywords" content="Bug工程师">
   
-  <title>HTTPS 比 HTTP 更安全 - 积雪筱草的Blog</title>
+  <title>TensorFlow学习笔记2 - 积雪筱草的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -139,7 +139,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="HTTPS 比 HTTP 更安全">
+            <span class="h2" id="subtitle" title="TensorFlow学习笔记2">
               
             </span>
 
@@ -161,7 +161,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      34 字
+      72 字
     </span>
   
 
@@ -201,11 +201,14 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">HTTPS 比 HTTP 更安全</h1>
+            <h1 style="display: none">TensorFlow学习笔记2</h1>
             
             <div class="markdown-body">
-              <p>为什么 HTTPS 比 HTTP 更安全？：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882">https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882</a></p>
+              <p><strong>Session的两种使用方式</strong></p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> tensorflow as tf<br><br><span class="hljs-attribute">matrix1</span> = tf.constant([[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]])<br><span class="hljs-attribute">matrix2</span> = tf.constant([[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]])<br><br><span class="hljs-attribute">product</span> = tf.matmul(matrix<span class="hljs-number">1</span>,matrix<span class="hljs-number">2</span>)  # matrix multiply  np.dot(m<span class="hljs-number">1</span>,m<span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># session的两种打开模式</span><br><br><span class="hljs-comment"># method 1</span><br><br><span class="hljs-comment"># sess = tf.Session()</span><br><span class="hljs-comment"># result1 = sess.run(product)</span><br><span class="hljs-comment"># print(result1)</span><br><span class="hljs-comment"># sess.close()</span><br><br><span class="hljs-comment"># method 2</span><br><span class="hljs-attribute">with</span> tf.Session() as sess:<br>    <span class="hljs-attribute">result2</span> = sess.run(product)<br>    <span class="hljs-attribute">print</span>(result<span class="hljs-number">2</span>)<br></code></pre></div></td></tr></table></figure>
 
+<p>运行的结果</p>
+<figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-string">[[12]]</span><br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -225,9 +228,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">
+                      <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HTTP 返回码详解</span>
+                        <span class="hidden-mobile">TensorFlow学习笔记1</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -235,8 +238,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
-                        <span class="hidden-mobile">TensorFlow学习笔记1</span>
+                      <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">
+                        <span class="hidden-mobile">TensorFlow学习笔记3</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -258,8 +261,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://mohuani.github.io/2021/03/24/%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/';
-          this.page.identifier = '/2021/03/24/%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/';
+          this.page.url = 'https://mohuani.github.io/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/';
+          this.page.identifier = '/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/';
         };
         Fluid.utils.lazyComments('disqus_thread', function() {
           var d = document, s = d.createElement('script');

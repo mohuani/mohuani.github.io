@@ -18,7 +18,7 @@
   <meta name="author" content="mohuani">
   <meta name="keywords" content="Bug工程师">
   
-  <title>TensorFlow学习笔记3 - 积雪筱草的Blog</title>
+  <title>grep - 积雪筱草的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -139,7 +139,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="TensorFlow学习笔记3">
+            <span class="h2" id="subtitle" title="grep">
               
             </span>
 
@@ -149,8 +149,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-24 11:36" pubdate>
-        2021年3月24日 中午
+      <time datetime="2021-04-08 20:32" pubdate>
+        2021年4月8日 晚上
       </time>
     </span>
   
@@ -161,7 +161,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      124 字
+      185 字
     </span>
   
 
@@ -171,7 +171,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -201,15 +201,19 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">TensorFlow学习笔记3</h1>
+            <h1 style="display: none">grep</h1>
             
             <div class="markdown-body">
-              <p><strong>Variable变量的简单使用</strong></p>
-<p>在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的</p>
-<figure class="highlight pf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pf">import tensorflow as tf<br><br><span class="hljs-keyword">state</span> = tf.Variable(<span class="hljs-number">0</span>,name = &#x27;counter&#x27;)<br>print(<span class="hljs-keyword">state</span>.name)<br><br>one = tf.constant(<span class="hljs-number">1</span>)<br><br>new_vaule = tf.add(<span class="hljs-keyword">state</span>,one)<br>update = tf.assign(<span class="hljs-keyword">state</span>,new_vaule)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br>init = tf.global_variables_initializer()<br><br><br>sess = tf.Session()<br>sess.run(init)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    sess.run(update)<br>    print(sess.run(<span class="hljs-keyword">state</span>))<br>sess.close()<br></code></pre></div></td></tr></table></figure>
+              <blockquote>
+<p>我们平常在linux服务器查询日志文件的时候，经常会使用 <code>cat xxx.log | grep &#39;aaa&#39;</code> 来找寻自己要搜索的东西，但是也会出现这样的场景，我们要搜的东西，不知道落到了哪个目录或者文件下面，所以就需要使用全量模糊搜索</p>
+</blockquote>
+<p><img src="../../images/image-20210408204947514.png" srcset="/img/loading.gif" lazyload alt="image-20210408204947514"></p>
+<p><strong>grep 命令文档</strong> ：<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-grep.html">https://www.runoob.com/linux/linux-comm-grep.html</a></p>
+<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><ul>
+<li><p>以递归的方式查找符合条件的文件。例如，查找指定目录/etc/acpi 及其子目录（如果存在子目录的话）下所有文件中包含字符串”update”的文件，并打印出该字符串所在行的内容，使用的命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">grep -rn update /etc/acpi <br></code></pre></div></td></tr></table></figure></li>
+</ul>
 
-<p>运行的结果</p>
-<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">counter</span>:<span class="hljs-number">0</span><br><br><span class="hljs-attribute">1</span><br><span class="hljs-attribute">2</span><br><span class="hljs-attribute">3</span><br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -229,18 +233,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">TensorFlow学习笔记2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">
-                        <span class="hidden-mobile">TensorFlow学习笔记5</span>
+                      <a href="/2021/03/30/%E8%BF%90%E7%BB%B4/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
+                        <span class="hidden-mobile">mac环境变量</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -262,8 +260,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://mohuani.github.io/2021/03/24/%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/';
-          this.page.identifier = '/2021/03/24/%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/';
+          this.page.url = 'https://mohuani.github.io/2021/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Linux/grep/';
+          this.page.identifier = '/2021/04/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Linux/grep/';
         };
         Fluid.utils.lazyComments('disqus_thread', function() {
           var d = document, s = d.createElement('script');
