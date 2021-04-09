@@ -158,6 +158,50 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">mysql查看建表的注释</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">
+          
+          
+            
+          
+          查看表结构-表格形式，带注释
+1show full columns from tableName;
+
+
+查看表结构-建表语句，带注释
+1show create table tableName;
+
+简单查看表结构
+1desc tableName;
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">深入理解 Mysql 索引底层原理</a>
       </h1>
 
@@ -336,19 +380,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+        <a href="/2021/03/24/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git常见使用方法</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
+        <a href="/2021/03/24/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
           
           
             
           
-          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
-原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
-解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
-1234git rm -r --cached .
+          项目以往 gitee提交代码为例子
+
+1、创建公钥1ssh-keygen -t rsa -C “git@gitee.com”
+执行完毕该命令后，会在 “/c/Users/xxxx/.ssh/” 目录下面生成3个文件
+
+123id_rsaid_rsa.pubknown_hosts
+
+
+2、进入将创建好的公钥内容（id_rsa.pub）复制到如下的地址中，这样你就可以有权限对自己的远程仓库进行 pul
         </a>
       </p>
 
@@ -455,47 +504,6 @@
           Variable变量的简单使用
 在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的
 1234567891011121314151617181920212223import tensorflow as tfstate = tf.Variable(0,name = &#x27;counter&#x27;)print(state.name)one = tf
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">TensorFlow学习笔记5</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">
-          
-          
-            
-          
-          
-搭建神经网络基本流程
-
-
-定义添加神经层的函数
-1.训练的数据2.定义节点准备接收数据3.定义神经层：隐藏层和预测层4.定义 loss 表达式5.选择 optimizer 使 loss 达到最小
-然后对所有变量进行初始化，通过 sess.run optimizer，迭代 1000 次进行学习：
-123456789101112131415161718192021222324252627282930
         </a>
       </p>
 
