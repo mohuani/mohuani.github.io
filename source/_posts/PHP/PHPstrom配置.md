@@ -4,7 +4,7 @@ date: 2021-04-08 20:32:47
 ---
 
 ###  PSR 配置
-![image](https://user-images.githubusercontent.com/21000558/114130537-5bf38580-9933-11eb-91fb-4c3f6627bf93.png)
+![114130537-5bf38580-9933-11eb-91fb-4c3f6627bf93](../images/114130537-5bf38580-9933-11eb-91fb-4c3f6627bf93.png)
 
 - https://learnku.com/docs/psr
 
