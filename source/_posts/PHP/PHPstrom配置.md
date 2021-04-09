@@ -3,6 +3,33 @@ title: PHPstrom配置
 date: 2021-04-09 13:15:47
 ---
 
+### CodeStyle配置
+```xml
+<code_scheme name="Mohuani-PHP" version="11">
+  <PHPCodeStyleSettings>
+    <option name="ALIGN_KEY_VALUE_PAIRS" value="true" />
+    <option name="ALIGN_PHPDOC_COMMENTS" value="true" />
+    <option name="CONCAT_SPACES" value="false" />
+    <option name="COMMA_AFTER_LAST_ARRAY_ELEMENT" value="true" />
+    <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />
+    <option name="FORCE_SHORT_DECLARATION_ARRAY_STYLE" value="true" />
+  </PHPCodeStyleSettings>
+  <editorconfig>
+    <option name="ENABLED" value="false" />
+  </editorconfig>
+  <codeStyleSettings language="PHP">
+    <option name="KEEP_FIRST_COLUMN_COMMENT" value="false" />
+    <option name="CLASS_BRACE_STYLE" value="1" />
+    <option name="METHOD_BRACE_STYLE" value="1" />
+    <option name="ALIGN_MULTILINE_ARRAY_INITIALIZER_EXPRESSION" value="true" />
+    <option name="SPACE_BEFORE_METHOD_PARENTHESES" value="true" />
+    <option name="KEEP_SIMPLE_METHODS_IN_ONE_LINE" value="true" />
+  </codeStyleSettings>
+</code_scheme>
+
+```
+
+
 ###  PSR 配置
 ![114130537-5bf38580-9933-11eb-91fb-4c3f6627bf93](../images/114130537-5bf38580-9933-11eb-91fb-4c3f6627bf93.png)
 
@@ -14,6 +41,6 @@ date: 2021-04-09 13:15:47
 - [.env files support](https://plugins.jetbrains.com/plugin/9525--env-files-support)
 - [BashSupport](https://plugins.jetbrains.com/plugin/4230-bashsupport)
 - [IDE Eval Reset](https://plugins.zhile.io)
-> 在Settings/Preferences... -> Plugins 内手动添加第三方插件仓库地址：[https://plugins.zhile.io](https://plugins.zhile.io)
+> 在Settings/Preferences... -> Plugins 内手动添加第三方插件仓库地址：[https://plugins.zhile.io](https://plugins.zhile.io)，然后再仓库市场里面搜索并安装插件 `IDE Eval Reset`
 
 - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
