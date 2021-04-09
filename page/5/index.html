@@ -339,6 +339,43 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
+          
+          
+            
+          
+          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
+原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
+解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
+1234git rm -r --cached .
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/03/24/%E8%BF%90%E7%BB%B4/Centos7%E5%AE%89%E8%A3%85Docker/">Centos7安装Docker</a>
       </h1>
 
@@ -411,19 +448,24 @@ https://www.runoob.com/docker/centos-d
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+        <a href="/2021/03/24/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git常见使用方法</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
+        <a href="/2021/03/24/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
           
           
             
           
-          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
-原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
-解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
-1234git rm -r --cached .
+          项目以往 gitee提交代码为例子
+
+1、创建公钥1ssh-keygen -t rsa -C “git@gitee.com”
+执行完毕该命令后，会在 “/c/Users/xxxx/.ssh/” 目录下面生成3个文件
+
+123id_rsaid_rsa.pubknown_hosts
+
+
+2、进入将创建好的公钥内容（id_rsa.pub）复制到如下的地址中，这样你就可以有权限对自己的远程仓库进行 pul
         </a>
       </p>
 
@@ -460,42 +502,6 @@ https://www.runoob.com/docker/centos-d
           背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
 原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
 解决方法远程仓库创建好后，本地项目
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/">GO语言全栈工程师2</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/">
-          
-          
-            
-          
-          数组
-切片部分操作和解释可以参考下面的博客https://www.cnblogs.com/thinkeridea/p/10317417.htmlhttps://blog.csdn.net/xj178926426/article/details/78782786https://blog.csdn.net/wfk2975019671/article/details/86838110
-
         </a>
       </p>
 

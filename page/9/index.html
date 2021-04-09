@@ -158,6 +158,47 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
+          
+          
+            
+          
+          命令行下具体用法如下：  
+1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
+
+导出整个数据库结构和数据
+1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
+
+导出单个数据表结构和数据
+1mysqldump -h localhost -uroot -p123456  database ta
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">mysql查看建表的注释</a>
       </h1>
 
@@ -380,24 +421,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git常见使用方法</a>
+        <a href="/2021/03/24/Golang/Beego/">Beego</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+        <a href="/2021/03/24/Golang/Beego/">
           
           
             
           
-          项目以往 gitee提交代码为例子
+          
 
-1、创建公钥1ssh-keygen -t rsa -C “git@gitee.com”
-执行完毕该命令后，会在 “/c/Users/xxxx/.ssh/” 目录下面生成3个文件
-
-123id_rsaid_rsa.pubknown_hosts
-
-
-2、进入将创建好的公钥内容（id_rsa.pub）复制到如下的地址中，这样你就可以有权限对自己的远程仓库进行 pul
         </a>
       </p>
 
@@ -468,42 +502,6 @@
           
           Session的两种使用方式
 1234567891011121314151617181920import tensorflow as tfmatrix1 = tf.constant([[3,3]])matrix2 = tf.constant([[2,2]])product = tf.matmul(matrix1,matrix2)  # matrix multiply  np.dot(m1,m2)#
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">TensorFlow学习笔记3</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">
-          
-          
-            
-          
-          Variable变量的简单使用
-在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的
-1234567891011121314151617181920212223import tensorflow as tfstate = tf.Variable(0,name = &#x27;counter&#x27;)print(state.name)one = tf
         </a>
       </p>
 

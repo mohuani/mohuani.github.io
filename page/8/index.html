@@ -158,6 +158,41 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/">Laravel - DB - facade实现CURD</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/">
+          
+          
+            
+          
+          新建的数据表SQL
+12345678CREATE TABLE IF NOT EXISTS students(    `id` INT AUTO_INCREMENT PRIMARY KEY,    `name` VARCHAR(255) NOT NULL DEFAULT &#x27;&#x27; COMMENT &#x27;姓名&#x27;,    `age` TINYINT UNSIGNED NO
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-24 11:36" pubdate>
+              2021-03-24
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20Eloquent%20ORM%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">Laravel - Eloquent ORM数据处理</a>
       </h1>
 
@@ -464,47 +499,6 @@ MySQL数据库优化SQL语句优化慢查询
           
           MySql 5.7.6 起，安装时如果 root 不设置密码，那么默认会采用auth_socket的方式登陆 MySQL 。也就是登陆 MySQL 时验证你的 Linux 的当前用户是否为 root，如果不是就不能登陆。在auth_socket模式下，应用程序通过数据库的用户名、密码是无法连接的，这就需要我们将数据库的登陆模式，改为mysql_native_password模式。
 进入数据库：su
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
-          
-          
-            
-          
-          命令行下具体用法如下：  
-1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
-
-导出整个数据库结构和数据
-1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
-
-导出单个数据表结构和数据
-1mysqldump -h localhost -uroot -p123456  database ta
         </a>
       </p>
 
