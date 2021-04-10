@@ -5,6 +5,8 @@ date: 2021-04-10 13:58:33
 
 > golang 操作etcd,实现简单的 put，get，delete， watch
 
+> 仓库链接：https://gitee.com/mohuani/golang-demo/tree/master/etcdDemo
+
 ```golang
 package main
 
