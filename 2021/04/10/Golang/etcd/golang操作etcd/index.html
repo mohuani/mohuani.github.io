@@ -18,7 +18,7 @@
   <meta name="author" content="mohuani">
   <meta name="keywords" content="Bug工程师">
   
-  <title>Golang之文本编码处理 - 积雪筱草的Blog</title>
+  <title>golang操作etcd - 积雪筱草的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -139,7 +139,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Golang之文本编码处理">
+            <span class="h2" id="subtitle" title="golang操作etcd">
               
             </span>
 
@@ -149,8 +149,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-24 11:36" pubdate>
-        2021年3月24日 中午
+      <time datetime="2021-04-10 13:58" pubdate>
+        2021年4月10日 下午
       </time>
     </span>
   
@@ -161,7 +161,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      246 字
+      267 字
     </span>
   
 
@@ -171,7 +171,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -201,11 +201,14 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Golang之文本编码处理</h1>
+            <h1 style="display: none">golang操作etcd</h1>
             
             <div class="markdown-body">
-              <p>课程地址：<a target="_blank" rel="noopener" href="https://www.imooc.com/coursescore/305">https://www.imooc.com/coursescore/305</a></p>
-<figure class="highlight go"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;bufio&quot;</span><br>	<span class="hljs-string">&quot;flag&quot;</span><br>	<span class="hljs-string">&quot;fmt&quot;</span><br>	<span class="hljs-string">&quot;io&quot;</span><br>	<span class="hljs-string">&quot;os&quot;</span><br>	<span class="hljs-string">&quot;strings&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fileExists</span><span class="hljs-params">(filename <span class="hljs-keyword">string</span>)</span> <span class="hljs-title">bool</span></span> &#123;<br>	_, err := os.Stat(filename)<br>	<span class="hljs-keyword">return</span> err == <span class="hljs-literal">nil</span> || os.IsExist(err)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">copyFileAction</span><span class="hljs-params">(src, dst <span class="hljs-keyword">string</span>, showProgress, force <span class="hljs-keyword">bool</span>)</span></span>  &#123;<br>	<span class="hljs-keyword">if</span> !force &#123;<br>		<span class="hljs-keyword">if</span> fileExists(dst) &#123;<br>			fmt.Println(<span class="hljs-string">&quot;%s exists override ? y/n\n&quot;</span>, dst)<br>			reader := bufio.NewReader(os.Stdin)<br>			data, _, _ := reader.ReadLine()<br><br>			<span class="hljs-keyword">if</span> strings.TrimSpace(<span class="hljs-keyword">string</span>(data)) != <span class="hljs-string">&quot;y&quot;</span> &#123;<br>				<span class="hljs-keyword">return</span><br>			&#125;<br>		&#125;<br>	&#125;<br>	<br>	copyFile(src, dst)<br><br>	<span class="hljs-keyword">if</span> showProgress &#123;<br>		fmt.Println(<span class="hljs-string">&quot;&#x27;%s&#x27; -&gt; &#x27;%s&#x27;\n&quot;</span>, src, dst)<br>	&#125;<br>	<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">copyFile</span><span class="hljs-params">(src, dst <span class="hljs-keyword">string</span>)</span> <span class="hljs-params">(w <span class="hljs-keyword">int64</span>, err error)</span></span>  &#123;<br>	srcFile, err := os.Open(src)<br>	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>		fmt.Println(err.Error())<br>		<span class="hljs-keyword">return</span><br>	&#125;<br><br>	<span class="hljs-keyword">defer</span> srcFile.Close()<br><br>	dstFile, err := os.Create(dst)<br>	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>		fmt.Println(err.Error())<br>		<span class="hljs-keyword">return</span><br>	&#125;<br><br>	<span class="hljs-keyword">defer</span> dstFile.Close()<br><br>	<span class="hljs-keyword">return</span> io.Copy(dstFile, srcFile)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>	<span class="hljs-keyword">var</span> showProgress, force <span class="hljs-keyword">bool</span><br><br>	<span class="hljs-comment">// 定义命令行参数</span><br>	flag.BoolVar(&amp;force, <span class="hljs-string">&quot;f&quot;</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&quot;force copy when existing&quot;</span>)<br>	flag.BoolVar(&amp;showProgress, <span class="hljs-string">&quot;v&quot;</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&quot;explain what is being done&quot;</span>)<br><br>	flag.Parse()<br><br>	<span class="hljs-comment">// 非法命令行数量检测</span><br>	<span class="hljs-keyword">if</span> flag.NArg() &lt; <span class="hljs-number">2</span> &#123;<br>		flag.Usage()<br>		<span class="hljs-keyword">return</span><br>	&#125;<br><br>	copyFileAction(flag.Arg(<span class="hljs-number">0</span>), flag.Arg(<span class="hljs-number">1</span>), showProgress, force)<br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+              <blockquote>
+<p>golang 操作etcd,实现简单的 put，get，delete， watch</p>
+</blockquote>
+<figure class="highlight golang"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs golang"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>	<span class="hljs-string">&quot;context&quot;</span><br>	<span class="hljs-string">&quot;fmt&quot;</span><br>	<span class="hljs-string">&quot;go.etcd.io/etcd/client/v3&quot;</span><br>	<span class="hljs-string">&quot;time&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br><br>	<span class="hljs-keyword">var</span> etcdTestKey = <span class="hljs-string">&quot;mohuani-key-1&quot;</span><br>	<span class="hljs-keyword">var</span> etcdTestValue = <span class="hljs-string">&quot;mohuani-value-1&quot;</span><br><br>	cli, err := clientv3.New(clientv3.Config&#123;<br>		Endpoints:   []<span class="hljs-keyword">string</span>&#123;<span class="hljs-string">&quot;127.0.0.1:2379&quot;</span>&#125;,<br>		DialTimeout: time.Second,<br>	&#125;)<br><br>	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>		fmt.Println(<span class="hljs-string">&quot;connect to etcd failed, err: &quot;</span>, err)<br>		<span class="hljs-keyword">return</span><br>	&#125;<br>	<span class="hljs-keyword">defer</span> cli.Close()<br><br>	<span class="hljs-comment">// put key-value to etcd</span><br>	ctx, cancel := context.WithTimeout(context.Background(), time.Second)<br>	_, err = cli.Put(ctx, etcdTestKey, etcdTestValue)<br>	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>		fmt.Println(<span class="hljs-string">&quot;put to etcd failed, err: &quot;</span>, err)<br>		<span class="hljs-keyword">return</span><br>	&#125;<br>	cancel()<br><br>	<span class="hljs-comment">// get value by key from etcd</span><br>	ctx, cancel = context.WithTimeout(context.Background(), time.Second)<br>	getEtcdResult, err := cli.Get(ctx, etcdTestKey)<br>	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>		fmt.Println(<span class="hljs-string">&quot;get from etcd failed, err: &quot;</span>, err)<br>		<span class="hljs-keyword">return</span><br>	&#125;<br>	<span class="hljs-keyword">for</span> _, resultValue := <span class="hljs-keyword">range</span> getEtcdResult.Kvs &#123;<br>		fmt.Printf(<span class="hljs-string">&quot;key:%s value:%s\n&quot;</span>, resultValue.Key, resultValue.Value)<br>	&#125;<br>	cancel()<br><br>	delResult, err := cli.Delete(context.Background(), etcdTestKey)<br>	<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>		fmt.Println(<span class="hljs-string">&quot;delete from etcd failed, err: &quot;</span>, err)<br>		<span class="hljs-keyword">return</span><br>	&#125;<br>	fmt.Println(delResult)<br>	fmt.Println(<span class="hljs-string">&quot;-----&quot;</span>)<br><br>	<span class="hljs-comment">// watch: 监控某个key的操作变化</span><br>	watchEtcdTestResults := cli.Watch(context.Background(), etcdTestKey)<br>	<span class="hljs-keyword">for</span> watchEtcdTestResult := <span class="hljs-keyword">range</span> watchEtcdTestResults &#123;<br>		<span class="hljs-keyword">for</span> _, evt := <span class="hljs-keyword">range</span> watchEtcdTestResult.Events &#123;<br>			fmt.Printf(<span class="hljs-string">&quot;type:%s key: %s value: %s\n&quot;</span>, evt.Type.String(), evt.Kv.Key, evt.Kv.Value)<br>		&#125;<br>	&#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -225,18 +228,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/24/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">5G时代Vlog原型系统开发</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/24/Golang/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3/">
-                        <span class="hidden-mobile">Go语言学习笔记5-面向接口</span>
+                      <a href="/2021/04/09/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+                        <span class="hidden-mobile">单元测试</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -258,8 +255,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://mohuani.github.io/2021/03/24/Golang/Golang%E4%B9%8B%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%E5%A4%84%E7%90%86/';
-          this.page.identifier = '/2021/03/24/Golang/Golang%E4%B9%8B%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%E5%A4%84%E7%90%86/';
+          this.page.url = 'https://mohuani.github.io/2021/04/10/Golang/etcd/golang%E6%93%8D%E4%BD%9Cetcd/';
+          this.page.identifier = '/2021/04/10/Golang/etcd/golang%E6%93%8D%E4%BD%9Cetcd/';
         };
         Fluid.utils.lazyComments('disqus_thread', function() {
           var d = document, s = d.createElement('script');
