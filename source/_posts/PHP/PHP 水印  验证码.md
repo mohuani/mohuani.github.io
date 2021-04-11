@@ -2,6 +2,7 @@
 title: "PHP 水印  验证码"
 date: 2021-03-24T19:36:38+08:00
 draft: true
+tags: [PHP]
 ---
 
 **PHP水印**

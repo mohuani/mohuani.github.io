@@ -1,6 +1,7 @@
 ---
 title: golang操作etcd
 date: 2021-04-10 13:58:33
+tags: [golang, etcd]
 ---
 
 > golang 操作etcd,实现简单的 put，get，delete， watch

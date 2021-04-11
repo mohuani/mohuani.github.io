@@ -2,6 +2,7 @@
 title: "PHP 优秀资源汇集"
 date: 2021-03-24T19:36:38+08:00
 draft: true
+tags: [PHP]
 ---
 
 # php-awesome

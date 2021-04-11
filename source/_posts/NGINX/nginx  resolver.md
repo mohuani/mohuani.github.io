@@ -2,6 +2,7 @@
 title: "nginx  resolver"
 date: 2021-03-24T19:36:38+08:00
 draft: true
+tags: [Nginx]
 ---
 
 **背景**：nginx 配置proxy_pass后，访问接口出现no resolver defined to resolve错误，或者接口直接502，404，需要配置 nginx resolver
