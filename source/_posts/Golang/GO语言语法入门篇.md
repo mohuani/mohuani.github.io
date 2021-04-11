@@ -1,7 +1,10 @@
 ---
 title: "GO语言语法入门篇"
-date: 2021-03-24T19:36:38+08:00
+date: 2017-06-15 21:22:30
 draft: true
+tags: [golang]
+categories:
+- [golang]
 ---
 
 ##### GO语言语法入门篇

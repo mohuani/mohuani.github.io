@@ -1,7 +1,10 @@
 ---
 title: "Laravel 查询构造器的使用（三）"
-date: 2021-03-24T19:36:38+08:00
+date: 2015-12-04 21:22:30
 draft: true
+tags: [PHP, Laravel]
+categories:
+- [PHP, Laravel]
 ---
 
 查询构造器中的构造函数

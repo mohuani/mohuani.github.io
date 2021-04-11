@@ -1,7 +1,10 @@
 ---
 title: "5G时代Vlog原型系统开发"
-date: 2021-03-24 12:00:00
+date: 2019-06-15 21:22:30
 draft: true
+tags: [golang]
+categories:
+- [golang]
 ---
 
 ##### 5G时代Vlog原型系统开发

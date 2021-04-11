@@ -1,6 +1,10 @@
 ---
 title: grep
 date: 2021-04-08 20:32:47
+draft: true
+tags: [计算机相关, Linux, grep]
+categories:
+- [计算机相关, Linux, grep]
 ---
 
 > 我们平常在linux服务器查询日志文件的时候，经常会使用 `cat xxx.log | grep 'aaa'` 来找寻自己要搜索的东西，但是也会出现这样的场景，我们要搜的东西，不知道落到了哪个目录或者文件下面，所以就需要使用全量模糊搜索

@@ -1,7 +1,10 @@
 ---
 title: "Restful API"
-date: 2021-03-24T19:36:38+08:00
+date: 2020-12-22 20:36:39
 draft: true
+tags: [微服务, Restful]
+categories:
+- [微服务, Restful]
 ---
 
 课程地址：https://coding.imooc.com/class/122.html

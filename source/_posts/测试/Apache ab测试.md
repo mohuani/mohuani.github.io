@@ -2,8 +2,10 @@
 ---
 title: "Apache ab测试"
 date: 2020-04-08 20:32:47
-
 draft: true
+tags: [测试]
+categories:
+- [测试]
 ---
 
 

@@ -1,8 +1,10 @@
 ---
 title: "PHP7的基本变量"
-date: 2021-03-24T19:36:38+08:00
+date: 2017-12-04 21:22:30
 draft: true
 tags: [PHP]
+categories:
+- [PHP]
 ---
 
 #### 课程地址：https://www.imooc.com/learn/1085

@@ -1,8 +1,10 @@
 ---
 title: "nginx关键字"
-date: 2021-03-24T19:36:38+08:00
+date: 2018-06-22 21:22:30
 draft: true
-tags: [Nginx]
+tags: [NGINX]
+categories:
+- [NGINX]
 ---
 
 对关键字的解释会慢慢加上

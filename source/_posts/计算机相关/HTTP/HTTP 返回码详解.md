@@ -1,7 +1,10 @@
 ---
 title: "HTTP 返回码详解"
-date: 2021-03-24T19:36:38+08:00
+date: 2019-09-03 19:36:38
 draft: true
+tags: [计算机相关, HTTP]
+categories:
+- [计算机相关, HTTP]
 ---
 
  HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。

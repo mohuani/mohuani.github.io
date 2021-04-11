@@ -1,7 +1,10 @@
 ---
 title: "MobaXterm自动断开连接设置"
-date: 2021-03-24T19:36:38+08:00
+date: 2020-08-14 12:36:38
 draft: true
+tags: [MobaXterm]
+categories:
+- [MobaXterm]
 ---
 
 #### 场景：

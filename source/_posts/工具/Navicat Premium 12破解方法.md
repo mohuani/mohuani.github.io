@@ -1,7 +1,10 @@
 ---
 title: "Navicat Premium 12破解方法"
-date: 2021-03-24T19:36:38+08:00
+date: 2016-04-19 12:36:38
 draft: true
+tags: [Navicat]
+categories:
+- [Navicat]
 ---
 
 ##### Navicat Premium 12破解方法

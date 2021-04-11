@@ -1,7 +1,10 @@
 ---
 title: "win10设置ubuntu系统root账户密码"
-date: 2021-03-24T19:36:38+08:00
+date: 2019-09-05 19:36:38
 draft: true
+tags: [ubuntu]
+categories:
+- [ubuntu]
 ---
 
 

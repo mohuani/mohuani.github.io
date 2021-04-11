@@ -1,7 +1,10 @@
 ---
 title: "Phpstorm ubuntu创建图标"
-date: 2021-03-24T19:36:38+08:00
+date: 2019-09-03 19:36:38
 draft: true
+tags: [Phpstorm]
+categories:
+- [Phpstorm]
 ---
 
 我们通过源码包的方式安装Jetbrain全家桶的软件时，桌面是没有快捷方式启动的，只能通过命令行的方式启动，很不方便。下面贴一下我的配置，通过快捷方式启动软件

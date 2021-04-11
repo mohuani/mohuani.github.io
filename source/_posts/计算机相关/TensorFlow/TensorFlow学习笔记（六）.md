@@ -1,7 +1,10 @@
 ---
 title: "TensorFlow学习笔记6"
-date: 2021-03-24T19:36:38+08:00
+date: 2019-09-03 19:36:38
 draft: true
+tags: [计算机相关, TensorFlow]
+categories:
+- [计算机相关, TensorFlow]
 ---
 
 TensorFlow搭建神经网络可视化结果

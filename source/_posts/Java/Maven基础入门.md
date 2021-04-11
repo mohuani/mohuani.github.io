@@ -1,7 +1,10 @@
 ---
 title: "Maven基础入门"
-date: 2021-03-24T19:36:38+08:00
+date: 2016-06-17 21:22:30
 draft: true
+tags: [Java, maven]
+categories:
+- [Java, maven]
 ---
 
 Maven Learning Notes

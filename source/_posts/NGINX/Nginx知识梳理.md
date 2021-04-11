@@ -1,7 +1,10 @@
 ---
 title: "Nginx知识梳理"
-date: 2021-03-24T19:36:38+08:00
+date: 2018-06-22 21:22:30
 draft: true
+tags: [NGINX]
+categories:
+- [NGINX]
 ---
 
 **Nginx进程管理信信号**

@@ -1,7 +1,10 @@
 ---
 title: "JsonWebToken"
-date: 2021-03-24T19:36:38+08:00
+date: 2016-06-17 21:22:30
 draft: true
+tags: [Java]
+categories:
+- [Java]
 ---
 
 参考阮一峰老师的博客：http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html

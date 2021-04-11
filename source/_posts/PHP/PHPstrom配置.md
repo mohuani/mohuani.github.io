@@ -1,6 +1,10 @@
 ---
 title: PHPstrom配置
-date: 2021-04-09 13:15:47
+date: 2017-12-04 21:22:30
+draft: true
+tags: [PHP, PHPstrom]
+categories:
+- [PHP, PHPstrom]
 ---
 
 ### CodeStyle配置

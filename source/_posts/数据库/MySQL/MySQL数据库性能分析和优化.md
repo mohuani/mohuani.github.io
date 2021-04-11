@@ -1,7 +1,10 @@
 ---
 title: "MySQL数据库性能分析和优化"
-date: 2021-03-24T19:36:38+08:00
+date: 2019-10-18 20:36:39
 draft: true
+tags: [数据库, MySQL]
+categories:
+- [数据库, MySQL]
 ---
 
 课程地址：https://www.imooc.com/learn/194

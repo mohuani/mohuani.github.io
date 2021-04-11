@@ -1,7 +1,10 @@
 ---
 title: "Google资深工程师深度讲解Go语言3-内建容器"
-date: 2021-03-24T19:36:38+08:00
+date: 2019-06-15 21:22:30
 draft: true
+tags: [golang]
+categories:
+- [golang]
 ---
 
 #### go语言中只有值传递，没有引用传递

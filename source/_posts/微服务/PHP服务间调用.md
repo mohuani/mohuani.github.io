@@ -1,6 +1,10 @@
 ---
 title: PHP服务间调用
 date: 2021-04-11 15:58:22
+draft: true
+tags: [微服务]
+categories:
+- [微服务]
 ---
 
 ### 背景

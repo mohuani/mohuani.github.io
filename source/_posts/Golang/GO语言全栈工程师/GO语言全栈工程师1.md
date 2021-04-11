@@ -1,8 +1,11 @@
 
 ---
 title: "GO语言全栈工程师1"
-date: 2021-03-24T19:36:38+08:00
+date: 2019-06-15 21:22:30
 draft: true
+tags: [golang]
+categories:
+- [golang]
 ---
 
 GO语言全栈工程师 基础+就业班：https://www.bilibili.com/video/av46086727/

@@ -1,7 +1,10 @@
 ---
 title: "mysql导出表结构和表数据"
-date: 2021-03-24T19:36:38+08:00
+date: 2019-10-18 20:36:39
 draft: true
+tags: [数据库, MySQL]
+categories:
+- [数据库, MySQL]
 ---
 
 命令行下具体用法如下：  

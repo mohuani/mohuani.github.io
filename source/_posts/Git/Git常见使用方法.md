@@ -1,8 +1,11 @@
 
 ---
 title: "Git常见使用方法"
-date: 2021-03-24T19:36:38+08:00
+date: 2020-06-15 21:22:30
 draft: true
+tags: [Git]
+categories:
+- [Git]
 ---
 
 项目以往 gitee提交代码为例子

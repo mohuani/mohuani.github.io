@@ -1,7 +1,10 @@
 ---
 title: "Nginx unit"
-date: 2021-03-24T19:36:38+08:00
+date: 2018-06-22 21:22:30
 draft: true
+tags: [NGINX]
+categories:
+- [NGINX]
 ---
 
 1、nginx  unit 的配置时直接在内存中更新的，如何做到语法错误检测

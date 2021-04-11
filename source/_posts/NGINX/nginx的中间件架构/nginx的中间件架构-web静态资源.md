@@ -1,7 +1,10 @@
 ---
-title: "nginx的中间件架构-web静态资源"
-date: 2021-03-24T19:36:38+08:00
+title: "nginx中间件架构-web静态资源"
+date: 2018-06-17 21:22:30
 draft: true
+tags: [NGINX, Nginx中间件架构]
+categories:
+- [NGINX, Nginx中间件架构]
 ---
 
 #### http_x_forwarded_for

@@ -1,7 +1,10 @@
 ---
 title: "Java反射的三种实现方式"
-date: 2021-03-24T19:36:38+08:00
+date: 2016-06-15 21:22:30
 draft: true
+tags: [Java]
+categories:
+- [Java]
 ---
 
 Java反射的三种实现方式

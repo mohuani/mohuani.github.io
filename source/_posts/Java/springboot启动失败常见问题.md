@@ -1,8 +1,11 @@
 
 ---
 title: "springboot启动失败常见问题"
-date: 2021-03-24T19:36:38+08:00
+date: 2016-06-17 21:22:30
 draft: true
+tags: [Java, Springboot]
+categories:
+- [Java, Springboot]
 ---
 
 <!-- - 刚开始使用springboot连接mysql数据库，项目启动的时候报了一个错误 -->

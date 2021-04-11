@@ -1,7 +1,10 @@
 ---
 title: "Docker入门"
-date: 2021-03-24T19:36:38+08:00
+date: 2018-08-22 20:36:39
 draft: true
+tags: [运维, docker]
+categories:
+- [运维, docker]
 ---
 
 ##### Docker入门
