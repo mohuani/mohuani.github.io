@@ -198,3 +198,9 @@ tag:
     unit: px  # 字号单位
     start_color: "#BBBBEE"
     end_color: "#337ab7"
+
+about:
+  icons:
+    - { class: 'iconfont icon-github-fill', link: 'https://github.com/mohuani', tip: 'GitHub' }
+    - { class: 'iconfont icon-weibo-fill', link: 'https://douban.com', tip: '豆瓣' }
+    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/mohuani-wechat.jpeg', tip: '微信' }
