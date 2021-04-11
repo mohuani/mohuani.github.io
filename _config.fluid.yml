@@ -39,19 +39,19 @@ external_link:
   field: site # Apply to the whole site
   exclude: ''
 filename_case: 0
-render_drafts: false
+render_drafts: true
 post_asset_folder: true
-relative_link: false
+relative_link: true
 future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
-  hljs: false
+  hljs: true
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -164,9 +164,6 @@ index:
   auto_excerpt:
     enable: true
 
-# # 文章跳转方式
-# index:
-#   post_url_target: _blank
 
 
 # 代码块
