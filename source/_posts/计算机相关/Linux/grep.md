@@ -9,7 +9,7 @@ categories:
 
 > 我们平常在linux服务器查询日志文件的时候，经常会使用 `cat xxx.log | grep 'aaa'` 来找寻自己要搜索的东西，但是也会出现这样的场景，我们要搜的东西，不知道落到了哪个目录或者文件下面，所以就需要使用全量模糊搜索
 
-![image-20210408204947514](../../images/image-20210408204947514.png)
+![image-20210408204947514](../../../images/2021/image-20210408204947514.png)
 
 **grep 命令文档** ：https://www.runoob.com/linux/linux-comm-grep.html
 
