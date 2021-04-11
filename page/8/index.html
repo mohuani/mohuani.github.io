@@ -182,20 +182,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2017/12/04/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">PHP简单图形图像处理</a>
+        <a href="/2017/12/04/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/">PHP设计模式（适配器模式）</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2017/12/04/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+        <a href="/2017/12/04/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/">
           
           
             
           
-          #PHP简单图形图像处理
-引语php不仅仅局限于html的输出，还可以创建和操作各种各样的图像文件，如GIF、PNG、JPEG、WBMP、XBM等。
-php还可以将图像流直接显示在浏览器中。
-要处理图像，就要用到php的GD库。
-ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到“;extension=php_gd2.dll”，将选项前的分号删除，保存，再重启Apache
+          设计动机假如我们又这样软件系统，我们希望它能够和一个新的库搭配使用，但是这个库所提供的接口与我们的软件系统不兼容，我们不想改变现有代码就能解决这个问题，怎么办？这个时候我们就需要将这个新的库接口转换成我们所需要的接口，这就是适配器模式设计动机。
+模式定义
+适配器模式就是将一个类的接口，转换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。
+
+在适配器模式中，我们可以定义一个包装类，包
         </a>
       </p>
 
@@ -234,17 +234,21 @@ ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2017/12/04/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">PHP的自动加载机制</a>
+        <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">PHP 水印  验证码</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2017/12/04/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+        <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">
           
           
             
           
-          原因我们在写PHP代码的时候，总会遇到这种情况（A.php需要引入XXX.php才能正常运行），代码结构比较小的话，通常我们都是直接通过 include 或者 require 直接引入，如果需要引入的文件不多的话，还可以接受，但是如果引入的文件达到几十个以上，再用 include 和 require 就显得比较繁琐，影响代码的美观。因此我们需要引入PHP文件的自动加载机制。
-方法一使用 __aut
+          PHP水印
+
+
+PHP验证码处理
+
+
         </a>
       </p>
 
@@ -283,17 +287,16 @@ ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2017/12/04/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/">PHP消息队列实现及应用</a>
+        <a href="/2017/12/04/PHP/PHPstrom%E9%85%8D%E7%BD%AE/">PHPstrom配置</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2017/12/04/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/">
+        <a href="/2017/12/04/PHP/PHPstrom%E9%85%8D%E7%BD%AE/">
           
           
             
           
-          直接放置传送门：https://www.cnblogs.com/dump/p/8243868.html
-
+          CodeStyle配置12345678910111213141516171819202122&lt;code_scheme name=&quot;Mohuani-PHP&quot; version=&quot;11&quot;&gt;  &lt;PHPCodeStyleSettings&gt;    &lt;option name=&quot;ALIGN_KEY_VALUE_PAIRS&quot;
         </a>
       </p>
 
@@ -312,6 +315,8 @@ ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到�
             
               <a href="/categories/PHP/">PHP</a>
             
+              <a href="/categories/PHP/PHPstrom/">PHPstrom</a>
+            
           </div>
         
         
@@ -319,6 +324,8 @@ ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到�
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/PHPstrom/">PHPstrom</a>
             
           </div>
         
@@ -530,16 +537,70 @@ ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A82/">MyBatis-Plus入门2</a>
+        <a href="/2016/06/17/Java/springboot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">springboot启动失败常见问题</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A82/">
+        <a href="/2016/06/17/Java/springboot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
           
           
             
           
-          查询方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011
+          
+
+1Loading class `com.mysql.jdbc.Driver&#x27;. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver&#x27;. The driver is automatically registered via the SPI and manual loading of the
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-06-17 21:22" pubdate>
+              2016-06-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Springboot/">Springboot</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/Springboot/">Springboot</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A83/">MyBatis-Plus入门3</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A83/">
+          
+          
+            
+          
+          update 更新123456789101112// 参考：https://mp.baomidou.com/guide/crud-interface.html#update// 根据 UpdateWrapper 条件，更新记录 需要设置sqlsetboolean update(Wrapper&lt;T&gt; updateWrapper);// 根据 whereEntity 条件，更新记录bool
         </a>
       </p>
 
@@ -622,66 +683,6 @@ pom.xml1234567891011121314151617181920212223242526272829303132333435363738394041
               <a href="/tags/Java/">Java</a>
             
               <a href="/tags/MyBatis/">MyBatis</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2016/06/17/Java/Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">Maven基础入门</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2016/06/17/Java/Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">
-          
-          
-            
-          
-          Maven Learning NotesMaven学习笔记
-一.介绍Maven是基于项目对象模型（POM），可以通过一小段描述信息来管理项目的构建、报告和文档的软件项目管理工具。
-
-bin目录是包含mvn的运行脚本
-boot目录包含一个类加载器的框架，maven使用它加载自己的类库
-conf配置文件
-lib包含maven运行时的依赖类库
-
-二.环境变量的配置点击下载maven环境配置，增加一个环境
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2016-06-17 21:22" pubdate>
-              2016-06-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
-            
-              <a href="/categories/Java/maven/">maven</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Java/">Java</a>
-            
-              <a href="/tags/maven/">maven</a>
             
           </div>
         
