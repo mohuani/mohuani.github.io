@@ -182,25 +182,20 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">nginx的中间件架构-性能优化</a>
+        <a href="/2017/12/04/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">PHP简单图形图像处理</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+        <a href="/2017/12/04/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
           
           
             
           
-          location匹配优先级 ~ 区分大小写，~~*不区分大小写
-try_files场景：用于文件缓存
-root和alias的区别
-传递用户的真实ip在代理1处直接获取用户的ip，然后通过层层代理透传到后端
-其他常见错误
-文件句柄优化 针对用户进行修改  针对进程限制 
-cpu亲和绑定
-gzip兼容
-安全
-
+          #PHP简单图形图像处理
+引语php不仅仅局限于html的输出，还可以创建和操作各种各样的图像文件，如GIF、PNG、JPEG、WBMP、XBM等。
+php还可以将图像流直接显示在浏览器中。
+要处理图像，就要用到php的GD库。
+ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到“;extension=php_gd2.dll”，将选项前的分号删除，保存，再重启Apache
         </a>
       </p>
 
@@ -208,12 +203,26 @@ gzip兼容
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
         
       </div>
     </article>
@@ -225,31 +234,17 @@ gzip兼容
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx的中间件架构-负载均衡</a>
+        <a href="/2017/12/04/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">PHP的自动加载机制</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+        <a href="/2017/12/04/PHP/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
           
           
             
           
-          upstream
-负载均衡调度状态
-调度算法
-url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2
-
-代理缓存
-proxy_cache
-完整
-部分
-
-
-缓存过期周期
-缓存的维度
-如何清除指定缓存
-如何让指定页面不进行缓存
-大文件分
+          原因我们在写PHP代码的时候，总会遇到这种情况（A.php需要引入XXX.php才能正常运行），代码结构比较小的话，通常我们都是直接通过 include 或者 require 直接引入，如果需要引入的文件不多的话，还可以接受，但是如果引入的文件达到几十个以上，再用 include 和 require 就显得比较繁琐，影响代码的美观。因此我们需要引入PHP文件的自动加载机制。
+方法一使用 __aut
         </a>
       </p>
 
@@ -257,12 +252,26 @@ proxy_cache
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
         
       </div>
     </article>
@@ -274,17 +283,17 @@ proxy_cache
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/">Laravel - DB - facade实现CURD</a>
+        <a href="/2017/12/04/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/">PHP消息队列实现及应用</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20DB%20-%20facade%E5%AE%9E%E7%8E%B0CURD/">
+        <a href="/2017/12/04/PHP/PHP%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%BA%94%E7%94%A8/">
           
           
             
           
-          新建的数据表SQL
-12345678CREATE TABLE IF NOT EXISTS students(    `id` INT AUTO_INCREMENT PRIMARY KEY,    `name` VARCHAR(255) NOT NULL DEFAULT &#x27;&#x27; COMMENT &#x27;姓名&#x27;,    `age` TINYINT UNSIGNED NO
+          直接放置传送门：https://www.cnblogs.com/dump/p/8243868.html
+
         </a>
       </p>
 
@@ -292,12 +301,26 @@ proxy_cache
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
         
       </div>
     </article>
@@ -309,20 +332,17 @@ proxy_cache
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20Eloquent%20ORM%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">Laravel - Eloquent ORM数据处理</a>
+        <a href="/2017/12/04/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/">PHP7的基本变量</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20-%20Eloquent%20ORM%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
+        <a href="/2017/12/04/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/">
           
           
             
           
-          #Laravel - Eloquent ORM数据处理
+          课程地址：https://www.imooc.com/learn/1085
 
-将数据库和Model进行绑定
-
-123456789101112131415161718192021222324252627282930313233&lt;?phpnamespace App;use Illuminate\Database\Eloquent\Model;class Student extends Model&#123;    
         </a>
       </p>
 
@@ -330,12 +350,26 @@ proxy_cache
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
         
       </div>
     </article>
@@ -347,19 +381,19 @@ proxy_cache
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20collecte%20break%20continue/">Laravel collecte break continue</a>
+        <a href="/2017/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95%E5%85%A5%E9%97%A8%E7%AF%87/">GO语言语法入门篇</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20collecte%20break%20continue/">
+        <a href="/2017/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95%E5%85%A5%E9%97%A8%E7%AF%87/">
           
           
             
           
-          
-typora-root-url: ../imagesLaravel collecte break continue
+          GO语言语法入门篇课程地址：https://www.imooc.com/learn/968
 
-背景： Laravel框架中循环我们都推荐使用 collecte 进行循环，但是如果我们想要在循环中break 或者 continue，直接break或者continue，语法层面会直接报错，那么怎么才能实现上述所要的效果呢。其实在循环中 return的效果就类似与break，而
+
+
         </a>
       </p>
 
@@ -367,12 +401,26 @@ typora-root-url: ../imagesLaravel collecte break continue
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-06-15 21:22" pubdate>
+              2017-06-15
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/golang/">golang</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/golang/">golang</a>
+            
+          </div>
         
       </div>
     </article>
@@ -384,17 +432,17 @@ typora-root-url: ../imagesLaravel collecte break continue
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/">Laravel 查询构造器的使用（一）</a>
+        <a href="/2017/06/15/Golang/Golang%E4%B9%8B%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%E5%A4%84%E7%90%86/">Golang之文本编码处理</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/">
+        <a href="/2017/06/15/Golang/Golang%E4%B9%8B%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%E5%A4%84%E7%90%86/">
           
           
             
           
-          使用查询构造器对数据库的 增 - 删 - 改 操作
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667//使用查询构造器新增数据   public function query1()   &#123;
+          课程地址：https://www.imooc.com/coursescore/305
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475package mainimpo
         </a>
       </p>
 
@@ -402,12 +450,26 @@ typora-root-url: ../imagesLaravel collecte break continue
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-06-15 21:22" pubdate>
+              2017-06-15
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/golang/">golang</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/golang/">golang</a>
+            
+          </div>
         
       </div>
     </article>
@@ -419,17 +481,17 @@ typora-root-url: ../imagesLaravel collecte break continue
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89/">Laravel 查询构造器的使用（三）</a>
+        <a href="/2017/04/20/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">分布式之系统底层原理</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89/">
+        <a href="/2017/04/20/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">
           
           
             
           
-          查询构造器中的构造函数
-123456789101112131415161718//聚合函数   public function query5()   &#123;       $num = DB::table(&#x27;student&#x27;)-&gt;count();       var_dump($num);       $max = DB::table(&#x27;student&#x
+          分布式之系统底层原理：https://mp.weixin.qq.com/s/KKrxuVCrjlXXWMPTXQ-fvA
+
         </a>
       </p>
 
@@ -437,12 +499,26 @@ typora-root-url: ../imagesLaravel collecte break continue
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-04-20 11:36" pubdate>
+              2017-04-20
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F/">分布式之系统</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B9%8B%E7%B3%BB%E7%BB%9F/">分布式之系统</a>
+            
+          </div>
         
       </div>
     </article>
@@ -454,17 +530,16 @@ typora-root-url: ../imagesLaravel collecte break continue
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%BA%8C%EF%BC%89/">Laravel 查询构造器的使用（二）</a>
+        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A82/">MyBatis-Plus入门2</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%BA%8C%EF%BC%89/">
+        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A82/">
           
           
             
           
-          使用查询构造器对数据库的 查询 操作
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950//使用查询构造器查询数据    public function query4()    &#123;        //get()取出所有的数据        $student 
+          查询方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011
         </a>
       </p>
 
@@ -472,12 +547,30 @@ typora-root-url: ../imagesLaravel collecte break continue
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2016-06-17 21:22" pubdate>
+              2016-06-17
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/MyBatis/">MyBatis</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/MyBatis/">MyBatis</a>
+            
+          </div>
         
       </div>
     </article>
@@ -489,20 +582,17 @@ typora-root-url: ../imagesLaravel collecte break continue
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/PHP/Laravel/Laravel-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/">Laravel-事件监听</a>
+        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A81/">MyBatis-Plus入门1</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/PHP/Laravel/Laravel-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/">
+        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A81/">
           
           
             
           
-          看同事的代码里面经常出现Laravel事件，简单的学一下，了解了解执行逻辑
-参考资料：
-Bilibili视频：Laravel 6 事件 （解耦必备）Laravel8文档：事件系统
-博客：简单易懂的laravel事件
-
+          课程资料视频地址：https://www.imooc.com/learn/1130文档地址：https://mp.baomidou.com/guide/
+pom.xml1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253&lt;?xml version=&q
         </a>
       </p>
 
@@ -510,12 +600,30 @@ Bilibili视频：Laravel 6 事件 （解耦必备）Laravel8文档：事件系�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2016-06-17 21:22" pubdate>
+              2016-06-17
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/MyBatis/">MyBatis</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/MyBatis/">MyBatis</a>
+            
+          </div>
         
       </div>
     </article>
@@ -527,20 +635,24 @@ Bilibili视频：Laravel 6 事件 （解耦必备）Laravel8文档：事件系�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/PHP/Laravel/PHP%20%20namespace%EF%BC%88%E4%B8%80%EF%BC%89/">PHP  namespace</a>
+        <a href="/2016/06/17/Java/Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">Maven基础入门</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/PHP/Laravel/PHP%20%20namespace%EF%BC%88%E4%B8%80%EF%BC%89/">
+        <a href="/2016/06/17/Java/Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">
           
           
             
           
-          #命名空间的作用域
-1.函数的namespace
-各自命名空间调用各自命名空间的函数
+          Maven Learning NotesMaven学习笔记
+一.介绍Maven是基于项目对象模型（POM），可以通过一小段描述信息来管理项目的构建、报告和文档的软件项目管理工具。
 
-1234567891011121314151617181920212223242526&lt;?phpnamespace a&#123;    function hello()    &#123;        return &#x27;命名空间&#x27; . __NAMESPACE__ . &#x27;&l
+bin目录是包含mvn的运行脚本
+boot目录包含一个类加载器的框架，maven使用它加载自己的类库
+conf配置文件
+lib包含maven运行时的依赖类库
+
+二.环境变量的配置点击下载maven环境配置，增加一个环境
         </a>
       </p>
 
@@ -548,12 +660,30 @@ Bilibili视频：Laravel 6 事件 （解耦必备）Laravel8文档：事件系�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2016-06-17 21:22" pubdate>
+              2016-06-17
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/maven/">maven</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/maven/">maven</a>
+            
+          </div>
         
       </div>
     </article>

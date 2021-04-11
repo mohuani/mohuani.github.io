@@ -182,17 +182,18 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Gson%E5%88%9B%E5%BB%BA%E5%92%8C%E8%A7%A3%E6%9E%90Json/">Gson创建和解析Json</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">nginx中间件架构-代理服务</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Gson%E5%88%9B%E5%BB%BA%E5%92%8C%E8%A7%A3%E6%9E%90Json/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">
           
           
             
           
-          课程地址：https://www.imooc.com/learn/523Gson是google开发的一个开源Json解析库，最新版本以及源码可以在官方的github上查看：https://github.com/google/gson
-Maven依赖12345&lt;dependency&gt;  &lt;groupId&gt;com.google.code.gson&lt;&#x2F;groupI
+          代理区别正向代理代理的对象是客户端反向代理代理的对象是服务端
+proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	location, if in location, limit_except;------http://localhost:8080/uri/https://192.168.1.1:8080/uri/
+缓冲
         </a>
       </p>
 
@@ -200,12 +201,30 @@ Maven依赖12345&lt;dependency&gt;  &lt;groupId&gt;com.google.code.gson&lt;&#x2F
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2018-06-17 21:22" pubdate>
+              2018-06-17
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
         
       </div>
     </article>
@@ -217,21 +236,17 @@ Maven依赖12345&lt;dependency&gt;  &lt;groupId&gt;com.google.code.gson&lt;&#x2F
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%20%E5%8F%8D%E5%B0%84/">Java 反射</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">nginx中间件架构-web静态资源</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%20%E5%8F%8D%E5%B0%84/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">
           
           
             
           
-          参考视频反射——Java高级开发必须懂的 https://www.imooc.com/learn/199
-
-Class类
-在面向对象的世界里，万事万物皆对象。（java语言中，静态的成员、普通数据类型除外) 类是不是对象呢?类是(哪个类的对象呢?)谁的对象呢? 类是对象，类是java.lang.Class类的实例对象
-这个对象到底如何表示
-Class.forName(“类的全称”) 不仅表示了，类
+          http_x_forwarded_for1http_x_forwarded_for = Client IP, Proxy1 IP, Client2 IP, Client3 IP...
+http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_basic string | off;Default:	auth_ba
         </a>
       </p>
 
@@ -239,12 +254,30 @@ Class.forName(“类的全称”) 不仅表示了，类
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2018-06-17 21:22" pubdate>
+              2018-06-17
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
         
       </div>
     </article>
@@ -256,25 +289,19 @@ Class.forName(“类的全称”) 不仅表示了，类
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java-%E6%B3%A8%E8%A7%A3/">Java-注解</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">nginx中间件架构-Lua开发</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java-%E6%B3%A8%E8%A7%A3/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">
           
           
             
           
-          参考视频反射——全面解析Java注解 https://www.imooc.com/learn/456
+          Lua介绍
+nginx调用Lua指令
+nginx lua api（lua调用nginx）
 
-Java中的常见注解JDK自带注解
-
-@Override，表示当前的方法定义将覆盖超类中的方法。
-
-@Deprecated，使用了注解为它的元素编译器将发出警告，过时被弃用的代码，不建议再使用。
-
-@SuppressWarnings，关闭不当编译器警告信息。
-  例子：@SuppressWarn
         </a>
       </p>
 
@@ -282,12 +309,30 @@ Java中的常见注解JDK自带注解
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2018-06-17 21:22" pubdate>
+              2018-06-17
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
         
       </div>
     </article>
@@ -299,119 +344,11 @@ Java中的常见注解JDK自带注解
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E4%B8%AD%E7%9A%84session%E5%92%8Ccookie/">Java中的session和cookie</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx中间件架构-HTTPS服务</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E4%B8%AD%E7%9A%84session%E5%92%8Ccookie/">
-          
-          
-            
-          
-          cookiecookie是小段文本信息，在网络服务器上生成，并发给浏览器，通过使用cookie可以记录一些请求数据。流览器将cookie以key/value的形式保存到客户端的某个指定目录下。在使用cookie时，应确保客户端上允许使用cookie，如果客户端禁止使用cookie的话，将导致cookie失效。
-1234567891011读取cookieCookie [] cookies=reque
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">Java反射的三种实现方式</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%8F%8D%E5%B0%84%E7%9A%84%E4%B8%89%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/">
-          
-          
-            
-          
-          Java反射的三种实现方式
-Foo foo = new Foo();
-123456789101112131415161718第一种：通过Object类的getClass方法Class cla = foo.getClass();第二种：通过对象实例方法获取对象Class cla = foo.class;第三种：通过Class.forName方式Class cla = Class.forName(&q
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%BA%8F%E5%88%97%E5%8C%96/">Java序列化</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/Java/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Java%E5%BA%8F%E5%88%97%E5%8C%96/">
-          
-          
-            
-          
-          序列化Java 中提供了一种对象持久化保存的技术。常规的对象，在程序结束后就会被回收处理，如果想要对象能被持久化保存下来方便下次使用，就需要使用到对象的序列化和反序列化。序列化成功的条件
-121、该类必须实现java.io.Serializable接口2、类的所有字段都必须是可序列化的（属性类型是实现类java.io.Serializable接口的）；
-
-12序列化是排除某个字段只需要用trans
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx的中间件架构-HTTPS服务</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">
           
           
             
@@ -428,12 +365,30 @@ http_geoip_module使用场景
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2018-06-17 21:22" pubdate>
+              2018-06-17
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
         
       </div>
     </article>
@@ -445,18 +400,16 @@ http_geoip_module使用场景
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">nginx的中间件架构-Lua开发</a>
+        <a href="/2018/05/13/%E5%B7%A5%E5%85%B7/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/">从零开始搭建创业公司后台技术栈</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">
+        <a href="/2018/05/13/%E5%B7%A5%E5%85%B7/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/">
           
           
             
           
-          Lua介绍
-nginx调用Lua指令
-nginx lua api（lua调用nginx）
+          从零开始搭建创业公司后台技术栈：https://mp.weixin.qq.com/s/rMQxxSVebFJMkSuzht5HDQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882
 
         </a>
       </p>
@@ -465,12 +418,26 @@ nginx lua api（lua调用nginx）
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2018-05-13 12:36" pubdate>
+              2018-05-13
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+            
+          </div>
         
       </div>
     </article>
@@ -482,17 +449,16 @@ nginx lua api（lua调用nginx）
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">nginx的中间件架构-web静态资源</a>
+        <a href="/2017/12/04/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">PHPUnit单元测试</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">
+        <a href="/2017/12/04/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
           
           
             
           
-          http_x_forwarded_for1http_x_forwarded_for = Client IP, Proxy1 IP, Client2 IP, Client3 IP...
-http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_basic string | off;Default:	auth_ba
+          ###前言单元测试这个问题对于新人来说总感觉没意思，感觉单元测试做不做都没啥问题，有时候还总觉得做单元测试很浪费时间。我总感觉 PHP 的开发者们并没有对 PHP 的质量有所追求，让大部分的开发者总以为浏览器访问就没有问题，所以很多时候，做 PHP 开发的，就没有单元测试的这些概念了。能不能有点追求？作为一个开发者，或者说是一个产品的经手人，就应该用心地去做好每个细节，一次比一次要更好。但是做单元
         </a>
       </p>
 
@@ -500,12 +466,30 @@ http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_bas
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+              <a href="/categories/PHP/PHPUnit/">PHPUnit</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/PHPUnit/">PHPUnit</a>
+            
+          </div>
         
       </div>
     </article>
@@ -517,18 +501,21 @@ http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_bas
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">nginx的中间件架构-代理服务</a>
+        <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">PHP 水印  验证码</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/03/24/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">
+        <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">
           
           
             
           
-          代理区别正向代理代理的对象是客户端反向代理代理的对象是服务端
-proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	location, if in location, limit_except;------http://localhost:8080/uri/https://192.168.1.1:8080/uri/
-缓冲
+          PHP水印
+
+
+PHP验证码处理
+
+
         </a>
       </p>
 
@@ -536,12 +523,186 @@ proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	locati
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-24 11:36" pubdate>
-              2021-03-24
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/12/04/PHP/PHP%20%E4%BC%98%E7%A7%80%E8%B5%84%E6%BA%90%E6%B1%87%E9%9B%86/">PHP 优秀资源汇集</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/12/04/PHP/PHP%20%E4%BC%98%E7%A7%80%E8%B5%84%E6%BA%90%E6%B1%87%E9%9B%86/">
+          
+          
+            
+          
+          php-awesome
+以下是我整理好的 PHP 资源，各位看官拿去用，不用再自己找了。
+每周在 GitHub 上更新，觉得不错请点个 Star ❤️
+如转载分享，请保留出处，谢谢 ?
+原文地址: https://shockerli.net/post/php-awesome
+GitHub: https://github.com/shockerli/php-awesome
+
+
+PHP PSR 代码标
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/12/04/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/">PHP设计模式（适配器模式）</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/12/04/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/">
+          
+          
+            
+          
+          设计动机假如我们又这样软件系统，我们希望它能够和一个新的库搭配使用，但是这个库所提供的接口与我们的软件系统不兼容，我们不想改变现有代码就能解决这个问题，怎么办？这个时候我们就需要将这个新的库接口转换成我们所需要的接口，这就是适配器模式设计动机。
+模式定义
+适配器模式就是将一个类的接口，转换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。
+
+在适配器模式中，我们可以定义一个包装类，包
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/12/04/PHP/PHPstrom%E9%85%8D%E7%BD%AE/">PHPstrom配置</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/12/04/PHP/PHPstrom%E9%85%8D%E7%BD%AE/">
+          
+          
+            
+          
+          CodeStyle配置12345678910111213141516171819202122&lt;code_scheme name=&quot;Mohuani-PHP&quot; version=&quot;11&quot;&gt;  &lt;PHPCodeStyleSettings&gt;    &lt;option name=&quot;ALIGN_KEY_VALUE_PAIRS&quot;
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+              <a href="/categories/PHP/PHPstrom/">PHPstrom</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/PHPstrom/">PHPstrom</a>
+            
+          </div>
         
       </div>
     </article>
