@@ -186,9 +186,22 @@ code:
 post:
   comments:
     enable: true
-    type: disqus
+    type: gitalk
 disqus:
   shortname: fluid
+
+gitalk:
+  enable: true  # 默认为 false 改为 true 
+  github_id:  mohuani # 写你的用户名就好了
+  repo:  mohuani.github.io # 注意这个地方是存放评论的地方，写的是你的仓库名不是地址！！！
+  client_id: 2a9fbcf8fc676cef4677 # 你创建完之后会有 一个 id 把 ID 输入到这个地方
+  client_secret: 5b7716f3913684b8e550b463e1523396d0c82af0 # 以上同理
+  admin_user:  mohuani # 输入你的用户名就可以了
+  distraction_free_mode: true # Facebook-like distraction free mode
+  # Gitalk's display language depends on user's browser or system environment
+  # If you want everyone visiting your site to see a uniform language, you can set a force language value
+  # Available values: en, es-ES, fr, ru, zh-CN, zh-TW
+  language: zh-CN
 
 
 tag:
