@@ -161,7 +161,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      136 字
+      195 字
     </span>
   
 
@@ -171,7 +171,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -205,7 +205,7 @@
             
             <div class="markdown-body">
               <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>后端业务是使用微服务的，微服务的底层是使用Golang编写的。业务逻辑使用的是PHP编写的，某次开发的时候，PHP某个服务A提供了一个控制器叫做<code>UnitController</code>，composer打包之后提供给其他业务B，C，D使用，但是B服务调用A服务<code>UnitController</code>中的某个方法的时候，报错<code>UnitController</code>不存在。后面排查composer包里面<code>UnitController</code>的确是存在的。</p>
-<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>每种编程语言都有自己的一套保留字，在PHP层面<code>unit</code></p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>每种编程语言都有自己的一套保留字，在PHP层面<code>unit</code>就是普通字符串，但是在Golang里面<code>unit</code>是保留字，恰好我们<code>UnitController</code>打包后面的名字就叫做<code>Unit</code>，和Golang的保留字冲突，导致了PHP调用服务时出现了 <code>class not found</code>的情况了</p>
 
             </div>
             <hr>
