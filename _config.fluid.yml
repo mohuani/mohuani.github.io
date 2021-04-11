@@ -202,5 +202,5 @@ tag:
 about:
   icons:
     - { class: 'iconfont icon-github-fill', link: 'https://github.com/mohuani', tip: 'GitHub' }
-    - { class: 'iconfont icon-weibo-fill', link: 'https://douban.com', tip: '豆瓣' }
-    - { class: 'iconfont icon-wechat-fill', qrcode: '/img/mohuani-wechat.jpeg', tip: '微信' }
+    - { class: 'iconfont icon-weibo-fill', link: 'https://weibo.com/u/5580634894', tip: '微博' }
+    - { class: 'iconfont icon-wechat-fill', qrcode: '/images/mohuani-wechat.jpeg', tip: '微信' }
