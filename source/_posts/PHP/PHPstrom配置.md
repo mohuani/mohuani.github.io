@@ -48,3 +48,4 @@ categories:
 > 在Settings/Preferences... -> Plugins 内手动添加第三方插件仓库地址：[https://plugins.zhile.io](https://plugins.zhile.io)，然后再仓库市场里面搜索并安装插件 `IDE Eval Reset`
 
 - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
+- [Git Commit Template](https://blog.csdn.net/noaman_wgs/article/details/103429171)
