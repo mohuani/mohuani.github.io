@@ -182,6 +182,55 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2018/06/22/NGINX/nginx%20%20resolver/">nginx  resolver</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/06/22/NGINX/nginx%20%20resolver/">
+          
+          
+            
+          
+          背景：nginx 配置proxy_pass后，访问接口出现no resolver defined to resolve错误，或者接口直接502，404，需要配置 nginx resolver
+1234567891011server &#123;	server_name wfk.mohuani.com		location / &#123;	resolver 114.114.114.114;	prox
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-06-22 21:22" pubdate>
+              2018-06-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2018/06/22/NGINX/nginx%E5%85%B3%E9%94%AE%E5%AD%97/">nginx关键字</a>
       </h1>
 
@@ -233,17 +282,16 @@ core Nginx.c：daemonmaster_processtimer_resolutionpidlock_fileworker_processesd
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/22/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">深入浅出nginx9-10</a>
+        <a href="/2018/06/22/NGINX/Nginx%20unit/">Nginx unit</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/22/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">
+        <a href="/2018/06/22/NGINX/Nginx%20unit/">
           
           
             
           
-          
-https://www.bilibili.com/video/av46744851/?p=10
+          1、nginx  unit 的配置时直接在内存中更新的，如何做到语法错误检测2、怎么配置不同语言的App应用3、配置语法是怎样的，和nginx的区别大吗4、不同语言的App在使用unit作为web容器的时候，都需要做出什么样的改动，例如：golang使用unit的时候需要将http.handler替换陈unit.handler
 
         </a>
       </p>
@@ -270,6 +318,129 @@ https://www.bilibili.com/video/av46744851/?p=10
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/NGINX/">NGINX</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx中间件架构-负载均衡</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+          
+          
+            
+          
+          upstream
+负载均衡调度状态
+调度算法
+url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2
+
+代理缓存
+proxy_cache
+完整
+部分
+
+
+缓存过期周期
+缓存的维度
+如何清除指定缓存
+如何让指定页面不进行缓存
+大文件分
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-06-17 21:22" pubdate>
+              2018-06-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx中间件架构-HTTPS服务</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">
+          
+          
+            
+          
+          secure_link_module
+geoip_module
+http_geoip_module使用场景
+生成秘钥和CA证书
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-06-17 21:22" pubdate>
+              2018-06-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
             
           </div>
         
@@ -506,129 +677,6 @@ gzip兼容
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx中间件架构-负载均衡</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-          
-          
-            
-          
-          upstream
-负载均衡调度状态
-调度算法
-url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2
-
-代理缓存
-proxy_cache
-完整
-部分
-
-
-缓存过期周期
-缓存的维度
-如何清除指定缓存
-如何让指定页面不进行缓存
-大文件分
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-06-17 21:22" pubdate>
-              2018-06-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/NGINX/">NGINX</a>
-            
-              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/NGINX/">NGINX</a>
-            
-              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx中间件架构-HTTPS服务</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">
-          
-          
-            
-          
-          secure_link_module
-geoip_module
-http_geoip_module使用场景
-生成秘钥和CA证书
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-06-17 21:22" pubdate>
-              2018-06-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/NGINX/">NGINX</a>
-            
-              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/NGINX/">NGINX</a>
-            
-              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
         <a href="/2018/05/13/%E5%B7%A5%E5%85%B7/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%88%9B%E4%B8%9A%E5%85%AC%E5%8F%B8%E5%90%8E%E5%8F%B0%E6%8A%80%E6%9C%AF%E6%A0%88/">从零开始搭建创业公司后台技术栈</a>
       </h1>
 
@@ -665,59 +713,6 @@ http_geoip_module使用场景
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">PHP 水印  验证码</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">
-          
-          
-            
-          
-          PHP水印
-
-
-PHP验证码处理
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2017-12-04 21:22" pubdate>
-              2017-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/PHP/">PHP</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/PHP/">PHP</a>
             
           </div>
         
