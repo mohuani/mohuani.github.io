@@ -2,9 +2,9 @@
 title: "go-zero相关资料整理"
 date: 2021-04-14 20:22:30
 draft: true
-tags: [golang, beego]
+tags: [golang, go-zero]
 categories:
-- [golang, beego]
+- [golang, go-zero]
 ---
 
 ### 视频教程
