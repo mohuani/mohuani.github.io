@@ -2,9 +2,9 @@
 title: "gorm"
 date: 2021-04-14 21:22:30
 draft: true
-tags: [golang, grom]
+tags: [golang, gorm]
 categories:
-- [golang, grom]
+- [golang, gorm]
 ---
 
 ### 配套视频
