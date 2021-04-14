@@ -456,7 +456,7 @@
     <link href="/2020/06/15/Git/Git%20Commit%20Template/"/>
     <url>/2020/06/15/Git/Git%20Commit%20Template/</url>
     
-    <content type="html"><![CDATA[<p>JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交</p><p><a href="https://plugins.jetbrains.com/plugin/9861-git-commit-template">https://plugins.jetbrains.com/plugin/9861-git-commit-template</a></p>]]></content>
+    <content type="html"><![CDATA[<p>JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交</p><p><a href="https://plugins.jetbrains.com/plugin/9861-git-commit-template">https://plugins.jetbrains.com/plugin/9861-git-commit-template</a></p><p>参考文档：<a href="https://blog.csdn.net/weixin_43550660/article/details/105459038">https://blog.csdn.net/weixin_43550660/article/details/105459038</a></p>]]></content>
     
     
     <categories>
