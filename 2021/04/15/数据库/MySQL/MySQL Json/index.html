@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      278 字
+      294 字
     </span>
   
 
@@ -236,6 +236,7 @@
 <p>但是在实际操作过程中，发现如果历史数据里面如果 <code>info</code>字段的值是 <code>null</code>的话，<code>json_set</code>是没有生效的，<code>info</code>字段有值的话，<code>json_set</code>才会生效，那么就需要下面的操作才能完成上面的需求</p>
 <figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql">update tableA <span class="hljs-keyword">set</span> info <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;&#123;&quot;value3&quot;: &quot;value3&quot;&#125;&#x27;</span> <span class="hljs-keyword">where</span> id <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> info <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span> ;<br>update tableA <span class="hljs-keyword">set</span> info <span class="hljs-operator">=</span> json_set(info, <span class="hljs-string">&#x27;$.key3&#x27;</span>, &quot;value3&quot;) <span class="hljs-keyword">where</span> id <span class="hljs-operator">=</span> <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> info <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span>;<br></code></pre></div></td></tr></table></figure>
 
+<p>另外附上一篇文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xc_zhou/article/details/83031343">https://blog.csdn.net/xc_zhou/article/details/83031343</a></p>
 
             </div>
             <hr>
