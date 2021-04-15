@@ -21,3 +21,4 @@ update tableA set info = '{"value3": "value3"}' where id = 1 and info is null ;
 update tableA set info = json_set(info, '$.key3', "value3") where id = 1 and info is not null;
 ```
 
+另外附上一篇文章：https://blog.csdn.net/xc_zhou/article/details/83031343
