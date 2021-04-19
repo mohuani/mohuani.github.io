@@ -37,6 +37,8 @@ public function run()
 
 ```php
 
+composer dump-autoload
+
 php artisan db:seed
 
 php artisan db:seed --class=UserSeeder
