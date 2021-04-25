@@ -182,20 +182,70 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/git%20submoudle/">git submoudle</a>
+        <a href="/2020/08/13/%E5%B7%A5%E5%85%B7/AppImage%20ubuntu/">AppImage ubuntu</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/git%20submoudle/">
+        <a href="/2020/08/13/%E5%B7%A5%E5%85%B7/AppImage%20ubuntu/">
           
           
             
           
-          git submoudle
-git submoudle的使用方法
-项目根目录执行
-123git submodule initgit submodule update
+          在Ubuntu上下载的软件有时候是 AppImage 格式的，怎么以快捷方式的形式启动软件，可以使用下面的这个应用管理这类软件
+AppImageLauncher: https://github.com/TheAssassin/AppImageLauncher
+下载一个deb的安装包，然后就可以用 AppImageLauncher 管理其他的AppImage应用了
 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-08-13 12:36" pubdate>
+              2020-08-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/ubuntu/">ubuntu</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/ubuntu/">ubuntu</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
+          
+          
+            
+          
+          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
+原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
+解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
+1234git rm -r --cached .
         </a>
       </p>
 
@@ -234,19 +284,19 @@ git submoudle的使用方法
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+        <a href="/2020/06/15/Git/Git%20Commit%20Template/">Git Commit Template</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
+        <a href="/2020/06/15/Git/Git%20Commit%20Template/">
           
           
             
           
-          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
-原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
-解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
-1234git rm -r --cached .
+          JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交
+https://plugins.jetbrains.com/plugin/9861-git-commit-template
+参考文档：https://blog.csdn.net/weixin_43550660/article/details/105459038
+
         </a>
       </p>
 
@@ -341,18 +391,19 @@ git submoudle的使用方法
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/Git%20Commit%20Template/">Git Commit Template</a>
+        <a href="/2020/06/15/Git/git%20submoudle/">git submoudle</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/Git%20Commit%20Template/">
+        <a href="/2020/06/15/Git/git%20submoudle/">
           
           
             
           
-          JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交
-https://plugins.jetbrains.com/plugin/9861-git-commit-template
-参考文档：https://blog.csdn.net/weixin_43550660/article/details/105459038
+          git submoudle
+git submoudle的使用方法
+项目根目录执行
+123git submodule initgit submodule update
 
         </a>
       </p>
@@ -491,23 +542,21 @@ AB测试中常见的命令123456789101112131415161718192021222324252627282930313
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/">MySQL数据库性能分析和优化</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/">
           
           
             
           
-          命令行下具体用法如下：  
-1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
-
-导出整个数据库结构和数据
-1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
-
-导出单个数据表结构和数据
-1mysqldump -h localhost -uroot -p123456  database ta
+          课程地址：https://www.imooc.com/learn/194
+推荐文章：https://www.zam9.com/blog/mysql_opt01
+MySQL数据库优化SQL语句优化慢查询
+如何发现有问题的SQL？
+使用mysql慢查询日志对有效率问题的SQL进行监控
+1234567891011121314151617//查看慢查询日志是否开启show variables like &
         </a>
       </p>
 
@@ -550,21 +599,23 @@ AB测试中常见的命令123456789101112131415161718192021222324252627282930313
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/">MySQL数据库性能分析和优化</a>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
           
           
             
           
-          课程地址：https://www.imooc.com/learn/194
-推荐文章：https://www.zam9.com/blog/mysql_opt01
-MySQL数据库优化SQL语句优化慢查询
-如何发现有问题的SQL？
-使用mysql慢查询日志对有效率问题的SQL进行监控
-1234567891011121314151617//查看慢查询日志是否开启show variables like &
+          命令行下具体用法如下：  
+1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
+
+导出整个数据库结构和数据
+1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
+
+导出单个数据表结构和数据
+1mysqldump -h localhost -uroot -p123456  database ta
         </a>
       </p>
 
@@ -626,59 +677,6 @@ MySQL数据库优化SQL语句优化慢查询
 简单查看表结构
 1desc tableName;
 
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-10-18 20:36" pubdate>
-              2019-10-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/tags/MySQL/">MySQL</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">深入理解 Mysql 索引底层原理</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">
-          
-          
-            
-          
-          深入理解 Mysql 索引底层原理 - https://zhuanlan.zhihu.com/p/113917726
 
         </a>
       </p>
