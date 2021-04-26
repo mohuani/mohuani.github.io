@@ -182,6 +182,59 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/08/14/%E5%B7%A5%E5%85%B7/MobaXterm%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E8%AE%BE%E7%BD%AE/">MobaXterm自动断开连接设置</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/08/14/%E5%B7%A5%E5%85%B7/MobaXterm%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E8%AE%BE%E7%BD%AE/">
+          
+          
+            
+          
+          场景：使用MobaXterm工具通过SSH连接Linux服务器，如果一段时间没有操作，MobaXterm会把连接自动断开，这个设定很是不方便。通过更改下面的设置可以使SSH保持长连接，不会自动断开。
+
+点击设置
+把 SSH keepalive 勾选上
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-08-14 12:36" pubdate>
+              2020-08-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/MobaXterm/">MobaXterm</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/MobaXterm/">MobaXterm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/08/13/%E5%B7%A5%E5%85%B7/AppImage%20ubuntu/">AppImage ubuntu</a>
       </h1>
 
@@ -220,57 +273,6 @@ AppImageLauncher: https://github.com/TheAssassin/AppImageLauncher
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/ubuntu/">ubuntu</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
-          
-          
-            
-          
-          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
-原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
-解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
-1234git rm -r --cached .
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-15 21:22" pubdate>
-              2020-06-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Git/">Git</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Git/">Git</a>
             
           </div>
         
@@ -443,18 +445,19 @@ git submoudle的使用方法
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
           
           
             
           
-          背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
-原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
-解决方法远程仓库创建好后，本地项目
+          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
+原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
+解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
+1234git rm -r --cached .
         </a>
       </p>
 
@@ -493,51 +496,18 @@ git submoudle的使用方法
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/04/27/%E5%BD%B1%E8%A7%86/%E7%94%B5%E5%BD%B1/">电影推荐</a>
+        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/04/27/%E5%BD%B1%E8%A7%86/%E7%94%B5%E5%BD%B1/">
+        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">
           
           
             
           
-          推荐自己比较看过的比较喜欢的影视作品电影
-城南旧事
-活着
-天使爱美丽
-你丫闭嘴
-雷雨
-祥林嫂-祝福
-药
-阿Q正传
-白日焰火
-姜子牙
-信条
-小丑
-唐人街探案123
-数码宝贝1-9
-横空出世
-一个勺子
-血钻
-不能说的秘密
-星际穿越
-神秘巨星
-至暗时刻
-银翼杀手2049
-奇迹男孩
-降临
-敦刻尔克
-钢琴家
-海上钢琴师
-飞跃疯人院
-寻梦环游记
-飞屋环游记
-勇敢的心
-罗马假日
-蒂凡尼的早餐
-龙凤配
-战争与和平
+          背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
+原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
+解决方法远程仓库创建好后，本地项目
         </a>
       </p>
 
@@ -545,8 +515,8 @@ git submoudle的使用方法
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-27 01:39" pubdate>
-              2020-04-27
+            <time datetime="2020-06-15 21:22" pubdate>
+              2020-06-15
             </time>
           </div>
         
@@ -554,7 +524,7 @@ git submoudle的使用方法
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E7%94%B5%E5%BD%B1/">电影</a>
+              <a href="/categories/Git/">Git</a>
             
           </div>
         
@@ -562,7 +532,7 @@ git submoudle的使用方法
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%94%B5%E5%BD%B1/">电影</a>
+              <a href="/tags/Git/">Git</a>
             
           </div>
         
@@ -625,23 +595,17 @@ AB测试中常见的命令123456789101112131415161718192021222324252627282930313
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">MySql  ERROR 1698 (28000)</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">
           
           
             
           
-          命令行下具体用法如下：  
-1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
-
-导出整个数据库结构和数据
-1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
-
-导出单个数据表结构和数据
-1mysqldump -h localhost -uroot -p123456  database ta
+          MySql 5.7.6 起，安装时如果 root 不设置密码，那么默认会采用auth_socket的方式登陆 MySQL 。也就是登陆 MySQL 时验证你的 Linux 的当前用户是否为 root，如果不是就不能登陆。在auth_socket模式下，应用程序通过数据库的用户名、密码是无法连接的，这就需要我们将数据库的登陆模式，改为mysql_native_password模式。
+进入数据库：su
         </a>
       </p>
 
@@ -684,26 +648,23 @@ AB测试中常见的命令123456789101112131415161718192021222324252627282930313
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">mysql查看建表的注释</a>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
           
           
             
           
-          查看表结构-表格形式，带注释
-1show full columns from tableName;
+          命令行下具体用法如下：  
+1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
 
+导出整个数据库结构和数据
+1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
 
-查看表结构-建表语句，带注释
-1show create table tableName;
-
-简单查看表结构
-1desc tableName;
-
-
+导出单个数据表结构和数据
+1mysqldump -h localhost -uroot -p123456  database ta
         </a>
       </p>
 
