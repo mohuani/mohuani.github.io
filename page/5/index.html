@@ -182,23 +182,23 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">TensorFlow学习笔记5</a>
+        <a href="/2019/09/03/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/">ubuntu 20.04 设置不见了</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">
+        <a href="/2019/09/03/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/">
           
           
             
           
-          
-搭建神经网络基本流程
+          ubuntu20.04 用着用着突然发现设置不见了，即使重启电脑还是找不到设置，后来通过扒帖子发现是一个包丢失了，gnome-control-center，重新安装一个这个包就好了
+1sudo apt install gnome-control-center
+
+附上前面扒到的帖子：
+
+https://forum.ubuntu.com.cn/viewtopic.php?t=491114
 
 
-定义添加神经层的函数
-1.训练的数据2.定义节点准备接收数据3.定义神经层：隐藏层和预测层4.定义 loss 表达式5.选择 optimizer 使 loss 达到最小
-然后对所有变量进行初始化，通过 sess.run optimizer，迭代 1000 次进行学习：
-123456789101112131415161718192021222324252627282930
         </a>
       </p>
 
@@ -215,9 +215,7 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/">TensorFlow</a>
+              <a href="/categories/ubuntu/">ubuntu</a>
             
           </div>
         
@@ -225,9 +223,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/tags/TensorFlow/">TensorFlow</a>
+              <a href="/tags/ubuntu/">ubuntu</a>
             
           </div>
         
@@ -241,17 +237,19 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/">HTTPS 比 HTTP 更安全</a>
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">HTTP 返回码详解</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/">
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">
           
           
             
           
-          为什么 HTTPS 比 HTTP 更安全？：https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882
+           HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。
+##1xx（临时响应）表示临时响应并需要请求者继续执行操作的状态代码。
 
+100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部
         </a>
       </p>
 
@@ -346,19 +344,23 @@ is()
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">HTTP 返回码详解</a>
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">TensorFlow学习笔记5</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">
           
           
             
           
-           HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。
-##1xx（临时响应）表示临时响应并需要请求者继续执行操作的状态代码。
+          
+搭建神经网络基本流程
 
-100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部
+
+定义添加神经层的函数
+1.训练的数据2.定义节点准备接收数据3.定义神经层：隐藏层和预测层4.定义 loss 表达式5.选择 optimizer 使 loss 达到最小
+然后对所有变量进行初始化，通过 sess.run optimizer，迭代 1000 次进行学习：
+123456789101112131415161718192021222324252627282930
         </a>
       </p>
 
@@ -377,7 +379,7 @@ is()
             
               <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/">HTTP</a>
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/">TensorFlow</a>
             
           </div>
         
@@ -387,7 +389,7 @@ is()
             
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
             
-              <a href="/tags/HTTP/">HTTP</a>
+              <a href="/tags/TensorFlow/">TensorFlow</a>
             
           </div>
         
@@ -401,18 +403,69 @@ is()
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">TensorFlow学习笔记3</a>
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/">TensorFlow学习笔记6</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/">
           
           
             
           
-          Variable变量的简单使用
-在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的
-1234567891011121314151617181920212223import tensorflow as tfstate = tf.Variable(0,name = &#x27;counter&#x27;)print(state.name)one = tf
+          TensorFlow搭建神经网络可视化结果1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859import tensorflow as tfimport numpy as npimport matplotlib.pyplot as p
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-03 19:36" pubdate>
+              2019-09-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/">TensorFlow</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
+            
+              <a href="/tags/TensorFlow/">TensorFlow</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/">TensorFlow学习笔记4</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/">
+          
+          
+            
+          
+          placeholder传值
+12345678910import tensorflow as tfinput1 = tf.placeholder(tf.float32)input2 = tf.placeholder(tf.float32)output = tf.multiply(input1,input2)# with tf.Session as sess:sess = tf.Session()pr
         </a>
       </p>
 
@@ -508,19 +561,17 @@ is()
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E5%B7%A5%E5%85%B7/Phpstorm%20ubuntu%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%A0%87/">Phpstorm ubuntu创建图标</a>
+        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">Google资深工程师深度讲解Go语言11-http及其他标准库</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/09/03/%E5%B7%A5%E5%85%B7/Phpstorm%20ubuntu%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%A0%87/">
+        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">
           
           
             
           
-          我们通过源码包的方式安装Jetbrain全家桶的软件时，桌面是没有快捷方式启动的，只能通过命令行的方式启动，很不方便。下面贴一下我的配置，通过快捷方式启动软件ubuntu 2004
-进入目录下面的目录，参考里面已有的文件创建一个xxx.desktop文件
-1/usr/share/applications
-PhpStorm123456789[Desktop Entry]Type=Applicatio
+          
+
         </a>
       </p>
 
@@ -528,8 +579,8 @@ PhpStorm123456789[Desktop Entry]Type=Applicatio
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2019-09-03 19:36" pubdate>
-              2019-09-03
+            <time datetime="2019-06-15 21:22" pubdate>
+              2019-06-15
             </time>
           </div>
         
@@ -537,7 +588,7 @@ PhpStorm123456789[Desktop Entry]Type=Applicatio
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Phpstorm/">Phpstorm</a>
+              <a href="/categories/golang/">golang</a>
             
           </div>
         
@@ -545,7 +596,57 @@ PhpStorm123456789[Desktop Entry]Type=Applicatio
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Phpstorm/">Phpstorm</a>
+              <a href="/tags/golang/">golang</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/06/15/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">5G时代Vlog原型系统开发</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/06/15/Golang/5G%E6%97%B6%E4%BB%A3Vlog%E5%8E%9F%E5%9E%8B%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/">
+          
+          
+            
+          
+          5G时代Vlog原型系统开发课程地址：https://www.imooc.com/learn/1131
+课程代码ps：其中的文件上传不知道哪里出错了，一直不成功
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-06-15 21:22" pubdate>
+              2019-06-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/golang/">golang</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/golang/">golang</a>
             
           </div>
         
@@ -596,108 +697,6 @@ PhpStorm123456789[Desktop Entry]Type=Applicatio
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/golang/">golang</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">Google资深工程师深度讲解Go语言11-http及其他标准库</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">
-          
-          
-            
-          
-          
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-06-15 21:22" pubdate>
-              2019-06-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/golang/">golang</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/golang/">golang</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/06/15/Golang/Beego/">Beego</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/06/15/Golang/Beego/">
-          
-          
-            
-          
-          
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-06-15 21:22" pubdate>
-              2019-06-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/golang/">golang</a>
-            
-              <a href="/categories/golang/beego/">beego</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/golang/">golang</a>
-            
-              <a href="/tags/beego/">beego</a>
             
           </div>
         

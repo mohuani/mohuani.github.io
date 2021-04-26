@@ -182,18 +182,24 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">nginx中间件架构-Lua开发</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">nginx中间件架构-性能优化</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
           
           
             
           
-          Lua介绍
-nginx调用Lua指令
-nginx lua api（lua调用nginx）
+          location匹配优先级 ~ 区分大小写，~~*不区分大小写
+try_files场景：用于文件缓存
+root和alias的区别
+传递用户的真实ip在代理1处直接获取用户的ip，然后通过层层代理透传到后端
+其他常见错误
+文件句柄优化 针对用户进行修改  针对进程限制 
+cpu亲和绑定
+gzip兼容
+安全
 
         </a>
       </p>
@@ -237,17 +243,31 @@ nginx lua api（lua调用nginx）
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">nginx中间件架构-web静态资源</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx中间件架构-负载均衡</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
           
           
             
           
-          http_x_forwarded_for1http_x_forwarded_for = Client IP, Proxy1 IP, Client2 IP, Client3 IP...
-http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_basic string | off;Default:	auth_ba
+          upstream
+负载均衡调度状态
+调度算法
+url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2
+
+代理缓存
+proxy_cache
+完整
+部分
+
+
+缓存过期周期
+缓存的维度
+如何清除指定缓存
+如何让指定页面不进行缓存
+大文件分
         </a>
       </p>
 
@@ -290,18 +310,20 @@ http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_bas
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">nginx中间件架构-代理服务</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx中间件架构-HTTPS服务</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">
           
           
             
           
-          代理区别正向代理代理的对象是客户端反向代理代理的对象是服务端
-proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	location, if in location, limit_except;------http://localhost:8080/uri/https://192.168.1.1:8080/uri/
-缓冲
+          secure_link_module
+geoip_module
+http_geoip_module使用场景
+生成秘钥和CA证书
+
         </a>
       </p>
 
@@ -393,6 +415,108 @@ proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	locati
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">PHP 水印  验证码</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">
+          
+          
+            
+          
+          PHP水印
+
+
+PHP验证码处理
+
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/12/04/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/">PHP7的基本变量</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/12/04/PHP/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/">
+          
+          
+            
+          
+          课程地址：https://www.imooc.com/learn/1085
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2017/12/04/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">PHPUnit单元测试</a>
       </h1>
 
@@ -432,6 +556,58 @@ proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	locati
               <a href="/tags/PHP/">PHP</a>
             
               <a href="/tags/PHPUnit/">PHPUnit</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2017/12/04/PHP/PHPstrom%E9%85%8D%E7%BD%AE/">PHPstrom配置</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2017/12/04/PHP/PHPstrom%E9%85%8D%E7%BD%AE/">
+          
+          
+            
+          
+          CodeStyle配置12345678910111213141516171819202122&lt;code_scheme name=&quot;Mohuani-PHP&quot; version=&quot;11&quot;&gt;  &lt;PHPCodeStyleSettings&gt;    &lt;option name=&quot;ALIGN_KEY_VALUE_PAIRS&quot;
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2017-12-04 21:22" pubdate>
+              2017-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+              <a href="/categories/PHP/PHPstrom/">PHPstrom</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/PHPstrom/">PHPstrom</a>
             
           </div>
         
@@ -508,166 +684,6 @@ proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	locati
 适配器模式就是将一个类的接口，转换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。
 
 在适配器模式中，我们可以定义一个包装类，包
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2017-12-04 21:22" pubdate>
-              2017-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/PHP/">PHP</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/PHP/">PHP</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2017/12/04/PHP/PHP%20%E4%BC%98%E7%A7%80%E8%B5%84%E6%BA%90%E6%B1%87%E9%9B%86/">PHP 优秀资源汇集</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2017/12/04/PHP/PHP%20%E4%BC%98%E7%A7%80%E8%B5%84%E6%BA%90%E6%B1%87%E9%9B%86/">
-          
-          
-            
-          
-          php-awesome
-以下是我整理好的 PHP 资源，各位看官拿去用，不用再自己找了。
-每周在 GitHub 上更新，觉得不错请点个 Star ❤️
-如转载分享，请保留出处，谢谢 ?
-原文地址: https://shockerli.net/post/php-awesome
-GitHub: https://github.com/shockerli/php-awesome
-
-
-PHP PSR 代码标
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2017-12-04 21:22" pubdate>
-              2017-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/PHP/">PHP</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/PHP/">PHP</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2017/12/04/PHP/PHPstrom%E9%85%8D%E7%BD%AE/">PHPstrom配置</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2017/12/04/PHP/PHPstrom%E9%85%8D%E7%BD%AE/">
-          
-          
-            
-          
-          CodeStyle配置12345678910111213141516171819202122&lt;code_scheme name=&quot;Mohuani-PHP&quot; version=&quot;11&quot;&gt;  &lt;PHPCodeStyleSettings&gt;    &lt;option name=&quot;ALIGN_KEY_VALUE_PAIRS&quot;
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2017-12-04 21:22" pubdate>
-              2017-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/PHP/">PHP</a>
-            
-              <a href="/categories/PHP/PHPstrom/">PHPstrom</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/PHP/">PHP</a>
-            
-              <a href="/tags/PHPstrom/">PHPstrom</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2017/12/04/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">PHP简单图形图像处理</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2017/12/04/PHP/PHP%E7%AE%80%E5%8D%95%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
-          
-          
-            
-          
-          #PHP简单图形图像处理
-引语php不仅仅局限于html的输出，还可以创建和操作各种各样的图像文件，如GIF、PNG、JPEG、WBMP、XBM等。
-php还可以将图像流直接显示在浏览器中。
-要处理图像，就要用到php的GD库。
-ps：确保php.ini文件中可以加载GD库。可以在php.ini文件中找到“;extension=php_gd2.dll”，将选项前的分号删除，保存，再重启Apache
         </a>
       </p>
 
