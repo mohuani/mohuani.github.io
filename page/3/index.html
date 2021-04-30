@@ -345,20 +345,18 @@ AppImageLauncher: https://github.com/TheAssassin/AppImageLauncher
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/git%20submoudle/">git submoudle</a>
+        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/git%20submoudle/">
+        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">
           
           
             
           
-          git submoudle
-git submoudle的使用方法
-项目根目录执行
-123git submodule initgit submodule update
-
+          背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
+原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
+解决方法远程仓库创建好后，本地项目
         </a>
       </p>
 
@@ -453,19 +451,20 @@ git submoudle的使用方法
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+        <a href="/2020/06/15/Git/git%20submoudle/">git submoudle</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
+        <a href="/2020/06/15/Git/git%20submoudle/">
           
           
             
           
-          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
-原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
-解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
-1234git rm -r --cached .
+          git submoudle
+git submoudle的使用方法
+项目根目录执行
+123git submodule initgit submodule update
+
         </a>
       </p>
 
@@ -555,18 +554,19 @@ https://plugins.jetbrains.com/plugin/9861-git-commit-template
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
           
           
             
           
-          背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
-原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
-解决方法远程仓库创建好后，本地项目
+          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
+原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
+解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
+1234git rm -r --cached .
         </a>
       </p>
 
