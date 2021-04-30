@@ -5,8 +5,8 @@
   
   <entry>
     <title></title>
-    <link href="/2021/04/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-    <url>/2021/04/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+    <link href="/2021/04/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+    <url>/2021/04/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
     
     <content type="html"><![CDATA[]]></content>
     
@@ -61,6 +61,35 @@
     <tags>
       
       <tag>PHP</tag>
+      
+      <tag>编程规范</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PHP开发规范</title>
+    <link href="/2021/04/23/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/"/>
+    <url>/2021/04/23/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Git-提交规范文档"><a href="#Git-提交规范文档" class="headerlink" title="Git 提交规范文档"></a>Git 提交规范文档</h3><ul><li>PHPStrom 推荐推荐使用 Git Commit Template 插件，方便编写通用的git commit message</li><li><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html</a></li><li><a href="https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83">https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83</a></li></ul><h3 id="Git-提交规范"><a href="#Git-提交规范" class="headerlink" title="Git 提交规范"></a>Git 提交规范</h3><h4 id="Commit-message-的格式"><a href="#Commit-message-的格式" class="headerlink" title="Commit message 的格式"></a>Commit message 的格式</h4><p>每次提交，Commit message 都包括三个部分：Header，Body 和 Footer。</p><figure class="highlight dts"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-params">&lt;type&gt;</span>(<span class="hljs-params">&lt;scope&gt;</span>): <span class="hljs-params">&lt;subject&gt;</span><br><span class="hljs-comment">// 空一行</span><br><span class="hljs-params">&lt;body&gt;</span><br><span class="hljs-comment">// 空一行</span><br><span class="hljs-params">&lt;footer&gt;</span><br></code></pre></div></td></tr></table></figure><p>其中，Header 是必需的，Body 和 Footer 可以省略。</p><p>不管是哪一个部分，任何一行都不得超过72个字符（或100个字符）。这是为了避免自动换行影响美观。</p><h2 id="2-1-Header"><a href="#2-1-Header" class="headerlink" title="2.1 Header"></a><strong>2.1 Header</strong></h2><p>Header部分只有一行，包括三个字段：<code>type</code>（必需）、<code>scope</code>（可选）和 <code>subject</code>（必需）。</p><p>（1）type</p><p><code>type</code>用于说明 commit 的类别，只允许使用下面7个标识。</p><figure class="highlight maxima"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs maxima">feat：新功能（<span class="hljs-built_in">feature</span>）<br><span class="hljs-built_in">fix</span>：修补bug<br>docs：文档（documentation）<br><span class="hljs-built_in">style</span>： 格式（不影响代码运行的变动）<br>refactor：重构（即不是新增功能，也不是修改bug的代码变动）<br>test：增加测试<br>chore：构建过程或辅助工具的变动<br></code></pre></div></td></tr></table></figure><p>如果<code>type</code>为<code>feat</code>和<code>fix</code>，则该 commit 将肯定出现在 Change log 之中。其他情况（<code>docs、chore、style、refactor、test</code>）由你决定，要不要放入 Change log，建议是不要。</p><p>（2）scope</p><p><code>scope</code>用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。</p><p>（3）subject</p><p><code>subject</code>是 commit 目的的简短描述，不超过50个字符。</p><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">以动词开头，使用第一人称现在时，比如<span class="hljs-keyword">change</span>，而不是changed或<span class="hljs-keyword">changes</span><br>第一个字母小写<br>结尾不加句号（.）<br></code></pre></div></td></tr></table></figure><h2 id="2-2-Body"><a href="#2-2-Body" class="headerlink" title="2.2 Body"></a><strong>2.2 Body</strong></h2><p>Body 部分是对本次 commit 的详细描述，可以分成多行。下面是一个范例。</p><figure class="highlight livecodeserver"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs livecodeserver">More <span class="hljs-keyword">detailed</span> explanatory <span class="hljs-keyword">text</span>, <span class="hljs-keyword">if</span> necessary.  Wrap <span class="hljs-keyword">it</span> <span class="hljs-built_in">to</span> <br>about <span class="hljs-number">72</span> <span class="hljs-keyword">characters</span> <span class="hljs-keyword">or</span> so. <br><br>Further paragraphs come <span class="hljs-keyword">after</span> blank <span class="hljs-keyword">lines</span>.<br><br>- Bullet points are okay, too<br>- Use <span class="hljs-keyword">a</span> hanging indent<br></code></pre></div></td></tr></table></figure><p>有两个注意点。</p><p>（1）使用第一人称现在时，比如使用change而不是changed或changes。</p><p>（2）应该说明代码变动的动机，以及与以前行为的对比。</p><h2 id="2-3-Footer"><a href="#2-3-Footer" class="headerlink" title="2.3 Footer"></a><strong>2.3 Footer</strong></h2><p>Footer 部分只用于两种情况。</p><p>（1）不兼容变动</p><p>如果当前代码与上一个版本不兼容，则 Footer 部分以BREAKING CHANGE开头，后面是对变动的描述、以及变动理由和迁移方法。</p><figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">BREAKING CHANGE:</span> <span class="hljs-string">isolate</span> <span class="hljs-string">scope</span> <span class="hljs-string">bindings</span> <span class="hljs-string">definition</span> <span class="hljs-string">has</span> <span class="hljs-string">changed.</span><br><br>    <span class="hljs-attr">To migrate the code follow the example below:</span><br><br>    <span class="hljs-attr">Before:</span><br><br>    <span class="hljs-attr">scope:</span> &#123;<br>      <span class="hljs-attr">myAttr:</span> <span class="hljs-string">&#x27;attribute&#x27;</span>,<br>    &#125;<br><br>    <span class="hljs-attr">After:</span><br><br>    <span class="hljs-attr">scope:</span> &#123;<br>      <span class="hljs-attr">myAttr:</span> <span class="hljs-string">&#x27;@&#x27;</span>,<br>    &#125;<br><br>    <span class="hljs-string">The</span> <span class="hljs-string">removed</span> <span class="hljs-string">`inject`</span> <span class="hljs-string">wasn&#x27;t</span> <span class="hljs-string">generaly</span> <span class="hljs-string">useful</span> <span class="hljs-string">for</span> <span class="hljs-string">directives</span> <span class="hljs-string">so</span> <span class="hljs-string">there</span> <span class="hljs-string">should</span> <span class="hljs-string">be</span> <span class="hljs-literal">no</span> <span class="hljs-string">code</span> <span class="hljs-string">using</span> <span class="hljs-string">it.</span><br></code></pre></div></td></tr></table></figure><p>（2）关闭 Issue</p><p>如果当前 commit 针对某个issue，那么可以在 Footer 部分关闭这个 issue 。</p><figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm"><span class="hljs-keyword">Closes </span><span class="hljs-comment">#234</span><br></code></pre></div></td></tr></table></figure><p>也可以一次关闭多个 issue 。</p><figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-selector-tag">Closes</span> <span class="hljs-selector-id">#123</span>, <span class="hljs-selector-id">#245</span>, <span class="hljs-selector-id">#992</span><br></code></pre></div></td></tr></table></figure><h2 id="2-4-Revert"><a href="#2-4-Revert" class="headerlink" title="2.4 Revert"></a><strong>2.4 Revert</strong></h2><p>还有一种特殊情况，如果当前 commit 用于撤销以前的 commit，则必须以<code>revert</code>:开头，后面跟着被撤销 Commit 的 Header。</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">revert</span>: feat(pencil): add &#x27;graphiteWidth&#x27; option<br><br><span class="hljs-attribute">This</span> reverts commit <span class="hljs-number">667</span>ecc<span class="hljs-number">1654</span>a<span class="hljs-number">317</span>a<span class="hljs-number">13331</span>b<span class="hljs-number">17617</span>d<span class="hljs-number">973392</span>f<span class="hljs-number">415</span>f<span class="hljs-number">02</span>.<br></code></pre></div></td></tr></table></figure><p>Body部分的格式是固定的，必须写成<code>This reverts commit &amp;lt;hash&gt;.</code>，其中的<code>hash</code>是被撤销 commit 的 SHA 标识符。</p><p>如果当前 commit 与被撤销的 commit，在同一个发布（release）里面，那么它们都不会出现在 Change log 里面。如果两者在不同的发布，那么当前 commit，会出现在 Change log 的<code>Reverts</code>小标题下面。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程规范</category>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
       
       <tag>编程规范</tag>
       
@@ -398,11 +427,61 @@
   
   
   <entry>
-    <title>服务雪崩、降级与熔断</title>
-    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E9%9B%AA%E5%B4%A9%E3%80%81%E9%99%8D%E7%BA%A7%E4%B8%8E%E7%86%94%E6%96%AD/"/>
-    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E9%9B%AA%E5%B4%A9%E3%80%81%E9%99%8D%E7%BA%A7%E4%B8%8E%E7%86%94%E6%96%AD/</url>
+    <title>微服务理念</title>
+    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%90%86%E5%BF%B5/"/>
+    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%90%86%E5%BF%B5/</url>
     
-    <content type="html"><![CDATA[<p>服务雪崩、降级与熔断：<a href="https://mp.weixin.qq.com/s?__biz=MzAxNjk4ODE4OQ==&amp;mid=2247485781&amp;idx=1&amp;sn=8e23e1ca1803b8134097152dd9cc4af7&amp;chksm=9bed2827ac9aa13128981075470b013f9f41e593b2a11c13bdd6521ede7e72b08abe2a2a2ac8&amp;scene=0&amp;xtrack=1&amp;key=864f666bf0545584e1124e543625c424cc712ca1e6117345227ce43c008e49120baa6e6e7d47a9bd47b528d7996c3d4f04dc72dbeb92f93e50e441d54c0428c388016f9e2e69d8345811f0a16177eccc&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=MzAxNjk4ODE4OQ==&amp;mid=2247485781&amp;idx=1&amp;sn=8e23e1ca1803b8134097152dd9cc4af7&amp;chksm=9bed2827ac9aa13128981075470b013f9f41e593b2a11c13bdd6521ede7e72b08abe2a2a2ac8&amp;scene=0&amp;xtrack=1&amp;key=864f666bf0545584e1124e543625c424cc712ca1e6117345227ce43c008e49120baa6e6e7d47a9bd47b528d7996c3d4f04dc72dbeb92f93e50e441d54c0428c388016f9e2e69d8345811f0a16177eccc&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="知识参考："><a href="#知识参考：" class="headerlink" title="知识参考："></a>知识参考：</h4><p>简述 Microservices（微服务）：<a href="https://waylau.com/ahout-microservices/">https://waylau.com/ahout-microservices/</a></p><h4 id="单块架构"><a href="#单块架构" class="headerlink" title="单块架构"></a>单块架构</h4><p><img src="https://img-blog.csdnimg.cn/20190413125855470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413130006726.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h5><p><img src="https://img-blog.csdnimg.cn/20190413131311366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/20190413131559987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132112372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132542852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/20190413132602145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132635482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132703567.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132729978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>微服务</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>微服务</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>微服务RPC问题</title>
+    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/"/>
+    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>下面的问题，想到解决方案后再补充<br>1、多版本并行开发，上线时版本问题？</p><p>2、方法版本前后兼容问题，方法是否允许删除？</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>微服务</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>微服务</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>云原生概念-视频流媒体架构</title>
+    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5-%E8%A7%86%E9%A2%91%E6%B5%81%E5%AA%92%E4%BD%93%E6%9E%B6%E6%9E%84/"/>
+    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5-%E8%A7%86%E9%A2%91%E6%B5%81%E5%AA%92%E4%BD%93%E6%9E%B6%E6%9E%84/</url>
+    
+    <content type="html"><![CDATA[<p><img src="../../images/2021/20200220215316337.png"></p><p><img src="../../images/2021/2020022021533739.png"></p><p><img src="../../images/2021/20200220215356131.png"></p>]]></content>
     
     
     <categories>
@@ -452,61 +531,11 @@
   
   
   <entry>
-    <title>微服务RPC问题</title>
-    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/"/>
-    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/</url>
+    <title>服务雪崩、降级与熔断</title>
+    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E9%9B%AA%E5%B4%A9%E3%80%81%E9%99%8D%E7%BA%A7%E4%B8%8E%E7%86%94%E6%96%AD/"/>
+    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9C%8D%E5%8A%A1%E9%9B%AA%E5%B4%A9%E3%80%81%E9%99%8D%E7%BA%A7%E4%B8%8E%E7%86%94%E6%96%AD/</url>
     
-    <content type="html"><![CDATA[<p>下面的问题，想到解决方案后再补充<br>1、多版本并行开发，上线时版本问题？</p><p>2、方法版本前后兼容问题，方法是否允许删除？</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>微服务</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>微服务</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>微服务理念</title>
-    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%90%86%E5%BF%B5/"/>
-    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%90%86%E5%BF%B5/</url>
-    
-    <content type="html"><![CDATA[<h4 id="知识参考："><a href="#知识参考：" class="headerlink" title="知识参考："></a>知识参考：</h4><p>简述 Microservices（微服务）：<a href="https://waylau.com/ahout-microservices/">https://waylau.com/ahout-microservices/</a></p><h4 id="单块架构"><a href="#单块架构" class="headerlink" title="单块架构"></a>单块架构</h4><p><img src="https://img-blog.csdnimg.cn/20190413125855470.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413130006726.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h5><p><img src="https://img-blog.csdnimg.cn/20190413131311366.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/20190413131559987.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132112372.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132542852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p><img src="https://img-blog.csdnimg.cn/20190413132602145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132635482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132703567.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190413132729978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>微服务</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>微服务</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>云原生概念-视频流媒体架构</title>
-    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5-%E8%A7%86%E9%A2%91%E6%B5%81%E5%AA%92%E4%BD%93%E6%9E%B6%E6%9E%84/"/>
-    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5-%E8%A7%86%E9%A2%91%E6%B5%81%E5%AA%92%E4%BD%93%E6%9E%B6%E6%9E%84/</url>
-    
-    <content type="html"><![CDATA[<p><img src="../../images/2021/20200220215316337.png"></p><p><img src="../../images/2021/2020022021533739.png"></p><p><img src="../../images/2021/20200220215356131.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>服务雪崩、降级与熔断：<a href="https://mp.weixin.qq.com/s?__biz=MzAxNjk4ODE4OQ==&amp;mid=2247485781&amp;idx=1&amp;sn=8e23e1ca1803b8134097152dd9cc4af7&amp;chksm=9bed2827ac9aa13128981075470b013f9f41e593b2a11c13bdd6521ede7e72b08abe2a2a2ac8&amp;scene=0&amp;xtrack=1&amp;key=864f666bf0545584e1124e543625c424cc712ca1e6117345227ce43c008e49120baa6e6e7d47a9bd47b528d7996c3d4f04dc72dbeb92f93e50e441d54c0428c388016f9e2e69d8345811f0a16177eccc&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=MzAxNjk4ODE4OQ==&amp;mid=2247485781&amp;idx=1&amp;sn=8e23e1ca1803b8134097152dd9cc4af7&amp;chksm=9bed2827ac9aa13128981075470b013f9f41e593b2a11c13bdd6521ede7e72b08abe2a2a2ac8&amp;scene=0&amp;xtrack=1&amp;key=864f666bf0545584e1124e543625c424cc712ca1e6117345227ce43c008e49120baa6e6e7d47a9bd47b528d7996c3d4f04dc72dbeb92f93e50e441d54c0428c388016f9e2e69d8345811f0a16177eccc&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>]]></content>
     
     
     <categories>
@@ -610,11 +639,11 @@
   
   
   <entry>
-    <title>Git Commit Template</title>
-    <link href="/2020/06/15/Git/Git%20Commit%20Template/"/>
-    <url>/2020/06/15/Git/Git%20Commit%20Template/</url>
+    <title>git submoudle</title>
+    <link href="/2020/06/15/Git/git%20submoudle/"/>
+    <url>/2020/06/15/Git/git%20submoudle/</url>
     
-    <content type="html"><![CDATA[<p>JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交</p><p><a href="https://plugins.jetbrains.com/plugin/9861-git-commit-template">https://plugins.jetbrains.com/plugin/9861-git-commit-template</a></p><p>参考文档：<a href="https://blog.csdn.net/weixin_43550660/article/details/105459038">https://blog.csdn.net/weixin_43550660/article/details/105459038</a></p>]]></content>
+    <content type="html"><![CDATA[<p>git submoudle</p><p>git submoudle的使用方法</p><p>项目根目录执行</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git submodule init<br>git submodule update<br><br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -660,11 +689,11 @@
   
   
   <entry>
-    <title>git submoudle</title>
-    <link href="/2020/06/15/Git/git%20submoudle/"/>
-    <url>/2020/06/15/Git/git%20submoudle/</url>
+    <title>gitignore文件不生效</title>
+    <link href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/"/>
+    <url>/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/</url>
     
-    <content type="html"><![CDATA[<p>git submoudle</p><p>git submoudle的使用方法</p><p>项目根目录执行</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">git submodule init<br>git submodule update<br><br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。</p><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，</p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git rm -r --cached .<br>git add .<br>git commit -m <span class="hljs-string">&quot;remove .idea files&quot;</span><br>git push origin master<br></code></pre></div></td></tr></table></figure><p><img src="../images/20200405013811329.png" alt="20200405013811329"></p>]]></content>
     
     
     <categories>
@@ -685,11 +714,11 @@
   
   
   <entry>
-    <title>gitignore文件不生效</title>
-    <link href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/"/>
-    <url>/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/</url>
+    <title>Git Commit Template</title>
+    <link href="/2020/06/15/Git/Git%20Commit%20Template/"/>
+    <url>/2020/06/15/Git/Git%20Commit%20Template/</url>
     
-    <content type="html"><![CDATA[<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。</p><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，</p><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git rm -r --cached .<br>git add .<br>git commit -m <span class="hljs-string">&quot;remove .idea files&quot;</span><br>git push origin master<br></code></pre></div></td></tr></table></figure><p><img src="../images/20200405013811329.png" alt="20200405013811329"></p>]]></content>
+    <content type="html"><![CDATA[<p>JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交</p><p><a href="https://plugins.jetbrains.com/plugin/9861-git-commit-template">https://plugins.jetbrains.com/plugin/9861-git-commit-template</a></p><p>参考文档：<a href="https://blog.csdn.net/weixin_43550660/article/details/105459038">https://blog.csdn.net/weixin_43550660/article/details/105459038</a></p>]]></content>
     
     
     <categories>
@@ -818,18 +847,18 @@
   
   
   <entry>
-    <title>mysql查看建表的注释</title>
-    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/"/>
-    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/</url>
+    <title>redis-list</title>
+    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/"/>
+    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/</url>
     
-    <content type="html"><![CDATA[<p>查看表结构-表格形式，带注释</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">show full columns from tableName;<br></code></pre></div></td></tr></table></figure><p>查看表结构-建表语句，带注释</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">show create table tableName;<br></code></pre></div></td></tr></table></figure><p>简单查看表结构</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">desc tableName;<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<ul><li>控制List的长度，每次push或者pop的时候，可以使用ltrim()函数让list保持固定长度</li></ul>]]></content>
     
     
     <categories>
       
       <category>数据库</category>
       
-      <category>MySQL</category>
+      <category>Redis</category>
       
     </categories>
     
@@ -838,7 +867,7 @@
       
       <tag>数据库</tag>
       
-      <tag>MySQL</tag>
+      <tag>Redis</tag>
       
     </tags>
     
@@ -905,11 +934,11 @@
   
   
   <entry>
-    <title>深入理解 Mysql 索引底层原理</title>
-    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/"/>
-    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</url>
+    <title>mysql查看建表的注释</title>
+    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/"/>
+    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/</url>
     
-    <content type="html"><![CDATA[<p>深入理解 Mysql 索引底层原理 - <a href="https://zhuanlan.zhihu.com/p/113917726">https://zhuanlan.zhihu.com/p/113917726</a></p>]]></content>
+    <content type="html"><![CDATA[<p>查看表结构-表格形式，带注释</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">show full columns from tableName;<br></code></pre></div></td></tr></table></figure><p>查看表结构-建表语句，带注释</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">show create table tableName;<br></code></pre></div></td></tr></table></figure><p>简单查看表结构</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">desc tableName;<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -934,18 +963,18 @@
   
   
   <entry>
-    <title>redis-list</title>
-    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/"/>
-    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/</url>
+    <title>深入理解 Mysql 索引底层原理</title>
+    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/"/>
+    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</url>
     
-    <content type="html"><![CDATA[<ul><li>控制List的长度，每次push或者pop的时候，可以使用ltrim()函数让list保持固定长度</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>深入理解 Mysql 索引底层原理 - <a href="https://zhuanlan.zhihu.com/p/113917726">https://zhuanlan.zhihu.com/p/113917726</a></p>]]></content>
     
     
     <categories>
       
       <category>数据库</category>
       
-      <category>Redis</category>
+      <category>MySQL</category>
       
     </categories>
     
@@ -954,7 +983,7 @@
       
       <tag>数据库</tag>
       
-      <tag>Redis</tag>
+      <tag>MySQL</tag>
       
     </tags>
     
@@ -988,35 +1017,6 @@
   
   
   <entry>
-    <title>TensorFlow学习笔记3</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Variable变量的简单使用</strong></p><p>在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的</p><figure class="highlight pf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pf">import tensorflow as tf<br><br><span class="hljs-keyword">state</span> = tf.Variable(<span class="hljs-number">0</span>,name = &#x27;counter&#x27;)<br>print(<span class="hljs-keyword">state</span>.name)<br><br>one = tf.constant(<span class="hljs-number">1</span>)<br><br>new_vaule = tf.add(<span class="hljs-keyword">state</span>,one)<br>update = tf.assign(<span class="hljs-keyword">state</span>,new_vaule)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br>init = tf.global_variables_initializer()<br><br><br>sess = tf.Session()<br>sess.run(init)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    sess.run(update)<br>    print(sess.run(<span class="hljs-keyword">state</span>))<br>sess.close()<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">counter</span>:<span class="hljs-number">0</span><br><br><span class="hljs-attribute">1</span><br><span class="hljs-attribute">2</span><br><span class="hljs-attribute">3</span><br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>计算机相关</category>
-      
-      <category>TensorFlow</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>计算机相关</tag>
-      
-      <tag>TensorFlow</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>is()和hasClass()</title>
     <link href="/2019/09/03/%E5%89%8D%E7%AB%AF/is()%E5%92%8ChasClass()/"/>
     <url>/2019/09/03/%E5%89%8D%E7%AB%AF/is()%E5%92%8ChasClass()/</url>
@@ -1034,6 +1034,35 @@
     <tags>
       
       <tag>前端</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HTTP 返回码详解</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p> HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。</p><p>##1xx（临时响应）<br><strong>表示临时响应并需要请求者继续执行操作的状态代码。</strong></p><ul><li>100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。  </li><li>101（切换协议）请求者已要求服务器切换协议，服务器已确认并准备切换。</li></ul><p>##2xx （成功）<br><strong>表示成功处理了请求的状态代码。</strong></p><ul><li><p>200（成功）服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</p></li><li><p>201（已创建）请求成功并且服务器创建了新的资源。</p></li><li><p>202（已接受） 服务器已接受请求，但尚未处理。</p></li><li><p>203（非授权信息）服务器已成功处理了请求，但返回的信息可能来自另一来源。</p></li><li><p>204（无内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>205（重置内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>206（部分内容）服务器成功处理了部分 GET 请求。</p></li></ul><p>##3xx （重定向）<br><strong>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</strong></p><ul><li><p>300（多种选择）针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p></li><li><p>301（永久移动）请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p></li><li><p>302（临时移动）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li><li><p>303（查看其他位置）请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p></li><li><p>304（未修改）自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</p></li><li><p>305（使用代理）请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</p></li><li><p>307（临时重定向）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li></ul><p>##4xx（请求错误）<br><strong>这些状态代码表示请求可能出错，妨碍了服务器的处理。</strong></p><ul><li><p>400（错误请求）服务器不理解请求的语法。</p></li><li><p>401（未授权）请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</p></li><li><p>403（禁止）服务器拒绝请求。</p></li><li><p>404（未找到）服务器找不到请求的网页。</p></li><li><p>405（方法禁用）禁用请求中指定的方法。</p></li><li><p>406（不接受）无法使用请求的内容特性响应请求的网页。</p></li><li><p>407（需要代理授权）此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p></li><li><p>408（请求超时）服务器等候请求时发生超时。</p></li><li><p>409（冲突）服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</p></li><li><p>410（已删除）如果请求的资源已永久删除，服务器就会返回此响应。</p></li><li><p>411（需要有效长度）服务器不接受不含有效内容长度标头字段的请求。</p></li><li><p>412（未满足前提条件）服务器未满足请求者在请求中设置的其中一个前提条件。</p></li><li><p>413（请求实体过大）服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</p></li><li><p>414（请求的 URI 过长）请求的 URI（通常为网址）过长，服务器无法处理。</p></li><li><p>415（不支持的媒体类型）请求的格式不受请求页面的支持。</p></li><li><p>416（请求范围不符合要求）如果页面无法提供请求的范围，则服务器会返回此状态代码。</p></li><li><p>417（未满足期望值）服务器未满足”期望”请求标头字段的要求。</p></li></ul><p>##5xx（服务器错误）<br><strong>这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</strong></p><ul><li>500（服务器内部错误）服务器遇到错误，无法完成请求。</li></ul><p>501（尚未实施）服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</p><ul><li><p>502（错误网关）服务器作为网关或代理，从上游服务器收到无效响应。</p></li><li><p>503（服务不可用）服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</p></li><li><p>504（网关超时）服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p></li><li><p>505（HTTP 版本不受支持）服务器不支持请求中所用的 HTTP 协议版本。</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机相关</category>
+      
+      <category>HTTP</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机相关</tag>
+      
+      <tag>HTTP</tag>
       
     </tags>
     
@@ -1100,6 +1129,35 @@
   
   
   <entry>
+    <title>TensorFlow学习笔记2</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Session的两种使用方式</strong></p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> tensorflow as tf<br><br><span class="hljs-attribute">matrix1</span> = tf.constant([[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]])<br><span class="hljs-attribute">matrix2</span> = tf.constant([[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]])<br><br><span class="hljs-attribute">product</span> = tf.matmul(matrix<span class="hljs-number">1</span>,matrix<span class="hljs-number">2</span>)  # matrix multiply  np.dot(m<span class="hljs-number">1</span>,m<span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># session的两种打开模式</span><br><br><span class="hljs-comment"># method 1</span><br><br><span class="hljs-comment"># sess = tf.Session()</span><br><span class="hljs-comment"># result1 = sess.run(product)</span><br><span class="hljs-comment"># print(result1)</span><br><span class="hljs-comment"># sess.close()</span><br><br><span class="hljs-comment"># method 2</span><br><span class="hljs-attribute">with</span> tf.Session() as sess:<br>    <span class="hljs-attribute">result2</span> = sess.run(product)<br>    <span class="hljs-attribute">print</span>(result<span class="hljs-number">2</span>)<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-string">[[12]]</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机相关</category>
+      
+      <category>TensorFlow</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机相关</tag>
+      
+      <tag>TensorFlow</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ubuntu 20.04 设置不见了</title>
     <link href="/2019/09/03/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/"/>
     <url>/2019/09/03/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/</url>
@@ -1125,18 +1183,18 @@
   
   
   <entry>
-    <title>HTTP 返回码详解</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
+    <title>TensorFlow学习笔记3</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
     
-    <content type="html"><![CDATA[<p> HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。</p><p>##1xx（临时响应）<br><strong>表示临时响应并需要请求者继续执行操作的状态代码。</strong></p><ul><li>100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。  </li><li>101（切换协议）请求者已要求服务器切换协议，服务器已确认并准备切换。</li></ul><p>##2xx （成功）<br><strong>表示成功处理了请求的状态代码。</strong></p><ul><li><p>200（成功）服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</p></li><li><p>201（已创建）请求成功并且服务器创建了新的资源。</p></li><li><p>202（已接受） 服务器已接受请求，但尚未处理。</p></li><li><p>203（非授权信息）服务器已成功处理了请求，但返回的信息可能来自另一来源。</p></li><li><p>204（无内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>205（重置内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>206（部分内容）服务器成功处理了部分 GET 请求。</p></li></ul><p>##3xx （重定向）<br><strong>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</strong></p><ul><li><p>300（多种选择）针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p></li><li><p>301（永久移动）请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p></li><li><p>302（临时移动）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li><li><p>303（查看其他位置）请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p></li><li><p>304（未修改）自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</p></li><li><p>305（使用代理）请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</p></li><li><p>307（临时重定向）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li></ul><p>##4xx（请求错误）<br><strong>这些状态代码表示请求可能出错，妨碍了服务器的处理。</strong></p><ul><li><p>400（错误请求）服务器不理解请求的语法。</p></li><li><p>401（未授权）请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</p></li><li><p>403（禁止）服务器拒绝请求。</p></li><li><p>404（未找到）服务器找不到请求的网页。</p></li><li><p>405（方法禁用）禁用请求中指定的方法。</p></li><li><p>406（不接受）无法使用请求的内容特性响应请求的网页。</p></li><li><p>407（需要代理授权）此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p></li><li><p>408（请求超时）服务器等候请求时发生超时。</p></li><li><p>409（冲突）服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</p></li><li><p>410（已删除）如果请求的资源已永久删除，服务器就会返回此响应。</p></li><li><p>411（需要有效长度）服务器不接受不含有效内容长度标头字段的请求。</p></li><li><p>412（未满足前提条件）服务器未满足请求者在请求中设置的其中一个前提条件。</p></li><li><p>413（请求实体过大）服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</p></li><li><p>414（请求的 URI 过长）请求的 URI（通常为网址）过长，服务器无法处理。</p></li><li><p>415（不支持的媒体类型）请求的格式不受请求页面的支持。</p></li><li><p>416（请求范围不符合要求）如果页面无法提供请求的范围，则服务器会返回此状态代码。</p></li><li><p>417（未满足期望值）服务器未满足”期望”请求标头字段的要求。</p></li></ul><p>##5xx（服务器错误）<br><strong>这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</strong></p><ul><li>500（服务器内部错误）服务器遇到错误，无法完成请求。</li></ul><p>501（尚未实施）服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</p><ul><li><p>502（错误网关）服务器作为网关或代理，从上游服务器收到无效响应。</p></li><li><p>503（服务不可用）服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</p></li><li><p>504（网关超时）服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p></li><li><p>505（HTTP 版本不受支持）服务器不支持请求中所用的 HTTP 协议版本。</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<p><strong>Variable变量的简单使用</strong></p><p>在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的</p><figure class="highlight pf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pf">import tensorflow as tf<br><br><span class="hljs-keyword">state</span> = tf.Variable(<span class="hljs-number">0</span>,name = &#x27;counter&#x27;)<br>print(<span class="hljs-keyword">state</span>.name)<br><br>one = tf.constant(<span class="hljs-number">1</span>)<br><br>new_vaule = tf.add(<span class="hljs-keyword">state</span>,one)<br>update = tf.assign(<span class="hljs-keyword">state</span>,new_vaule)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br>init = tf.global_variables_initializer()<br><br><br>sess = tf.Session()<br>sess.run(init)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    sess.run(update)<br>    print(sess.run(<span class="hljs-keyword">state</span>))<br>sess.close()<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">counter</span>:<span class="hljs-number">0</span><br><br><span class="hljs-attribute">1</span><br><span class="hljs-attribute">2</span><br><span class="hljs-attribute">3</span><br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
       
       <category>计算机相关</category>
       
-      <category>HTTP</category>
+      <category>TensorFlow</category>
       
     </categories>
     
@@ -1145,32 +1203,7 @@
       
       <tag>计算机相关</tag>
       
-      <tag>HTTP</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Phpstorm ubuntu创建图标</title>
-    <link href="/2019/09/03/%E5%B7%A5%E5%85%B7/Phpstorm%20ubuntu%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%A0%87/"/>
-    <url>/2019/09/03/%E5%B7%A5%E5%85%B7/Phpstorm%20ubuntu%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%A0%87/</url>
-    
-    <content type="html"><![CDATA[<p>我们通过源码包的方式安装Jetbrain全家桶的软件时，桌面是没有快捷方式启动的，只能通过命令行的方式启动，很不方便。下面贴一下我的配置，通过快捷方式启动软件<br>ubuntu 2004</p><p>进入目录下面的目录，参考里面已有的文件创建一个xxx.desktop文件</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">/usr/share/applications<br></code></pre></div></td></tr></table></figure><h3 id="PhpStorm"><a href="#PhpStorm" class="headerlink" title="PhpStorm"></a>PhpStorm</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">[Desktop Entry]<br>Type=Application<br>Name=Phpstorm<br>GenericName=Phpstorm2020<br>Comment=Phpstorm2020:The PHP IDE<br>Exec=<span class="hljs-string">&quot;/home/mohuani/develop/PhpStorm-201.7846.90/bin/phpstorm.sh&quot;</span><br>Icon=/home/mohuani/develop/PhpStorm-201.7846.90/bin/phpstorm.svg<br>Terminal=phpstorm<br>Categories=Phpstorm<br></code></pre></div></td></tr></table></figure><h3 id="DataGrip"><a href="#DataGrip" class="headerlink" title="DataGrip"></a>DataGrip</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">[Desktop Entry]<br>Type=Application<br>Name=Datagrip<br>GenericName=DataGrip2020<br>Comment=DataGrip2020:The SQL IDE<br>Exec=<span class="hljs-string">&quot;/home/mohuani/develop/DataGrip-2020.1.5/bin/datagrip.sh&quot;</span><br>Icon=/home/mohuani/develop/DataGrip-2020.1.5/bin/datagrip.svg<br>Terminal=datagrip<br>Categories=Datagrip<br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>Phpstorm</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Phpstorm</tag>
+      <tag>TensorFlow</tag>
       
     </tags>
     
@@ -1266,52 +1299,23 @@
   
   
   <entry>
-    <title>TensorFlow学习笔记2</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
+    <title>Phpstorm ubuntu创建图标</title>
+    <link href="/2019/09/03/%E5%B7%A5%E5%85%B7/Phpstorm%20ubuntu%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%A0%87/"/>
+    <url>/2019/09/03/%E5%B7%A5%E5%85%B7/Phpstorm%20ubuntu%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%A0%87/</url>
     
-    <content type="html"><![CDATA[<p><strong>Session的两种使用方式</strong></p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> tensorflow as tf<br><br><span class="hljs-attribute">matrix1</span> = tf.constant([[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]])<br><span class="hljs-attribute">matrix2</span> = tf.constant([[<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]])<br><br><span class="hljs-attribute">product</span> = tf.matmul(matrix<span class="hljs-number">1</span>,matrix<span class="hljs-number">2</span>)  # matrix multiply  np.dot(m<span class="hljs-number">1</span>,m<span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># session的两种打开模式</span><br><br><span class="hljs-comment"># method 1</span><br><br><span class="hljs-comment"># sess = tf.Session()</span><br><span class="hljs-comment"># result1 = sess.run(product)</span><br><span class="hljs-comment"># print(result1)</span><br><span class="hljs-comment"># sess.close()</span><br><br><span class="hljs-comment"># method 2</span><br><span class="hljs-attribute">with</span> tf.Session() as sess:<br>    <span class="hljs-attribute">result2</span> = sess.run(product)<br>    <span class="hljs-attribute">print</span>(result<span class="hljs-number">2</span>)<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight lua"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs lua"><span class="hljs-string">[[12]]</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>我们通过源码包的方式安装Jetbrain全家桶的软件时，桌面是没有快捷方式启动的，只能通过命令行的方式启动，很不方便。下面贴一下我的配置，通过快捷方式启动软件<br>ubuntu 2004</p><p>进入目录下面的目录，参考里面已有的文件创建一个xxx.desktop文件</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">/usr/share/applications<br></code></pre></div></td></tr></table></figure><h3 id="PhpStorm"><a href="#PhpStorm" class="headerlink" title="PhpStorm"></a>PhpStorm</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">[Desktop Entry]<br>Type=Application<br>Name=Phpstorm<br>GenericName=Phpstorm2020<br>Comment=Phpstorm2020:The PHP IDE<br>Exec=<span class="hljs-string">&quot;/home/mohuani/develop/PhpStorm-201.7846.90/bin/phpstorm.sh&quot;</span><br>Icon=/home/mohuani/develop/PhpStorm-201.7846.90/bin/phpstorm.svg<br>Terminal=phpstorm<br>Categories=Phpstorm<br></code></pre></div></td></tr></table></figure><h3 id="DataGrip"><a href="#DataGrip" class="headerlink" title="DataGrip"></a>DataGrip</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">[Desktop Entry]<br>Type=Application<br>Name=Datagrip<br>GenericName=DataGrip2020<br>Comment=DataGrip2020:The SQL IDE<br>Exec=<span class="hljs-string">&quot;/home/mohuani/develop/DataGrip-2020.1.5/bin/datagrip.sh&quot;</span><br>Icon=/home/mohuani/develop/DataGrip-2020.1.5/bin/datagrip.svg<br>Terminal=datagrip<br>Categories=Datagrip<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
       
-      <category>计算机相关</category>
-      
-      <category>TensorFlow</category>
+      <category>Phpstorm</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>计算机相关</tag>
-      
-      <tag>TensorFlow</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Google资深工程师深度讲解Go语言11-http及其他标准库</title>
-    <link href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/"/>
-    <url>/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/</url>
-    
-    <content type="html"><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20190630223929865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190630223952906.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019063022481518.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190630224746124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>golang</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>golang</tag>
+      <tag>Phpstorm</tag>
       
     </tags>
     
@@ -1362,6 +1366,35 @@
     <tags>
       
       <tag>golang</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Beego</title>
+    <link href="/2019/06/15/Golang/Beego/"/>
+    <url>/2019/06/15/Golang/Beego/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20190428134858948.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428134923877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428134935702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428134957610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428135008573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428135018507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428135027266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>golang</category>
+      
+      <category>beego</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>golang</tag>
+      
+      <tag>beego</tag>
       
     </tags>
     
@@ -1470,18 +1503,16 @@
   
   
   <entry>
-    <title>Beego</title>
-    <link href="/2019/06/15/Golang/Beego/"/>
-    <url>/2019/06/15/Golang/Beego/</url>
+    <title>Google资深工程师深度讲解Go语言11-http及其他标准库</title>
+    <link href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/"/>
+    <url>/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/</url>
     
-    <content type="html"><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20190428134858948.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428134923877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428134935702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428134957610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428135008573.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428135018507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428135027266.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20190630223929865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190630223952906.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019063022481518.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190630224746124.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
     
     
     <categories>
       
       <category>golang</category>
-      
-      <category>beego</category>
       
     </categories>
     
@@ -1489,8 +1520,6 @@
     <tags>
       
       <tag>golang</tag>
-      
-      <tag>beego</tag>
       
     </tags>
     
