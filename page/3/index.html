@@ -182,6 +182,56 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/">微服务RPC问题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/">
+          
+          
+            
+          
+          下面的问题，想到解决方案后再补充1、多版本并行开发，上线时版本问题？
+2、方法版本前后兼容问题，方法是否允许删除？
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-22 20:36" pubdate>
+              2020-12-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/12/04/PHP/Laravel/Laravel%20collecte%20break%20continue/">Laravel collecte break continue</a>
       </h1>
 
@@ -345,18 +395,24 @@ AppImageLauncher: https://github.com/TheAssassin/AppImageLauncher
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
+        <a href="/2020/06/15/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git常见使用方法</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">
+        <a href="/2020/06/15/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
           
           
             
           
-          背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
-原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
-解决方法远程仓库创建好后，本地项目
+          项目以往 gitee提交代码为例子
+
+1、创建公钥1ssh-keygen -t rsa -C “git@gitee.com”
+执行完毕该命令后，会在 “/c/Users/xxxx/.ssh/” 目录下面生成3个文件
+
+123id_rsaid_rsa.pubknown_hosts
+
+
+2、进入将创建好的公钥内容（id_rsa.pub）复制到如下的地址中，这样你就可以有权限对自己的远程仓库进行 pul
         </a>
       </p>
 
@@ -395,24 +451,70 @@ AppImageLauncher: https://github.com/TheAssassin/AppImageLauncher
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git常见使用方法</a>
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/Git%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
           
           
             
           
-          项目以往 gitee提交代码为例子
+          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
+原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
+解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
+1234git rm -r --cached .
+        </a>
+      </p>
 
-1、创建公钥1ssh-keygen -t rsa -C “git@gitee.com”
-执行完毕该命令后，会在 “/c/Users/xxxx/.ssh/” 目录下面生成3个文件
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-15 21:22" pubdate>
+              2020-06-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Git/">Git</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
-123id_rsaid_rsa.pubknown_hosts
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/15/Git/Git%20Commit%20Template/">Git Commit Template</a>
+      </h1>
 
+      <p class="index-excerpt">
+        <a href="/2020/06/15/Git/Git%20Commit%20Template/">
+          
+          
+            
+          
+          JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交
+https://plugins.jetbrains.com/plugin/9861-git-commit-template
+参考文档：https://blog.csdn.net/weixin_43550660/article/details/105459038
 
-2、进入将创建好的公钥内容（id_rsa.pub）复制到如下的地址中，这样你就可以有权限对自己的远程仓库进行 pul
         </a>
       </p>
 
@@ -503,70 +605,18 @@ git submoudle的使用方法
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/Git%20Commit%20Template/">Git Commit Template</a>
+        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/Git%20Commit%20Template/">
+        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">
           
           
             
           
-          JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交
-https://plugins.jetbrains.com/plugin/9861-git-commit-template
-参考文档：https://blog.csdn.net/weixin_43550660/article/details/105459038
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-15 21:22" pubdate>
-              2020-06-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Git/">Git</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Git/">Git</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
-          
-          
-            
-          
-          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
-原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
-解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
-1234git rm -r --cached .
+          背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
+原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
+解决方法远程仓库创建好后，本地项目
         </a>
       </p>
 
@@ -648,64 +698,11 @@ AB测试中常见的命令123456789101112131415161718192021222324252627282930313
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">MySql  ERROR 1698 (28000)</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">
-          
-          
-            
-          
-          MySql 5.7.6 起，安装时如果 root 不设置密码，那么默认会采用auth_socket的方式登陆 MySQL 。也就是登陆 MySQL 时验证你的 Linux 的当前用户是否为 root，如果不是就不能登陆。在auth_socket模式下，应用程序通过数据库的用户名、密码是无法连接的，这就需要我们将数据库的登陆模式，改为mysql_native_password模式。
-进入数据库：su
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-10-18 20:36" pubdate>
-              2019-10-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/tags/MySQL/">MySQL</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#board">11</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#board">12</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

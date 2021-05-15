@@ -182,23 +182,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">MySql  ERROR 1698 (28000)</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">
           
           
             
           
-          命令行下具体用法如下：  
-1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
-
-导出整个数据库结构和数据
-1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
-
-导出单个数据表结构和数据
-1mysqldump -h localhost -uroot -p123456  database ta
+          MySql 5.7.6 起，安装时如果 root 不设置密码，那么默认会采用auth_socket的方式登陆 MySQL 。也就是登陆 MySQL 时验证你的 Linux 的当前用户是否为 root，如果不是就不能登陆。在auth_socket模式下，应用程序通过数据库的用户名、密码是无法连接的，这就需要我们将数据库的登陆模式，改为mysql_native_password模式。
+进入数据库：su
         </a>
       </p>
 
@@ -392,6 +386,65 @@ MySQL数据库优化SQL语句优化慢查询
               <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
             
               <a href="/tags/Redis/">Redis</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
+          
+          
+            
+          
+          命令行下具体用法如下：  
+1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
+
+导出整个数据库结构和数据
+1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
+
+导出单个数据表结构和数据
+1mysqldump -h localhost -uroot -p123456  database ta
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-18 20:36" pubdate>
+              2019-10-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/tags/MySQL/">MySQL</a>
             
           </div>
         
@@ -671,64 +724,11 @@ is()
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/">HTTPS 比 HTTP 更安全</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/">
-          
-          
-            
-          
-          为什么 HTTPS 比 HTTP 更安全？：https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-09-03 19:36" pubdate>
-              2019-09-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/">HTTP</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/tags/HTTP/">HTTP</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#board">11</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#board">12</a><a class="extend next" rel="next" href="/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
