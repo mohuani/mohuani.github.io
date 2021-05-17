@@ -20,9 +20,9 @@ categories:
 - [其他变更](https://www.php.net/manual/zh/migration80.other-changes.php)
 
 
-### 视频资料
-[php8内核开发者介绍php8 2020php峰会](https://www.bilibili.com/video/BV1Ua411A72q)
-
+### 视频或者文档资料
+- [php8内核开发者介绍php8 2020php峰会](https://www.bilibili.com/video/BV1Ua411A72q)
+- [PHP 8新特性之Attributes(注解)](https://www.laruence.com/2020/06/12/5902.html)
 
 #### 备注
 - [x] 可以主要看一下 [不向后兼容的变更](https://www.php.net/manual/zh/migration80.incompatible.php)，短期内对我们编写程序影响最大的点应该是这里。
