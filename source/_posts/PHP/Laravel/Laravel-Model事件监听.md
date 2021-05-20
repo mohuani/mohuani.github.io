@@ -1,6 +1,6 @@
 ---
 title: "Laravel-Model事件监听"
-date: 2015-12-04 21:22:30
+date: 2021-05-20 22:22:30
 draft: true
 tags: [PHP, Laravel]
 categories:
