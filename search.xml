@@ -5,8 +5,8 @@
     
     <entry>
       <title></title>
-      <link href="2021/05/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-      <url>2021/05/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+      <link href="2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+      <url>2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -18,8 +18,8 @@
     
     <entry>
       <title></title>
-      <link href="2021/05/22/Golang/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-      <url>2021/05/22/Golang/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
+      <link href="2021/05/23/Golang/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+      <url>2021/05/23/Golang/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
       
         <content type="html"><![CDATA[<figure class="highlight go"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs go">单例模式<br>todo<br> <br><br></code></pre></div></td></tr></table></figure>]]></content>
       
@@ -208,7 +208,7 @@
       <link href="2021/04/14/Golang/gorm/gorm%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/"/>
       <url>2021/04/14/Golang/gorm/gorm%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<h3 id="配套视频"><a href="#配套视频" class="headerlink" title="配套视频"></a>配套视频</h3><p><a href="https://www.bilibili.com/video/BV1ST4y1T7NR">Go开源说第二期GORM</a></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="配套视频"><a href="#配套视频" class="headerlink" title="配套视频"></a>配套视频</h3><p><a href="https://www.bilibili.com/video/BV1ST4y1T7NR">Go开源说第二期GORM</a></p><p><a href="https://www.bilibili.com/video/BV1U7411V78R">GORM简明教程-李文周</a></p><h3 id="配套文档"><a href="#配套文档" class="headerlink" title="配套文档"></a>配套文档</h3><p><a href="https://www.liwenzhou.com/posts/Go/gorm_crud/">GORM CRUD指南</a></p><p><a href="https://gorm.io/zh_CN/">GORM官方文档</a></p>]]></content>
       
       
       <categories>
