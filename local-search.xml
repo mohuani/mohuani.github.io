@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2021/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+    <url>/2021/05/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Gin-路由</title>
     <link href="/2021/05/23/Golang/Gin/%E8%B7%AF%E7%94%B1%E6%A0%91/"/>
     <url>/2021/05/23/Golang/Gin/%E8%B7%AF%E7%94%B1%E6%A0%91/</url>
@@ -27,19 +40,6 @@
       <tag>Gin</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
     
   </entry>
   
@@ -1133,11 +1133,40 @@
   
   
   <entry>
-    <title>TensorFlow学习笔记4</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <title>TensorFlow学习笔记6</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/</url>
     
-    <content type="html"><![CDATA[<p><strong>placeholder传值</strong></p><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">import tensorflow <span class="hljs-keyword">as</span> <span class="hljs-keyword">tf</span><br><br>input1 = <span class="hljs-keyword">tf</span>.placeholder(<span class="hljs-keyword">tf</span>.float32)<br>input2 = <span class="hljs-keyword">tf</span>.placeholder(<span class="hljs-keyword">tf</span>.float32)<br><br>output = <span class="hljs-keyword">tf</span>.multiply(input1,input2)<br><br># with <span class="hljs-keyword">tf</span>.Session <span class="hljs-keyword">as</span> ses<span class="hljs-variable">s:</span><br>sess = <span class="hljs-keyword">tf</span>.Session()<br><span class="hljs-keyword">print</span>(sess.run(output,feed_dict=&#123;input1:[<span class="hljs-number">7</span>.],input2:[<span class="hljs-number">2</span>.]&#125;))<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">[<span class="hljs-number">14.</span>]<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="TensorFlow搭建神经网络可视化结果"><a href="#TensorFlow搭建神经网络可视化结果" class="headerlink" title="TensorFlow搭建神经网络可视化结果"></a>TensorFlow搭建神经网络可视化结果</h2><figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">import tensorflow <span class="hljs-keyword">as</span> tf<br>import numpy <span class="hljs-keyword">as</span> np<br>import matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>def add<span class="hljs-constructor">_layer(<span class="hljs-params">inputs</span>, <span class="hljs-params">in_size</span>, <span class="hljs-params">out_size</span>, <span class="hljs-params">activation_function</span> = None)</span>:<br>    Weights = tf.<span class="hljs-constructor">Variable(<span class="hljs-params">tf</span>.<span class="hljs-params">random_normal</span>([<span class="hljs-params">in_size</span>, <span class="hljs-params">out_size</span>])</span>)<br>    biases = tf.<span class="hljs-constructor">Variable(<span class="hljs-params">tf</span>.<span class="hljs-params">zeros</span>([1, <span class="hljs-params">out_size</span>])</span> + <span class="hljs-number">0.1</span>)<br>    Wx_plus_b = tf.matmul(inputs, Weights) + biases<br>    <span class="hljs-keyword">if</span> activation_function is None:<br>        outputs = Wx_plus_b<br>    <span class="hljs-keyword">else</span>:<br>        outputs = activation<span class="hljs-constructor">_function(Wx_plus_b)</span><br>    return outputs<br><br>x_data = np.linspace(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">300</span>)<span class="hljs-literal">[:,<span class="hljs-identifier">np</span>.<span class="hljs-identifier">newaxis</span>]</span><br>noise = np.random.normal(<span class="hljs-number">0</span>,<span class="hljs-number">0.05</span>,x_data.shape)<br>y_data = np.square(x_data) - <span class="hljs-number">0.5</span> + noise<br><br><br>xs = tf.placeholder(tf.float32,<span class="hljs-literal">[N<span class="hljs-identifier">one</span>,<span class="hljs-number">1</span>]</span>)<br>ys = tf.placeholder(tf.float32,<span class="hljs-literal">[N<span class="hljs-identifier">one</span>,<span class="hljs-number">1</span>]</span>)<br>l1 = add<span class="hljs-constructor">_layer(<span class="hljs-params">xs</span>,1,10,<span class="hljs-params">activation_function</span> = <span class="hljs-params">tf</span>.<span class="hljs-params">nn</span>.<span class="hljs-params">relu</span>)</span><br>prediction = add<span class="hljs-constructor">_layer(<span class="hljs-params">l1</span>,10,1,<span class="hljs-params">activation_function</span>=None)</span><br><br><br>loss =tf.reduce<span class="hljs-constructor">_mean(<span class="hljs-params">tf</span>.<span class="hljs-params">reduce_sum</span>(<span class="hljs-params">tf</span>.<span class="hljs-params">square</span>(<span class="hljs-params">ys</span> - <span class="hljs-params">prediction</span>)</span>,<br>                    reduction_indices=<span class="hljs-literal">[<span class="hljs-number">1</span>]</span>))<br><br>train_step = tf.train.<span class="hljs-constructor">GradientDescentOptimizer(0.1)</span>.minimize(loss)<br><br># init = tf.initialize<span class="hljs-constructor">_all_variables()</span><br>init = tf.global<span class="hljs-constructor">_variables_initializer()</span><br><br>sess = tf.<span class="hljs-constructor">Session()</span><br>sess.run(init)<br><br>fig = plt.figure<span class="hljs-literal">()</span><br>ax = fig.add<span class="hljs-constructor">_subplot(1,1,1)</span><br>ax.scatter(x_data,y_data)<br><br>plt.ion<span class="hljs-literal">()</span><br>plt.show<span class="hljs-literal">()</span><br># plt.close<span class="hljs-literal">()</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):<br>    sess.run(train_step,feed_dict=&#123;xs:x_data,ys:y_data&#125;)<br>    <span class="hljs-keyword">if</span> i % <span class="hljs-number">50</span><span class="hljs-operator"> == </span><span class="hljs-number">0</span>:<br>        # print(sess.run(loss,feed_dict=&#123;xs:x_data,ys:y_data&#125;))<br><br>        <span class="hljs-keyword">try</span>:<br>            ax.lines.remove(lines<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>)<br>        except Exception:<br>            pass<br><br>        prediction_value = sess.run(prediction,feed_dict=&#123;xs:x_data&#125;)<br>        lines = ax.plot(x_data,prediction_value,&#x27;r-&#x27;,lw = <span class="hljs-number">3</span>)<br>        plt.pause(<span class="hljs-number">0.5</span>)<br><br><br></code></pre></div></td></tr></table></figure><p>运行的效果<br><img src="https://img-blog.csdn.net/20180407000723874?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机相关</category>
+      
+      <category>TensorFlow</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机相关</tag>
+      
+      <tag>TensorFlow</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TensorFlow学习笔记1</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
+    
+    <content type="html"><![CDATA[<p>自己构建一些数据，来实现一个简单函数的模拟学习</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> tensorflow as tf<br><span class="hljs-attribute">import</span> numpy as np<br><br><span class="hljs-comment"># create data</span><br><span class="hljs-attribute">x_data</span> = np.random.rand(<span class="hljs-number">100</span>).astype(np.float<span class="hljs-number">32</span>)<br><span class="hljs-attribute">y_data</span> = x_data*<span class="hljs-number">0</span>.<span class="hljs-number">1</span> + <span class="hljs-number">0</span>.<span class="hljs-number">3</span><br><br><span class="hljs-comment"># create tensorflow structure start</span><br><span class="hljs-attribute">Weights</span> = tf.Variable(tf.random_uniform([<span class="hljs-number">1</span>],-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>))<br><span class="hljs-attribute">biases</span> = tf.Variable(tf.zeros([<span class="hljs-number">1</span>]))<br><br><span class="hljs-attribute">y</span> = Weights*x_data + biases<br><br><span class="hljs-attribute">loss</span> = tf.reduce_mean(tf.square(y-y_data))<br><span class="hljs-attribute">optimizer</span> = tf.train.GradientDescentOptimizer(<span class="hljs-number">0</span>.<span class="hljs-number">5</span>)<br><span class="hljs-attribute">train</span> = optimizer.minimize(loss)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br><br><span class="hljs-attribute">init</span> = tf.global_variables_initializer()<br><br><span class="hljs-comment"># create tensorflow structure end</span><br><br><span class="hljs-attribute">sess</span> = tf.Session()<br><span class="hljs-attribute">sess</span>.run(init)<br><br><span class="hljs-attribute">for</span> step in range(<span class="hljs-number">401</span>):<br>    <span class="hljs-attribute">sess</span>.run(train)<br>    <span class="hljs-attribute">if</span> step % <span class="hljs-number">20</span> == <span class="hljs-number">0</span>:<br>        <span class="hljs-attribute">print</span>(step,sess.run(Weights),sess.run(biases))<br><br><br></code></pre></div></td></tr></table></figure><p>经过401的迭代后输出的结果</p><figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">0 </span>[-<span class="hljs-number">0.39455852</span>] [<span class="hljs-number">0.70643663</span>]<br><span class="hljs-symbol">20 </span>[-<span class="hljs-number">0.05729461</span>] [<span class="hljs-number">0.37692836</span>]<br><span class="hljs-symbol">40 </span>[<span class="hljs-number">0.05577959</span>] [<span class="hljs-number">0.32162696</span>]<br><span class="hljs-symbol">60 </span>[<span class="hljs-number">0.08756826</span>] [<span class="hljs-number">0.30608</span>]<br><span class="hljs-symbol">80 </span>[<span class="hljs-number">0.09650504</span>] [<span class="hljs-number">0.3017093</span>]<br><span class="hljs-symbol">100 </span>[<span class="hljs-number">0.09901748</span>] [<span class="hljs-number">0.30048054</span>]<br><span class="hljs-symbol">120 </span>[<span class="hljs-number">0.09972379</span>] [<span class="hljs-number">0.3001351</span>]<br><span class="hljs-symbol">140 </span>[<span class="hljs-number">0.09992234</span>] [<span class="hljs-number">0.300038</span>]<br><span class="hljs-symbol">160 </span>[<span class="hljs-number">0.09997816</span>] [<span class="hljs-number">0.30001068</span>]<br><span class="hljs-symbol">180 </span>[<span class="hljs-number">0.09999388</span>] [<span class="hljs-number">0.30000302</span>]<br><span class="hljs-symbol">200 </span>[<span class="hljs-number">0.09999828</span>] [<span class="hljs-number">0.30000085</span>]<br><span class="hljs-symbol">220 </span>[<span class="hljs-number">0.09999953</span>] [<span class="hljs-number">0.30000025</span>]<br><span class="hljs-symbol">240 </span>[<span class="hljs-number">0.09999986</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">260 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">280 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">300 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">320 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">340 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">360 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">380 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">400 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -1249,35 +1278,6 @@
   
   
   <entry>
-    <title>TensorFlow学习笔记6</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/</url>
-    
-    <content type="html"><![CDATA[<h2 id="TensorFlow搭建神经网络可视化结果"><a href="#TensorFlow搭建神经网络可视化结果" class="headerlink" title="TensorFlow搭建神经网络可视化结果"></a>TensorFlow搭建神经网络可视化结果</h2><figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">import tensorflow <span class="hljs-keyword">as</span> tf<br>import numpy <span class="hljs-keyword">as</span> np<br>import matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>def add<span class="hljs-constructor">_layer(<span class="hljs-params">inputs</span>, <span class="hljs-params">in_size</span>, <span class="hljs-params">out_size</span>, <span class="hljs-params">activation_function</span> = None)</span>:<br>    Weights = tf.<span class="hljs-constructor">Variable(<span class="hljs-params">tf</span>.<span class="hljs-params">random_normal</span>([<span class="hljs-params">in_size</span>, <span class="hljs-params">out_size</span>])</span>)<br>    biases = tf.<span class="hljs-constructor">Variable(<span class="hljs-params">tf</span>.<span class="hljs-params">zeros</span>([1, <span class="hljs-params">out_size</span>])</span> + <span class="hljs-number">0.1</span>)<br>    Wx_plus_b = tf.matmul(inputs, Weights) + biases<br>    <span class="hljs-keyword">if</span> activation_function is None:<br>        outputs = Wx_plus_b<br>    <span class="hljs-keyword">else</span>:<br>        outputs = activation<span class="hljs-constructor">_function(Wx_plus_b)</span><br>    return outputs<br><br>x_data = np.linspace(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">300</span>)<span class="hljs-literal">[:,<span class="hljs-identifier">np</span>.<span class="hljs-identifier">newaxis</span>]</span><br>noise = np.random.normal(<span class="hljs-number">0</span>,<span class="hljs-number">0.05</span>,x_data.shape)<br>y_data = np.square(x_data) - <span class="hljs-number">0.5</span> + noise<br><br><br>xs = tf.placeholder(tf.float32,<span class="hljs-literal">[N<span class="hljs-identifier">one</span>,<span class="hljs-number">1</span>]</span>)<br>ys = tf.placeholder(tf.float32,<span class="hljs-literal">[N<span class="hljs-identifier">one</span>,<span class="hljs-number">1</span>]</span>)<br>l1 = add<span class="hljs-constructor">_layer(<span class="hljs-params">xs</span>,1,10,<span class="hljs-params">activation_function</span> = <span class="hljs-params">tf</span>.<span class="hljs-params">nn</span>.<span class="hljs-params">relu</span>)</span><br>prediction = add<span class="hljs-constructor">_layer(<span class="hljs-params">l1</span>,10,1,<span class="hljs-params">activation_function</span>=None)</span><br><br><br>loss =tf.reduce<span class="hljs-constructor">_mean(<span class="hljs-params">tf</span>.<span class="hljs-params">reduce_sum</span>(<span class="hljs-params">tf</span>.<span class="hljs-params">square</span>(<span class="hljs-params">ys</span> - <span class="hljs-params">prediction</span>)</span>,<br>                    reduction_indices=<span class="hljs-literal">[<span class="hljs-number">1</span>]</span>))<br><br>train_step = tf.train.<span class="hljs-constructor">GradientDescentOptimizer(0.1)</span>.minimize(loss)<br><br># init = tf.initialize<span class="hljs-constructor">_all_variables()</span><br>init = tf.global<span class="hljs-constructor">_variables_initializer()</span><br><br>sess = tf.<span class="hljs-constructor">Session()</span><br>sess.run(init)<br><br>fig = plt.figure<span class="hljs-literal">()</span><br>ax = fig.add<span class="hljs-constructor">_subplot(1,1,1)</span><br>ax.scatter(x_data,y_data)<br><br>plt.ion<span class="hljs-literal">()</span><br>plt.show<span class="hljs-literal">()</span><br># plt.close<span class="hljs-literal">()</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):<br>    sess.run(train_step,feed_dict=&#123;xs:x_data,ys:y_data&#125;)<br>    <span class="hljs-keyword">if</span> i % <span class="hljs-number">50</span><span class="hljs-operator"> == </span><span class="hljs-number">0</span>:<br>        # print(sess.run(loss,feed_dict=&#123;xs:x_data,ys:y_data&#125;))<br><br>        <span class="hljs-keyword">try</span>:<br>            ax.lines.remove(lines<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>)<br>        except Exception:<br>            pass<br><br>        prediction_value = sess.run(prediction,feed_dict=&#123;xs:x_data&#125;)<br>        lines = ax.plot(x_data,prediction_value,&#x27;r-&#x27;,lw = <span class="hljs-number">3</span>)<br>        plt.pause(<span class="hljs-number">0.5</span>)<br><br><br></code></pre></div></td></tr></table></figure><p>运行的效果<br><img src="https://img-blog.csdn.net/20180407000723874?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>计算机相关</category>
-      
-      <category>TensorFlow</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>计算机相关</tag>
-      
-      <tag>TensorFlow</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>HTTP 返回码详解</title>
     <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
     <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
@@ -1307,18 +1307,18 @@
   
   
   <entry>
-    <title>HTTPS 比 HTTP 更安全</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/</url>
+    <title>TensorFlow学习笔记4</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
     
-    <content type="html"><![CDATA[<p>为什么 HTTPS 比 HTTP 更安全？：<a href="https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882">https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882</a></p>]]></content>
+    <content type="html"><![CDATA[<p><strong>placeholder传值</strong></p><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">import tensorflow <span class="hljs-keyword">as</span> <span class="hljs-keyword">tf</span><br><br>input1 = <span class="hljs-keyword">tf</span>.placeholder(<span class="hljs-keyword">tf</span>.float32)<br>input2 = <span class="hljs-keyword">tf</span>.placeholder(<span class="hljs-keyword">tf</span>.float32)<br><br>output = <span class="hljs-keyword">tf</span>.multiply(input1,input2)<br><br># with <span class="hljs-keyword">tf</span>.Session <span class="hljs-keyword">as</span> ses<span class="hljs-variable">s:</span><br>sess = <span class="hljs-keyword">tf</span>.Session()<br><span class="hljs-keyword">print</span>(sess.run(output,feed_dict=&#123;input1:[<span class="hljs-number">7</span>.],input2:[<span class="hljs-number">2</span>.]&#125;))<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">[<span class="hljs-number">14.</span>]<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
       
       <category>计算机相关</category>
       
-      <category>HTTP</category>
+      <category>TensorFlow</category>
       
     </categories>
     
@@ -1327,7 +1327,7 @@
       
       <tag>计算机相关</tag>
       
-      <tag>HTTP</tag>
+      <tag>TensorFlow</tag>
       
     </tags>
     
@@ -1411,18 +1411,18 @@
   
   
   <entry>
-    <title>TensorFlow学习笔记1</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
+    <title>HTTPS 比 HTTP 更安全</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/</url>
     
-    <content type="html"><![CDATA[<p>自己构建一些数据，来实现一个简单函数的模拟学习</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> tensorflow as tf<br><span class="hljs-attribute">import</span> numpy as np<br><br><span class="hljs-comment"># create data</span><br><span class="hljs-attribute">x_data</span> = np.random.rand(<span class="hljs-number">100</span>).astype(np.float<span class="hljs-number">32</span>)<br><span class="hljs-attribute">y_data</span> = x_data*<span class="hljs-number">0</span>.<span class="hljs-number">1</span> + <span class="hljs-number">0</span>.<span class="hljs-number">3</span><br><br><span class="hljs-comment"># create tensorflow structure start</span><br><span class="hljs-attribute">Weights</span> = tf.Variable(tf.random_uniform([<span class="hljs-number">1</span>],-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>))<br><span class="hljs-attribute">biases</span> = tf.Variable(tf.zeros([<span class="hljs-number">1</span>]))<br><br><span class="hljs-attribute">y</span> = Weights*x_data + biases<br><br><span class="hljs-attribute">loss</span> = tf.reduce_mean(tf.square(y-y_data))<br><span class="hljs-attribute">optimizer</span> = tf.train.GradientDescentOptimizer(<span class="hljs-number">0</span>.<span class="hljs-number">5</span>)<br><span class="hljs-attribute">train</span> = optimizer.minimize(loss)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br><br><span class="hljs-attribute">init</span> = tf.global_variables_initializer()<br><br><span class="hljs-comment"># create tensorflow structure end</span><br><br><span class="hljs-attribute">sess</span> = tf.Session()<br><span class="hljs-attribute">sess</span>.run(init)<br><br><span class="hljs-attribute">for</span> step in range(<span class="hljs-number">401</span>):<br>    <span class="hljs-attribute">sess</span>.run(train)<br>    <span class="hljs-attribute">if</span> step % <span class="hljs-number">20</span> == <span class="hljs-number">0</span>:<br>        <span class="hljs-attribute">print</span>(step,sess.run(Weights),sess.run(biases))<br><br><br></code></pre></div></td></tr></table></figure><p>经过401的迭代后输出的结果</p><figure class="highlight basic"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">0 </span>[-<span class="hljs-number">0.39455852</span>] [<span class="hljs-number">0.70643663</span>]<br><span class="hljs-symbol">20 </span>[-<span class="hljs-number">0.05729461</span>] [<span class="hljs-number">0.37692836</span>]<br><span class="hljs-symbol">40 </span>[<span class="hljs-number">0.05577959</span>] [<span class="hljs-number">0.32162696</span>]<br><span class="hljs-symbol">60 </span>[<span class="hljs-number">0.08756826</span>] [<span class="hljs-number">0.30608</span>]<br><span class="hljs-symbol">80 </span>[<span class="hljs-number">0.09650504</span>] [<span class="hljs-number">0.3017093</span>]<br><span class="hljs-symbol">100 </span>[<span class="hljs-number">0.09901748</span>] [<span class="hljs-number">0.30048054</span>]<br><span class="hljs-symbol">120 </span>[<span class="hljs-number">0.09972379</span>] [<span class="hljs-number">0.3001351</span>]<br><span class="hljs-symbol">140 </span>[<span class="hljs-number">0.09992234</span>] [<span class="hljs-number">0.300038</span>]<br><span class="hljs-symbol">160 </span>[<span class="hljs-number">0.09997816</span>] [<span class="hljs-number">0.30001068</span>]<br><span class="hljs-symbol">180 </span>[<span class="hljs-number">0.09999388</span>] [<span class="hljs-number">0.30000302</span>]<br><span class="hljs-symbol">200 </span>[<span class="hljs-number">0.09999828</span>] [<span class="hljs-number">0.30000085</span>]<br><span class="hljs-symbol">220 </span>[<span class="hljs-number">0.09999953</span>] [<span class="hljs-number">0.30000025</span>]<br><span class="hljs-symbol">240 </span>[<span class="hljs-number">0.09999986</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">260 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">280 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">300 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">320 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">340 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">360 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">380 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br><span class="hljs-symbol">400 </span>[<span class="hljs-number">0.0999999</span>] [<span class="hljs-number">0.30000007</span>]<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>为什么 HTTPS 比 HTTP 更安全？：<a href="https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882">https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882</a></p>]]></content>
     
     
     <categories>
       
       <category>计算机相关</category>
       
-      <category>TensorFlow</category>
+      <category>HTTP</category>
       
     </categories>
     
@@ -1431,7 +1431,7 @@
       
       <tag>计算机相关</tag>
       
-      <tag>TensorFlow</tag>
+      <tag>HTTP</tag>
       
     </tags>
     
@@ -2475,16 +2475,18 @@
   
   
   <entry>
-    <title>JsonWebToken</title>
-    <link href="/2016/06/17/Java/JsonWebToken/"/>
-    <url>/2016/06/17/Java/JsonWebToken/</url>
+    <title>springboot启动失败常见问题</title>
+    <link href="/2016/06/17/Java/springboot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    <url>/2016/06/17/Java/springboot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     
-    <content type="html"><![CDATA[<p>参考阮一峰老师的博客：<a href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html">http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html</a></p><p>课程参考：<a href="https://www.imooc.com/video/19018">https://www.imooc.com/video/19018</a></p><p>JWT官网：<a href="https://jwt.io/">https://jwt.io/</a><br><img src="https://img-blog.csdnimg.cn/20190428161255871.png?x-oss-process=image/wat!%5B%E5%9C%A8%E8%BF%99%E9%87%8C%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%8F%8F%E8%BF%B0%5D(https://img-blog.csdnimg.cn/2019042816125835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428161617968.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    <content type="html"><![CDATA[<!-- - 刚开始使用springboot连接mysql数据库，项目启动的时候报了一个错误 --><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">Loading class `com.mysql.jdbc.Driver<span class="hljs-string">&#x27;. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver&#x27;</span>. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.<br></code></pre></div></td></tr></table></figure><p>原因：现在很多定的教学视频都比较老，教学使用的mysql版本和你自己本地使用的版本不一致，新版本的mysql需要设置成  “com.mysql.cj.jdbc.Driver”，另外还需要增加一个参数 serverTimezone=UTC<br>参考文档：<a href="https://blog.csdn.net/weixin_43770545/article/details/90486809">https://blog.csdn.net/weixin_43770545/article/details/90486809</a></p><ul><li>项目启动的时候报错，很显然数据库没有正常连接<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">java.sql.SQLException: Access denied <span class="hljs-keyword">for</span> user <span class="hljs-string">&#x27;&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> (using password: NO)<br></code></pre></div></td></tr></table></figure>我当时写的配置是，写的时候IDEA直接提示选了一个，单词没选对data-username 和 data-password，实际应该使用 username 和 password，主要还是没有记清楚配置。当作是一个教训吧。<br>错误的配置：<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;charseterEncoding=utf-8&amp;serverTimezone=UTC</span><br>    <span class="hljs-attr">data-username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">data-password:</span> <span class="hljs-string">root</span><br></code></pre></div></td></tr></table></figure>正确的配置<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;charseterEncoding=utf-8&amp;serverTimezone=UTC</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">root</span><br>    <br></code></pre></div></td></tr></table></figure></li></ul>]]></content>
     
     
     <categories>
       
       <category>Java</category>
+      
+      <category>Springboot</category>
       
     </categories>
     
@@ -2492,6 +2494,8 @@
     <tags>
       
       <tag>Java</tag>
+      
+      <tag>Springboot</tag>
       
     </tags>
     
@@ -2558,6 +2562,31 @@
   
   
   <entry>
+    <title>JsonWebToken</title>
+    <link href="/2016/06/17/Java/JsonWebToken/"/>
+    <url>/2016/06/17/Java/JsonWebToken/</url>
+    
+    <content type="html"><![CDATA[<p>参考阮一峰老师的博客：<a href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html">http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html</a></p><p>课程参考：<a href="https://www.imooc.com/video/19018">https://www.imooc.com/video/19018</a></p><p>JWT官网：<a href="https://jwt.io/">https://jwt.io/</a><br><img src="https://img-blog.csdnimg.cn/20190428161255871.png?x-oss-process=image/wat!%5B%E5%9C%A8%E8%BF%99%E9%87%8C%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E6%8F%8F%E8%BF%B0%5D(https://img-blog.csdnimg.cn/2019042816125835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428161617968.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>MyBatis-Plus入门3</title>
     <link href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A83/"/>
     <url>/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A83/</url>
@@ -2579,35 +2608,6 @@
       <tag>Java</tag>
       
       <tag>MyBatis</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>springboot启动失败常见问题</title>
-    <link href="/2016/06/17/Java/springboot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
-    <url>/2016/06/17/Java/springboot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-    
-    <content type="html"><![CDATA[<!-- - 刚开始使用springboot连接mysql数据库，项目启动的时候报了一个错误 --><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">Loading class `com.mysql.jdbc.Driver<span class="hljs-string">&#x27;. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver&#x27;</span>. The driver is automatically registered via the SPI and manual loading of the driver class is generally unnecessary.<br></code></pre></div></td></tr></table></figure><p>原因：现在很多定的教学视频都比较老，教学使用的mysql版本和你自己本地使用的版本不一致，新版本的mysql需要设置成  “com.mysql.cj.jdbc.Driver”，另外还需要增加一个参数 serverTimezone=UTC<br>参考文档：<a href="https://blog.csdn.net/weixin_43770545/article/details/90486809">https://blog.csdn.net/weixin_43770545/article/details/90486809</a></p><ul><li>项目启动的时候报错，很显然数据库没有正常连接<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">java.sql.SQLException: Access denied <span class="hljs-keyword">for</span> user <span class="hljs-string">&#x27;&#x27;</span>@<span class="hljs-string">&#x27;localhost&#x27;</span> (using password: NO)<br></code></pre></div></td></tr></table></figure>我当时写的配置是，写的时候IDEA直接提示选了一个，单词没选对data-username 和 data-password，实际应该使用 username 和 password，主要还是没有记清楚配置。当作是一个教训吧。<br>错误的配置：<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;charseterEncoding=utf-8&amp;serverTimezone=UTC</span><br>    <span class="hljs-attr">data-username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">data-password:</span> <span class="hljs-string">root</span><br></code></pre></div></td></tr></table></figure>正确的配置<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;charseterEncoding=utf-8&amp;serverTimezone=UTC</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">root</span><br>    <br></code></pre></div></td></tr></table></figure></li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>Java</category>
-      
-      <category>Springboot</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Java</tag>
-      
-      <tag>Springboot</tag>
       
     </tags>
     
