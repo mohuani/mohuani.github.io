@@ -7,7 +7,9 @@ categories:
 - [计算机相关, Mac, Homebrew]
 ---
 
- 传送门： https://getgrav.org/blog/macos-bigsur-apache-multiple-php-versions
+ ~~传送门： https://getgrav.org/blog/macos-bigsur-apache-multiple-php-versions~~
+ 
+ 国内镜像安装方法 ：https://brew.idayer.com/
 
   
 
