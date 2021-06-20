@@ -9,8 +9,9 @@ categories:
 
 ### Git 提交规范文档
 - PHPStrom 推荐推荐使用 Git Commit Template 插件，方便编写通用的git commit message
-- http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html
-- https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83
+- [Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+- [约定式提交](https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83)
+- [开箱即用的代码提交规范](https://juejin.cn/post/6844904004749623309)
 
 ### Git 提交规范
 
