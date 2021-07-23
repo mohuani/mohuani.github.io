@@ -5,12 +5,41 @@
     
     <entry>
       <title></title>
-      <link href="2021/07/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-      <url>2021/07/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+      <link href="2021/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+      <url>2021/07/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
       
         <content type="html"><![CDATA[]]></content>
       
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>composer安装依赖报错</title>
+      <link href="2021/07/22/PHP/Composer/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E6%8A%A5%E9%94%99/"/>
+      <url>2021/07/22/PHP/Composer/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<p>使用composer安装composer.json文件中的依赖时，报错 <code>Allowed memory size of 1610612736 bytes exhausted (tried to allocate 83886080 bytes)</code>，反正就是说内存超出限制了。<br>实际是因为<code>php.ini</code>中 <code>memory_limit</code>的大小限制的。</p><h3 id="修改php-ini"><a href="#修改php-ini" class="headerlink" title="修改php.ini"></a>修改php.ini</h3><p>mac M1 通过<code>homebrew</code>安装的PHP，对应的<code>php.ini</code> 文件位置 <code>opt/homebrew/etc/php/7.4/php.ini</code><br>我自己的环境修改为 2048M 后，composer 可以正常安装依赖。</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">memory_limit = 2048M<br></code></pre></div></td></tr></table></figure><p>重新执行 composer install，开启愉悦地玩耍。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> PHP </category>
+          
+          <category> Composer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PHP </tag>
+            
+            <tag> Composer </tag>
+            
+        </tags>
       
     </entry>
     
@@ -38,35 +67,6 @@
             <tag> 数据库 </tag>
             
             <tag> MySQL </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>composer安装依赖报错</title>
-      <link href="2021/07/12/PHP/Composer/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E6%8A%A5%E9%94%99/"/>
-      <url>2021/07/12/PHP/Composer/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E6%8A%A5%E9%94%99/</url>
-      
-        <content type="html"><![CDATA[<p>使用composer安装composer.json文件中的依赖时，报错 <code>Allowed memory size of 1610612736 bytes exhausted (tried to allocate 83886080 bytes)</code>，反正就是说内存超出限制了。<br>实际是因为<code>php.ini</code>中 <code>memory_limit</code>的大小限制的。</p><h3 id="修改php-ini"><a href="#修改php-ini" class="headerlink" title="修改php.ini"></a>修改php.ini</h3><p>mac M1 通过<code>homebrew</code>安装的PHP，对应的<code>php.ini</code> 文件位置 <code>opt/homebrew/etc/php/7.4/php.ini</code><br>我自己的环境修改为 2048M 后，composer 可以正常安装依赖。</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">memory_limit = 2048M<br></code></pre></div></td></tr></table></figure><p>重新执行 composer install，开启愉悦地玩耍。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> PHP </category>
-          
-          <category> Composer </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> PHP </tag>
-            
-            <tag> Composer </tag>
             
         </tags>
       
