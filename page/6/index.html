@@ -182,65 +182,6 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">TensorFlow学习笔记5</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/">
-          
-          
-            
-          
-          
-搭建神经网络基本流程
-
-
-定义添加神经层的函数
-1.训练的数据2.定义节点准备接收数据3.定义神经层：隐藏层和预测层4.定义 loss 表达式5.选择 optimizer 使 loss 达到最小
-然后对所有变量进行初始化，通过 sess.run optimizer，迭代 1000 次进行学习：
-123456789101112131415161718192021222324252627282930
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-09-03 19:36" pubdate>
-              2019-09-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/">TensorFlow</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/tags/TensorFlow/">TensorFlow</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
         <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">TensorFlow学习笔记3</a>
       </h1>
 
@@ -295,17 +236,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/">TensorFlow学习笔记4</a>
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">TensorFlow学习笔记2</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/">
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">
           
           
             
           
-          placeholder传值
-12345678910import tensorflow as tfinput1 = tf.placeholder(tf.float32)input2 = tf.placeholder(tf.float32)output = tf.multiply(input1,input2)# with tf.Session as sess:sess = tf.Session()pr
+          Session的两种使用方式
+1234567891011121314151617181920import tensorflow as tfmatrix1 = tf.constant([[3,3]])matrix2 = tf.constant([[2,2]])product = tf.matmul(matrix1,matrix2)  # matrix multiply  np.dot(m1,m2)#
         </a>
       </p>
 
@@ -348,17 +289,228 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">TensorFlow学习笔记1</a>
+        <a href="/2019/09/03/%E5%89%8D%E7%AB%AF/is()%E5%92%8ChasClass()/">is()和hasClass()</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
+        <a href="/2019/09/03/%E5%89%8D%E7%AB%AF/is()%E5%92%8ChasClass()/">
           
           
             
           
-          自己构建一些数据，来实现一个简单函数的模拟学习
-1234567891011121314151617181920212223242526272829303132333435import tensorflow as tfimport numpy as np# create datax_data = np.random.rand(100).astype(np.float32)y_data = x_dat
+          is()和hasClass()
+jq中的is()有判断元素是否含有某个class的属性，但是hasClass()没有效果。下面是我找的对应的官方的文档，注意仔细阅读文档里面的小demo，并且注意里面的细微区别。
+
+is()
+123https://api.jquery.com/is/Description: Check the current matched set of elements agai
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-03 19:36" pubdate>
+              2019-09-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/09/03/%E5%B7%A5%E5%85%B7/Phpstorm%20ubuntu%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%A0%87/">Phpstorm ubuntu创建图标</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/09/03/%E5%B7%A5%E5%85%B7/Phpstorm%20ubuntu%E5%88%9B%E5%BB%BA%E5%9B%BE%E6%A0%87/">
+          
+          
+            
+          
+          我们通过源码包的方式安装Jetbrain全家桶的软件时，桌面是没有快捷方式启动的，只能通过命令行的方式启动，很不方便。下面贴一下我的配置，通过快捷方式启动软件ubuntu 2004
+进入目录下面的目录，参考里面已有的文件创建一个xxx.desktop文件
+1/usr/share/applications
+PhpStorm123456789[Desktop Entry]Type=Applicatio
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-03 19:36" pubdate>
+              2019-09-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Phpstorm/">Phpstorm</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Phpstorm/">Phpstorm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">HTTP 返回码详解</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">
+          
+          
+            
+          
+           HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。
+##1xx（临时响应）表示临时响应并需要请求者继续执行操作的状态代码。
+
+100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-03 19:36" pubdate>
+              2019-09-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/">HTTP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
+            
+              <a href="/tags/HTTP/">HTTP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/">HTTPS 比 HTTP 更安全</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/">
+          
+          
+            
+          
+          为什么 HTTPS 比 HTTP 更安全？：https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-03 19:36" pubdate>
+              2019-09-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/">HTTP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
+            
+              <a href="/tags/HTTP/">HTTP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/">TensorFlow学习笔记4</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/">
+          
+          
+            
+          
+          placeholder传值
+12345678910import tensorflow as tfinput1 = tf.placeholder(tf.float32)input2 = tf.placeholder(tf.float32)output = tf.multiply(input1,input2)# with tf.Session as sess:sess = tf.Session()pr
         </a>
       </p>
 
@@ -456,178 +608,20 @@ https://forum.ubuntu.com.cn/viewtopic.php?t=491114
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/">HTTPS 比 HTTP 更安全</a>
+        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%881/">GO语言全栈工程师1</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/">
+        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%881/">
           
           
             
           
-          为什么 HTTPS 比 HTTP 更安全？：https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882
+          GO语言全栈工程师 基础+就业班：https://www.bilibili.com/video/av46086727/
+go语言函数详解函数可以直接赋值给一个变量map，slice，chan，指针，interface默认都是以引用的范式传递
+函数返回值和参数
+deferdefer的用途：关闭文件句柄，锁资源释放，数据库连接释放
 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-09-03 19:36" pubdate>
-              2019-09-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/">HTTP</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/tags/HTTP/">HTTP</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">HTTP 返回码详解</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">
-          
-          
-            
-          
-           HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。
-##1xx（临时响应）表示临时响应并需要请求者继续执行操作的状态代码。
-
-100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-09-03 19:36" pubdate>
-              2019-09-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/">HTTP</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/tags/HTTP/">HTTP</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">TensorFlow学习笔记2</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">
-          
-          
-            
-          
-          Session的两种使用方式
-1234567891011121314151617181920import tensorflow as tfmatrix1 = tf.constant([[3,3]])matrix2 = tf.constant([[2,2]])product = tf.matmul(matrix1,matrix2)  # matrix multiply  np.dot(m1,m2)#
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-09-03 19:36" pubdate>
-              2019-09-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/">TensorFlow</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
-            
-              <a href="/tags/TensorFlow/">TensorFlow</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/">GO语言全栈工程师2</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/">
-          
-          
-            
-          
-          数组
-切片部分操作和解释可以参考下面的博客https://www.cnblogs.com/thinkeridea/p/10317417.htmlhttps://blog.csdn.net/xj178926426/article/details/78782786https://blog.csdn.net/wfk2975019671/article/details/86838110
 
         </a>
       </p>
@@ -667,16 +661,17 @@ https://forum.ubuntu.com.cn/viewtopic.php?t=491114
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">Google资深工程师深度讲解Go语言11-http及其他标准库</a>
+        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/">GO语言全栈工程师2</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%8011-http%E5%8F%8A%E5%85%B6%E4%BB%96%E6%A0%87%E5%87%86%E5%BA%93/">
+        <a href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/">
           
           
             
           
-          
+          数组
+切片部分操作和解释可以参考下面的博客https://www.cnblogs.com/thinkeridea/p/10317417.htmlhttps://blog.csdn.net/xj178926426/article/details/78782786https://blog.csdn.net/wfk2975019671/article/details/86838110
 
         </a>
       </p>
