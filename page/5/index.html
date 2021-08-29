@@ -182,18 +182,19 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">
+        <a href="/2020/06/15/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
           
           
             
           
-          背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
-原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
-解决方法远程仓库创建好后，本地项目
+          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
+原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
+解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
+1234git rm -r --cached .
         </a>
       </p>
 
@@ -232,19 +233,18 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/Git%20Commit%20Template/">Git Commit Template</a>
+        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/Git%20Commit%20Template/">
+        <a href="/2020/06/15/Git/Git%20push%E5%87%BA%E9%94%99/">
           
           
             
           
-          JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交
-https://plugins.jetbrains.com/plugin/9861-git-commit-template
-参考文档：https://blog.csdn.net/weixin_43550660/article/details/105459038
-
+          背景本地一个项目，写的差不多的时候，想起来使用git进行版本管理，于是在远程git仓库创建了一个仓库，本地与远程进行关联后，git push时出现错误 error: failed to push some refs to
+原因远程仓库创建的时候，生成了一部分文件（readme，gitignore），本地第一次往远程提交的时候，发现两边的内容不相同，push失败。
+解决方法远程仓库创建好后，本地项目
         </a>
       </p>
 
@@ -339,19 +339,18 @@ https://plugins.jetbrains.com/plugin/9861-git-commit-template
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/Git/git%20submoudle/">git submoudle</a>
+        <a href="/2020/06/15/Git/Git%20Commit%20Template/">Git Commit Template</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/Git/git%20submoudle/">
+        <a href="/2020/06/15/Git/Git%20Commit%20Template/">
           
           
             
           
-          git submoudle
-git submoudle的使用方法
-项目根目录执行
-123git submodule initgit submodule update
+          JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交
+https://plugins.jetbrains.com/plugin/9861-git-commit-template
+参考文档：https://blog.csdn.net/weixin_43550660/article/details/105459038
 
         </a>
       </p>
@@ -440,17 +439,26 @@ AB测试中常见的命令123456789101112131415161718192021222324252627282930313
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">MySql  ERROR 1698 (28000)</a>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">mysql查看建表的注释</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">
           
           
             
           
-          MySql 5.7.6 起，安装时如果 root 不设置密码，那么默认会采用auth_socket的方式登陆 MySQL 。也就是登陆 MySQL 时验证你的 Linux 的当前用户是否为 root，如果不是就不能登陆。在auth_socket模式下，应用程序通过数据库的用户名、密码是无法连接的，这就需要我们将数据库的登陆模式，改为mysql_native_password模式。
-进入数据库：su
+          查看表结构-表格形式，带注释
+1show full columns from tableName;
+
+
+查看表结构-建表语句，带注释
+1show create table tableName;
+
+简单查看表结构
+1desc tableName;
+
+
         </a>
       </p>
 
@@ -493,23 +501,70 @@ AB测试中常见的命令123456789101112131415161718192021222324252627282930313
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">mysql导出表结构和表数据</a>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">深入理解 Mysql 索引底层原理</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E5%92%8C%E8%A1%A8%E6%95%B0%E6%8D%AE/">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">
           
           
             
           
-          命令行下具体用法如下：  
-1mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名;
+          深入理解 Mysql 索引底层原理 - https://zhuanlan.zhihu.com/p/113917726
 
-导出整个数据库结构和数据
-1mysqldump -h localhost -uroot -p123456 database &gt; dump.sql
+        </a>
+      </p>
 
-导出单个数据表结构和数据
-1mysqldump -h localhost -uroot -p123456  database ta
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-18 20:36" pubdate>
+              2019-10-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/tags/MySQL/">MySQL</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">MySql  ERROR 1698 (28000)</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/">
+          
+          
+            
+          
+          MySql 5.7.6 起，安装时如果 root 不设置密码，那么默认会采用auth_socket的方式登陆 MySQL 。也就是登陆 MySQL 时验证你的 Linux 的当前用户是否为 root，如果不是就不能登陆。在auth_socket模式下，应用程序通过数据库的用户名、密码是无法连接的，这就需要我们将数据库的登陆模式，改为mysql_native_password模式。
+进入数据库：su
         </a>
       </p>
 
@@ -609,17 +664,16 @@ MySQL数据库优化SQL语句优化慢查询
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">深入理解 Mysql 索引底层原理</a>
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/">Redis 高可用解决方案总结</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">
+        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/">
           
           
             
           
-          深入理解 Mysql 索引底层原理 - https://zhuanlan.zhihu.com/p/113917726
-
+          Redis 高可用解决方案总结：https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7
         </a>
       </p>
 
@@ -638,7 +692,7 @@ MySQL数据库优化SQL语句优化慢查询
             
               <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
             
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/">Redis</a>
             
           </div>
         
@@ -648,69 +702,7 @@ MySQL数据库优化SQL语句优化慢查询
             
               <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
             
-              <a href="/tags/MySQL/">MySQL</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">mysql查看建表的注释</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/">
-          
-          
-            
-          
-          查看表结构-表格形式，带注释
-1show full columns from tableName;
-
-
-查看表结构-建表语句，带注释
-1show create table tableName;
-
-简单查看表结构
-1desc tableName;
-
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-10-18 20:36" pubdate>
-              2019-10-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/tags/MySQL/">MySQL</a>
+              <a href="/tags/Redis/">Redis</a>
             
           </div>
         
