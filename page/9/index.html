@@ -182,19 +182,18 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/22/NGINX/nginx%E5%85%B3%E9%94%AE%E5%AD%97/">nginx关键字</a>
+        <a href="/2018/06/22/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">深入浅出nginx9-10</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/22/NGINX/nginx%E5%85%B3%E9%94%AE%E5%AD%97/">
+        <a href="/2018/06/22/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">
           
           
             
           
-          对关键字的解释会慢慢加上
-master进程：worker进程：pass_proxy
+          
+https://www.bilibili.com/video/av46744851/?p=10
 
-core Nginx.c：daemonmaster_processtimer_resolutionpidlock_fileworker_processesdebug_pointsuserworker_priorityworker_cpu_affinityworker_rlimit_nofileworker_rli
         </a>
       </p>
 
@@ -233,17 +232,17 @@ core Nginx.c：daemonmaster_processtimer_resolutionpidlock_fileworker_processesd
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/22/NGINX/Nginx%20unit/">Nginx unit</a>
+        <a href="/2018/06/22/NGINX/nginx%20%20resolver/">nginx  resolver</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/22/NGINX/Nginx%20unit/">
+        <a href="/2018/06/22/NGINX/nginx%20%20resolver/">
           
           
             
           
-          1、nginx  unit 的配置时直接在内存中更新的，如何做到语法错误检测2、怎么配置不同语言的App应用3、配置语法是怎样的，和nginx的区别大吗4、不同语言的App在使用unit作为web容器的时候，都需要做出什么样的改动，例如：golang使用unit的时候需要将http.handler替换陈unit.handler
-
+          背景：nginx 配置proxy_pass后，访问接口出现no resolver defined to resolve错误，或者接口直接502，404，需要配置 nginx resolver
+1234567891011server &#123;	server_name wfk.mohuani.com		location / &#123;	resolver 114.114.114.114;	prox
         </a>
       </p>
 
@@ -332,17 +331,64 @@ core Nginx.c：daemonmaster_processtimer_resolutionpidlock_fileworker_processesd
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/22/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">深入浅出nginx9-10</a>
+        <a href="/2018/06/22/NGINX/Nginx%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/">Nginx架构及核心流程及模块介绍</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/22/NGINX/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAnginx9-10/">
+        <a href="/2018/06/22/NGINX/Nginx%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/">
           
           
             
           
+          Nginx架构及核心流程及模块介绍：https://mp.weixin.qq.com/s?__biz=Mzg2MjEyMDI5NA==&amp;mid=2247483697&amp;idx=1&amp;sn=a1e79703c39b00224ba613ba6c01a98e&amp;chksm=ce0df138f97a782e0f97a2748dd8c4d1b48941d6229f4b6d5e22b
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-06-22 21:22" pubdate>
+              2018-06-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2018/06/22/NGINX/Nginx%20unit/">Nginx unit</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/06/22/NGINX/Nginx%20unit/">
           
-https://www.bilibili.com/video/av46744851/?p=10
+          
+            
+          
+          1、nginx  unit 的配置时直接在内存中更新的，如何做到语法错误检测2、怎么配置不同语言的App应用3、配置语法是怎样的，和nginx的区别大吗4、不同语言的App在使用unit作为web容器的时候，都需要做出什么样的改动，例如：golang使用unit的时候需要将http.handler替换陈unit.handler
 
         </a>
       </p>
@@ -382,25 +428,18 @@ https://www.bilibili.com/video/av46744851/?p=10
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">nginx中间件架构-性能优化</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">nginx中间件架构-代理服务</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">
           
           
             
           
-          location匹配优先级 ~ 区分大小写，~~*不区分大小写
-try_files场景：用于文件缓存
-root和alias的区别
-传递用户的真实ip在代理1处直接获取用户的ip，然后通过层层代理透传到后端
-其他常见错误
-文件句柄优化 针对用户进行修改  针对进程限制 
-cpu亲和绑定
-gzip兼容
-安全
-
+          代理区别正向代理代理的对象是客户端反向代理代理的对象是服务端
+proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	location, if in location, limit_except;------http://localhost:8080/uri/https://192.168.1.1:8080/uri/
+缓冲
         </a>
       </p>
 
@@ -443,75 +482,31 @@ gzip兼容
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx中间件架构-HTTPS服务</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx中间件架构-负载均衡</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
           
           
             
           
-          secure_link_module
-geoip_module
-http_geoip_module使用场景
-生成秘钥和CA证书
+          upstream
+负载均衡调度状态
+调度算法
+url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2
 
-        </a>
-      </p>
+代理缓存
+proxy_cache
+完整
+部分
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-06-17 21:22" pubdate>
-              2018-06-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/NGINX/">NGINX</a>
-            
-              <a href="/categories/NGINX/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/NGINX/">NGINX</a>
-            
-              <a href="/tags/Nginx%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/">Nginx中间件架构</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">nginx中间件架构-Lua开发</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">
-          
-          
-            
-          
-          Lua介绍
-nginx调用Lua指令
-nginx lua api（lua调用nginx）
-
+缓存过期周期
+缓存的维度
+如何清除指定缓存
+如何让指定页面不进行缓存
+大文件分
         </a>
       </p>
 
@@ -607,18 +602,25 @@ http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_bas
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">nginx中间件架构-代理服务</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">nginx中间件架构-性能优化</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
           
           
             
           
-          代理区别正向代理代理的对象是客户端反向代理代理的对象是服务端
-proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	location, if in location, limit_except;------http://localhost:8080/uri/https://192.168.1.1:8080/uri/
-缓冲
+          location匹配优先级 ~ 区分大小写，~~*不区分大小写
+try_files场景：用于文件缓存
+root和alias的区别
+传递用户的真实ip在代理1处直接获取用户的ip，然后通过层层代理透传到后端
+其他常见错误
+文件句柄优化 针对用户进行修改  针对进程限制 
+cpu亲和绑定
+gzip兼容
+安全
+
         </a>
       </p>
 
@@ -661,31 +663,19 @@ proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	locati
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx中间件架构-负载均衡</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">nginx中间件架构-Lua开发</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/">
           
           
             
           
-          upstream
-负载均衡调度状态
-调度算法
-url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2
+          Lua介绍
+nginx调用Lua指令
+nginx lua api（lua调用nginx）
 
-代理缓存
-proxy_cache
-完整
-部分
-
-
-缓存过期周期
-缓存的维度
-如何清除指定缓存
-如何让指定页面不进行缓存
-大文件分
         </a>
       </p>
 
