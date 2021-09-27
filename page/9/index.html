@@ -182,17 +182,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/22/NGINX/nginx%20%20resolver/">nginx  resolver</a>
+        <a href="/2018/06/22/NGINX/Nginx%20unit/">Nginx unit</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/22/NGINX/nginx%20%20resolver/">
+        <a href="/2018/06/22/NGINX/Nginx%20unit/">
           
           
             
           
-          背景：nginx 配置proxy_pass后，访问接口出现no resolver defined to resolve错误，或者接口直接502，404，需要配置 nginx resolver
-1234567891011server &#123;	server_name wfk.mohuani.com		location / &#123;	resolver 114.114.114.114;	prox
+          1、nginx  unit 的配置时直接在内存中更新的，如何做到语法错误检测2、怎么配置不同语言的App应用3、配置语法是怎样的，和nginx的区别大吗4、不同语言的App在使用unit作为web容器的时候，都需要做出什么样的改动，例如：golang使用unit的时候需要将http.handler替换陈unit.handler
+
         </a>
       </p>
 
@@ -241,55 +241,6 @@
             
           
           Nginx架构及核心流程及模块介绍：https://mp.weixin.qq.com/s?__biz=Mzg2MjEyMDI5NA==&amp;mid=2247483697&amp;idx=1&amp;sn=a1e79703c39b00224ba613ba6c01a98e&amp;chksm=ce0df138f97a782e0f97a2748dd8c4d1b48941d6229f4b6d5e22b
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2018-06-22 21:22" pubdate>
-              2018-06-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/NGINX/">NGINX</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/NGINX/">NGINX</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2018/06/22/NGINX/Nginx%20unit/">Nginx unit</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2018/06/22/NGINX/Nginx%20unit/">
-          
-          
-            
-          
-          1、nginx  unit 的配置时直接在内存中更新的，如何做到语法错误检测2、怎么配置不同语言的App应用3、配置语法是怎样的，和nginx的区别大吗4、不同语言的App在使用unit作为web容器的时候，都需要做出什么样的改动，例如：golang使用unit的时候需要将http.handler替换陈unit.handler
-
         </a>
       </p>
 
@@ -479,17 +430,69 @@ core Nginx.c：daemonmaster_processtimer_resolutionpidlock_fileworker_processesd
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">nginx中间件架构-web静态资源</a>
+        <a href="/2018/06/22/NGINX/nginx%20%20resolver/">nginx  resolver</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">
+        <a href="/2018/06/22/NGINX/nginx%20%20resolver/">
           
           
             
           
-          http_x_forwarded_for1http_x_forwarded_for = Client IP, Proxy1 IP, Client2 IP, Client3 IP...
-http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_basic string | off;Default:	auth_ba
+          背景：nginx 配置proxy_pass后，访问接口出现no resolver defined to resolve错误，或者接口直接502，404，需要配置 nginx resolver
+1234567891011server &#123;	server_name wfk.mohuani.com		location / &#123;	resolver 114.114.114.114;	prox
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2018-06-22 21:22" pubdate>
+              2018-06-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/NGINX/">NGINX</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/NGINX/">NGINX</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">nginx中间件架构-HTTPS服务</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-HTTPS%E6%9C%8D%E5%8A%A1/">
+          
+          
+            
+          
+          secure_link_module
+geoip_module
+http_geoip_module使用场景
+生成秘钥和CA证书
+
         </a>
       </p>
 
@@ -532,18 +535,17 @@ http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_bas
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">nginx中间件架构-代理服务</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">nginx中间件架构-web静态资源</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-web%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90/">
           
           
             
           
-          代理区别正向代理代理的对象是客户端反向代理代理的对象是服务端
-proxy_pass12345678配置语法Syntax:		proxy_pass URL;Default:	-;Context:	location, if in location, limit_except;------http://localhost:8080/uri/https://192.168.1.1:8080/uri/
-缓冲
+          http_x_forwarded_for1http_x_forwarded_for = Client IP, Proxy1 IP, Client2 IP, Client3 IP...
+http_auth_basic_module配置12345678910111213141516171819202122Syntax:		auth_basic string | off;Default:	auth_ba
         </a>
       </p>
 

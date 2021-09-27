@@ -228,7 +228,10 @@
             <h1 style="display: none">分布式消息队列</h1>
             
             <div class="markdown-body">
-              <h3 id="一、消息队列的演进"><a href="#一、消息队列的演进" class="headerlink" title="一、消息队列的演进"></a>一、消息队列的演进</h3><p>分布式消息队列中间件是是大型分布式系统中常见的中间件。消息队列主要解决应用耦合、异步消息、流量削锋等问题，具有高性能、高可用、可伸缩和最终一致性等特点。消息队列已经逐渐成为企业应用系统内部通信的核心手段，使用较多的消息队列有 RabbitMQ、RocketMQ、ActiveMQ、Kafka、ZeroMQ、Pulsar 等，此外，利用数据库（如 Redis、MySQL 等）也可实现消息队列的部分基本功能。</p>
+              <blockquote>
+<p>文章转载自：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/-MXA4T-ei_U5ewXUNZ0QdQ">https://mp.weixin.qq.com/s/-MXA4T-ei_U5ewXUNZ0QdQ</a></p>
+</blockquote>
+<h3 id="一、消息队列的演进"><a href="#一、消息队列的演进" class="headerlink" title="一、消息队列的演进"></a>一、消息队列的演进</h3><p>分布式消息队列中间件是是大型分布式系统中常见的中间件。消息队列主要解决应用耦合、异步消息、流量削锋等问题，具有高性能、高可用、可伸缩和最终一致性等特点。消息队列已经逐渐成为企业应用系统内部通信的核心手段，使用较多的消息队列有 RabbitMQ、RocketMQ、ActiveMQ、Kafka、ZeroMQ、Pulsar 等，此外，利用数据库（如 Redis、MySQL 等）也可实现消息队列的部分基本功能。</p>
 <h4 id="1-基于-OS-的-MQ"><a href="#1-基于-OS-的-MQ" class="headerlink" title="1.基于 OS 的 MQ"></a>1.基于 OS 的 MQ</h4><p>单机消息队列可以通过操作系统原生的进程间通信机制来实现，如消息队列、共享内存等。比如我们可以在共享内存中维护一个双端队列：</p>
 <p><img src="https://user-images.githubusercontent.com/21000558/134835385-ea43abcc-237c-4b11-882b-0b13d2697e42.png" srcset="/img/loading.gif" lazyload alt="image"></p>
 <p>消息产出进程不停地往队列里添加消息，同时消息消费进程不断地从队尾有序地取出这些消息。添加消息的任务我们称为 producer，而取出并使用消息的任务，我们称之为 consumer。这种模式在早期单机多进程模式中比较常见， 比如 IO 进程把收到的网络请求存入本机 MQ，任务处理进程从本机 MQ 中读取任务并进行处理。</p>
