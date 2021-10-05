@@ -10,6 +10,7 @@ categories:
 ### 第4章 Elasticsearch 篇之Mapping 设置
 #### 
 4-1 -mapping简介
+![image](https://user-images.githubusercontent.com/21000558/136006106-e5d3fabf-cc19-45cc-a3d1-1584a49da89b.png)
 
 
 4-2 -自定义 mapping
