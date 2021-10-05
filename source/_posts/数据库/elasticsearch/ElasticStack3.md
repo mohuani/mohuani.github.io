@@ -21,6 +21,11 @@ categories:
 ![image](https://user-images.githubusercontent.com/21000558/135995388-95357d71-26d9-413d-ae4c-cd0a4c9b7a26.png)
 ![image](https://user-images.githubusercontent.com/21000558/135995412-8b650aeb-6cb1-476a-882d-79d6aaff2ba0.png)
 ![image](https://user-images.githubusercontent.com/21000558/135995665-f26ccc51-f26a-4625-9585-1abfedf08322.png)
+![image](https://user-images.githubusercontent.com/21000558/135996594-d4c5b8af-1614-4fcc-8218-42ba0fc5c468.png)
+![image](https://user-images.githubusercontent.com/21000558/135996804-3903197e-d0df-4dea-95ac-ab6325af11c4.png)
+![image](https://user-images.githubusercontent.com/21000558/135996995-23194031-d23f-496c-aaeb-451af12a5056.png)
+
+
 
 3-4 -分词介绍
 
