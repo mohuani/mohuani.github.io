@@ -39,8 +39,23 @@ categories:
 
 3-6 -自带分词器 
 ![image](https://user-images.githubusercontent.com/21000558/135998724-6cd5547b-a9fa-4029-8109-39ccddde75d8.png)
+standard
 ![image](https://user-images.githubusercontent.com/21000558/135998757-f6045823-4169-4449-a768-c8f3515667a7.png)
+sample
 ![image](https://user-images.githubusercontent.com/21000558/135999022-542fe139-0727-4b66-a3e4-a4fd52aaa17f.png)
+whitespace
+![image](https://user-images.githubusercontent.com/21000558/136001127-0f0a99ea-4156-4174-a852-a2d65e232097.png)
+stop
+
+![image](https://user-images.githubusercontent.com/21000558/136001282-e5977ac6-b5c2-43fe-86fa-69baa2550284.png)
+keyword
+![image](https://user-images.githubusercontent.com/21000558/136001369-dbc8f9c6-7a35-4059-bd44-c0c8b8a5df9e.png)
+pattern
+
+![image](https://user-images.githubusercontent.com/21000558/136001563-5f6d1dcb-c9f2-4d8a-9a10-ee2ef7136f9d.png)
+language
+![image](https://user-images.githubusercontent.com/21000558/136001773-ef03027d-0c03-4f12-8dc3-c0fcc9966f7f.png)
+
 
 
 3-7 -中文分词 
