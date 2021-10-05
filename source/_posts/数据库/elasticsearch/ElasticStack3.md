@@ -65,10 +65,16 @@ language
 
 
 #### 3-8 -自定义分词之CharacterFilter 
+![image](https://user-images.githubusercontent.com/21000558/136002867-e19f860b-cdb2-4dfe-9151-ccef034d477c.png)
+![image](https://user-images.githubusercontent.com/21000558/136002933-a77ce256-a81b-403c-ad9c-328a640fca42.png)
+
 
 #### 3-9 -自定义分词之Tokenizer 
+![image](https://user-images.githubusercontent.com/21000558/136003121-55a9fa14-767b-49f5-9b02-7756303a049d.png)
 
 #### 3-10 -自定义分词之 TokenFilter
+![image](https://user-images.githubusercontent.com/21000558/136003371-1bf98c2c-1e1b-412d-8f99-1bc02794db6d.png)
+![image](https://user-images.githubusercontent.com/21000558/136003420-727adacb-7c1e-4c92-b1b3-27064e0648f6.png)
 
 #### 3-11 -自定义分词
 
