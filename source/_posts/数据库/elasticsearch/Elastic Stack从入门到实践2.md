@@ -8,7 +8,7 @@ categories:
 ---
 
 
-#### 2-6 -document_api (12:52)
+#### 2-6 -document_api
 
 **创建**
 ![image](https://user-images.githubusercontent.com/21000558/135993724-269aa894-4916-478f-95c6-cd6751797d36.png)
