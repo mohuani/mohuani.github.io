@@ -77,8 +77,18 @@ language
 ![image](https://user-images.githubusercontent.com/21000558/136003420-727adacb-7c1e-4c92-b1b3-27064e0648f6.png)
 
 #### 3-11 -自定义分词
+![image](https://user-images.githubusercontent.com/21000558/136004523-a22bac80-1a12-4077-ab41-1a980f5d74b5.png)
+![image](https://user-images.githubusercontent.com/21000558/136004624-58f542d0-81f7-4f54-8a27-b77bc137dfa7.png)
+![image](https://user-images.githubusercontent.com/21000558/136004666-4f1e57ed-48ba-46d7-9894-574aa770b6a0.png)
+![image](https://user-images.githubusercontent.com/21000558/136004819-22192cef-6e2f-4d51-9f7d-968ddd9b0b42.png)
 
 #### 3-12 -分词使用说明
+![image](https://user-images.githubusercontent.com/21000558/136005159-bbc0051d-ee49-45e7-9857-5bc9c3f3a1e1.png)
+![image](https://user-images.githubusercontent.com/21000558/136005180-4a382c72-41f4-4902-ba1d-ad8a80316d72.png)
+![image](https://user-images.githubusercontent.com/21000558/136005236-57373e03-b4d5-484e-803c-d81bdd902b15.png)
+![image](https://user-images.githubusercontent.com/21000558/136005393-9dcf1cc5-68a2-48db-b801-be6e5de415af.png)
+
 
 #### 3-13 -官方文档说明 
+
 
