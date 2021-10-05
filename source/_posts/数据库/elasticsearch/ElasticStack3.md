@@ -38,6 +38,9 @@ categories:
 ![image](https://user-images.githubusercontent.com/21000558/135998185-0cf94c2e-236c-451a-9624-b7937b2771ce.png)
 
 3-6 -自带分词器 
+![image](https://user-images.githubusercontent.com/21000558/135998724-6cd5547b-a9fa-4029-8109-39ccddde75d8.png)
+![image](https://user-images.githubusercontent.com/21000558/135998757-f6045823-4169-4449-a768-c8f3515667a7.png)
+![image](https://user-images.githubusercontent.com/21000558/135999022-542fe139-0727-4b66-a3e4-a4fd52aaa17f.png)
 
 
 3-7 -中文分词 
