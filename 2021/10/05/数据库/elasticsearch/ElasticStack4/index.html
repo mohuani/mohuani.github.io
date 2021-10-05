@@ -18,7 +18,7 @@
   <meta name="author" content="mohuani">
   <meta name="keywords" content="Bug工程师">
   
-  <title>TensorFlow学习笔记3 - 积雪筱草的Blog</title>
+  <title>ElasticStack4 - 积雪筱草的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="TensorFlow学习笔记3">
+            <span class="h2" id="subtitle" title="ElasticStack4">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2019-09-03 19:36" pubdate>
-        2019年9月3日 晚上
+      <time datetime="2021-10-05 19:36" pubdate>
+        2021年10月5日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      124 字
+      97 字
     </span>
   
 
@@ -225,15 +225,23 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">TensorFlow学习笔记3</h1>
+            <h1 style="display: none">ElasticStack4</h1>
             
             <div class="markdown-body">
-              <p><strong>Variable变量的简单使用</strong></p>
-<p>在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的</p>
-<figure class="highlight pf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pf">import tensorflow as tf<br><br><span class="hljs-keyword">state</span> = tf.Variable(<span class="hljs-number">0</span>,name = &#x27;counter&#x27;)<br>print(<span class="hljs-keyword">state</span>.name)<br><br>one = tf.constant(<span class="hljs-number">1</span>)<br><br>new_vaule = tf.add(<span class="hljs-keyword">state</span>,one)<br>update = tf.assign(<span class="hljs-keyword">state</span>,new_vaule)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br>init = tf.global_variables_initializer()<br><br><br>sess = tf.Session()<br>sess.run(init)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    sess.run(update)<br>    print(sess.run(<span class="hljs-keyword">state</span>))<br>sess.close()<br></code></pre></div></td></tr></table></figure>
+              <h3 id="第4章-Elasticsearch-篇之Mapping-设置"><a href="#第4章-Elasticsearch-篇之Mapping-设置" class="headerlink" title="第4章 Elasticsearch 篇之Mapping 设置"></a>第4章 Elasticsearch 篇之Mapping 设置</h3><h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>4-1 -mapping简介</p>
+<p>4-2 -自定义 mapping</p>
+<p>4-3 -mapping演示</p>
+<p>4-4 -copy_to参数说明</p>
+<p>4-5 -index参数说明</p>
+<p>4-6 -index_options参数说明</p>
+<p>4-7 -mapping文档说明</p>
+<p>4-8 -数据类型</p>
+<p>4-9 -dynamic-mapping简介</p>
+<p>4-10 -dynamic日期与数字识别</p>
+<p>4-11 -dynamic-template简介</p>
+<p>4-12 -自定义mapping的建议</p>
+<p>4-13 -索引模板.mp4</p>
 
-<p>运行的结果</p>
-<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">counter</span>:<span class="hljs-number">0</span><br><br><span class="hljs-attribute">1</span><br><span class="hljs-attribute">2</span><br><span class="hljs-attribute">3</span><br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -242,9 +250,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/">TensorFlow</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/ElasticStack/">ElasticStack</a>
                     
                   </div>
                 
@@ -252,9 +260,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/">计算机相关</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
                     
-                      <a class="hover-with-bg" href="/tags/TensorFlow/">TensorFlow</a>
+                      <a class="hover-with-bg" href="/tags/ElasticStack/">ElasticStack</a>
                     
                   </div>
                 
@@ -271,18 +279,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">TensorFlow学习笔记2</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/">
-                        <span class="hidden-mobile">HTTP 返回码详解</span>
+                      <a href="/2021/10/05/%E6%95%B0%E6%8D%AE%E5%BA%93/elasticsearch/ElasticStack3/">
+                        <span class="hidden-mobile">ElasticStack3</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
