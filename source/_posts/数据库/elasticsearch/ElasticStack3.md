@@ -59,6 +59,10 @@ language
 
 
 #### 3-7 -中文分词 
+[一篇文章总结语言处理中的分词问题](https://mp.weixin.qq.com/s?__biz=MzU1NDA4NjU2MA==&mid=2247486148&idx=1&sn=817027a204650763c1bea3e837d695ea)
+![image](https://user-images.githubusercontent.com/21000558/136002601-8fecc6ee-b445-4ec0-98df-df992999cd2e.png)
+![image](https://user-images.githubusercontent.com/21000558/136002694-41a7884c-f6ba-4ed3-9672-2f659331a718.png)
+
 
 #### 3-8 -自定义分词之CharacterFilter 
 
