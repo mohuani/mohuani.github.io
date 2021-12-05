@@ -18,7 +18,7 @@
   <meta name="author" content="mohuani">
   <meta name="keywords" content="Bug工程师">
   
-  <title>PHP7的基本变量 - 积雪筱草的Blog</title>
+  <title>时间段交集计算 - 积雪筱草的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="PHP7的基本变量">
+            <span class="h2" id="subtitle" title="时间段交集计算">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2017-12-04 21:22" pubdate>
-        2017年12月4日 晚上
+      <time datetime="2021-12-05 17:22" pubdate>
+        2021年12月5日 下午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      10 字
+      481 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        分钟
     </span>
   
@@ -225,10 +225,41 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">PHP7的基本变量</h1>
+            <h1 style="display: none">时间段交集计算</h1>
             
             <div class="markdown-body">
-              <h4 id="课程地址：https-www-imooc-com-learn-1085"><a href="#课程地址：https-www-imooc-com-learn-1085" class="headerlink" title="课程地址：https://www.imooc.com/learn/1085"></a>课程地址：<a target="_blank" rel="noopener" href="https://www.imooc.com/learn/1085">https://www.imooc.com/learn/1085</a></h4><p><img src="https://img-blog.csdnimg.cn/20190428145419579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428145455679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+              <p>文章转发自：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b571bc0a4372">https://www.jianshu.com/p/b571bc0a4372</a></p>
+<h3 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h3><p>逻辑很简单，就是一两个日期段取交集，可如果按正常思维去实现，其实日期交集的场景我们可以穷举出来，大概有4种情况</p>
+<p>1、</p>
+<figure class="highlight haskell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs haskell"><span class="hljs-title">s1</span><span class="hljs-comment">--------------e1</span><br>    s2<span class="hljs-comment">-----------------e2</span><br></code></pre></div></td></tr></table></figure>
+<p>2、</p>
+<figure class="highlight haskell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs haskell">    s1<span class="hljs-comment">--------------e1</span><br><span class="hljs-title">s2</span><span class="hljs-comment">-----------e2</span><br></code></pre></div></td></tr></table></figure>
+<p>3、     </p>
+<figure class="highlight haskell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs haskell"><span class="hljs-title">s1</span><span class="hljs-comment">-----------------e1</span><br>    s2<span class="hljs-comment">-------e2</span><br></code></pre></div></td></tr></table></figure>
+
+<p>4、</p>
+<figure class="highlight haskell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs haskell">     s1<span class="hljs-comment">-------e1</span><br><span class="hljs-title">s2</span><span class="hljs-comment">-----------------------e2</span><br><br></code></pre></div></td></tr></table></figure>
+<p>如果按这种逻辑实现我们的表达式可能至少要写4种情况，逻辑复杂，且可读性差</p>
+<h3 id="逆向思维"><a href="#逆向思维" class="headerlink" title="逆向思维"></a>逆向思维</h3><p>这是软件开发中非常重要的思维模式，在程序员数学中有重点介绍。<br>这里提到的程序员数学，是一套书，包括程序员基础数学，概率论和线性代数，同时也是进入机器学习的基础理论，有兴趣的朋友可以买回来读一读。<br>我们通过个例子，来实践一下逆向思维。<br>其实如果按取交集的逻辑来看，上面穷举出来有4 种情况。<br>但我们反过来想(逆向)<br>没有交集的情况只有两种可能</p>
+<p>1、</p>
+<figure class="highlight haskell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs haskell"><br>            s1<span class="hljs-comment">-------------e1</span><br><span class="hljs-title">s2</span><span class="hljs-comment">------e2</span><br></code></pre></div></td></tr></table></figure>
+
+<p>2、</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs autohotkey"><br>    s1------e1<br>                s2--------------e2<br><br>```  <br>我们设<br>两个时间段的日期为`s1(start)-e1(end)`<br>和`s2-e2`<br>通过逆向推导可以推出下列表达式<br><br>这里我们假定<br><br></code></pre></div></td></tr></table></figure>
+<p>s1&lt;e1 &amp; s2&lt;e2</p>
+<figure class="highlight excel"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs excel">=&gt;<br><br></code></pre></div></td></tr></table></figure>
+<p>e2&lt;s1||e1&lt;s2</p>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs plain"><br><br>说明满足该条件是不可能产生交集<br>上述表达式翻译成业务语言即<br><br>第一个时间段已经结束，第二个时间段还没未开始<br><br>通过对表达式取非即所有存在交集的情况<br><br></code></pre></div></td></tr></table></figure>
+<p>!(e2&lt;s1||e1&lt;s2)</p>
+<figure class="highlight excel"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs excel">=&gt;<br></code></pre></div></td></tr></table></figure>
+<p>e2&gt;=s1&amp;&amp;e1&gt;=s2</p>
+<div class="hljs code-wrapper"><pre><code>这个就可以做为时间取交集的最终表达式
+
+这里有一点非常重要，这个时间段我们有条件的
+
+`s1&lt;e1 &amp; s2&lt;e2`
+这是表达式成立的充分条件
+</code></pre></div>
 
             </div>
             <hr>
@@ -240,6 +271,8 @@
                     
                       <a class="hover-with-bg" href="/categories/PHP/">PHP</a>
                     
+                      <a class="hover-with-bg" href="/categories/PHP/%E4%BA%A4%E9%9B%86/">交集</a>
+                    
                   </div>
                 
                 
@@ -247,6 +280,8 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/PHP/">PHP</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E4%BA%A4%E9%9B%86/">交集</a>
                     
                   </div>
                 
@@ -263,18 +298,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2017/12/04/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PHPUnit单元测试</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2017/12/04/PHP/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/">
-                        <span class="hidden-mobile">PHP 水印  验证码</span>
+                      <a href="/2021/12/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
