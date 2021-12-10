@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      630 字
+      919 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      13
        分钟
     </span>
   
@@ -253,6 +253,18 @@
 <figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><br><span class="hljs-variable">$adjustPriceProductSkuStoresToGetStoreIds</span> = app(AdjustPriceProductSkuStoreRepository::class)-&gt;list([<br>    <span class="hljs-string">&#x27;adjustPriceId&#x27;</span> =&gt; <span class="hljs-variable">$adjustPrice</span>-&gt;id,<br>    <span class="hljs-string">&#x27;skuId&#x27;</span>         =&gt; <span class="hljs-variable">$adjustPriceProductSkuStore</span>-&gt;sku_id,<br>]);<br><br><span class="hljs-variable">$storeIds</span> = collect(adjustPriceProductSkuStoresToGetStoreIds)-&gt;plick(<span class="hljs-string">&#x27;store_id&#x27;</span>)-&gt;toArray();<br><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="最终效果："><a href="#最终效果：" class="headerlink" title="最终效果："></a>最终效果：</h3><figure class="highlight tap"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs tap">时间从 <span class="hljs-number"> 20 </span>秒 降到了 1秒<br>数据从11Mb 降到了 400Kb<br></code></pre></div></td></tr></table></figure>
+
+
+<hr>
+<h3 id="20211209-数据设计修改"><a href="#20211209-数据设计修改" class="headerlink" title="20211209 数据设计修改"></a>20211209 数据设计修改</h3><p>原来的数据库设计在skuId和storeId数据量不大的时候还是可行的，但是数据量大的时候，性能瓶颈很快就出现了，故重新修改数据库设计，将上面的 <code>adjust_price_product_sku_store</code>，分拆成2个表 <code>adjust_price_product_sku</code> 和 <code>adjust_price_store</code>，在数据库层直接把 <code>M*N</code> 的关系变成 <code>M+N</code> 的关系。接口响应时间都可以控制在1秒以内，5年内应该不会出现性能问题。</p>
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> adjust_price_product_sku<br>(<br>    id              <span class="hljs-type">bigint</span> unsigned auto_increment<br>        <span class="hljs-keyword">primary</span> key,<br>    adjust_price_id <span class="hljs-type">int</span> unsigned   <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>    <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;调价单id&#x27;</span>,<br>    sku_id          <span class="hljs-type">int</span> unsigned   <span class="hljs-keyword">default</span> <span class="hljs-number">0</span>    <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;渠道skuId&#x27;</span>,<br>    promotion_price <span class="hljs-type">decimal</span>(<span class="hljs-number">10</span>, <span class="hljs-number">2</span>) <span class="hljs-keyword">default</span> <span class="hljs-number">0.00</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;促销价&#x27;</span>,<br>    start_at        datetime                    <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;调价开始时间&#x27;</span>,<br>    end_at          datetime                    <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;调价结束时间&#x27;</span>,<br>    created_at      <span class="hljs-type">timestamp</span>                   <span class="hljs-keyword">null</span>,<br>    updated_at      <span class="hljs-type">timestamp</span>                   <span class="hljs-keyword">null</span>,<br>    deleted_at      <span class="hljs-type">timestamp</span>                   <span class="hljs-keyword">null</span><br>)<br>    <span class="hljs-keyword">collate</span> <span class="hljs-operator">=</span> utf8mb4_unicode_ci;<br></code></pre></div></td></tr></table></figure>
+
+
+<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> adjust_price_store<br>(<br>    id              <span class="hljs-type">bigint</span> unsigned auto_increment<br>        <span class="hljs-keyword">primary</span> key,<br>    adjust_price_id <span class="hljs-type">int</span> unsigned <span class="hljs-keyword">default</span> <span class="hljs-number">0</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;调价单id&#x27;</span>,<br>    store_id        <span class="hljs-type">int</span> unsigned <span class="hljs-keyword">default</span> <span class="hljs-number">0</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;门店id&#x27;</span>,<br>    start_at        datetime               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;调价开始时间&#x27;</span>,<br>    end_at          datetime               <span class="hljs-keyword">null</span> comment <span class="hljs-string">&#x27;调价结束时间&#x27;</span>,<br>    created_at      <span class="hljs-type">timestamp</span>              <span class="hljs-keyword">null</span>,<br>    updated_at      <span class="hljs-type">timestamp</span>              <span class="hljs-keyword">null</span>,<br>    deleted_at      <span class="hljs-type">timestamp</span>              <span class="hljs-keyword">null</span><br>)<br>    comment <span class="hljs-string">&#x27;调价单sku子表&#x27;</span> <span class="hljs-keyword">collate</span> <span class="hljs-operator">=</span> utf8mb4_unicode_ci;<br><br><br></code></pre></div></td></tr></table></figure>
+
+
+
+
             </div>
             <hr>
             <div>
@@ -290,7 +302,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">
+                      <a href="/2021/12/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
