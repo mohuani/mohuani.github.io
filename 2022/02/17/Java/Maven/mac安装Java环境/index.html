@@ -18,7 +18,7 @@
   <meta name="author" content="mohuani">
   <meta name="keywords" content="Bug工程师">
   
-  <title>积雪筱草的Blog</title>
+  <title>Mac安装Java环境 - 积雪筱草的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="Mac安装Java环境">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-25 16:45" pubdate>
-        2022年1月25日 下午
+      <time datetime="2022-02-17 21:22" pubdate>
+        2022年2月17日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      397 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        分钟
     </span>
   
@@ -225,15 +225,68 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">Mac安装Java环境</h1>
             
             <div class="markdown-body">
-              
+              <h3 id="JAVA环境"><a href="#JAVA环境" class="headerlink" title="JAVA环境"></a>JAVA环境</h3><h4 id="通过源码进行安装"><a href="#通过源码进行安装" class="headerlink" title="通过源码进行安装"></a>通过源码进行安装</h4><ul>
+<li>找到官方JDK   <a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html">https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html</a></li>
+<li>下载  <img src="https://user-images.githubusercontent.com/21000558/154419845-afc08cc1-2504-4c1e-a351-da4bc656f179.png" srcset="/img/loading.gif" lazyload alt="image"></li>
+<li>GUI程序下一步下一步安装</li>
+<li>配置环境参数  <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">设置环境变量</span><br>vim ~/.zshrc <br><span class="hljs-meta">#</span><span class="bash">最后加入，目前大多数文档都是说 JAVA_HOME 配置到这里，但是我 M1电脑  系统 12.1 发现后面配置maven的时候不行，于是 JAVA_HOME 配置成了下面的版本，据说高版本的系统，配置路径修改了</span><br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home</span> <br><br>export JAVA_HOME=$(/usr/libexec/java_home)<br>export CLASSPATH=$JAVA_HOME/lib<br>export PATH=$JAVA_HOME/bin:$PATH<br><br><span class="hljs-meta">#</span><span class="bash">保存退出</span><br><br><span class="hljs-meta">#</span><span class="bash">使配置生效</span> <br>source ~/.zshrc<br><br><span class="hljs-meta">#</span><span class="bash">显示刚配置的路径</span><br>echo $JAVA_HOME <br><br><span class="hljs-meta">#</span><span class="bash">查看版本</span><br>java -version<br>java version &quot;1.8.0_171&quot;<br>Java(TM) SE Runtime Environment (build 1.8.0_171-b11)<br>Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)<br><br></code></pre></div></td></tr></table></figure>
+<h4 id="通过-IDEA-直接安装"><a href="#通过-IDEA-直接安装" class="headerlink" title="通过 IDEA 直接安装"></a>通过 IDEA 直接安装</h4></li>
+</ul>
+<p>IDEA :  File - Project Structure - Paltform Setting - SDKs</p>
+<p><img src="https://user-images.githubusercontent.com/21000558/154421260-4749a981-309f-4b99-ac87-9d683c4174fb.png" srcset="/img/loading.gif" lazyload alt="image"><br>下面网速随缘，不过应该比官网快</p>
+<h3 id="Maven环境"><a href="#Maven环境" class="headerlink" title="Maven环境"></a>Maven环境</h3><p>| 我通过 brew 安装 maven 的时候总是给我又下载一份 OpenJDK，比较乱，我打算自己通过源码进行安装</p>
+<ul>
+<li>官方网站：<a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a></li>
+<li><img src="https://user-images.githubusercontent.com/21000558/154421706-9c276602-82b6-4921-93d1-f392e8a0498c.png" srcset="/img/loading.gif" lazyload alt="image"></li>
+<li>下载后放到一个合适的路径解压</li>
+</ul>
+<ul>
+<li>配置环境参数</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">设置环境变量</span><br>vim ~/.zshrc <br><br>export M2_HOME=/Users/mohuani/develop/apache-maven-3.8.4<br>export PATH=$PATH:$M2_HOME/bin<br><br><span class="hljs-meta">#</span><span class="bash">保存退出</span><br><br><span class="hljs-meta">#</span><span class="bash">使配置生效</span> <br>source ~/.zshrc<br><br><span class="hljs-meta">#</span><span class="bash">查看版本</span><br>mvn -v<br>Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)<br>Maven home: /Users/mohuani/develop/apache-maven-3.8.4<br>Java version: 1.8.0_202, vendor: Oracle Corporation, runtime: /Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home<br>Default locale: zh_CN, platform encoding: UTF-8<br>OS name: &quot;mac os x&quot;, version: &quot;10.16&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;<br><br></code></pre></div></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/maven/">maven</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/maven/">maven</a>
+                    
+                  </div>
                 
               </div>
               
@@ -252,8 +305,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/01/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Mac/Mac%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/">
-                        <span class="hidden-mobile">Mac常用软件</span>
+                      <a href="/2022/02/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

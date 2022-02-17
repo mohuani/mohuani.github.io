@@ -182,6 +182,65 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/12/04/PHP/Laravel/Laravel%20collecte%20break%20continue/">Laravel collecte break continue</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/04/PHP/Laravel/Laravel%20collecte%20break%20continue/">
+          
+          
+            
+          
+          
+typora-root-url: ../imagesLaravel collecte break continue
+
+背景： Laravel框架中循环我们都推荐使用 collecte 进行循环，但是如果我们想要在循环中break 或者 continue，直接break或者continue，语法层面会直接报错，那么怎么才能实现上述所要的效果呢。其实在循环中 return的效果就类似与break，而
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-04 21:22" pubdate>
+              2020-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/PHP/">PHP</a>
+            
+              <a href="/categories/PHP/Laravel/">Laravel</a>
+            
+              <a href="/categories/PHP/Laravel/Collection/">Collection</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/Laravel/">Laravel</a>
+            
+              <a href="/tags/Collection/">Collection</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/08/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E5%B7%A5%E5%85%B7/MobaXterm%E8%87%AA%E5%8A%A8%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%E8%AE%BE%E7%BD%AE/">MobaXterm自动断开连接设置</a>
       </h1>
 
@@ -286,19 +345,19 @@ AppImageLauncher: https://github.com/TheAssassin/AppImageLauncher
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/Git%20Commit%20Template/">Git Commit Template</a>
+        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/Git%20Commit%20Template/">
+        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
           
           
             
           
-          JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交
-https://plugins.jetbrains.com/plugin/9861-git-commit-template
-参考文档：https://blog.csdn.net/weixin_43550660/article/details/105459038
-
+          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
+原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
+解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
+1234git rm -r --cached .
         </a>
       </p>
 
@@ -393,6 +452,58 @@ https://plugins.jetbrains.com/plugin/9861-git-commit-template
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/git%20submoudle/">git submoudle</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/git%20submoudle/">
+          
+          
+            
+          
+          git submoudle
+git submoudle的使用方法
+项目根目录执行
+123git submodule initgit submodule update
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-15 21:22" pubdate>
+              2020-06-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Git/">Git</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/Git%20push%E5%87%BA%E9%94%99/">Git push出错</a>
       </h1>
 
@@ -443,70 +554,18 @@ https://plugins.jetbrains.com/plugin/9861-git-commit-template
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">gitignore文件不生效</a>
+        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/Git%20Commit%20Template/">Git Commit Template</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/gitignore%E6%96%87%E4%BB%B6%E4%B8%8D%E7%94%9F%E6%95%88/">
+        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/Git%20Commit%20Template/">
           
           
             
           
-          背景添加了gitignore文件，设置了要过滤的文件，但是提交后发现要过滤的文件还是被提交上去了。
-原因在git忽略目录中，新建的文件在git中会有缓存，如果某些文件已经被纳入了版本管理中，就算是在.gitignore中已经声明了忽略路径也是不起作用的，
-解决方法这时候我们就应该先把本地缓存删除，然后再进行git的提交，这样就不会出现忽略的文件了。
-1234git rm -r --cached .
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-15 21:22" pubdate>
-              2020-06-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Git/">Git</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Git/">Git</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/git%20submoudle/">git submoudle</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Git/git%20submoudle/">
-          
-          
-            
-          
-          git submoudle
-git submoudle的使用方法
-项目根目录执行
-123git submodule initgit submodule update
+          JetBrain 公司软件可以使用的一会插件，团队可以标准化git提交
+https://plugins.jetbrains.com/plugin/9861-git-commit-template
+参考文档：https://blog.csdn.net/weixin_43550660/article/details/105459038
 
         </a>
       </p>
@@ -608,58 +667,6 @@ AB测试中常见的命令123456789101112131415161718192021222324252627282930313
 控制List的长度，每次push或者pop的时候，可以使用ltrim()函数让list保持固定长度
 
 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2019-10-18 20:36" pubdate>
-              2019-10-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/">Redis</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/tags/Redis/">Redis</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/">Redis 高可用解决方案总结</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/">
-          
-          
-            
-          
-          Redis 高可用解决方案总结：https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7
         </a>
       </p>
 
