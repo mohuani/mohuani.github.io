@@ -645,25 +645,31 @@ https://www.bilibili.com/video/av46744851/?p=10
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">nginx中间件架构-性能优化</a>
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">nginx中间件架构-负载均衡</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+        <a href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
           
           
             
           
-          location匹配优先级 ~ 区分大小写，~~*不区分大小写
-try_files场景：用于文件缓存
-root和alias的区别
-传递用户的真实ip在代理1处直接获取用户的ip，然后通过层层代理透传到后端
-其他常见错误
-文件句柄优化 针对用户进行修改  针对进程限制 
-cpu亲和绑定
-gzip兼容
-安全
+          upstream
+负载均衡调度状态
+调度算法
+url_hash1234Syntax:	hash key [consistent];Default:	-;Context:	upstream;this directive appeared in version 1.7.2
 
+代理缓存
+proxy_cache
+完整
+部分
+
+
+缓存过期周期
+缓存的维度
+如何清除指定缓存
+如何让指定页面不进行缓存
+大文件分
         </a>
       </p>
 

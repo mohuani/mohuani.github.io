@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="搬砖人">
+  <meta name="author" content="mohuani">
+  <meta name="keywords" content="Bug工程师">
+  
+  <title>Laravel路由执行原理 - 积雪筱草的Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mohuani.github.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>积雪筱草的Blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                联系我
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Laravel路由执行原理">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2015-12-04 21:22" pubdate>
+        2015年12月4日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      28
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Laravel路由执行原理</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Laravel-路由执行原理"><a href="#Laravel-路由执行原理" class="headerlink" title="Laravel 路由执行原理"></a>Laravel 路由执行原理</h1><p>参考文档：</p>
+<p><a target="_blank" rel="noopener" href="https://learnku.com/articles/13622/the-principle-of-laravel-routing-execution#955cd9">https://learnku.com/articles/13622/the-principle-of-laravel-routing-execution#955cd9</a></p>
+<p><a target="_blank" rel="noopener" href="https://laworigin.github.io/2018/12/28/laravel%E8%B7%AF%E7%94%B1%E8%A7%A3%E6%9E%90%E5%88%86%E6%9E%90/">https://laworigin.github.io/2018/12/28/laravel路由解析分析/</a></p>
+<p>我自己做了一个ppt: <a target="_blank" rel="noopener" href="https://github.com/mohuani/mohuani.github.io/files/8168769/Laravel.pptx">Laravel路由执行原理.pptx</a></p>
+<p>示例 laravel 版本 Laravel Framework 8.70.2</p>
+<ul>
+<li>路由信息的加载过程</li>
+<li>路由信息的分发处理流程</li>
+</ul>
+<h3 id="一、路由加载原理"><a href="#一、路由加载原理" class="headerlink" title="一、路由加载原理"></a>一、路由加载原理</h3><ul>
+<li>原生路由：执行某个class的某个 function</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">curl index.php?con=WeatherInfoByCityKey&amp;act=getWeatherByCityKey<br><br><span class="hljs-variable">$con</span> = <span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_REQUEST</span>[<span class="hljs-string">&#x27;con&#x27;</span>]) ? <span class="hljs-variable">$_REQUEST</span>[<span class="hljs-string">&#x27;con&#x27;</span>] : <span class="hljs-string">&#x27;&#x27;</span>;<br><span class="hljs-variable">$act</span> = <span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_REQUEST</span>[<span class="hljs-string">&#x27;act&#x27;</span>]) ? <span class="hljs-variable">$_REQUEST</span>[<span class="hljs-string">&#x27;act&#x27;</span>] : <span class="hljs-string">&#x27;&#x27;</span>;<br><br><span class="hljs-keyword">switch</span> (<span class="hljs-variable">$con</span>) &#123;<br>    <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;WeatherInfoByCityKey&#x27;</span>:<br>        <span class="hljs-variable">$con</span> = <span class="hljs-keyword">new</span> App\Controllers\WeatherInfoByCityKeyController();<br>        <span class="hljs-keyword">break</span>;<br>    ...<br>&#125;<br><br><span class="hljs-variable">$con</span>-&gt;<span class="hljs-variable">$act</span>();<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>Laravel的路由入口</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">RouteServiceProvider<br><br>		<span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Define your route model bindings, pattern filters, etc.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> void</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">boot</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">$this</span>-&gt;configureRateLimiting();<br><br>        <span class="hljs-keyword">$this</span>-&gt;routes(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>            Route::prefix(<span class="hljs-string">&#x27;api&#x27;</span>)<br>                -&gt;middleware(<span class="hljs-string">&#x27;api&#x27;</span>)<br>                -&gt;namespace(<span class="hljs-keyword">$this</span>-&gt;namespace)<br>                -&gt;group(base_path(<span class="hljs-string">&#x27;routes/api.php&#x27;</span>));<br><br>            Route::middleware(<span class="hljs-string">&#x27;web&#x27;</span>)<br>                -&gt;namespace(<span class="hljs-keyword">$this</span>-&gt;namespace)<br>                -&gt;group(base_path(<span class="hljs-string">&#x27;routes/web.php&#x27;</span>));<br>        &#125;);<br>    &#125;<br>routes/api.php<br><br>Route::middleware(<span class="hljs-string">&#x27;auth:sanctum&#x27;</span>)-&gt;get(<span class="hljs-string">&#x27;/user&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">Request <span class="hljs-variable">$request</span></span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable">$request</span>-&gt;user();<br>&#125;);<br></code></pre></div></td></tr></table></figure>
+
+<p> <strong>RouteServiceProvider 服务提供者</strong></p>
+<p>简单介绍下「服务提供者」的加载和执行过程：</p>
+<p>src/Illuminate/Foundation/Application.php  register()</p>
+<ul>
+<li>首先，HTTP 内核程序会去执行所有「服务提供者」 register 方法，将所有的服务注册到服务容器内，这里的注册指的是将服务绑定（bind）到容器；</li>
+<li>当所有「服务提供者」注册完后，会执行已完成注册「服务提供者」的 boot 方法启动服务。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">Illuminate\\\\Foundation\\\\Support\\\\Providers\\\\RouteServiceProvider<br><br>	  <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Register any application services.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> void</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">register</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">$this</span>-&gt;booted(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>            <span class="hljs-keyword">$this</span>-&gt;setRootControllerNamespace();<br><br>            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">$this</span>-&gt;routesAreCached()) &#123;<br>                <span class="hljs-keyword">$this</span>-&gt;loadCachedRoutes();<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">$this</span>-&gt;loadRoutes();<br><br>                <span class="hljs-keyword">$this</span>-&gt;app-&gt;booted(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>                    <span class="hljs-keyword">$this</span>-&gt;app[<span class="hljs-string">&#x27;router&#x27;</span>]-&gt;getRoutes()-&gt;refreshNameLookups();<br>                    <span class="hljs-keyword">$this</span>-&gt;app[<span class="hljs-string">&#x27;router&#x27;</span>]-&gt;getRoutes()-&gt;refreshActionLookups();<br>                &#125;);<br>            &#125;<br>        &#125;);<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="深入研究-map-定义路由系列方法"><a href="#深入研究-map-定义路由系列方法" class="headerlink" title="深入研究 map 定义路由系列方法"></a>深入研究 map 定义路由系列方法</h3><h3 id="二、路由分发"><a href="#二、路由分发" class="headerlink" title="二、路由分发"></a>二、路由分发</h3><p>HTTP 请求如何被分发到相关路由并执行路由</p>
+<h3 id="接收-HTTP-请求"><a href="#接收-HTTP-请求" class="headerlink" title="接收 HTTP 请求"></a>接收 HTTP 请求</h3><p>所有的 HTTP 请求操作被入口文件 <strong>public/index.php</strong> 捕获后，交给 <strong><a target="_blank" rel="noopener" href="https://github.com/laravel/framework/blob/5.6/src/Illuminate/Foundation/Http/Kernel.php">Illuminate\Foundation\Http\kernel::class</a></strong>  内核处理，<strong>handle</strong> 处理器接收用户的 <strong>Request</strong> 作为参数，然后去执行。</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-keyword">public</span>/index.php<br><br><span class="hljs-variable">$kernel</span> = <span class="hljs-variable">$app</span>-&gt;make(Kernel::class);<br><span class="hljs-variable">$response</span> = <span class="hljs-variable">$kernel</span>-&gt;handle(<br>    <span class="hljs-variable">$request</span> = Request::capture()<br>)-&gt;send();<br><span class="hljs-variable">$kernel</span>-&gt;terminate(<span class="hljs-variable">$request</span>, <span class="hljs-variable">$response</span>);<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="由-HTTP-内核处理-HTTP-请求"><a href="#由-HTTP-内核处理-HTTP-请求" class="headerlink" title="由 HTTP 内核处理 HTTP 请求"></a>由 HTTP 内核处理 HTTP 请求</h3><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">src/Illuminate/Foundation/Http/Kernel.php<br><br>	  <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Handle an incoming HTTP request.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Http\\\\Request  $request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> \\\\Illuminate\\\\Http\\\\Response</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handle</span>(<span class="hljs-params"><span class="hljs-variable">$request</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-variable">$request</span>-&gt;enableHttpMethodParameterOverride();<br><br>            <span class="hljs-variable">$response</span> = <span class="hljs-keyword">$this</span>-&gt;sendRequestThroughRouter(<span class="hljs-variable">$request</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (<span class="hljs-built_in">Throwable</span> <span class="hljs-variable">$e</span>) &#123;<br>            <span class="hljs-keyword">$this</span>-&gt;reportException(<span class="hljs-variable">$e</span>);<br><br>            <span class="hljs-variable">$response</span> = <span class="hljs-keyword">$this</span>-&gt;renderException(<span class="hljs-variable">$request</span>, <span class="hljs-variable">$e</span>);<br>        &#125;<br><br>        <span class="hljs-keyword">$this</span>-&gt;app[<span class="hljs-string">&#x27;events&#x27;</span>]-&gt;dispatch(<br>            <span class="hljs-keyword">new</span> RequestHandled(<span class="hljs-variable">$request</span>, <span class="hljs-variable">$response</span>)<br>        );<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$response</span>;<br>    &#125;<br><br>		<span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Send the given request through the middleware / router.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Http\\\\Request  $request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> \\\\Illuminate\\\\Http\\\\Response</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendRequestThroughRouter</span>(<span class="hljs-params"><span class="hljs-variable">$request</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">$this</span>-&gt;app-&gt;instance(<span class="hljs-string">&#x27;request&#x27;</span>, <span class="hljs-variable">$request</span>);<br><br>        Facade::clearResolvedInstance(<span class="hljs-string">&#x27;request&#x27;</span>);<br><br>        <span class="hljs-keyword">$this</span>-&gt;bootstrap();<br><br>        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">new</span> Pipeline(<span class="hljs-keyword">$this</span>-&gt;app))<br>                    -&gt;send(<span class="hljs-variable">$request</span>)<br>                    -&gt;through(<span class="hljs-keyword">$this</span>-&gt;app-&gt;shouldSkipMiddleware() ? [] : <span class="hljs-keyword">$this</span>-&gt;middleware)<br>                    -&gt;then(<span class="hljs-keyword">$this</span>-&gt;dispatchToRouter());<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>清空已解析的请求（clearResolvedInstance）；</li>
+<li>执行应用的引导程序（bootstrap），这部分的内容请查阅 深入剖析 Laravel 服务提供者实现原理 的服务提供者启动原理小结。</li>
+<li>将请求发送到中间件和路由中，这个由管道组件完成（Pipeline）。</li>
+</ul>
+<h3 id="路由分发处理"><a href="#路由分发处理" class="headerlink" title="路由分发处理"></a>路由分发处理</h3><p><code>then($this-&gt;dispatchToRouter())</code> 路由处理了，让我们看看 <code>dispatchToRouter</code> 是如何分发路由的。</p>
+<figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">src/Illuminate/Foundation/Http/Kernel.php<br><br><span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dispatchToRouter</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$request</span></span>) </span>&#123;<br>        <span class="hljs-keyword">$this</span>-&gt;app-&gt;instance(<span class="hljs-string">&#x27;request&#x27;</span>, <span class="hljs-variable">$request</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;router-&gt;dispatch(<span class="hljs-variable">$request</span>);<br>    &#125;;<br>&#125;<br>src/Illuminate/Routing/Router.php<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@mixin</span> \\\\Illuminate\\\\Routing\\\\RouteRegistrar</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Router</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">BindingRegistrar</span>, <span class="hljs-title">RegistrarContract</span></span><br><span class="hljs-class"></span>&#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Dispatch the request to the application.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Http\\\\Request  $request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> \\\\Symfony\\\\Component\\\\HttpFoundation\\\\Response</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dispatch</span>(<span class="hljs-params">Request <span class="hljs-variable">$request</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">$this</span>-&gt;currentRequest = <span class="hljs-variable">$request</span>;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;dispatchToRoute(<span class="hljs-variable">$request</span>);<br>    &#125;<br><br> <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Dispatch the request to a route and return the response.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Http\\\\Request  $request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> \\\\Symfony\\\\Component\\\\HttpFoundation\\\\Response</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dispatchToRoute</span>(<span class="hljs-params">Request <span class="hljs-variable">$request</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;runRoute(<span class="hljs-variable">$request</span>, <span class="hljs-keyword">$this</span>-&gt;findRoute(<span class="hljs-variable">$request</span>));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Find the route matching a given request.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Http\\\\Request  $request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> \\\\Illuminate\\\\Routing\\\\Route</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findRoute</span>(<span class="hljs-params"><span class="hljs-variable">$request</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">$this</span>-&gt;current = <span class="hljs-variable">$route</span> = <span class="hljs-keyword">$this</span>-&gt;routes-&gt;match(<span class="hljs-variable">$request</span>);<br><br>        <span class="hljs-variable">$route</span>-&gt;setContainer(<span class="hljs-keyword">$this</span>-&gt;container);<br><br>        <span class="hljs-keyword">$this</span>-&gt;container-&gt;instance(Route::class, <span class="hljs-variable">$route</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$route</span>;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Return the response for the given route.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Http\\\\Request  $request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Routing\\\\Route  $route</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> \\\\Symfony\\\\Component\\\\HttpFoundation\\\\Response</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runRoute</span>(<span class="hljs-params">Request <span class="hljs-variable">$request</span>, Route <span class="hljs-variable">$route</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$request</span>-&gt;setRouteResolver(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) <span class="hljs-keyword">use</span> (<span class="hljs-params"><span class="hljs-variable">$route</span></span>) </span>&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-variable">$route</span>;<br>        &#125;);<br><br>        <span class="hljs-keyword">$this</span>-&gt;events-&gt;dispatch(<span class="hljs-keyword">new</span> RouteMatched(<span class="hljs-variable">$route</span>, <span class="hljs-variable">$request</span>));<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;prepareResponse(<span class="hljs-variable">$request</span>,<br>            <span class="hljs-keyword">$this</span>-&gt;runRouteWithinStack(<span class="hljs-variable">$route</span>, <span class="hljs-variable">$request</span>)<br>        );<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Run the given route within a Stack &quot;onion&quot; instance.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Routing\\\\Route  $route</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Http\\\\Request  $request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> mixed</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runRouteWithinStack</span>(<span class="hljs-params">Route <span class="hljs-variable">$route</span>, Request <span class="hljs-variable">$request</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$shouldSkipMiddleware</span> = <span class="hljs-keyword">$this</span>-&gt;container-&gt;bound(<span class="hljs-string">&#x27;middleware.disable&#x27;</span>) &amp;&amp;<br>                                <span class="hljs-keyword">$this</span>-&gt;container-&gt;make(<span class="hljs-string">&#x27;middleware.disable&#x27;</span>) === <span class="hljs-literal">true</span>;<br><br>        <span class="hljs-variable">$middleware</span> = <span class="hljs-variable">$shouldSkipMiddleware</span> ? [] : <span class="hljs-keyword">$this</span>-&gt;gatherRouteMiddleware(<span class="hljs-variable">$route</span>);<br><br>        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">new</span> Pipeline(<span class="hljs-keyword">$this</span>-&gt;container))<br>                        -&gt;send(<span class="hljs-variable">$request</span>)<br>                        -&gt;through(<span class="hljs-variable">$middleware</span>)<br>                        -&gt;then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"><span class="hljs-variable">$request</span></span>) <span class="hljs-keyword">use</span> (<span class="hljs-params"><span class="hljs-variable">$route</span></span>) </span>&#123;<br>                            <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;prepareResponse(<br>                                <span class="hljs-variable">$request</span>, <span class="hljs-variable">$route</span>-&gt;run()<br>                            );<br>                        &#125;);<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Create a response instance from the given value.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Symfony\\\\Component\\\\HttpFoundation\\\\Request  $request</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  mixed  $response</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> \\\\Symfony\\\\Component\\\\HttpFoundation\\\\Response</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">prepareResponse</span>(<span class="hljs-params"><span class="hljs-variable">$request</span>, <span class="hljs-variable">$response</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">static</span>::toResponse(<span class="hljs-variable">$request</span>, <span class="hljs-variable">$response</span>);<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="路由分发流程"><a href="#路由分发流程" class="headerlink" title="路由分发流程"></a>路由分发流程</h3><p>1、从 RouteCollection 路由集合中查找出当前请求 URI（$request）匹配的路由，由 Router::findRoute($request) 方法完成； 2、运行路由配置阶段所配置的闭包（或控制器方法），这个处理在 Router::runRoute(Request $request, Route $route) 方法完成；</p>
+<ul>
+<li>在运行路由闭包或控制器方法时，将采用类似 HTTP kernel 的 handle 执行方式去运行当前路由适用的局部中间件；</li>
+<li>在最终的 then 方法内部会执行 $route-&gt;run() 方法运行路由，$route（Illuminate\Routing\Route） 为 findRoute 方法查找到的路由；</li>
+</ul>
+<p>3、生成 HTTP 响应（由 prepareResponse 方法完成）。</p>
+<h3 id="执行路由闭包或控制器"><a href="#执行路由闭包或控制器" class="headerlink" title="执行路由闭包或控制器"></a>执行路由闭包或控制器</h3><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">src/Illuminate/Routing/Route.php<br><br>		<span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Run the route action and return the response.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> mixed</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">run</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">$this</span>-&gt;container = <span class="hljs-keyword">$this</span>-&gt;container ?: <span class="hljs-keyword">new</span> Container;<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">$this</span>-&gt;isControllerAction()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;runController();<br>            &#125;<br><br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;runCallable();<br>        &#125; <span class="hljs-keyword">catch</span> (HttpResponseException <span class="hljs-variable">$e</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-variable">$e</span>-&gt;getResponse();<br>        &#125;<br>    &#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">    * Checks whether the route&#x27;s action is a controller.</span><br><span class="hljs-comment">    *</span><br><span class="hljs-comment">    * <span class="hljs-doctag">@return</span> bool</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isControllerAction</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>       <span class="hljs-keyword">return</span> is_string(<span class="hljs-keyword">$this</span>-&gt;action[<span class="hljs-string">&#x27;uses&#x27;</span>]) &amp;&amp; ! <span class="hljs-keyword">$this</span>-&gt;isSerializedClosure();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Run the route action and return the response.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> mixed</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runCallable</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$callable</span> = <span class="hljs-keyword">$this</span>-&gt;action[<span class="hljs-string">&#x27;uses&#x27;</span>];<br><br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">$this</span>-&gt;isSerializedClosure()) &#123;<br>            <span class="hljs-variable">$callable</span> = unserialize(<span class="hljs-keyword">$this</span>-&gt;action[<span class="hljs-string">&#x27;uses&#x27;</span>])-&gt;getClosure();<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$callable</span>(...array_values(<span class="hljs-keyword">$this</span>-&gt;resolveMethodDependencies(<br>            <span class="hljs-keyword">$this</span>-&gt;parametersWithoutNulls(), <span class="hljs-keyword">new</span> ReflectionFunction(<span class="hljs-variable">$callable</span>)<br>        )));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Run the route action and return the response.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> mixed</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@throws</span> \\\\Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runController</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;controllerDispatcher()-&gt;dispatch(<br>            <span class="hljs-keyword">$this</span>, <span class="hljs-keyword">$this</span>-&gt;getController(), <span class="hljs-keyword">$this</span>-&gt;getControllerMethod()<br>        );<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Get the controller instance for the route.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> mixed</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getController</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (! <span class="hljs-keyword">$this</span>-&gt;controller) &#123;<br>            <span class="hljs-variable">$class</span> = <span class="hljs-keyword">$this</span>-&gt;parseControllerCallback()[<span class="hljs-number">0</span>];<br><br>            <span class="hljs-keyword">$this</span>-&gt;controller = <span class="hljs-keyword">$this</span>-&gt;container-&gt;make(ltrim(<span class="hljs-variable">$class</span>, <span class="hljs-string">&#x27;\\\\\\\\&#x27;</span>));<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;controller;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Get the controller method used for the route.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> string</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getControllerMethod</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;parseControllerCallback()[<span class="hljs-number">1</span>];<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Get the dispatcher for the route&#x27;s controller.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> \\\\Illuminate\\\\Routing\\\\Contracts\\\\ControllerDispatcher</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">controllerDispatcher</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">$this</span>-&gt;container-&gt;bound(ControllerDispatcherContract::class)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;container-&gt;make(ControllerDispatcherContract::class);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ControllerDispatcher(<span class="hljs-keyword">$this</span>-&gt;container);<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="运行控制器方法"><a href="#运行控制器方法" class="headerlink" title="运行控制器方法"></a>运行控制器方法</h3><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php">src/Illuminate/Routing/ControllerDispatcher.php<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Dispatch a request to a given controller and method.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  \\\\Illuminate\\\\Routing\\\\Route  $route</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  mixed  $controller</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span>  string  $method</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> mixed</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dispatch</span>(<span class="hljs-params">Route <span class="hljs-variable">$route</span>, <span class="hljs-variable">$controller</span>, <span class="hljs-variable">$method</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$parameters</span> = <span class="hljs-keyword">$this</span>-&gt;resolveClassMethodDependencies(<br>            <span class="hljs-variable">$route</span>-&gt;parametersWithoutNulls(), <span class="hljs-variable">$controller</span>, <span class="hljs-variable">$method</span><br>        );<br><br>        <span class="hljs-keyword">if</span> (method_exists(<span class="hljs-variable">$controller</span>, <span class="hljs-string">&#x27;callAction&#x27;</span>)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-variable">$controller</span>-&gt;callAction(<span class="hljs-variable">$method</span>, <span class="hljs-variable">$parameters</span>);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$controller</span>-&gt;&#123;<span class="hljs-variable">$method</span>&#125;(...array_values(<span class="hljs-variable">$parameters</span>));<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>问题举例：</p>
+<p>1、/user/info，怎么匹配路由</p>
+<p>2、/user/:userId/info， 怎么匹配路由</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/PHP/">PHP</a>
+                    
+                      <a class="hover-with-bg" href="/categories/PHP/Laravel/">Laravel</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/PHP/">PHP</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Laravel/">Laravel</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2015/12/04/PHP/Laravel/Laravel-%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Laravel-事件监听</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89/">
+                        <span class="hidden-mobile">Laravel 查询构造器的使用（三）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
