@@ -182,16 +182,17 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2017/12/04/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">PHPUnit单元测试</a>
+        <a href="/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">PHP的自动加载机制</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2017/12/04/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+        <a href="/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
           
           
             
           
-          ###前言单元测试这个问题对于新人来说总感觉没意思，感觉单元测试做不做都没啥问题，有时候还总觉得做单元测试很浪费时间。我总感觉 PHP 的开发者们并没有对 PHP 的质量有所追求，让大部分的开发者总以为浏览器访问就没有问题，所以很多时候，做 PHP 开发的，就没有单元测试的这些概念了。能不能有点追求？作为一个开发者，或者说是一个产品的经手人，就应该用心地去做好每个细节，一次比一次要更好。但是做单元
+          原因我们在写PHP代码的时候，总会遇到这种情况（A.php需要引入XXX.php才能正常运行），代码结构比较小的话，通常我们都是直接通过 include 或者 require 直接引入，如果需要引入的文件不多的话，还可以接受，但是如果引入的文件达到几十个以上，再用 include 和 require 就显得比较繁琐，影响代码的美观。因此我们需要引入PHP文件的自动加载机制。
+方法一使用 __aut
         </a>
       </p>
 
@@ -210,8 +211,6 @@
             
               <a href="/categories/PHP/">PHP</a>
             
-              <a href="/categories/PHP/PHPUnit/">PHPUnit</a>
-            
           </div>
         
         
@@ -219,8 +218,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/PHP/">PHP</a>
-            
-              <a href="/tags/PHPUnit/">PHPUnit</a>
             
           </div>
         
@@ -383,116 +380,6 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A84/">MyBatis-Plus入门4</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A84/">
-          
-          
-            
-          
-          AR模式通过直接操作实体类的方式，对数据表进行增删改查的操作
-
-必须存在对应的原始mapper并继承Model 泛型类，并配置相应类注解
-同时申明序列号  serialVersionUID = 1L
-需要继承BaseMapper
-
-
-主键策略1234567891011121314151617181920212223242526272829303132333435363738394041424344
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2016-06-17 21:22" pubdate>
-              2016-06-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
-            
-              <a href="/categories/Java/MyBatis/">MyBatis</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Java/">Java</a>
-            
-              <a href="/tags/MyBatis/">MyBatis</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2016/06/17/Java/JsonWebToken/">JsonWebToken</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2016/06/17/Java/JsonWebToken/">
-          
-          
-            
-          
-          参考阮一峰老师的博客：http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html
-课程参考：https://www.imooc.com/video/19018
-JWT官网：https://jwt.io/
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2016-06-17 21:22" pubdate>
-              2016-06-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Java/">Java</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
         <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A83/">MyBatis-Plus入门3</a>
       </h1>
 
@@ -545,17 +432,31 @@ JWT官网：https://jwt.io/
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A81/">MyBatis-Plus入门1</a>
+        <a href="/2016/06/17/Java/Netty/Netty%E5%85%A5%E9%97%A8%E4%B9%8BWebSocket-1/">Netty入门之WebSocket-1</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A81/">
+        <a href="/2016/06/17/Java/Netty/Netty%E5%85%A5%E9%97%A8%E4%B9%8BWebSocket-1/">
           
           
             
           
-          课程资料视频地址：https://www.imooc.com/learn/1130文档地址：https://mp.baomidou.com/guide/
-pom.xml1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253&lt;?xml version=&q
+          课程地址：https://www.imooc.com/learn/1118
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </a>
       </p>
 
@@ -574,7 +475,7 @@ pom.xml1234567891011121314151617181920212223242526272829303132333435363738394041
             
               <a href="/categories/Java/">Java</a>
             
-              <a href="/categories/Java/MyBatis/">MyBatis</a>
+              <a href="/categories/Java/Netty/">Netty</a>
             
           </div>
         
@@ -584,7 +485,7 @@ pom.xml1234567891011121314151617181920212223242526272829303132333435363738394041
             
               <a href="/tags/Java/">Java</a>
             
-              <a href="/tags/MyBatis/">MyBatis</a>
+              <a href="/tags/Netty/">Netty</a>
             
           </div>
         
@@ -598,11 +499,172 @@ pom.xml1234567891011121314151617181920212223242526272829303132333435363738394041
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2016/06/17/Java/Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">Maven基础入门</a>
+        <a href="/2016/06/17/Java/Netty/Netty%E5%85%A5%E9%97%A8%E4%B9%8BWebSocket-2/">Netty入门之WebSocket-2</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2016/06/17/Java/Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">
+        <a href="/2016/06/17/Java/Netty/Netty%E5%85%A5%E9%97%A8%E4%B9%8BWebSocket-2/">
+          
+          
+            
+          
+          课程代码websocket.html
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455&lt;html&gt;	&lt;head&gt;		&lt;meta http-equiv=&quot;Content-Type&quot; content=
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-06-17 21:22" pubdate>
+              2016-06-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Netty/">Netty</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/Netty/">Netty</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/06/17/Java/SpringBoot/springboot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">springboot启动失败常见问题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2016/06/17/Java/SpringBoot/springboot%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+          
+          
+            
+          
+          
+
+1Loading class `com.mysql.jdbc.Driver&#x27;. This is deprecated. The new driver class is `com.mysql.cj.jdbc.Driver&#x27;. The driver is automatically registered via the SPI and manual loading of the
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-06-17 21:22" pubdate>
+              2016-06-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/Springboot/">Springboot</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/Springboot/">Springboot</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/06/17/Java/SpringCloud%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/%E7%AC%AC5%E7%AB%A0%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BC%80%E5%8F%91/">广告投放系统的开发</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2016/06/17/Java/SpringCloud%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F/%E7%AC%AC5%E7%AB%A0%E5%B9%BF%E5%91%8A%E6%8A%95%E6%94%BE%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BC%80%E5%8F%91/">
+          
+          
+            
+          
+          5.1 Spring IOC和MVC基础知识
+5-1 【回顾下Spring特性】Spring IOC和MVC基础知识5-2 【简单好用的SpringBoot】SpringBoot 常用功能特性介绍5-3 【理解业务思想】广告投放系统数据表设计
+5-5 【开始编码】创建广告投放系统子模块5-6 【Model层设计】数据表实体类定义（1）5-7 数据表实体类定义（2）5-8 数据表实体类定义（3）5-
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2016-06-17 21:22" pubdate>
+              2016-06-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+              <a href="/categories/Java/SpringBoot/">SpringBoot</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/SpringBoot/">SpringBoot</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2016/06/17/Java/Maven/Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">Maven基础入门</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2016/06/17/Java/Maven/Maven%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">
           
           
             
@@ -645,58 +707,6 @@ lib包含maven运行时的依赖类库
               <a href="/tags/Java/">Java</a>
             
               <a href="/tags/maven/">maven</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A82/">MyBatis-Plus入门2</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2016/06/17/Java/MyBatis/MyBatis-Plus%E5%85%A5%E9%97%A82/">
-          
-          
-            
-          
-          查询方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2016-06-17 21:22" pubdate>
-              2016-06-17
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
-            
-              <a href="/categories/Java/MyBatis/">MyBatis</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Java/">Java</a>
-            
-              <a href="/tags/MyBatis/">MyBatis</a>
             
           </div>
         
