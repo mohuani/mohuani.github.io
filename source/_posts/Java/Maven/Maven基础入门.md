@@ -55,15 +55,24 @@ mvn   	-v 	查看maven版本
 ```
 	   
 
-### maven快速创建项目骨架目录  ###
-#### 两种方式： ####
-	1.  mvn archetype:generate 按照提示进行选择
-	2.  mvn archetype:generate  -DgroupId=com.imooc.maven   -DartifactId=
-	  maven-service   -Dversion=1.0.0SNAPSHOT   -Dpackage=com.imooc.maven.demo
-		1. -DgroupId=组织名，公司网址反写+项目名
-		2. -DartifactId=项目名+模块名
-		3. -Dversion=版本号
-		4. -Dpackage=代码所存在的包名
+### maven快速创建项目骨架目录
+#### 两种方式：
+
+```
+1.  mvn archetype:generate 按照提示进行选择
+2.  mvn archetype:generate 	
+	-DgroupId=com.imooc.maven   
+	-DartifactId=maven-service   
+	-Dversion=1.0.0SNAPSHOT   
+	-Dpackage=com.imooc.maven.demo
+	
+	
+	1. -DgroupId=组织名，公司网址反写+项目名
+	2. -DartifactId=项目名+模块名
+	3. -Dversion=版本号
+	4. -Dpackage=代码所存在的包名
+```		
+		
 ### 四.Maven中的坐标和仓库
 
 **构件坐标:**
