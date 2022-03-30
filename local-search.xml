@@ -5,8 +5,8 @@
   
   <entry>
     <title></title>
-    <link href="/2022/03/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-    <url>/2022/03/25/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+    <link href="/2022/03/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+    <url>/2022/03/30/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
     
     <content type="html"><![CDATA[]]></content>
     
@@ -18,8 +18,8 @@
   
   <entry>
     <title></title>
-    <link href="/2022/03/25/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/"/>
-    <url>/2022/03/25/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/</url>
+    <link href="/2022/03/30/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/"/>
+    <url>/2022/03/30/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/</url>
     
     <content type="html"><![CDATA[]]></content>
     
@@ -266,7 +266,7 @@
     <link href="/2021/12/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E5%9C%A8%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%AE%9E%E8%B7%B5/"/>
     <url>/2021/12/23/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E5%9C%A8%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%AE%9E%E8%B7%B5/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>领域驱动设计相关的学习资料</p></blockquote><h3 id="开源示例："><a href="#开源示例：" class="headerlink" title="开源示例："></a>开源示例：</h3><ul><li><a href="https://gitee.com/mallfoundry/mallfoundry">https://gitee.com/mallfoundry/mallfoundry</a></li><li><a href="https://github.com/VaughnVernon/IDDD_Samples">https://github.com/VaughnVernon/IDDD_Samples</a></li><li><a href="https://github.com/citerus/dddsample-core">https://github.com/citerus/dddsample-core</a></li><li><a href="https://github.com/ouchuangxin/leave-sample">https://github.com/ouchuangxin/leave-sample</a></li></ul><h3 id="博客文章"><a href="#博客文章" class="headerlink" title="博客文章:"></a>博客文章:</h3><ul><li><a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects">https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects</a></li><li><a href="http://it.hzqiuxm.com/ddd%e9%a2%86%e5%9f%9f%e9%a9%b1%e5%8a%a8%e6%88%98%e7%95%a5%e7%af%87/">http://it.hzqiuxm.com/ddd%e9%a2%86%e5%9f%9f%e9%a9%b1%e5%8a%a8%e6%88%98%e7%95%a5%e7%af%87/</a><br><a href="https://www.zhihu.com/column/c_1207740062416420864">https://www.zhihu.com/column/c_1207740062416420864</a></li><li><a href="https://developer.aliyun.com/article/719251">https://developer.aliyun.com/article/719251</a></li></ul><h3 id="美团技术团队博客："><a href="#美团技术团队博客：" class="headerlink" title="美团技术团队博客："></a>美团技术团队博客：</h3><ul><li><a href="https://tech.meituan.com/2017/12/22/ddd-in-practice.html">领域驱动设计在互联网业务开发中的实践</a></li></ul><h3 id="书单"><a href="#书单" class="headerlink" title="书单:"></a>书单:</h3><ul><li><a href="https://weread.qq.com/web/appreader/62432dc0715a3e4a624c98d?wfrom=app&wtheme=white&wvid=13747326&sence=bottomSheetShare">领域驱动设计 软件核心复杂性应对之道 - Eric Evans</a></li><li><a href="http://e.dangdang.com/products/1900670661.html">http://e.dangdang.com/products/1900670661.html</a></li><li><a href="https://item.jd.com/11423256.html">https://item.jd.com/11423256.html</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>领域驱动设计相关的学习资料</p></blockquote><h3 id="开源示例："><a href="#开源示例：" class="headerlink" title="开源示例："></a>开源示例：</h3><ul><li><a href="https://gitee.com/mallfoundry/mallfoundry">https://gitee.com/mallfoundry/mallfoundry</a></li><li><a href="https://github.com/VaughnVernon/IDDD_Samples">https://github.com/VaughnVernon/IDDD_Samples</a></li><li><a href="https://github.com/citerus/dddsample-core">https://github.com/citerus/dddsample-core</a></li><li><a href="https://github.com/ouchuangxin/leave-sample">https://github.com/ouchuangxin/leave-sample</a></li></ul><h3 id="博客文章"><a href="#博客文章" class="headerlink" title="博客文章:"></a>博客文章:</h3><ul><li><a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects">https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/implement-value-objects</a></li><li><a href="http://it.hzqiuxm.com/ddd%e9%a2%86%e5%9f%9f%e9%a9%b1%e5%8a%a8%e6%88%98%e7%95%a5%e7%af%87/">http://it.hzqiuxm.com/ddd%e9%a2%86%e5%9f%9f%e9%a9%b1%e5%8a%a8%e6%88%98%e7%95%a5%e7%af%87/</a><br><a href="https://www.zhihu.com/column/c_1207740062416420864">https://www.zhihu.com/column/c_1207740062416420864</a></li><li><a href="https://developer.aliyun.com/article/719251">https://developer.aliyun.com/article/719251</a></li></ul><h3 id="美团技术团队博客："><a href="#美团技术团队博客：" class="headerlink" title="美团技术团队博客："></a>美团技术团队博客：</h3><ul><li><a href="https://tech.meituan.com/2017/12/22/ddd-in-practice.html">领域驱动设计在互联网业务开发中的实践</a></li></ul><h3 id="腾讯技术工程"><a href="#腾讯技术工程" class="headerlink" title="腾讯技术工程"></a>腾讯技术工程</h3><ul><li><a href="https://mp.weixin.qq.com/s/BIYp9DNd_9sw5O2daiHmlA">万字长文助你上手软件领域驱动设计 DDD</a></li></ul><h3 id="书单"><a href="#书单" class="headerlink" title="书单:"></a>书单:</h3><ul><li><a href="https://weread.qq.com/web/appreader/62432dc0715a3e4a624c98d?wfrom=app&wtheme=white&wvid=13747326&sence=bottomSheetShare">领域驱动设计 软件核心复杂性应对之道 - Eric Evans</a></li><li><a href="http://e.dangdang.com/products/1900670661.html">http://e.dangdang.com/products/1900670661.html</a></li><li><a href="https://item.jd.com/11423256.html">https://item.jd.com/11423256.html</a></li></ul>]]></content>
     
     
     <categories>
