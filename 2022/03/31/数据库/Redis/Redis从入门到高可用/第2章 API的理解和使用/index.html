@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      511 字
+      760 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      9
        分钟
     </span>
   
@@ -258,6 +258,14 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">注:以下命令 时间复杂度均为 o(1)<br><br>getset key newvalue<br><span class="hljs-comment">#set key newvalue并返回旧的value</span><br><br>append key value<br><span class="hljs-comment">#将value追加到旧的value（相当于字符串拼接）</span><br><br>strlen key<br><span class="hljs-comment">#返回字符串的长度（注意中文）</span><br><br>incrbyfloat key 3.5<br><span class="hljs-comment">#增加key对应的值3.5</span><br><br>getrange key start end<br><span class="hljs-comment">#获取字符串指定下标所有的值</span><br><br>setrange key index value<br><span class="hljs-comment">#设置指定下标所有对应的值</span><br><br></code></pre></div></td></tr></table></figure>
 
+<h3 id="2-5-hash"><a href="#2-5-hash" class="headerlink" title="2.5 hash"></a>2.5 hash</h3><p>特点<br>key还是String类型 ，值则分成 field和value，可以添加field来对属性进行扩充<br>redis本身就是一个map结构的，所以可以把这种数据结构理解成 “mapmap”,其中 field就像key一样不能相同 。</p>
+<p><img src="https://user-images.githubusercontent.com/21000558/161049034-d89f9bc9-0e28-4afe-9484-76f7111e48bc.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<p>API所有命令都是以h开头</p>
+<figure class="highlight q"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs q">命令 时间复杂度均为 o(<span class="hljs-number">1</span>)<br><br>hget <span class="hljs-built_in">key</span> field<br>#获取hash <span class="hljs-built_in">key</span>对应的field的<span class="hljs-built_in">value</span><br><br>hset <span class="hljs-built_in">key</span> field <span class="hljs-built_in">value</span><br>#设置hash <span class="hljs-built_in">key</span>对应field的<span class="hljs-built_in">value</span><br><br><span class="hljs-built_in">hdel</span> <span class="hljs-built_in">key</span> field<br>#删除hash <span class="hljs-built_in">key</span>对应field的<span class="hljs-built_in">value</span><br><br>hexists <span class="hljs-built_in">key</span> field<br>#判断hash <span class="hljs-built_in">key</span>是否有field<br><br>hlen <span class="hljs-built_in">key</span><br>#获取hash <span class="hljs-built_in">key</span> field的数量<br><br>hsetnx <span class="hljs-built_in">key</span> field <span class="hljs-built_in">value</span><br>#设置hash <span class="hljs-built_in">key</span>对应field的<span class="hljs-built_in">value</span>（如field已经存在，则失败）<br><br>hincrby <span class="hljs-built_in">key</span> field intCounter<br>#hash <span class="hljs-built_in">key</span>对应的field的<span class="hljs-built_in">value</span>自增intCounter<br><br>hincrbyfloat <span class="hljs-built_in">key</span> field floatCounter<br>#hincrby浮点数版<br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight vbnet"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vbnet">命令 时间复杂度均为 o(n)<br><br>hmget <span class="hljs-keyword">key</span> field1 field2....fieldN<br>#批量获取hash <span class="hljs-keyword">key</span>的一批field对应的值<br><br>hmset <span class="hljs-keyword">key</span> fieldI valuel field2 value2..fieldN valueN<br>#批量设置hash <span class="hljs-keyword">key</span>的一批field value<br><br>hgetall <span class="hljs-keyword">key</span><br>#返回hash <span class="hljs-keyword">key</span>对应所有的field和value<br><br>hvals <span class="hljs-keyword">key</span><br>#返回hash <span class="hljs-keyword">key</span>对应所有field的value<br><br>hkeys <span class="hljs-keyword">key</span><br>#返回hash <span class="hljs-keyword">key</span>对应所有field<br><br></code></pre></div></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/21000558/161050160-727a81a6-5504-47bd-9ea2-2271106007c3.png" srcset="/img/loading.gif" lazyload alt="image"><br><img src="https://user-images.githubusercontent.com/21000558/161050319-e686a3c5-1f30-4a87-b6c6-043f50541be2.png" srcset="/img/loading.gif" lazyload alt="image"></p>
 
             </div>
             <hr>
