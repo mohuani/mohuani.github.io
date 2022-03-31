@@ -5,6 +5,35 @@
   
   <entry>
     <title>Redis初识</title>
+    <link href="/2022/03/31/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E9%AB%98%E5%8F%AF%E7%94%A8/%E7%AC%AC2%E7%AB%A0%20API%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8/"/>
+    <url>/2022/03/31/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E9%AB%98%E5%8F%AF%E7%94%A8/%E7%AC%AC2%E7%AB%A0%20API%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h3 id="2-2通用命令"><a href="#2-2通用命令" class="headerlink" title="2-2通用命令"></a>2-2通用命令</h3><figure class="highlight q"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs q"><span class="hljs-built_in">keys</span> * #遍历所有<span class="hljs-built_in">key</span><br>del <span class="hljs-built_in">key</span> [<span class="hljs-built_in">key</span>…] #删除指定的<span class="hljs-built_in">key</span>-<span class="hljs-built_in">value</span><br>dbsizee 算出<span class="hljs-built_in">key</span>的总数<br>expire <span class="hljs-built_in">key</span> seconds #<span class="hljs-built_in">key</span>在sc秒后过期<br>ttl <span class="hljs-built_in">key</span> #查看<span class="hljs-built_in">key</span>剩余的过期时间（<span class="hljs-number">-1</span> 代表没有过期时间 <span class="hljs-number">-2</span>代表已过期）<br>persist <span class="hljs-built_in">key</span> #去掉<span class="hljs-built_in">key</span>的过期时间<br>exists <span class="hljs-built_in">key</span> #检查一个<span class="hljs-built_in">key</span>是否存在<br><span class="hljs-built_in">type</span> <span class="hljs-built_in">key</span> #返回<span class="hljs-built_in">key</span>的类型,结果为<span class="hljs-built_in">string</span> hash list <span class="hljs-built_in">set</span> zset none（<span class="hljs-built_in">key</span>不存在）<br></code></pre></div></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/21000558/161048110-cf898bdd-7782-41d6-8643-b479a673fc0f.png" alt="image"></p><h3 id="2-3-数据结构和内部编码"><a href="#2-3-数据结构和内部编码" class="headerlink" title="2-3 数据结构和内部编码"></a>2-3 数据结构和内部编码</h3><p><img src="https://user-images.githubusercontent.com/21000558/161048234-0f018813-f074-4ca2-a690-6979a84044ce.png" alt="1648653844115-f9099d9c-0908-4971-a374-08e3d655e908"></p><p><img src="https://user-images.githubusercontent.com/21000558/161047779-7cabd544-76b2-4edd-ac01-624cd9cf63a5.png" alt="image"></p><h3 id="2-4-单线程"><a href="#2-4-单线程" class="headerlink" title="2-4 单线程"></a>2-4 单线程</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/85934/1648654084762-d87447aa-47bf-4ce9-b699-68d714981d89.png#clientId=u2e23ff42-1b97-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u8a3010f8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=334&originWidth=1721&originalType=url&ratio=1&rotation=0&showTitle=false&size=160226&status=done&style=none&taskId=u098303d1-66bd-45de-8015-b85faa44735&title=" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2022/png/85934/1648654093328-eab0b695-d1fb-4ca9-9505-b783cb4a9421.png#clientId=u2e23ff42-1b97-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u75a27ea0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=685&originWidth=1474&originalType=url&ratio=1&rotation=0&showTitle=false&size=373801&status=done&style=none&taskId=ufb74172d-7162-42bd-802e-e87a37295e3&title=" alt="image.png"></p><p>单线程为什么还这么快？</p><ul><li>纯内存</li><li>非阻塞IO</li><li>避免线程切换和竞态消耗</li></ul><p>其它注意点</p><ul><li>一次只运行一条命令</li><li>拒绝长（慢）命令 </li></ul><figure class="highlight perl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs perl"><span class="hljs-keyword">keys</span>，flushall，flushdb，slow lua script，mutil/<span class="hljs-keyword">exec</span>，operate big value（collection）<br></code></pre></div></td></tr></table></figure><ul><li>其实不是全是单线程，如下面的命令  <code>fysnc file descriptor </code>, <code>close file descriptor</code></li></ul><h3 id="2-5-字符串"><a href="#2-5-字符串" class="headerlink" title="2-5 字符串"></a>2-5 字符串</h3><p>场景： 缓存， 计数器，分布式锁</p><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>key都为字符串 value可为 字符串（json） 整数 二进制</p><p>API</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">注:以下命令 时间复杂度均为 o(1)<br><br><br>get key  <br><span class="hljs-comment">#获取key对应的value</span><br><br><span class="hljs-built_in">set</span> key value<br><span class="hljs-comment">#设置key-value</span><br><br>del key <br><span class="hljs-comment">#删除key-value</span><br><br>incr key<br><span class="hljs-comment">#key自增1，如果key不存在，自增后get(key)=1</span><br><br>decr key o（1）<br><span class="hljs-comment">#key自减1，如果key不存在，自减后get（key）=-1</span><br><br>incrby key k<br><span class="hljs-comment">#Key自增k，如果key不存在自增后get(key）=k </span><br><br>decr key k<br><span class="hljs-comment">#Key自减k，如果key不存在，自减后get（key）=-k </span><br><br><span class="hljs-built_in">set</span> key value<br><span class="hljs-comment">#不管key是否存在，都设置</span><br><br>setnx key value<br><span class="hljs-comment">#key不存在，才设置</span><br><br><span class="hljs-built_in">set</span> key value xx<br><span class="hljs-comment">#key存在，才设置</span><br><br></code></pre></div></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">注:以下命令 时间复杂度均为 o(n)<br><br>mget keyl key2 key3...<br><span class="hljs-comment">#批量获取key，原子操作</span><br><br>mset key1 valuel key2 value2 key3 value3<br><span class="hljs-comment">#批量设置key-value</span><br></code></pre></div></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">注:以下命令 时间复杂度均为 o(1)<br><br>getset key newvalue<br><span class="hljs-comment">#set key newvalue并返回旧的value</span><br><br>append key value<br><span class="hljs-comment">#将value追加到旧的value（相当于字符串拼接）</span><br><br>strlen key<br><span class="hljs-comment">#返回字符串的长度（注意中文）</span><br><br>incrbyfloat key 3.5<br><span class="hljs-comment">#增加key对应的值3.5</span><br><br>getrange key start end<br><span class="hljs-comment">#获取字符串指定下标所有的值</span><br><br>setrange key index value<br><span class="hljs-comment">#设置指定下标所有对应的值</span><br><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库</category>
+      
+      <category>Redis</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据库</tag>
+      
+      <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Redis初识</title>
     <link href="/2022/03/31/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E9%AB%98%E5%8F%AF%E7%94%A8/%E7%AC%AC1%E7%AB%A0%20Redis%E5%88%9D%E8%AF%86/"/>
     <url>/2022/03/31/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E9%AB%98%E5%8F%AF%E7%94%A8/%E7%AC%AC1%E7%AB%A0%20Redis%E5%88%9D%E8%AF%86/</url>
     
@@ -1501,31 +1530,6 @@
   
   
   <entry>
-    <title>微服务RPC问题</title>
-    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/"/>
-    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/</url>
-    
-    <content type="html"><![CDATA[<p>下面的问题，想到解决方案后再补充<br>1、多版本并行开发，上线时版本问题？</p><p>2、方法版本前后兼容问题，方法是否允许删除？</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>微服务</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>微服务</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>微服务理念</title>
     <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%90%86%E5%BF%B5/"/>
     <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%90%86%E5%BF%B5/</url>
@@ -1576,6 +1580,31 @@
   
   
   <entry>
+    <title>云原生概念-视频流媒体架构</title>
+    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5-%E8%A7%86%E9%A2%91%E6%B5%81%E5%AA%92%E4%BD%93%E6%9E%B6%E6%9E%84/"/>
+    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5-%E8%A7%86%E9%A2%91%E6%B5%81%E5%AA%92%E4%BD%93%E6%9E%B6%E6%9E%84/</url>
+    
+    <content type="html"><![CDATA[<p><img src="../../images/2021/20200220215316337.png"></p><p><img src="../../images/2021/2020022021533739.png"></p><p><img src="../../images/2021/20200220215356131.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>微服务</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>微服务</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Restful API</title>
     <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Restful%20API/"/>
     <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Restful%20API/</url>
@@ -1605,11 +1634,11 @@
   
   
   <entry>
-    <title>云原生概念-视频流媒体架构</title>
-    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5-%E8%A7%86%E9%A2%91%E6%B5%81%E5%AA%92%E4%BD%93%E6%9E%B6%E6%9E%84/"/>
-    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%BA%91%E5%8E%9F%E7%94%9F%E6%A6%82%E5%BF%B5-%E8%A7%86%E9%A2%91%E6%B5%81%E5%AA%92%E4%BD%93%E6%9E%B6%E6%9E%84/</url>
+    <title>微服务RPC问题</title>
+    <link href="/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/"/>
+    <url>/2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1RPC%E9%97%AE%E9%A2%98/</url>
     
-    <content type="html"><![CDATA[<p><img src="../../images/2021/20200220215316337.png"></p><p><img src="../../images/2021/2020022021533739.png"></p><p><img src="../../images/2021/20200220215356131.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>下面的问题，想到解决方案后再补充<br>1、多版本并行开发，上线时版本问题？</p><p>2、方法版本前后兼容问题，方法是否允许删除？</p>]]></content>
     
     
     <categories>
@@ -1863,18 +1892,18 @@
   
   
   <entry>
-    <title>深入理解 Mysql 索引底层原理</title>
-    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/"/>
-    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</url>
+    <title>Redis 高可用解决方案总结</title>
+    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/"/>
+    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/</url>
     
-    <content type="html"><![CDATA[<p>深入理解 Mysql 索引底层原理 - <a href="https://zhuanlan.zhihu.com/p/113917726">https://zhuanlan.zhihu.com/p/113917726</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Redis 高可用解决方案总结：<a href="https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>]]></content>
     
     
     <categories>
       
       <category>数据库</category>
       
-      <category>MySQL</category>
+      <category>Redis</category>
       
     </categories>
     
@@ -1883,7 +1912,7 @@
       
       <tag>数据库</tag>
       
-      <tag>MySQL</tag>
+      <tag>Redis</tag>
       
     </tags>
     
@@ -1950,35 +1979,6 @@
   
   
   <entry>
-    <title>redis-list</title>
-    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/"/>
-    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/</url>
-    
-    <content type="html"><![CDATA[<ul><li>控制List的长度，每次push或者pop的时候，可以使用ltrim()函数让list保持固定长度</li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>数据库</category>
-      
-      <category>Redis</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>数据库</tag>
-      
-      <tag>Redis</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>MySql  ERROR 1698 (28000)</title>
     <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/"/>
     <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySql%20%20ERROR%201698%20(28000)/</url>
@@ -2037,11 +2037,11 @@
   
   
   <entry>
-    <title>Redis 高可用解决方案总结</title>
-    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/"/>
-    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/</url>
+    <title>redis-list</title>
+    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/"/>
+    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/</url>
     
-    <content type="html"><![CDATA[<p>Redis 高可用解决方案总结：<a href="https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>]]></content>
+    <content type="html"><![CDATA[<ul><li>控制List的长度，每次push或者pop的时候，可以使用ltrim()函数让list保持固定长度</li></ul>]]></content>
     
     
     <categories>
@@ -2058,6 +2058,35 @@
       <tag>数据库</tag>
       
       <tag>Redis</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>深入理解 Mysql 索引底层原理</title>
+    <link href="/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/"/>
+    <url>/2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<p>深入理解 Mysql 索引底层原理 - <a href="https://zhuanlan.zhihu.com/p/113917726">https://zhuanlan.zhihu.com/p/113917726</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库</category>
+      
+      <category>MySQL</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据库</tag>
+      
+      <tag>MySQL</tag>
       
     </tags>
     
@@ -2091,23 +2120,27 @@
   
   
   <entry>
-    <title>is()和hasClass()</title>
-    <link href="/2019/09/03/%E5%89%8D%E7%AB%AF/is()%E5%92%8ChasClass()/"/>
-    <url>/2019/09/03/%E5%89%8D%E7%AB%AF/is()%E5%92%8ChasClass()/</url>
+    <title>HTTPS 比 HTTP 更安全</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/</url>
     
-    <content type="html"><![CDATA[<h4 id="is-和hasClass"><a href="#is-和hasClass" class="headerlink" title="is()和hasClass()"></a>is()和hasClass()</h4><ul><li><p>jq中的is()有判断元素是否含有某个class的属性，但是hasClass()没有效果。下面是我找的对应的官方的文档，注意仔细阅读文档里面的小demo，并且注意里面的细微区别。</p></li><li><p>is()</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">https://api.jquery.com/is/<br><br>Description: Check the current matched <span class="hljs-built_in">set</span> of elements against a selector, element, or jQuery object and <span class="hljs-built_in">return</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> at least one of these elements matches the given arguments.<br></code></pre></div></td></tr></table></figure></li><li><p>hasClass()</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">https://api.jquery.com/hasClass/<span class="hljs-comment">#hasClass-className</span><br><br>Description: Determine whether any of the matched elements are assigned the given class.<br></code></pre></div></td></tr></table></figure></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>为什么 HTTPS 比 HTTP 更安全？：<a href="https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882">https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882</a></p>]]></content>
     
     
     <categories>
       
-      <category>前端</category>
+      <category>计算机相关</category>
+      
+      <category>HTTP</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>前端</tag>
+      <tag>计算机相关</tag>
+      
+      <tag>HTTP</tag>
       
     </tags>
     
@@ -2116,11 +2149,11 @@
   
   
   <entry>
-    <title>TensorFlow学习笔记3</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <title>TensorFlow学习笔记5</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/</url>
     
-    <content type="html"><![CDATA[<p><strong>Variable变量的简单使用</strong></p><p>在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的</p><figure class="highlight pf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pf">import tensorflow as tf<br><br><span class="hljs-keyword">state</span> = tf.Variable(<span class="hljs-number">0</span>,name = &#x27;counter&#x27;)<br>print(<span class="hljs-keyword">state</span>.name)<br><br>one = tf.constant(<span class="hljs-number">1</span>)<br><br>new_vaule = tf.add(<span class="hljs-keyword">state</span>,one)<br>update = tf.assign(<span class="hljs-keyword">state</span>,new_vaule)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br>init = tf.global_variables_initializer()<br><br><br>sess = tf.Session()<br>sess.run(init)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    sess.run(update)<br>    print(sess.run(<span class="hljs-keyword">state</span>))<br>sess.close()<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">counter</span>:<span class="hljs-number">0</span><br><br><span class="hljs-attribute">1</span><br><span class="hljs-attribute">2</span><br><span class="hljs-attribute">3</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<ol><li>搭建神经网络基本流程</li></ol><hr><p>定义添加神经层的函数</p><p>1.训练的数据<br>2.定义节点准备接收数据<br>3.定义神经层：隐藏层和预测层<br>4.定义 loss 表达式<br>5.选择 optimizer 使 loss 达到最小</p><p>然后对所有变量进行初始化，通过 sess.run optimizer，迭代 1000 次进行学习：</p><figure class="highlight nix"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nix"><span class="hljs-built_in">import</span> tensorflow as tf<br><span class="hljs-built_in">import</span> numpy as np<br><br><span class="hljs-comment"># 添加层</span><br>def add_layer(inputs, in_size, out_size, <span class="hljs-attr">activation_function=None):</span><br>    <span class="hljs-comment"># add one more layer and return the output of this layer</span><br>    <span class="hljs-attr">Weights</span> = tf.Variable(tf.random_normal([in_size, out_size]))<br>    <span class="hljs-attr">biases</span> = tf.Variable(tf.zeros([<span class="hljs-number">1</span>, out_size]) + <span class="hljs-number">0.1</span>)<br>    <span class="hljs-attr">Wx_plus_b</span> = tf.matmul(inputs, Weights) + biases<br>    <span class="hljs-keyword">if</span> activation_function is None:<br>        <span class="hljs-attr">outputs</span> = Wx_plus_b<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-attr">outputs</span> = activation_function(Wx_plus_b)<br>    return outputs<br><br><span class="hljs-comment"># 1.训练的数据</span><br><span class="hljs-comment"># Make up some real data</span><br><span class="hljs-attr">x_data</span> = np.linspace(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">300</span>)[:, np.newaxis]<br><span class="hljs-attr">noise</span> = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.05</span>, x_data.shape)<br><span class="hljs-attr">y_data</span> = np.square(x_data) - <span class="hljs-number">0.5</span> + noise<br><br><span class="hljs-comment"># 2.定义节点准备接收数据</span><br><span class="hljs-comment"># define placeholder for inputs to network</span><br><span class="hljs-attr">xs</span> = tf.placeholder(tf.float32, [None, <span class="hljs-number">1</span>])<br><span class="hljs-attr">ys</span> = tf.placeholder(tf.float32, [None, <span class="hljs-number">1</span>])<br><br><span class="hljs-comment"># 3.定义神经层：隐藏层和预测层</span><br><span class="hljs-comment"># add hidden layer 输入值是 xs，在隐藏层有 10 个神经元</span><br><span class="hljs-attr">l1</span> = add_layer(xs, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-attr">activation_function=tf.nn.relu)</span><br><span class="hljs-comment"># add output layer 输入值是隐藏层 l1，在预测层输出 1 个结果</span><br><span class="hljs-attr">prediction</span> = add_layer(l1, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-attr">activation_function=None)</span><br><br><span class="hljs-comment"># 4.定义 loss 表达式</span><br><span class="hljs-comment"># the error between prediciton and real data</span><br><span class="hljs-attr">loss</span> = tf.reduce_mean(tf.reduce_sum(tf.square(ys - prediction),<br>                     <span class="hljs-attr">reduction_indices=[1]))</span><br><br><span class="hljs-comment"># 5.选择 optimizer 使 loss 达到最小</span><br><span class="hljs-comment"># 这一行定义了用什么方式去减少 loss，学习率是 0.1</span><br><span class="hljs-attr">train_step</span> = tf.train.GradientDescentOptimizer(<span class="hljs-number">0.1</span>).minimize(loss)<br><br><br><span class="hljs-comment"># important step 对所有变量进行初始化</span><br><span class="hljs-comment">#init = tf.initialize_all_variables()</span><br><span class="hljs-attr">init</span> = tf.global_variables_initializer()<br><span class="hljs-attr">sess</span> = tf.Session()<br><span class="hljs-comment"># 上面定义的都没有运算，直到 sess.run 才会开始运算</span><br><br> <span class="hljs-number">1</span>. 列表内容<br><br>sess.run(init)<br><br><span class="hljs-comment"># 迭代 1000 次学习，sess.run optimizer</span><br>for i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):<br>    <span class="hljs-comment"># training train_step 和 loss 都是由 placeholder 定义的运算，所以这里要用 feed 传入参数</span><br>    sess.run(train_step, <span class="hljs-attr">feed_dict=&#123;xs:</span> x_data, ys: y_data&#125;)<br>    <span class="hljs-keyword">if</span> i % <span class="hljs-number">50</span> == <span class="hljs-number">0</span>:<br>        <span class="hljs-comment"># to see the step improvement</span><br>        print(sess.run(loss, <span class="hljs-attr">feed_dict=&#123;xs:</span> x_data, ys: y_data&#125;))<br></code></pre></div></td></tr></table></figure><p>运行的结果：</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">0</span>.<span class="hljs-number">005811795</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">005243601</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0048823874</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">004609399</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0043644696</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">00416661</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">004008478</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0038800447</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0037535445</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0036441346</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">003548924</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0034721296</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">003409828</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0033587494</span><br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -2174,65 +2207,11 @@
   
   
   <entry>
-    <title>ubuntu 20.04 设置不见了</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/</url>
+    <title>TensorFlow学习笔记3</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
     
-    <content type="html"><![CDATA[<p>ubuntu20.04 用着用着突然发现设置不见了，即使重启电脑还是找不到设置，后来通过扒帖子发现是一个包丢失了，<code>gnome-control-center</code>，重新安装一个这个包就好了</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo apt install gnome-control-center<br></code></pre></div></td></tr></table></figure><p>附上前面扒到的帖子：</p><blockquote><p><a href="https://forum.ubuntu.com.cn/viewtopic.php?t=491114">https://forum.ubuntu.com.cn/viewtopic.php?t=491114</a></p></blockquote>]]></content>
-    
-    
-    <categories>
-      
-      <category>ubuntu</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>ubuntu</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>HTTP 返回码详解</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
-    
-    <content type="html"><![CDATA[<p> HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。</p><p>##1xx（临时响应）<br><strong>表示临时响应并需要请求者继续执行操作的状态代码。</strong></p><ul><li>100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。  </li><li>101（切换协议）请求者已要求服务器切换协议，服务器已确认并准备切换。</li></ul><p>##2xx （成功）<br><strong>表示成功处理了请求的状态代码。</strong></p><ul><li><p>200（成功）服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</p></li><li><p>201（已创建）请求成功并且服务器创建了新的资源。</p></li><li><p>202（已接受） 服务器已接受请求，但尚未处理。</p></li><li><p>203（非授权信息）服务器已成功处理了请求，但返回的信息可能来自另一来源。</p></li><li><p>204（无内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>205（重置内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>206（部分内容）服务器成功处理了部分 GET 请求。</p></li></ul><p>##3xx （重定向）<br><strong>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</strong></p><ul><li><p>300（多种选择）针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p></li><li><p>301（永久移动）请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p></li><li><p>302（临时移动）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li><li><p>303（查看其他位置）请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p></li><li><p>304（未修改）自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</p></li><li><p>305（使用代理）请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</p></li><li><p>307（临时重定向）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li></ul><p>##4xx（请求错误）<br><strong>这些状态代码表示请求可能出错，妨碍了服务器的处理。</strong></p><ul><li><p>400（错误请求）服务器不理解请求的语法。</p></li><li><p>401（未授权）请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</p></li><li><p>403（禁止）服务器拒绝请求。</p></li><li><p>404（未找到）服务器找不到请求的网页。</p></li><li><p>405（方法禁用）禁用请求中指定的方法。</p></li><li><p>406（不接受）无法使用请求的内容特性响应请求的网页。</p></li><li><p>407（需要代理授权）此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p></li><li><p>408（请求超时）服务器等候请求时发生超时。</p></li><li><p>409（冲突）服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</p></li><li><p>410（已删除）如果请求的资源已永久删除，服务器就会返回此响应。</p></li><li><p>411（需要有效长度）服务器不接受不含有效内容长度标头字段的请求。</p></li><li><p>412（未满足前提条件）服务器未满足请求者在请求中设置的其中一个前提条件。</p></li><li><p>413（请求实体过大）服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</p></li><li><p>414（请求的 URI 过长）请求的 URI（通常为网址）过长，服务器无法处理。</p></li><li><p>415（不支持的媒体类型）请求的格式不受请求页面的支持。</p></li><li><p>416（请求范围不符合要求）如果页面无法提供请求的范围，则服务器会返回此状态代码。</p></li><li><p>417（未满足期望值）服务器未满足”期望”请求标头字段的要求。</p></li></ul><p>##5xx（服务器错误）<br><strong>这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</strong></p><ul><li>500（服务器内部错误）服务器遇到错误，无法完成请求。</li></ul><p>501（尚未实施）服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</p><ul><li><p>502（错误网关）服务器作为网关或代理，从上游服务器收到无效响应。</p></li><li><p>503（服务不可用）服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</p></li><li><p>504（网关超时）服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p></li><li><p>505（HTTP 版本不受支持）服务器不支持请求中所用的 HTTP 协议版本。</p></li></ul>]]></content>
-    
-    
-    <categories>
-      
-      <category>计算机相关</category>
-      
-      <category>HTTP</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>计算机相关</tag>
-      
-      <tag>HTTP</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>TensorFlow学习笔记5</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/</url>
-    
-    <content type="html"><![CDATA[<ol><li>搭建神经网络基本流程</li></ol><hr><p>定义添加神经层的函数</p><p>1.训练的数据<br>2.定义节点准备接收数据<br>3.定义神经层：隐藏层和预测层<br>4.定义 loss 表达式<br>5.选择 optimizer 使 loss 达到最小</p><p>然后对所有变量进行初始化，通过 sess.run optimizer，迭代 1000 次进行学习：</p><figure class="highlight nix"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nix"><span class="hljs-built_in">import</span> tensorflow as tf<br><span class="hljs-built_in">import</span> numpy as np<br><br><span class="hljs-comment"># 添加层</span><br>def add_layer(inputs, in_size, out_size, <span class="hljs-attr">activation_function=None):</span><br>    <span class="hljs-comment"># add one more layer and return the output of this layer</span><br>    <span class="hljs-attr">Weights</span> = tf.Variable(tf.random_normal([in_size, out_size]))<br>    <span class="hljs-attr">biases</span> = tf.Variable(tf.zeros([<span class="hljs-number">1</span>, out_size]) + <span class="hljs-number">0.1</span>)<br>    <span class="hljs-attr">Wx_plus_b</span> = tf.matmul(inputs, Weights) + biases<br>    <span class="hljs-keyword">if</span> activation_function is None:<br>        <span class="hljs-attr">outputs</span> = Wx_plus_b<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-attr">outputs</span> = activation_function(Wx_plus_b)<br>    return outputs<br><br><span class="hljs-comment"># 1.训练的数据</span><br><span class="hljs-comment"># Make up some real data</span><br><span class="hljs-attr">x_data</span> = np.linspace(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">300</span>)[:, np.newaxis]<br><span class="hljs-attr">noise</span> = np.random.normal(<span class="hljs-number">0</span>, <span class="hljs-number">0.05</span>, x_data.shape)<br><span class="hljs-attr">y_data</span> = np.square(x_data) - <span class="hljs-number">0.5</span> + noise<br><br><span class="hljs-comment"># 2.定义节点准备接收数据</span><br><span class="hljs-comment"># define placeholder for inputs to network</span><br><span class="hljs-attr">xs</span> = tf.placeholder(tf.float32, [None, <span class="hljs-number">1</span>])<br><span class="hljs-attr">ys</span> = tf.placeholder(tf.float32, [None, <span class="hljs-number">1</span>])<br><br><span class="hljs-comment"># 3.定义神经层：隐藏层和预测层</span><br><span class="hljs-comment"># add hidden layer 输入值是 xs，在隐藏层有 10 个神经元</span><br><span class="hljs-attr">l1</span> = add_layer(xs, <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-attr">activation_function=tf.nn.relu)</span><br><span class="hljs-comment"># add output layer 输入值是隐藏层 l1，在预测层输出 1 个结果</span><br><span class="hljs-attr">prediction</span> = add_layer(l1, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-attr">activation_function=None)</span><br><br><span class="hljs-comment"># 4.定义 loss 表达式</span><br><span class="hljs-comment"># the error between prediciton and real data</span><br><span class="hljs-attr">loss</span> = tf.reduce_mean(tf.reduce_sum(tf.square(ys - prediction),<br>                     <span class="hljs-attr">reduction_indices=[1]))</span><br><br><span class="hljs-comment"># 5.选择 optimizer 使 loss 达到最小</span><br><span class="hljs-comment"># 这一行定义了用什么方式去减少 loss，学习率是 0.1</span><br><span class="hljs-attr">train_step</span> = tf.train.GradientDescentOptimizer(<span class="hljs-number">0.1</span>).minimize(loss)<br><br><br><span class="hljs-comment"># important step 对所有变量进行初始化</span><br><span class="hljs-comment">#init = tf.initialize_all_variables()</span><br><span class="hljs-attr">init</span> = tf.global_variables_initializer()<br><span class="hljs-attr">sess</span> = tf.Session()<br><span class="hljs-comment"># 上面定义的都没有运算，直到 sess.run 才会开始运算</span><br><br> <span class="hljs-number">1</span>. 列表内容<br><br>sess.run(init)<br><br><span class="hljs-comment"># 迭代 1000 次学习，sess.run optimizer</span><br>for i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):<br>    <span class="hljs-comment"># training train_step 和 loss 都是由 placeholder 定义的运算，所以这里要用 feed 传入参数</span><br>    sess.run(train_step, <span class="hljs-attr">feed_dict=&#123;xs:</span> x_data, ys: y_data&#125;)<br>    <span class="hljs-keyword">if</span> i % <span class="hljs-number">50</span> == <span class="hljs-number">0</span>:<br>        <span class="hljs-comment"># to see the step improvement</span><br>        print(sess.run(loss, <span class="hljs-attr">feed_dict=&#123;xs:</span> x_data, ys: y_data&#125;))<br></code></pre></div></td></tr></table></figure><p>运行的结果：</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">0</span>.<span class="hljs-number">005811795</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">005243601</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0048823874</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">004609399</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0043644696</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">00416661</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">004008478</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0038800447</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0037535445</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0036441346</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">003548924</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0034721296</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">003409828</span><br><span class="hljs-attribute">0</span>.<span class="hljs-number">0033587494</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><strong>Variable变量的简单使用</strong></p><p>在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的</p><figure class="highlight pf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pf">import tensorflow as tf<br><br><span class="hljs-keyword">state</span> = tf.Variable(<span class="hljs-number">0</span>,name = &#x27;counter&#x27;)<br>print(<span class="hljs-keyword">state</span>.name)<br><br>one = tf.constant(<span class="hljs-number">1</span>)<br><br>new_vaule = tf.add(<span class="hljs-keyword">state</span>,one)<br>update = tf.assign(<span class="hljs-keyword">state</span>,new_vaule)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br>init = tf.global_variables_initializer()<br><br><br>sess = tf.Session()<br>sess.run(init)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    sess.run(update)<br>    print(sess.run(<span class="hljs-keyword">state</span>))<br>sess.close()<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">counter</span>:<span class="hljs-number">0</span><br><br><span class="hljs-attribute">1</span><br><span class="hljs-attribute">2</span><br><span class="hljs-attribute">3</span><br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -2249,6 +2228,31 @@
       <tag>计算机相关</tag>
       
       <tag>TensorFlow</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>is()和hasClass()</title>
+    <link href="/2019/09/03/%E5%89%8D%E7%AB%AF/is()%E5%92%8ChasClass()/"/>
+    <url>/2019/09/03/%E5%89%8D%E7%AB%AF/is()%E5%92%8ChasClass()/</url>
+    
+    <content type="html"><![CDATA[<h4 id="is-和hasClass"><a href="#is-和hasClass" class="headerlink" title="is()和hasClass()"></a>is()和hasClass()</h4><ul><li><p>jq中的is()有判断元素是否含有某个class的属性，但是hasClass()没有效果。下面是我找的对应的官方的文档，注意仔细阅读文档里面的小demo，并且注意里面的细微区别。</p></li><li><p>is()</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">https://api.jquery.com/is/<br><br>Description: Check the current matched <span class="hljs-built_in">set</span> of elements against a selector, element, or jQuery object and <span class="hljs-built_in">return</span> <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> at least one of these elements matches the given arguments.<br></code></pre></div></td></tr></table></figure></li><li><p>hasClass()</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">https://api.jquery.com/hasClass/<span class="hljs-comment">#hasClass-className</span><br><br>Description: Determine whether any of the matched elements are assigned the given class.<br></code></pre></div></td></tr></table></figure></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>前端</tag>
       
     </tags>
     
@@ -2340,11 +2344,36 @@
   
   
   <entry>
-    <title>HTTPS 比 HTTP 更安全</title>
-    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/"/>
-    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/</url>
+    <title>ubuntu 20.04 设置不见了</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/</url>
     
-    <content type="html"><![CDATA[<p>为什么 HTTPS 比 HTTP 更安全？：<a href="https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882">https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882</a></p>]]></content>
+    <content type="html"><![CDATA[<p>ubuntu20.04 用着用着突然发现设置不见了，即使重启电脑还是找不到设置，后来通过扒帖子发现是一个包丢失了，<code>gnome-control-center</code>，重新安装一个这个包就好了</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo apt install gnome-control-center<br></code></pre></div></td></tr></table></figure><p>附上前面扒到的帖子：</p><blockquote><p><a href="https://forum.ubuntu.com.cn/viewtopic.php?t=491114">https://forum.ubuntu.com.cn/viewtopic.php?t=491114</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>ubuntu</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ubuntu</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HTTP 返回码详解</title>
+    <link href="/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
+    <url>/2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p> HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。</p><p>##1xx（临时响应）<br><strong>表示临时响应并需要请求者继续执行操作的状态代码。</strong></p><ul><li>100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。  </li><li>101（切换协议）请求者已要求服务器切换协议，服务器已确认并准备切换。</li></ul><p>##2xx （成功）<br><strong>表示成功处理了请求的状态代码。</strong></p><ul><li><p>200（成功）服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</p></li><li><p>201（已创建）请求成功并且服务器创建了新的资源。</p></li><li><p>202（已接受） 服务器已接受请求，但尚未处理。</p></li><li><p>203（非授权信息）服务器已成功处理了请求，但返回的信息可能来自另一来源。</p></li><li><p>204（无内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>205（重置内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>206（部分内容）服务器成功处理了部分 GET 请求。</p></li></ul><p>##3xx （重定向）<br><strong>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</strong></p><ul><li><p>300（多种选择）针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p></li><li><p>301（永久移动）请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p></li><li><p>302（临时移动）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li><li><p>303（查看其他位置）请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p></li><li><p>304（未修改）自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</p></li><li><p>305（使用代理）请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</p></li><li><p>307（临时重定向）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li></ul><p>##4xx（请求错误）<br><strong>这些状态代码表示请求可能出错，妨碍了服务器的处理。</strong></p><ul><li><p>400（错误请求）服务器不理解请求的语法。</p></li><li><p>401（未授权）请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</p></li><li><p>403（禁止）服务器拒绝请求。</p></li><li><p>404（未找到）服务器找不到请求的网页。</p></li><li><p>405（方法禁用）禁用请求中指定的方法。</p></li><li><p>406（不接受）无法使用请求的内容特性响应请求的网页。</p></li><li><p>407（需要代理授权）此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p></li><li><p>408（请求超时）服务器等候请求时发生超时。</p></li><li><p>409（冲突）服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</p></li><li><p>410（已删除）如果请求的资源已永久删除，服务器就会返回此响应。</p></li><li><p>411（需要有效长度）服务器不接受不含有效内容长度标头字段的请求。</p></li><li><p>412（未满足前提条件）服务器未满足请求者在请求中设置的其中一个前提条件。</p></li><li><p>413（请求实体过大）服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</p></li><li><p>414（请求的 URI 过长）请求的 URI（通常为网址）过长，服务器无法处理。</p></li><li><p>415（不支持的媒体类型）请求的格式不受请求页面的支持。</p></li><li><p>416（请求范围不符合要求）如果页面无法提供请求的范围，则服务器会返回此状态代码。</p></li><li><p>417（未满足期望值）服务器未满足”期望”请求标头字段的要求。</p></li></ul><p>##5xx（服务器错误）<br><strong>这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</strong></p><ul><li>500（服务器内部错误）服务器遇到错误，无法完成请求。</li></ul><p>501（尚未实施）服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</p><ul><li><p>502（错误网关）服务器作为网关或代理，从上游服务器收到无效响应。</p></li><li><p>503（服务不可用）服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</p></li><li><p>504（网关超时）服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p></li><li><p>505（HTTP 版本不受支持）服务器不支持请求中所用的 HTTP 协议版本。</p></li></ul>]]></content>
     
     
     <categories>
@@ -2390,31 +2419,6 @@
       <tag>计算机相关</tag>
       
       <tag>TensorFlow</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>GO语言全栈工程师2</title>
-    <link href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/"/>
-    <url>/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/</url>
-    
-    <content type="html"><![CDATA[<h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p><img src="https://img-blog.csdnimg.cn/2019062017341078.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/2019062017104812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190620172120303.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019062017213696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h5><p><img src="https://img-blog.csdnimg.cn/20190620172218964.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>部分操作和解释可以参考下面的博客<br><a href="https://www.cnblogs.com/thinkeridea/p/10317417.html">https://www.cnblogs.com/thinkeridea/p/10317417.html</a><br><a href="https://blog.csdn.net/xj178926426/article/details/78782786">https://blog.csdn.net/xj178926426/article/details/78782786</a><br><a href="https://blog.csdn.net/wfk2975019671/article/details/86838110">https://blog.csdn.net/wfk2975019671/article/details/86838110</a></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>golang</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>golang</tag>
       
     </tags>
     
@@ -2602,11 +2606,36 @@
   
   
   <entry>
-    <title>docker部署MySQL+PHP-FPM+Nginx服务</title>
-    <link href="/2018/08/22/%E8%BF%90%E7%BB%B4/Docker/docker%E9%83%A8%E7%BD%B2MySQL+PHP-FPM+Nginx%E6%9C%8D%E5%8A%A1/"/>
-    <url>/2018/08/22/%E8%BF%90%E7%BB%B4/Docker/docker%E9%83%A8%E7%BD%B2MySQL+PHP-FPM+Nginx%E6%9C%8D%E5%8A%A1/</url>
+    <title>GO语言全栈工程师2</title>
+    <link href="/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/"/>
+    <url>/2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%882/</url>
     
-    <content type="html"><![CDATA[<p>docker部署MySQL+PHP-FPM+Nginx服务：<a href="https://zhuanlan.zhihu.com/p/59863793?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=29127226687488&amp;from=groupmessage">https://zhuanlan.zhihu.com/p/59863793?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=29127226687488&amp;from=groupmessage</a></p>]]></content>
+    <content type="html"><![CDATA[<h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p><img src="https://img-blog.csdnimg.cn/2019062017341078.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/2019062017104812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190620172120303.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019062017213696.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h5><p><img src="https://img-blog.csdnimg.cn/20190620172218964.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>部分操作和解释可以参考下面的博客<br><a href="https://www.cnblogs.com/thinkeridea/p/10317417.html">https://www.cnblogs.com/thinkeridea/p/10317417.html</a><br><a href="https://blog.csdn.net/xj178926426/article/details/78782786">https://blog.csdn.net/xj178926426/article/details/78782786</a><br><a href="https://blog.csdn.net/wfk2975019671/article/details/86838110">https://blog.csdn.net/wfk2975019671/article/details/86838110</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>golang</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>golang</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Docker入门</title>
+    <link href="/2018/08/22/%E8%BF%90%E7%BB%B4/Docker/Docker%E5%85%A5%E9%97%A8/"/>
+    <url>/2018/08/22/%E8%BF%90%E7%BB%B4/Docker/Docker%E5%85%A5%E9%97%A8/</url>
+    
+    <content type="html"><![CDATA[<h5 id="Docker入门"><a href="#Docker入门" class="headerlink" title="Docker入门"></a>Docker入门</h5><p>课程地址：<a href="https://www.imooc.com/learn/867">https://www.imooc.com/learn/867</a></p><h5 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h5><p><img src="https://img-blog.csdnimg.cn/20190621221824749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190621221925307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h5><p><img src="https://img-blog.csdnimg.cn/20190622020403160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622020416908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="Dockerfile介绍"><a href="#Dockerfile介绍" class="headerlink" title="Dockerfile介绍"></a>Dockerfile介绍</h5><p>最简单的创建命令</p><figure class="highlight dockerfile"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> alpine:latest<br><span class="hljs-keyword">MAINTAINER</span> xbf<br><span class="hljs-keyword">CMD</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello Docker&quot;</span></span><br></code></pre></div></td></tr></table></figure><p>然后通过以下命令进行创建，查看，运行</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker build -t hello_docker .  // 将该目录下的所有dockerfile文件都进行build<br>docker images hello_docker  // 列出hello_docker的相关信息<br>docker run hello_docker  // 运行hello_docker应用容器<br></code></pre></div></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/201906220222401.png" alt="在这里插入图片描述"><br>再次创建一个镜像并运行</p><figure class="highlight dockerfile"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> ubuntu<br><span class="hljs-keyword">MAINTAINER</span> mohuani<br><span class="hljs-keyword">RUN</span><span class="bash"> sed -i <span class="hljs-string">&#x27;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&#x27;</span> /etc/apt/sources.list</span><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get update</span><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get install -y nginx</span><br><span class="hljs-keyword">COPY</span><span class="bash"> index.html /var/www/html</span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">&quot;usr/sbin/nginx&quot;</span>, <span class="hljs-string">&quot;-g&quot;</span>, <span class="hljs-string">&quot;daemon off;&quot;</span>]</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span><br></code></pre></div></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker run -d -p 8081:80 hello_nginx<br>curl &quot;http://localhost::8081&quot;<br></code></pre></div></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20190622025227208.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019062202532895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h5><p><img src="https://img-blog.csdnimg.cn/20190622030745734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622030812364.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622031053524.png" alt="在这里插入图片描述"></p><h5 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h5><p><img src="https://img-blog.csdnimg.cn/20190622031641121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622031906671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622031945395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell'">docker search whalesay<br>docker images  &#x2F;&#x2F; 此处可以忽略<br>docker run docker&#x2F;whalesay cowsay 你真的是傻比<br><br>docker tag docker&#x2F;whalesay mohuani&#x2F;whalesay  &#x2F;&#x2F; 以docker&#x2F;whalesay为模板创建一个名字为mohuani&#x2F;whalesay的镜像<br>docker login<br>docker push mohuani&#x2F;whalesay<br></code></pre></div></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20190622032800383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622033555763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录网站   <a href="https://hub.docker.com/">https://hub.docker.com/</a> 就可以查看自己刚刚上传的镜像信息</p><h5 id="多容器app-docker-compose"><a href="#多容器app-docker-compose" class="headerlink" title="多容器app docker-compose"></a>多容器app docker-compose</h5><p>docker-compose的官方安装教程  <a href="https://docs.docker.com/compose/">https://docs.docker.com/compose/</a></p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose<br>sudo chmod +x /usr/local/bin/docker-compose<br>sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose<br>docker-compose --version<br></code></pre></div></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20190622040044533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622040730314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622040709707.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622044043339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622044131488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Ghost相关的链接<br>Ghost中文网  <a href="http://www.ghostchina.com/">http://www.ghostchina.com/</a><br>Ghost的docker镜像 <a href="https://hub.docker.com/_/ghost">https://hub.docker.com/_/ghost</a></p>]]></content>
     
     
     <categories>
@@ -2718,11 +2747,11 @@
   
   
   <entry>
-    <title>Docker入门</title>
-    <link href="/2018/08/22/%E8%BF%90%E7%BB%B4/Docker/Docker%E5%85%A5%E9%97%A8/"/>
-    <url>/2018/08/22/%E8%BF%90%E7%BB%B4/Docker/Docker%E5%85%A5%E9%97%A8/</url>
+    <title>docker部署MySQL+PHP-FPM+Nginx服务</title>
+    <link href="/2018/08/22/%E8%BF%90%E7%BB%B4/Docker/docker%E9%83%A8%E7%BD%B2MySQL+PHP-FPM+Nginx%E6%9C%8D%E5%8A%A1/"/>
+    <url>/2018/08/22/%E8%BF%90%E7%BB%B4/Docker/docker%E9%83%A8%E7%BD%B2MySQL+PHP-FPM+Nginx%E6%9C%8D%E5%8A%A1/</url>
     
-    <content type="html"><![CDATA[<h5 id="Docker入门"><a href="#Docker入门" class="headerlink" title="Docker入门"></a>Docker入门</h5><p>课程地址：<a href="https://www.imooc.com/learn/867">https://www.imooc.com/learn/867</a></p><h5 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h5><p><img src="https://img-blog.csdnimg.cn/20190621221824749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190621221925307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h5><p><img src="https://img-blog.csdnimg.cn/20190622020403160.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622020416908.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="Dockerfile介绍"><a href="#Dockerfile介绍" class="headerlink" title="Dockerfile介绍"></a>Dockerfile介绍</h5><p>最简单的创建命令</p><figure class="highlight dockerfile"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> alpine:latest<br><span class="hljs-keyword">MAINTAINER</span> xbf<br><span class="hljs-keyword">CMD</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello Docker&quot;</span></span><br></code></pre></div></td></tr></table></figure><p>然后通过以下命令进行创建，查看，运行</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker build -t hello_docker .  // 将该目录下的所有dockerfile文件都进行build<br>docker images hello_docker  // 列出hello_docker的相关信息<br>docker run hello_docker  // 运行hello_docker应用容器<br></code></pre></div></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/201906220222401.png" alt="在这里插入图片描述"><br>再次创建一个镜像并运行</p><figure class="highlight dockerfile"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> ubuntu<br><span class="hljs-keyword">MAINTAINER</span> mohuani<br><span class="hljs-keyword">RUN</span><span class="bash"> sed -i <span class="hljs-string">&#x27;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&#x27;</span> /etc/apt/sources.list</span><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get update</span><br><span class="hljs-keyword">RUN</span><span class="bash"> apt-get install -y nginx</span><br><span class="hljs-keyword">COPY</span><span class="bash"> index.html /var/www/html</span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [<span class="hljs-string">&quot;usr/sbin/nginx&quot;</span>, <span class="hljs-string">&quot;-g&quot;</span>, <span class="hljs-string">&quot;daemon off;&quot;</span>]</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span><br></code></pre></div></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">docker run -d -p 8081:80 hello_nginx<br>curl &quot;http://localhost::8081&quot;<br></code></pre></div></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20190622025227208.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019062202532895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h5><p><img src="https://img-blog.csdnimg.cn/20190622030745734.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622030812364.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622031053524.png" alt="在这里插入图片描述"></p><h5 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h5><p><img src="https://img-blog.csdnimg.cn/20190622031641121.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622031906671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622031945395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell'">docker search whalesay<br>docker images  &#x2F;&#x2F; 此处可以忽略<br>docker run docker&#x2F;whalesay cowsay 你真的是傻比<br><br>docker tag docker&#x2F;whalesay mohuani&#x2F;whalesay  &#x2F;&#x2F; 以docker&#x2F;whalesay为模板创建一个名字为mohuani&#x2F;whalesay的镜像<br>docker login<br>docker push mohuani&#x2F;whalesay<br></code></pre></div></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20190622032800383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622033555763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>登录网站   <a href="https://hub.docker.com/">https://hub.docker.com/</a> 就可以查看自己刚刚上传的镜像信息</p><h5 id="多容器app-docker-compose"><a href="#多容器app-docker-compose" class="headerlink" title="多容器app docker-compose"></a>多容器app docker-compose</h5><p>docker-compose的官方安装教程  <a href="https://docs.docker.com/compose/">https://docs.docker.com/compose/</a></p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose<br>sudo chmod +x /usr/local/bin/docker-compose<br>sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose<br>docker-compose --version<br></code></pre></div></td></tr></table></figure><p><img src="https://img-blog.csdnimg.cn/20190622040044533.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622040730314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622040709707.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622044043339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190622044131488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Ghost相关的链接<br>Ghost中文网  <a href="http://www.ghostchina.com/">http://www.ghostchina.com/</a><br>Ghost的docker镜像 <a href="https://hub.docker.com/_/ghost">https://hub.docker.com/_/ghost</a></p>]]></content>
+    <content type="html"><![CDATA[<p>docker部署MySQL+PHP-FPM+Nginx服务：<a href="https://zhuanlan.zhihu.com/p/59863793?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=29127226687488&amp;from=groupmessage">https://zhuanlan.zhihu.com/p/59863793?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=29127226687488&amp;from=groupmessage</a></p>]]></content>
     
     
     <categories>
@@ -2776,61 +2805,11 @@
   
   
   <entry>
-    <title>Nginx知识梳理</title>
-    <link href="/2018/06/22/NGINX/Nginx%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
-    <url>/2018/06/22/NGINX/Nginx%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</url>
+    <title>Nginx架构及核心流程及模块介绍</title>
+    <link href="/2018/06/22/NGINX/Nginx%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/"/>
+    <url>/2018/06/22/NGINX/Nginx%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/</url>
     
-    <content type="html"><![CDATA[<p><strong>Nginx进程管理信信号</strong></p><p><img src="../images/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70.png" alt="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>NGINX</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>NGINX</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Nginx unit</title>
-    <link href="/2018/06/22/NGINX/Nginx%20unit/"/>
-    <url>/2018/06/22/NGINX/Nginx%20unit/</url>
-    
-    <content type="html"><![CDATA[<p>1、nginx  unit 的配置时直接在内存中更新的，如何做到语法错误检测<br>2、怎么配置不同语言的App应用<br>3、配置语法是怎样的，和nginx的区别大吗<br>4、不同语言的App在使用unit作为web容器的时候，都需要做出什么样的改动，例如：golang使用unit的时候需要将http.handler替换陈unit.handler</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>NGINX</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>NGINX</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>nginx  resolver</title>
-    <link href="/2018/06/22/NGINX/nginx%20%20resolver/"/>
-    <url>/2018/06/22/NGINX/nginx%20%20resolver/</url>
-    
-    <content type="html"><![CDATA[<p><strong>背景</strong>：nginx 配置proxy_pass后，访问接口出现no resolver defined to resolve错误，或者接口直接502，404，需要配置 nginx resolver</p><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">server &#123;<br>server_name wfk.mohuani.com<br><br>location / &#123;<br>resolver <span class="hljs-number">114.114</span>.<span class="hljs-number">114.114</span>;<br>proxy_pass https:<span class="hljs-regexp">//</span>wfk.mohuani.com<span class="hljs-regexp">/abc/</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span>  ---<span class="hljs-number">404</span><br>proxy_pass https:<span class="hljs-regexp">//</span>www.baidu.com<span class="hljs-regexp">/abc/</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span>  ---<span class="hljs-number">502</span><br>proxy_pass https:<span class="hljs-regexp">//</span><span class="hljs-number">113.105</span>.<span class="hljs-number">77.194</span><span class="hljs-regexp">/abc/</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span>  ---<span class="hljs-number">404</span><br>proxy_pass https:<span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span><span class="hljs-regexp">/abc/</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span>   ---<span class="hljs-number">404</span><br>&#125;<br><br></code></pre></div></td></tr></table></figure><h5 id="不配置-resolver的情况接口的状态"><a href="#不配置-resolver的情况接口的状态" class="headerlink" title="不配置 resolver的情况接口的状态"></a>不配置 resolver的情况接口的状态</h5><ul><li>proxy_pass 代理的是域名（非自身server_name），且代理的地址中包含变量，接口502</li><li>proxy_pass 代理的是ip，且代理的地址中包含变量，接口404</li><li>proxy_pass 代理的域名如果和自身server_name相同接口会404，如果和自身的server_name不相同的话接口会502</li></ul><p> ps：个人猜测，当proxy_pass 设置为自身server_name 时，server_name会被转成127.0.0.1，导致接口报的是404，而不是502。</p><h5 id="具体什么情况下需要配置-resolver"><a href="#具体什么情况下需要配置-resolver" class="headerlink" title="具体什么情况下需要配置 resolver"></a>具体什么情况下需要配置 resolver</h5><ul><li>proxy_pass 代理的是<strong>域名</strong>或者<strong>ip</strong>,且代理的接口中包含 <strong>变量</strong></li></ul><h5 id="resolver设置哪些DNS"><a href="#resolver设置哪些DNS" class="headerlink" title="resolver设置哪些DNS"></a>resolver设置哪些DNS</h5><p>resolver 设置公共的DNS或者公司内部的DNS都可以</p><figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">resolver</span> <span class="hljs-number">114.114.114.114</span>;<br><span class="hljs-attribute">resolver</span> <span class="hljs-number">8.8.8.8</span>;<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>Nginx架构及核心流程及模块介绍：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MjEyMDI5NA==&amp;mid=2247483697&amp;idx=1&amp;sn=a1e79703c39b00224ba613ba6c01a98e&amp;chksm=ce0df138f97a782e0f97a2748dd8c4d1b48941d6229f4b6d5e22b60a9edf2e46041be062eefc&amp;mpshare=1&amp;scene=24&amp;srcid=0314M9iypvJXOF6eYPXj9mx4&amp;key=bf4cf7f356eb27520c9277b9384b285123f7e2159c8b4f2dfc4e404b8d08db6c2dc3c3639b3ffc54cd4213fb1eb08860918edddf3081951de0b3fc834cf98bd32b84fb59b7604e54f11484b60f6a931f&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=Mzg2MjEyMDI5NA==&amp;mid=2247483697&amp;idx=1&amp;sn=a1e79703c39b00224ba613ba6c01a98e&amp;chksm=ce0df138f97a782e0f97a2748dd8c4d1b48941d6229f4b6d5e22b60a9edf2e46041be062eefc&amp;mpshare=1&amp;scene=24&amp;srcid=0314M9iypvJXOF6eYPXj9mx4&amp;key=bf4cf7f356eb27520c9277b9384b285123f7e2159c8b4f2dfc4e404b8d08db6c2dc3c3639b3ffc54cd4213fb1eb08860918edddf3081951de0b3fc834cf98bd32b84fb59b7604e54f11484b60f6a931f&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>]]></content>
     
     
     <categories>
@@ -2901,11 +2880,61 @@
   
   
   <entry>
-    <title>Nginx架构及核心流程及模块介绍</title>
-    <link href="/2018/06/22/NGINX/Nginx%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/"/>
-    <url>/2018/06/22/NGINX/Nginx%E6%9E%B6%E6%9E%84%E5%8F%8A%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B%E5%8F%8A%E6%A8%A1%E5%9D%97%E4%BB%8B%E7%BB%8D/</url>
+    <title>Nginx unit</title>
+    <link href="/2018/06/22/NGINX/Nginx%20unit/"/>
+    <url>/2018/06/22/NGINX/Nginx%20unit/</url>
     
-    <content type="html"><![CDATA[<p>Nginx架构及核心流程及模块介绍：<a href="https://mp.weixin.qq.com/s?__biz=Mzg2MjEyMDI5NA==&amp;mid=2247483697&amp;idx=1&amp;sn=a1e79703c39b00224ba613ba6c01a98e&amp;chksm=ce0df138f97a782e0f97a2748dd8c4d1b48941d6229f4b6d5e22b60a9edf2e46041be062eefc&amp;mpshare=1&amp;scene=24&amp;srcid=0314M9iypvJXOF6eYPXj9mx4&amp;key=bf4cf7f356eb27520c9277b9384b285123f7e2159c8b4f2dfc4e404b8d08db6c2dc3c3639b3ffc54cd4213fb1eb08860918edddf3081951de0b3fc834cf98bd32b84fb59b7604e54f11484b60f6a931f&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=Mzg2MjEyMDI5NA==&amp;mid=2247483697&amp;idx=1&amp;sn=a1e79703c39b00224ba613ba6c01a98e&amp;chksm=ce0df138f97a782e0f97a2748dd8c4d1b48941d6229f4b6d5e22b60a9edf2e46041be062eefc&amp;mpshare=1&amp;scene=24&amp;srcid=0314M9iypvJXOF6eYPXj9mx4&amp;key=bf4cf7f356eb27520c9277b9384b285123f7e2159c8b4f2dfc4e404b8d08db6c2dc3c3639b3ffc54cd4213fb1eb08860918edddf3081951de0b3fc834cf98bd32b84fb59b7604e54f11484b60f6a931f&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>]]></content>
+    <content type="html"><![CDATA[<p>1、nginx  unit 的配置时直接在内存中更新的，如何做到语法错误检测<br>2、怎么配置不同语言的App应用<br>3、配置语法是怎样的，和nginx的区别大吗<br>4、不同语言的App在使用unit作为web容器的时候，都需要做出什么样的改动，例如：golang使用unit的时候需要将http.handler替换陈unit.handler</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>NGINX</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>NGINX</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Nginx知识梳理</title>
+    <link href="/2018/06/22/NGINX/Nginx%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/"/>
+    <url>/2018/06/22/NGINX/Nginx%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Nginx进程管理信信号</strong></p><p><img src="../images/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70.png" alt="watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>NGINX</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>NGINX</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>nginx  resolver</title>
+    <link href="/2018/06/22/NGINX/nginx%20%20resolver/"/>
+    <url>/2018/06/22/NGINX/nginx%20%20resolver/</url>
+    
+    <content type="html"><![CDATA[<p><strong>背景</strong>：nginx 配置proxy_pass后，访问接口出现no resolver defined to resolve错误，或者接口直接502，404，需要配置 nginx resolver</p><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">server &#123;<br>server_name wfk.mohuani.com<br><br>location / &#123;<br>resolver <span class="hljs-number">114.114</span>.<span class="hljs-number">114.114</span>;<br>proxy_pass https:<span class="hljs-regexp">//</span>wfk.mohuani.com<span class="hljs-regexp">/abc/</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span>  ---<span class="hljs-number">404</span><br>proxy_pass https:<span class="hljs-regexp">//</span>www.baidu.com<span class="hljs-regexp">/abc/</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span>  ---<span class="hljs-number">502</span><br>proxy_pass https:<span class="hljs-regexp">//</span><span class="hljs-number">113.105</span>.<span class="hljs-number">77.194</span><span class="hljs-regexp">/abc/</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span>  ---<span class="hljs-number">404</span><br>proxy_pass https:<span class="hljs-regexp">//</span><span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span><span class="hljs-regexp">/abc/</span><span class="hljs-variable">$1</span>/<span class="hljs-variable">$2</span>   ---<span class="hljs-number">404</span><br>&#125;<br><br></code></pre></div></td></tr></table></figure><h5 id="不配置-resolver的情况接口的状态"><a href="#不配置-resolver的情况接口的状态" class="headerlink" title="不配置 resolver的情况接口的状态"></a>不配置 resolver的情况接口的状态</h5><ul><li>proxy_pass 代理的是域名（非自身server_name），且代理的地址中包含变量，接口502</li><li>proxy_pass 代理的是ip，且代理的地址中包含变量，接口404</li><li>proxy_pass 代理的域名如果和自身server_name相同接口会404，如果和自身的server_name不相同的话接口会502</li></ul><p> ps：个人猜测，当proxy_pass 设置为自身server_name 时，server_name会被转成127.0.0.1，导致接口报的是404，而不是502。</p><h5 id="具体什么情况下需要配置-resolver"><a href="#具体什么情况下需要配置-resolver" class="headerlink" title="具体什么情况下需要配置 resolver"></a>具体什么情况下需要配置 resolver</h5><ul><li>proxy_pass 代理的是<strong>域名</strong>或者<strong>ip</strong>,且代理的接口中包含 <strong>变量</strong></li></ul><h5 id="resolver设置哪些DNS"><a href="#resolver设置哪些DNS" class="headerlink" title="resolver设置哪些DNS"></a>resolver设置哪些DNS</h5><p>resolver 设置公共的DNS或者公司内部的DNS都可以</p><figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">resolver</span> <span class="hljs-number">114.114.114.114</span>;<br><span class="hljs-attribute">resolver</span> <span class="hljs-number">8.8.8.8</span>;<br></code></pre></div></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -2984,11 +3013,11 @@
   
   
   <entry>
-    <title>nginx中间件架构-性能优化</title>
-    <link href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    <url>/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    <title>nginx中间件架构-Lua开发</title>
+    <link href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/"/>
+    <url>/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/</url>
     
-    <content type="html"><![CDATA[<h4 id="location匹配优先级"><a href="#location匹配优先级" class="headerlink" title="location匹配优先级"></a>location匹配优先级</h4><p> ~ 区分大小写，~~*不区分大小写<br><img src="https://img-blog.csdnimg.cn/20190210204325483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="try-files"><a href="#try-files" class="headerlink" title="try_files"></a>try_files</h4><p>场景：用于文件缓存<br><img src="https://img-blog.csdnimg.cn/20190210205237263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="root和alias的区别"><a href="#root和alias的区别" class="headerlink" title="root和alias的区别"></a>root和alias的区别</h4><p><img src="https://img-blog.csdnimg.cn/20190210205600926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210205627916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="传递用户的真实ip"><a href="#传递用户的真实ip" class="headerlink" title="传递用户的真实ip"></a>传递用户的真实ip</h4><p>在代理1处直接获取用户的ip，然后通过层层代理透传到后端<br><img src="https://img-blog.csdnimg.cn/20190210210042226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="其他常见错误"><a href="#其他常见错误" class="headerlink" title="其他常见错误"></a>其他常见错误</h4><p><img src="https://img-blog.csdnimg.cn/20190210210327967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="文件句柄优化"><a href="#文件句柄优化" class="headerlink" title="文件句柄优化"></a>文件句柄优化</h4><p><img src="https://img-blog.csdnimg.cn/20190210213216549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 针对用户进行修改<br> <img src="https://img-blog.csdnimg.cn/20190210213355529.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 针对进程限制<br> <img src="https://img-blog.csdnimg.cn/20190210213510966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="cpu亲和绑定"><a href="#cpu亲和绑定" class="headerlink" title="cpu亲和绑定"></a>cpu亲和绑定</h4><p><img src="https://img-blog.csdnimg.cn/20190211223904157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="gzip兼容"><a href="#gzip兼容" class="headerlink" title="gzip兼容"></a>gzip兼容</h4><p><img src="https://img-blog.csdnimg.cn/20190211225553944.png" alt="在这里插入图片描述"></p><h4 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h4><p><img src="https://img-blog.csdnimg.cn/20190211230042274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190211230546667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="Lua介绍"><a href="#Lua介绍" class="headerlink" title="Lua介绍"></a>Lua介绍</h4><p><img src="https://img-blog.csdnimg.cn/20190210160956312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161027419.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161049801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161115210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161258232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161322352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="nginx调用Lua指令"><a href="#nginx调用Lua指令" class="headerlink" title="nginx调用Lua指令"></a>nginx调用Lua指令</h4><p><img src="https://img-blog.csdnimg.cn/20190210163932385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="nginx-lua-api（lua调用nginx）"><a href="#nginx-lua-api（lua调用nginx）" class="headerlink" title="nginx lua api（lua调用nginx）"></a>nginx lua api（lua调用nginx）</h4><p><img src="https://img-blog.csdnimg.cn/20190210164213535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
     
     
     <categories>
@@ -3071,11 +3100,11 @@
   
   
   <entry>
-    <title>nginx中间件架构-Lua开发</title>
-    <link href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/"/>
-    <url>/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-Lua%E5%BC%80%E5%8F%91/</url>
+    <title>nginx中间件架构-性能优化</title>
+    <link href="/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <url>/2018/06/17/NGINX/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84/nginx%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%9E%B6%E6%9E%84-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
     
-    <content type="html"><![CDATA[<h4 id="Lua介绍"><a href="#Lua介绍" class="headerlink" title="Lua介绍"></a>Lua介绍</h4><p><img src="https://img-blog.csdnimg.cn/20190210160956312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161027419.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161049801.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161115210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161258232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210161322352.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="nginx调用Lua指令"><a href="#nginx调用Lua指令" class="headerlink" title="nginx调用Lua指令"></a>nginx调用Lua指令</h4><p><img src="https://img-blog.csdnimg.cn/20190210163932385.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="nginx-lua-api（lua调用nginx）"><a href="#nginx-lua-api（lua调用nginx）" class="headerlink" title="nginx lua api（lua调用nginx）"></a>nginx lua api（lua调用nginx）</h4><p><img src="https://img-blog.csdnimg.cn/20190210164213535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="location匹配优先级"><a href="#location匹配优先级" class="headerlink" title="location匹配优先级"></a>location匹配优先级</h4><p> ~ 区分大小写，~~*不区分大小写<br><img src="https://img-blog.csdnimg.cn/20190210204325483.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="try-files"><a href="#try-files" class="headerlink" title="try_files"></a>try_files</h4><p>场景：用于文件缓存<br><img src="https://img-blog.csdnimg.cn/20190210205237263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="root和alias的区别"><a href="#root和alias的区别" class="headerlink" title="root和alias的区别"></a>root和alias的区别</h4><p><img src="https://img-blog.csdnimg.cn/20190210205600926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190210205627916.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="传递用户的真实ip"><a href="#传递用户的真实ip" class="headerlink" title="传递用户的真实ip"></a>传递用户的真实ip</h4><p>在代理1处直接获取用户的ip，然后通过层层代理透传到后端<br><img src="https://img-blog.csdnimg.cn/20190210210042226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="其他常见错误"><a href="#其他常见错误" class="headerlink" title="其他常见错误"></a>其他常见错误</h4><p><img src="https://img-blog.csdnimg.cn/20190210210327967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="文件句柄优化"><a href="#文件句柄优化" class="headerlink" title="文件句柄优化"></a>文件句柄优化</h4><p><img src="https://img-blog.csdnimg.cn/20190210213216549.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 针对用户进行修改<br> <img src="https://img-blog.csdnimg.cn/20190210213355529.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br> 针对进程限制<br> <img src="https://img-blog.csdnimg.cn/20190210213510966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="cpu亲和绑定"><a href="#cpu亲和绑定" class="headerlink" title="cpu亲和绑定"></a>cpu亲和绑定</h4><p><img src="https://img-blog.csdnimg.cn/20190211223904157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h4 id="gzip兼容"><a href="#gzip兼容" class="headerlink" title="gzip兼容"></a>gzip兼容</h4><p><img src="https://img-blog.csdnimg.cn/20190211225553944.png" alt="在这里插入图片描述"></p><h4 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h4><p><img src="https://img-blog.csdnimg.cn/20190211230042274.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190211230546667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
     
     
     <categories>
@@ -3117,81 +3146,6 @@
     <tags>
       
       <tag>工具</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>PHP 水印  验证码</title>
-    <link href="/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
-    <url>/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/</url>
-    
-    <content type="html"><![CDATA[<p><strong>PHP水印</strong></p><p><img src="https://img-blog.csdnimg.cn/img_convert/a25511a9bd25726528c0df256433354a.png" alt="PHP水印"></p><hr><p><strong>PHP验证码处理</strong></p><p><img src="https://img-blog.csdnimg.cn/img_convert/20a0a84e2cc9836d36e41e6496fbe783.png" alt="PHP验证码处理"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>PHP</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>PHP</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>PHP7的基本变量</title>
-    <link href="/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/"/>
-    <url>/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/</url>
-    
-    <content type="html"><![CDATA[<h4 id="课程地址：https-www-imooc-com-learn-1085"><a href="#课程地址：https-www-imooc-com-learn-1085" class="headerlink" title="课程地址：https://www.imooc.com/learn/1085"></a>课程地址：<a href="https://www.imooc.com/learn/1085">https://www.imooc.com/learn/1085</a></h4><p><img src="https://img-blog.csdnimg.cn/20190428145419579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428145455679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>PHP</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>PHP</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>PHP的自动加载机制</title>
-    <link href="/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
-    <url>/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</url>
-    
-    <content type="html"><![CDATA[<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>我们在写PHP代码的时候，总会遇到这种情况（A.php需要引入XXX.php才能正常运行），代码结构比较小的话，通常我们都是直接通过 include 或者 require 直接引入，如果需要引入的文件不多的话，还可以接受，但是如果引入的文件达到几十个以上，再用 include 和 require 就显得比较繁琐，影响代码的美观。因此我们需要引入PHP文件的自动加载机制。</p><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>使用 __autoload() 函数</p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">// __autoload — Attempt to load undefined class</span><br><span class="hljs-comment">// void __autoload ( string $class )</span><br><br><span class="hljs-meta">&lt;?php</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__autoload</span>(<span class="hljs-params"><span class="hljs-variable">$class</span></span>)</span>&#123;<br><span class="hljs-keyword">require_once</span>( <span class="hljs-variable">$class</span>.<span class="hljs-string">&quot;.php&quot;</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span><br><br><br></code></pre></div></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>PHP</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>PHP</tag>
       
     </tags>
     
@@ -3250,6 +3204,56 @@
   
   
   <entry>
+    <title>PHP的自动加载机制</title>
+    <link href="/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
+    <url>/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</url>
+    
+    <content type="html"><![CDATA[<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>我们在写PHP代码的时候，总会遇到这种情况（A.php需要引入XXX.php才能正常运行），代码结构比较小的话，通常我们都是直接通过 include 或者 require 直接引入，如果需要引入的文件不多的话，还可以接受，但是如果引入的文件达到几十个以上，再用 include 和 require 就显得比较繁琐，影响代码的美观。因此我们需要引入PHP文件的自动加载机制。</p><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>使用 __autoload() 函数</p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">// __autoload — Attempt to load undefined class</span><br><span class="hljs-comment">// void __autoload ( string $class )</span><br><br><span class="hljs-meta">&lt;?php</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__autoload</span>(<span class="hljs-params"><span class="hljs-variable">$class</span></span>)</span>&#123;<br><span class="hljs-keyword">require_once</span>( <span class="hljs-variable">$class</span>.<span class="hljs-string">&quot;.php&quot;</span>);<br>&#125;<br><span class="hljs-meta">?&gt;</span><br><br><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>PHP</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PHP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PHP7的基本变量</title>
+    <link href="/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/"/>
+    <url>/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP7%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F/</url>
+    
+    <content type="html"><![CDATA[<h4 id="课程地址：https-www-imooc-com-learn-1085"><a href="#课程地址：https-www-imooc-com-learn-1085" class="headerlink" title="课程地址：https://www.imooc.com/learn/1085"></a>课程地址：<a href="https://www.imooc.com/learn/1085">https://www.imooc.com/learn/1085</a></h4><p><img src="https://img-blog.csdnimg.cn/20190428145419579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190428145455679.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>PHP</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PHP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>PHPUnit单元测试</title>
     <link href="/2017/12/04/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     <url>/2017/12/04/PHP/PHPUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
@@ -3271,6 +3275,31 @@
       <tag>PHP</tag>
       
       <tag>PHPUnit</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PHP设计模式（适配器模式）</title>
+    <link href="/2017/12/04/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/"/>
+    <url>/2017/12/04/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h4 id="设计动机"><a href="#设计动机" class="headerlink" title="设计动机"></a>设计动机</h4><p>假如我们又这样软件系统，我们希望它能够和一个新的库搭配使用，但是这个库所提供的接口与我们的软件系统不兼容，我们不想改变现有代码就能解决这个问题，怎么办？这个时候我们就需要将这个新的库接口转换成我们所需要的接口，这就是适配器模式设计动机。</p><h4 id="模式定义"><a href="#模式定义" class="headerlink" title="模式定义"></a>模式定义</h4><ol><li><p>适配器模式就是将一个类的接口，转换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。</p></li><li><p>在适配器模式中，我们可以定义一个包装类，包装不兼容接口的对象，这个包装类就是适配器，它所包装的对象就是适配者。</p></li><li><p>适配器提供给客户需要的接口，适配器的实现就是将客户的请求转换成对适配者的相应的接口的引用。也就是说，当客户调用适配器的方法时，适配器方法内部将调用适配者的方法，客户并不是直接访问适配者的，而是通过调用适配器方法访问适配者。因为适配器可以使互不兼容的类能够“合作愉快”。</p></li></ol><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p> <strong>1. 首先我们定义一个数据库操作对外，公用的API接口，里面主要设计了connect()   query()   close()  方法。</strong></p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">IMooc</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IDatabase</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"><span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span></span>)</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"><span class="hljs-variable">$sql</span></span>)</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure><p> <strong>2. 使用mysql实现</strong></p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">Database</span>;<br><br><span class="hljs-keyword">use</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">IDatabase</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySQL</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IDatabase</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$conn</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"><span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$conn</span> = mysql_connect(<span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>);<br>        mysql_select_db(<span class="hljs-variable">$dbname</span>, <span class="hljs-variable">$conn</span>);<br>        <span class="hljs-keyword">$this</span>-&gt;conn = <span class="hljs-variable">$conn</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"><span class="hljs-variable">$sql</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$res</span> = mysql_query(<span class="hljs-variable">$sql</span>, <span class="hljs-keyword">$this</span>-&gt;conn);<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$res</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        mysql_close(<span class="hljs-keyword">$this</span>-&gt;conn);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p> <strong>3. 使用mysqli实现</strong></p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">Database</span>;<br><br><span class="hljs-keyword">use</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">IDatabase</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySQLi</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IDatabase</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$conn</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"><span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$conn</span> = mysqli_connect(<span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span>);<br>        <span class="hljs-keyword">$this</span>-&gt;conn = <span class="hljs-variable">$conn</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"><span class="hljs-variable">$sql</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> mysqli_query(<span class="hljs-keyword">$this</span>-&gt;conn, <span class="hljs-variable">$sql</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        mysqli_close(<span class="hljs-keyword">$this</span>-&gt;conn);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p> <strong>4. 使用PDO实现</strong> </p><figure class="highlight php-template"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php-template"><span class="php"><span class="hljs-meta">&lt;?php</span></span><br><span class="php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">Database</span>;</span><br><br><span class="php"><span class="hljs-keyword">use</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">IDatabase</span>;</span><br><br><span class="php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PDO</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IDatabase</span></span></span><br><span class="php">&#123;</span><br>    /**<br>     * @var \PDO<br><span class="php">     */</span><br><span class="php">    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$conn</span>;</span><br><span class="php">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"><span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span></span>)</span></span><br><span class="php">    &#123;</span><br><span class="php">        <span class="hljs-variable">$conn</span> = <span class="hljs-keyword">new</span> \PDO(<span class="hljs-string">&quot;mysql:host=<span class="hljs-subst">$host</span>;dbname=<span class="hljs-subst">$dbname</span>&quot;</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>);</span><br><span class="php">        <span class="hljs-keyword">$this</span>-&gt;conn = <span class="hljs-variable">$conn</span>;</span><br><span class="php">    &#125;</span><br><br><span class="php">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"><span class="hljs-variable">$sql</span></span>)</span></span><br><span class="php">    &#123;</span><br><span class="php">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;conn-&gt;query(<span class="hljs-variable">$sql</span>);</span><br><span class="php">    &#125;</span><br><br><span class="php">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span></span><br><span class="php">    &#123;</span><br><span class="php">        <span class="hljs-keyword">unset</span>(<span class="hljs-keyword">$this</span>-&gt;conn);</span><br><span class="php">    &#125;</span><br><span class="php">&#125;</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>PHP</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>PHP</tag>
       
     </tags>
     
@@ -3304,11 +3333,11 @@
   
   
   <entry>
-    <title>PHP设计模式（适配器模式）</title>
-    <link href="/2017/12/04/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/"/>
-    <url>/2017/12/04/PHP/PHP%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%89/</url>
+    <title>PHP 水印  验证码</title>
+    <link href="/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/"/>
+    <url>/2017/12/04/PHP/PHP%E7%9B%B8%E5%85%B3/PHP%20%E6%B0%B4%E5%8D%B0%20%20%E9%AA%8C%E8%AF%81%E7%A0%81/</url>
     
-    <content type="html"><![CDATA[<h4 id="设计动机"><a href="#设计动机" class="headerlink" title="设计动机"></a>设计动机</h4><p>假如我们又这样软件系统，我们希望它能够和一个新的库搭配使用，但是这个库所提供的接口与我们的软件系统不兼容，我们不想改变现有代码就能解决这个问题，怎么办？这个时候我们就需要将这个新的库接口转换成我们所需要的接口，这就是适配器模式设计动机。</p><h4 id="模式定义"><a href="#模式定义" class="headerlink" title="模式定义"></a>模式定义</h4><ol><li><p>适配器模式就是将一个类的接口，转换成客户期望的另一个接口。适配器让原本接口不兼容的类可以合作无间。</p></li><li><p>在适配器模式中，我们可以定义一个包装类，包装不兼容接口的对象，这个包装类就是适配器，它所包装的对象就是适配者。</p></li><li><p>适配器提供给客户需要的接口，适配器的实现就是将客户的请求转换成对适配者的相应的接口的引用。也就是说，当客户调用适配器的方法时，适配器方法内部将调用适配者的方法，客户并不是直接访问适配者的，而是通过调用适配器方法访问适配者。因为适配器可以使互不兼容的类能够“合作愉快”。</p></li></ol><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p> <strong>1. 首先我们定义一个数据库操作对外，公用的API接口，里面主要设计了connect()   query()   close()  方法。</strong></p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">IMooc</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IDatabase</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"><span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span></span>)</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"><span class="hljs-variable">$sql</span></span>)</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure><p> <strong>2. 使用mysql实现</strong></p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">Database</span>;<br><br><span class="hljs-keyword">use</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">IDatabase</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySQL</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IDatabase</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$conn</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"><span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$conn</span> = mysql_connect(<span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>);<br>        mysql_select_db(<span class="hljs-variable">$dbname</span>, <span class="hljs-variable">$conn</span>);<br>        <span class="hljs-keyword">$this</span>-&gt;conn = <span class="hljs-variable">$conn</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"><span class="hljs-variable">$sql</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$res</span> = mysql_query(<span class="hljs-variable">$sql</span>, <span class="hljs-keyword">$this</span>-&gt;conn);<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable">$res</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        mysql_close(<span class="hljs-keyword">$this</span>-&gt;conn);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p> <strong>3. 使用mysqli实现</strong></p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">Database</span>;<br><br><span class="hljs-keyword">use</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">IDatabase</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySQLi</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IDatabase</span></span><br><span class="hljs-class"></span>&#123;<br>    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$conn</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"><span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-variable">$conn</span> = mysqli_connect(<span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span>);<br>        <span class="hljs-keyword">$this</span>-&gt;conn = <span class="hljs-variable">$conn</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"><span class="hljs-variable">$sql</span></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">return</span> mysqli_query(<span class="hljs-keyword">$this</span>-&gt;conn, <span class="hljs-variable">$sql</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">    </span>&#123;<br>        mysqli_close(<span class="hljs-keyword">$this</span>-&gt;conn);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure><p> <strong>4. 使用PDO实现</strong> </p><figure class="highlight php-template"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php-template"><span class="php"><span class="hljs-meta">&lt;?php</span></span><br><span class="php"><span class="hljs-keyword">namespace</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">Database</span>;</span><br><br><span class="php"><span class="hljs-keyword">use</span> <span class="hljs-title">IMooc</span>\<span class="hljs-title">IDatabase</span>;</span><br><br><span class="php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PDO</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IDatabase</span></span></span><br><span class="php">&#123;</span><br>    /**<br>     * @var \PDO<br><span class="php">     */</span><br><span class="php">    <span class="hljs-keyword">protected</span> <span class="hljs-variable">$conn</span>;</span><br><span class="php">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">connect</span>(<span class="hljs-params"><span class="hljs-variable">$host</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>, <span class="hljs-variable">$dbname</span></span>)</span></span><br><span class="php">    &#123;</span><br><span class="php">        <span class="hljs-variable">$conn</span> = <span class="hljs-keyword">new</span> \PDO(<span class="hljs-string">&quot;mysql:host=<span class="hljs-subst">$host</span>;dbname=<span class="hljs-subst">$dbname</span>&quot;</span>, <span class="hljs-variable">$user</span>, <span class="hljs-variable">$passwd</span>);</span><br><span class="php">        <span class="hljs-keyword">$this</span>-&gt;conn = <span class="hljs-variable">$conn</span>;</span><br><span class="php">    &#125;</span><br><br><span class="php">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span>(<span class="hljs-params"><span class="hljs-variable">$sql</span></span>)</span></span><br><span class="php">    &#123;</span><br><span class="php">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;conn-&gt;query(<span class="hljs-variable">$sql</span>);</span><br><span class="php">    &#125;</span><br><br><span class="php">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>)</span></span><br><span class="php">    &#123;</span><br><span class="php">        <span class="hljs-keyword">unset</span>(<span class="hljs-keyword">$this</span>-&gt;conn);</span><br><span class="php">    &#125;</span><br><span class="php">&#125;</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><strong>PHP水印</strong></p><p><img src="https://img-blog.csdnimg.cn/img_convert/a25511a9bd25726528c0df256433354a.png" alt="PHP水印"></p><hr><p><strong>PHP验证码处理</strong></p><p><img src="https://img-blog.csdnimg.cn/img_convert/20a0a84e2cc9836d36e41e6496fbe783.png" alt="PHP验证码处理"></p>]]></content>
     
     
     <categories>

@@ -18,7 +18,7 @@
   <meta name="author" content="mohuani">
   <meta name="keywords" content="Bug工程师">
   
-  <title>积雪筱草的Blog</title>
+  <title>Redis初识 - 积雪筱草的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="Redis初识">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-31 11:52" pubdate>
-        2022年3月31日 中午
+      <time datetime="2022-03-31 21:36" pubdate>
+        2022年3月31日 晚上
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      511 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      6
        分钟
     </span>
   
@@ -225,15 +225,63 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">Redis初识</h1>
             
             <div class="markdown-body">
-              
+              <h3 id="2-2通用命令"><a href="#2-2通用命令" class="headerlink" title="2-2通用命令"></a>2-2通用命令</h3><figure class="highlight q"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs q"><span class="hljs-built_in">keys</span> * #遍历所有<span class="hljs-built_in">key</span><br>del <span class="hljs-built_in">key</span> [<span class="hljs-built_in">key</span>…] #删除指定的<span class="hljs-built_in">key</span>-<span class="hljs-built_in">value</span><br>dbsizee 算出<span class="hljs-built_in">key</span>的总数<br>expire <span class="hljs-built_in">key</span> seconds #<span class="hljs-built_in">key</span>在sc秒后过期<br>ttl <span class="hljs-built_in">key</span> #查看<span class="hljs-built_in">key</span>剩余的过期时间（<span class="hljs-number">-1</span> 代表没有过期时间 <span class="hljs-number">-2</span>代表已过期）<br>persist <span class="hljs-built_in">key</span> #去掉<span class="hljs-built_in">key</span>的过期时间<br>exists <span class="hljs-built_in">key</span> #检查一个<span class="hljs-built_in">key</span>是否存在<br><span class="hljs-built_in">type</span> <span class="hljs-built_in">key</span> #返回<span class="hljs-built_in">key</span>的类型,结果为<span class="hljs-built_in">string</span> hash list <span class="hljs-built_in">set</span> zset none（<span class="hljs-built_in">key</span>不存在）<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/21000558/161048110-cf898bdd-7782-41d6-8643-b479a673fc0f.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h3 id="2-3-数据结构和内部编码"><a href="#2-3-数据结构和内部编码" class="headerlink" title="2-3 数据结构和内部编码"></a>2-3 数据结构和内部编码</h3><p><img src="https://user-images.githubusercontent.com/21000558/161048234-0f018813-f074-4ca2-a690-6979a84044ce.png" srcset="/img/loading.gif" lazyload alt="1648653844115-f9099d9c-0908-4971-a374-08e3d655e908"></p>
+<p><img src="https://user-images.githubusercontent.com/21000558/161047779-7cabd544-76b2-4edd-ac01-624cd9cf63a5.png" srcset="/img/loading.gif" lazyload alt="image"></p>
+<h3 id="2-4-单线程"><a href="#2-4-单线程" class="headerlink" title="2-4 单线程"></a>2-4 单线程</h3><p><img src="https://cdn.nlark.com/yuque/0/2022/png/85934/1648654084762-d87447aa-47bf-4ce9-b699-68d714981d89.png#clientId=u2e23ff42-1b97-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u8a3010f8&margin=%5Bobject%20Object%5D&name=image.png&originHeight=334&originWidth=1721&originalType=url&ratio=1&rotation=0&showTitle=false&size=160226&status=done&style=none&taskId=u098303d1-66bd-45de-8015-b85faa44735&title=" srcset="/img/loading.gif" lazyload alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2022/png/85934/1648654093328-eab0b695-d1fb-4ca9-9505-b783cb4a9421.png#clientId=u2e23ff42-1b97-4&crop=0&crop=0&crop=1&crop=1&from=paste&id=u75a27ea0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=685&originWidth=1474&originalType=url&ratio=1&rotation=0&showTitle=false&size=373801&status=done&style=none&taskId=ufb74172d-7162-42bd-802e-e87a37295e3&title=" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>单线程为什么还这么快？</p>
+<ul>
+<li>纯内存</li>
+<li>非阻塞IO</li>
+<li>避免线程切换和竞态消耗</li>
+</ul>
+<p>其它注意点</p>
+<ul>
+<li>一次只运行一条命令</li>
+<li>拒绝长（慢）命令 </li>
+</ul>
+<figure class="highlight perl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs perl"><span class="hljs-keyword">keys</span>，flushall，flushdb，slow lua script，mutil/<span class="hljs-keyword">exec</span>，operate big value（collection）<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>其实不是全是单线程，如下面的命令  <code>fysnc file descriptor </code>, <code>close file descriptor</code></li>
+</ul>
+<h3 id="2-5-字符串"><a href="#2-5-字符串" class="headerlink" title="2-5 字符串"></a>2-5 字符串</h3><p>场景： 缓存， 计数器，分布式锁</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><p>key都为字符串 value可为 字符串（json） 整数 二进制</p>
+<p>API</p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">注:以下命令 时间复杂度均为 o(1)<br><br><br>get key  <br><span class="hljs-comment">#获取key对应的value</span><br><br><span class="hljs-built_in">set</span> key value<br><span class="hljs-comment">#设置key-value</span><br><br>del key <br><span class="hljs-comment">#删除key-value</span><br><br>incr key<br><span class="hljs-comment">#key自增1，如果key不存在，自增后get(key)=1</span><br><br>decr key o（1）<br><span class="hljs-comment">#key自减1，如果key不存在，自减后get（key）=-1</span><br><br>incrby key k<br><span class="hljs-comment">#Key自增k，如果key不存在自增后get(key）=k </span><br><br>decr key k<br><span class="hljs-comment">#Key自减k，如果key不存在，自减后get（key）=-k </span><br><br><span class="hljs-built_in">set</span> key value<br><span class="hljs-comment">#不管key是否存在，都设置</span><br><br>setnx key value<br><span class="hljs-comment">#key不存在，才设置</span><br><br><span class="hljs-built_in">set</span> key value xx<br><span class="hljs-comment">#key存在，才设置</span><br><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">注:以下命令 时间复杂度均为 o(n)<br><br>mget keyl key2 key3...<br><span class="hljs-comment">#批量获取key，原子操作</span><br><br>mset key1 valuel key2 value2 key3 value3<br><span class="hljs-comment">#批量设置key-value</span><br></code></pre></div></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">注:以下命令 时间复杂度均为 o(1)<br><br>getset key newvalue<br><span class="hljs-comment">#set key newvalue并返回旧的value</span><br><br>append key value<br><span class="hljs-comment">#将value追加到旧的value（相当于字符串拼接）</span><br><br>strlen key<br><span class="hljs-comment">#返回字符串的长度（注意中文）</span><br><br>incrbyfloat key 3.5<br><span class="hljs-comment">#增加key对应的值3.5</span><br><br>getrange key start end<br><span class="hljs-comment">#获取字符串指定下标所有的值</span><br><br>setrange key index value<br><span class="hljs-comment">#设置指定下标所有对应的值</span><br><br></code></pre></div></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/">Redis</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Redis/">Redis</a>
+                    
+                  </div>
                 
               </div>
               
@@ -248,18 +296,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/31/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E9%AB%98%E5%8F%AF%E7%94%A8/%E7%AC%AC1%E7%AB%A0%20Redis%E5%88%9D%E8%AF%86/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Redis初识</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/31/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2022/03/31/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E9%AB%98%E5%8F%AF%E7%94%A8/%E7%AC%AC1%E7%AB%A0%20Redis%E5%88%9D%E8%AF%86/">
+                        <span class="hidden-mobile">Redis初识</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
