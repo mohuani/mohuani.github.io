@@ -130,3 +130,76 @@ setrange key index value
 
 ```
 
+### 2.5 hash
+特点
+key还是String类型 ，值则分成 field和value，可以添加field来对属性进行扩充
+redis本身就是一个map结构的，所以可以把这种数据结构理解成 “mapmap”,其中 field就像key一样不能相同 。
+
+![image](https://user-images.githubusercontent.com/21000558/161049034-d89f9bc9-0e28-4afe-9484-76f7111e48bc.png)
+
+API所有命令都是以h开头
+
+```
+命令 时间复杂度均为 o(1)
+
+hget key field
+#获取hash key对应的field的value
+
+hset key field value
+#设置hash key对应field的value
+
+hdel key field
+#删除hash key对应field的value
+
+hexists key field
+#判断hash key是否有field
+
+hlen key
+#获取hash key field的数量
+
+hsetnx key field value
+#设置hash key对应field的value（如field已经存在，则失败）
+
+hincrby key field intCounter
+#hash key对应的field的value自增intCounter
+
+hincrbyfloat key field floatCounter
+#hincrby浮点数版
+```
+
+```
+命令 时间复杂度均为 o(n)
+
+hmget key field1 field2....fieldN
+#批量获取hash key的一批field对应的值
+
+hmset key fieldI valuel field2 value2..fieldN valueN
+#批量设置hash key的一批field value
+
+hgetall key
+#返回hash key对应所有的field和value
+
+hvals key
+#返回hash key对应所有field的value
+
+hkeys key
+#返回hash key对应所有field
+
+```
+
+![image](https://user-images.githubusercontent.com/21000558/161050160-727a81a6-5504-47bd-9ea2-2271106007c3.png)
+![image](https://user-images.githubusercontent.com/21000558/161050319-e686a3c5-1f30-4a87-b6c6-043f50541be2.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
