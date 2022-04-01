@@ -8,7 +8,7 @@
       <link href="2022/04/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/%E4%B8%87%E5%AD%97%E9%95%BF%E6%96%87%E5%8A%A9%E4%BD%A0%E4%B8%8A%E6%89%8B%E8%BD%AF%E4%BB%B6%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%20DDD/"/>
       <url>2022/04/01/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8/%E4%B8%87%E5%AD%97%E9%95%BF%E6%96%87%E5%8A%A9%E4%BD%A0%E4%B8%8A%E6%89%8B%E8%BD%AF%E4%BB%B6%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%20DDD/</url>
       
-        <content type="html"><![CDATA[<p>看到腾讯技术工程的一篇文章，写的很好，记录一下</p><p><a href="https://mp.weixin.qq.com/s/BIYp9DNd_9sw5O2daiHmlA">万字长文助你上手软件领域驱动设计 DDD</a></p>]]></content>
+        <content type="html"><![CDATA[<p>看到腾讯技术工程的一篇文章，写的很好，记录一下</p><p><a href="https://mp.weixin.qq.com/s/BIYp9DNd_9sw5O2daiHmlA">万字长文助你上手软件领域驱动设计 DDD</a></p><p>读完这篇文章后，整理了一份思维导图<br><a href="https://github.com/mohuani/books/blob/main/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1/%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E5%B7%A5%E7%A8%8B%E8%90%BD%E5%9C%B0%E7%90%86%E8%AE%BA.xmind">领域驱动设计工程落地理论.xmind</a></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul><li>解耦-领域驱动设计》</li><li>《领域驱动设计：软件核心复杂性应对之道》</li><li>《实现领域驱动设计》</li><li>《微服务架构设计模式》</li><li>极客时间《DDD 实战课》</li><li>极客时间《如何落地业务建模》</li><li>《领域驱动设计精粹》</li></ul>]]></content>
       
       
       <categories>
