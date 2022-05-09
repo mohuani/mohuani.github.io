@@ -1,6 +1,6 @@
 ---
-title: "MyBatis-Plus自动填充"
-date: 2022-04-28 16:22:30
+title: "MyBatis-Plus自动填充无效"
+date: 2022-05-09 16:22:30
 draft: true
 tags: [Java, MyBatis-Plus]
 categories:
@@ -8,7 +8,7 @@ categories:
 ---
 
 ### 问题
-> 最新刚开始使用Springboot + Mybatis-Plus 写Java的项目，发现created_at，updated_at这种与业务无关的时间海妖自己去管理，实在是不方便，不如像Laravel那样在框架层直接自动维护。
+> 最新刚开始使用Springboot + Mybatis-Plus 写Java的项目，发现created_at，updated_at这种与业务无关的时间海妖自己去管理，实在是不方便，不如像Laravel那样在框架层直接自动维护。Mybatis-Plus官方文档给出来的demo比较简单，本人照着葫芦画瓢没有成功，后面经过查询各种博客解决了这个问题。
 
 
 MyBatis-Plus的官方文档：https://baomidou.com/pages/2976a3/#spring
@@ -43,7 +43,8 @@ MyBatis-Plus的官方文档：https://baomidou.com/pages/2976a3/#spring
 
 #### 1、添加 MyBatisPlusMetaObjectHandler
 
-其中要自动维护的字段和你项目中 Model 文件的字段大小写保持一致就行了，不是和数据表中的字段大小写保持一致，我已经测试过了
+- 其中要自动维护的字段和你项目中 Model 文件的字段大小写保持一致就行了，不是和数据表中的字段大小写保持一致，我已经测试过了
+- `updateFill()` 时 `strictUpdateFill()` 如果使用  `this.strictUpdateFill(metaObject, "updatedAt", Date.class, new Date())` 方式，会发现程序确实被拦截走到了自动`updateFill()`这里，但是没有填充成功，后面尝试使用 `setFieldValByName`来进行自动填充是成功的，这里应该是个bug，也有可以能是我操作姿势不对。
 
 ```java
 package com.xxx;
@@ -149,4 +150,6 @@ public class xxxDSConfig {
 }
 
 ```
+
+参考文章： https://blog.csdn.net/m0_55413703/article/details/121944990
 
