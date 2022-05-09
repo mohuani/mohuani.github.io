@@ -18,7 +18,7 @@
   <meta name="author" content="mohuani">
   <meta name="keywords" content="Bug工程师">
   
-  <title>MyBatis-Plus自动填充 - 积雪筱草的Blog</title>
+  <title>MyBatis-Plus自动填充无效 - 积雪筱草的Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="MyBatis-Plus自动填充">
+            <span class="h2" id="subtitle" title="MyBatis-Plus自动填充无效">
               
             </span>
 
@@ -173,8 +173,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-28 16:22" pubdate>
-        2022年4月28日 下午
+      <time datetime="2022-05-09 16:22" pubdate>
+        2022年5月9日 下午
       </time>
     </span>
   
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      676 字
+      814 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      12
        分钟
     </span>
   
@@ -225,11 +225,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">MyBatis-Plus自动填充</h1>
+            <h1 style="display: none">MyBatis-Plus自动填充无效</h1>
             
             <div class="markdown-body">
               <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
-<p>最新刚开始使用Springboot + Mybatis-Plus 写Java的项目，发现created_at，updated_at这种与业务无关的时间海妖自己去管理，实在是不方便，不如像Laravel那样在框架层直接自动维护。</p>
+<p>最新刚开始使用Springboot + Mybatis-Plus 写Java的项目，发现created_at，updated_at这种与业务无关的时间海妖自己去管理，实在是不方便，不如像Laravel那样在框架层直接自动维护。Mybatis-Plus官方文档给出来的demo比较简单，本人照着葫芦画瓢没有成功，后面经过查询各种博客解决了这个问题。</p>
 </blockquote>
 <p>MyBatis-Plus的官方文档：<a target="_blank" rel="noopener" href="https://baomidou.com/pages/2976a3/#spring">https://baomidou.com/pages/2976a3/#spring</a></p>
 <p>我使用的 MyBatis-Plus 版本是</p>
@@ -247,7 +247,10 @@
 <li>4.检查 <code>MyBatisPlusMetaObjectHandler</code> 是否注册到 <code>GlobalConfig</code></li>
 <li>5.检查 <code>GlobalConfig</code> 是否注册到 <code>MybatisSqlSessionFactoryBean</code></li>
 </ul>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="1、添加-MyBatisPlusMetaObjectHandler"><a href="#1、添加-MyBatisPlusMetaObjectHandler" class="headerlink" title="1、添加 MyBatisPlusMetaObjectHandler"></a>1、添加 MyBatisPlusMetaObjectHandler</h4><p>其中要自动维护的字段和你项目中 Model 文件的字段大小写保持一致就行了，不是和数据表中的字段大小写保持一致，我已经测试过了</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="1、添加-MyBatisPlusMetaObjectHandler"><a href="#1、添加-MyBatisPlusMetaObjectHandler" class="headerlink" title="1、添加 MyBatisPlusMetaObjectHandler"></a>1、添加 MyBatisPlusMetaObjectHandler</h4><ul>
+<li>其中要自动维护的字段和你项目中 Model 文件的字段大小写保持一致就行了，不是和数据表中的字段大小写保持一致，我已经测试过了</li>
+<li><code>updateFill()</code> 时 <code>strictUpdateFill()</code> 如果使用  <code>this.strictUpdateFill(metaObject, &quot;updatedAt&quot;, Date.class, new Date())</code> 方式，会发现程序确实被拦截走到了自动<code>updateFill()</code>这里，但是没有填充成功，后面尝试使用 <code>setFieldValByName</code>来进行自动填充是成功的，这里应该是个bug，也有可以能是我操作姿势不对。</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.xxx;<br><span class="hljs-keyword">package</span> com.mainto.earthen.retail.service.datasource;<br><br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;<br><span class="hljs-keyword">import</span> org.apache.ibatis.reflection.MetaObject;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-keyword">import</span> java.util.Date;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBatisPlusMetaObjectHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MetaObjectHandler</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertFill</span><span class="hljs-params">(MetaObject metaObject)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.strictInsertFill(metaObject, <span class="hljs-string">&quot;createdAt&quot;</span>, Date.class, <span class="hljs-keyword">new</span> Date()); <span class="hljs-comment">// 起始版本 3.3.3(推荐)</span><br>        <span class="hljs-keyword">this</span>.strictInsertFill(metaObject, <span class="hljs-string">&quot;updatedAt&quot;</span>, Date.class, <span class="hljs-keyword">new</span> Date()); <span class="hljs-comment">// 起始版本 3.3.3(推荐)</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateFill</span><span class="hljs-params">(MetaObject metaObject)</span> </span>&#123;<br>        <span class="hljs-comment">// this.strictUpdateFill(metaObject, &quot;updatedAt&quot;, Date.class, new Date()); // 起始版本 3.3.3(推荐) // 这种方式写bug，没有效果</span><br>        <span class="hljs-keyword">this</span>.setFieldValByName(<span class="hljs-string">&quot;updatedAt&quot;</span>, <span class="hljs-keyword">new</span> Date(), metaObject);<br>    &#125;<br>&#125;<br><br><br></code></pre></div></td></tr></table></figure>
 
 <h4 id="2、将-MybatisPlusInterceptor-注册到-DataSourceConfig中的-SqlSessionFactory里面去"><a href="#2、将-MybatisPlusInterceptor-注册到-DataSourceConfig中的-SqlSessionFactory里面去" class="headerlink" title="2、将 MybatisPlusInterceptor 注册到 DataSourceConfig中的 SqlSessionFactory里面去"></a>2、将 MybatisPlusInterceptor 注册到 DataSourceConfig中的 SqlSessionFactory里面去</h4><p>只需要添加下面的3行代码</p>
@@ -256,6 +259,7 @@
 
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><br><span class="hljs-keyword">package</span> com.xxx;<br><br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.MybatisConfiguration;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.config.GlobalConfig;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;<br><span class="hljs-keyword">import</span> org.apache.ibatis.plugin.Interceptor;<br><span class="hljs-keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;<br><span class="hljs-keyword">import</span> org.mybatis.spring.SqlSessionTemplate;<br><span class="hljs-keyword">import</span> org.mybatis.spring.annotation.MapperScan;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Qualifier;<br><span class="hljs-keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;<br><span class="hljs-keyword">import</span> org.springframework.boot.jdbc.DataSourceBuilder;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Primary;<br><span class="hljs-keyword">import</span> org.springframework.core.io.support.PathMatchingResourcePatternResolver;<br><span class="hljs-keyword">import</span> org.springframework.core.io.support.ResourcePatternResolver;<br><span class="hljs-keyword">import</span> org.springframework.jdbc.datasource.DataSourceTransactionManager;<br><br><span class="hljs-keyword">import</span> javax.sql.DataSource;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@MapperScan(basePackages = &#123;&quot;com.xxx.dao&quot;&#125;, sqlSessionTemplateRef = &quot;SqlSessionTemplate&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">xxxDSConfig</span> </span>&#123;<br><br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">public</span> MybatisPlusInterceptor mybatisPlusInterceptor;<br><br>    <span class="hljs-meta">@Primary</span><br>    <span class="hljs-meta">@Bean(name = &quot;xxxSqlSessionFactory&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSessionFactory <span class="hljs-title">xxxSqlSessionFactory</span><span class="hljs-params">(<span class="hljs-meta">@Qualifier(&quot;xxxDataSource&quot;)</span> DataSource dataSource,</span></span><br><span class="hljs-function"><span class="hljs-params">                                                     <span class="hljs-meta">@Qualifier(&quot;xxxMybatisConfig&quot;)</span> MybatisConfiguration config)</span> </span>&#123;<br>        <span class="hljs-comment">// 数据库配置</span><br>        MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean = <span class="hljs-keyword">new</span> MybatisSqlSessionFactoryBean();<br>        mybatisSqlSessionFactoryBean.setDataSource(dataSource);<br>        mybatisSqlSessionFactoryBean.setConfiguration(config);<br><br>        <span class="hljs-comment">// 分页器配置 MybatisPlusInterceptor</span><br>        Interceptor[] plugins = &#123;mybatisPlusInterceptor&#125;;<br>        mybatisSqlSessionFactoryBean.setPlugins(plugins);<br><br>        <span class="hljs-comment">// MetaObjectHandler 配置</span><br>        GlobalConfig globalConfig = <span class="hljs-keyword">new</span> GlobalConfig();<br>        globalConfig.setMetaObjectHandler(<span class="hljs-keyword">new</span> MyBatisPlusMetaObjectHandler());<br>        mybatisSqlSessionFactoryBean.setGlobalConfig(globalConfig);<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            ResourcePatternResolver resolver = <span class="hljs-keyword">new</span> PathMatchingResourcePatternResolver();<br>            mybatisSqlSessionFactoryBean.setMapperLocations(resolver.getResources(<span class="hljs-string">&quot;classpath:/mapper/*Mapper.xml&quot;</span>));<br>            <span class="hljs-keyword">return</span> mybatisSqlSessionFactoryBean.getObject();<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            e.printStackTrace();<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);<br>        &#125;<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>
 
+<p>参考文章： <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_55413703/article/details/121944990">https://blog.csdn.net/m0_55413703/article/details/121944990</a></p>
 
             </div>
             <hr>
@@ -294,18 +298,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/28/Java/MyBatis/MyBatis-Plus%E5%88%86%E9%A1%B5%E6%97%A0%E6%95%88/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">MyBatis-Plus分页无效</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/Socket%E7%B2%98%E5%8C%85%E5%92%8C%E5%88%86%E5%8C%85%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">Socket粘包和分包问题</span>
+                      <a href="/2022/05/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
