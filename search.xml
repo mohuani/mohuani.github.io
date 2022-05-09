@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title></title>
+      <link href="2022/05/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+      <url>2022/05/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="2022/05/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/"/>
+      <url>2022/05/09/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MyBatis-Plus分页无效</title>
       <link href="2022/04/28/Java/MyBatis/MyBatis-Plus%E5%88%86%E9%A1%B5%E6%97%A0%E6%95%88/"/>
       <url>2022/04/28/Java/MyBatis/MyBatis-Plus%E5%88%86%E9%A1%B5%E6%97%A0%E6%95%88/</url>
@@ -33,26 +59,29 @@
     
     
     <entry>
-      <title></title>
-      <link href="2022/04/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-      <url>2022/04/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+      <title>MyBatis-Plus自动填充</title>
+      <link href="2022/04/28/Java/MyBatis/MyBatis-Plus%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85/"/>
+      <url>2022/04/28/Java/MyBatis/MyBatis-Plus%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85/</url>
       
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="2022/04/28/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/"/>
-      <url>2022/04/28/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF/%E7%A7%92%E6%9D%80/</url>
-      
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote><p>最新刚开始使用Springboot + Mybatis-Plus 写Java的项目，发现created_at，updated_at这种与业务无关的时间海妖自己去管理，实在是不方便，不如像Laravel那样在框架层直接自动维护。</p></blockquote><p>MyBatis-Plus的官方文档：<a href="https://baomidou.com/pages/2976a3/#spring">https://baomidou.com/pages/2976a3/#spring</a></p><p>我使用的 MyBatis-Plus 版本是</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.baomidou<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.5.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure><h3 id="通常原因"><a href="#通常原因" class="headerlink" title="通常原因"></a>通常原因</h3><ul><li>1.先检查字段属性是否一致问题</li><li>2.检查时间类型问题,使用 java.util下的 <code>Date</code>类，还是使用的 <code>LocalDateTime</code> 类</li><li>3.检查fill 有没有指派正确</li></ul><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@TableField(value = “created_at”, fill = FieldFill.INSERT)</span><br><span class="hljs-meta">@TableField(value = “updated_at”, fill =FieldFill.INSERT_UPDATE)</span><br></code></pre></div></td></tr></table></figure><ul><li>4.检查 <code>MyBatisPlusMetaObjectHandler</code> 是否注册到 <code>GlobalConfig</code></li><li>5.检查 <code>GlobalConfig</code> 是否注册到 <code>MybatisSqlSessionFactoryBean</code></li></ul><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="1、添加-MyBatisPlusMetaObjectHandler"><a href="#1、添加-MyBatisPlusMetaObjectHandler" class="headerlink" title="1、添加 MyBatisPlusMetaObjectHandler"></a>1、添加 MyBatisPlusMetaObjectHandler</h4><p>其中要自动维护的字段和你项目中 Model 文件的字段大小写保持一致就行了，不是和数据表中的字段大小写保持一致，我已经测试过了</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.xxx;<br><span class="hljs-keyword">package</span> com.mainto.earthen.retail.service.datasource;<br><br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;<br><span class="hljs-keyword">import</span> org.apache.ibatis.reflection.MetaObject;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-keyword">import</span> java.util.Date;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBatisPlusMetaObjectHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MetaObjectHandler</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertFill</span><span class="hljs-params">(MetaObject metaObject)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.strictInsertFill(metaObject, <span class="hljs-string">&quot;createdAt&quot;</span>, Date.class, <span class="hljs-keyword">new</span> Date()); <span class="hljs-comment">// 起始版本 3.3.3(推荐)</span><br>        <span class="hljs-keyword">this</span>.strictInsertFill(metaObject, <span class="hljs-string">&quot;updatedAt&quot;</span>, Date.class, <span class="hljs-keyword">new</span> Date()); <span class="hljs-comment">// 起始版本 3.3.3(推荐)</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateFill</span><span class="hljs-params">(MetaObject metaObject)</span> </span>&#123;<br>        <span class="hljs-comment">// this.strictUpdateFill(metaObject, &quot;updatedAt&quot;, Date.class, new Date()); // 起始版本 3.3.3(推荐) // 这种方式写bug，没有效果</span><br>        <span class="hljs-keyword">this</span>.setFieldValByName(<span class="hljs-string">&quot;updatedAt&quot;</span>, <span class="hljs-keyword">new</span> Date(), metaObject);<br>    &#125;<br>&#125;<br><br><br></code></pre></div></td></tr></table></figure><h4 id="2、将-MybatisPlusInterceptor-注册到-DataSourceConfig中的-SqlSessionFactory里面去"><a href="#2、将-MybatisPlusInterceptor-注册到-DataSourceConfig中的-SqlSessionFactory里面去" class="headerlink" title="2、将 MybatisPlusInterceptor 注册到 DataSourceConfig中的 SqlSessionFactory里面去"></a>2、将 MybatisPlusInterceptor 注册到 DataSourceConfig中的 SqlSessionFactory里面去</h4><p>只需要添加下面的3行代码</p><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// MetaObjectHandler 配置</span><br>GlobalConfig globalConfig = <span class="hljs-keyword">new</span> GlobalConfig();<br>globalConfig.setMetaObjectHandler(<span class="hljs-keyword">new</span> MyBatisPlusMetaObjectHandler());<br>mybatisSqlSessionFactoryBean.setGlobalConfig(globalConfig);<br><br></code></pre></div></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><br><span class="hljs-keyword">package</span> com.xxx;<br><br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.MybatisConfiguration;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.config.GlobalConfig;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;<br><span class="hljs-keyword">import</span> org.apache.ibatis.plugin.Interceptor;<br><span class="hljs-keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;<br><span class="hljs-keyword">import</span> org.mybatis.spring.SqlSessionTemplate;<br><span class="hljs-keyword">import</span> org.mybatis.spring.annotation.MapperScan;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Qualifier;<br><span class="hljs-keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;<br><span class="hljs-keyword">import</span> org.springframework.boot.jdbc.DataSourceBuilder;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Primary;<br><span class="hljs-keyword">import</span> org.springframework.core.io.support.PathMatchingResourcePatternResolver;<br><span class="hljs-keyword">import</span> org.springframework.core.io.support.ResourcePatternResolver;<br><span class="hljs-keyword">import</span> org.springframework.jdbc.datasource.DataSourceTransactionManager;<br><br><span class="hljs-keyword">import</span> javax.sql.DataSource;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@MapperScan(basePackages = &#123;&quot;com.xxx.dao&quot;&#125;, sqlSessionTemplateRef = &quot;SqlSessionTemplate&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">xxxDSConfig</span> </span>&#123;<br><br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">public</span> MybatisPlusInterceptor mybatisPlusInterceptor;<br><br>    <span class="hljs-meta">@Primary</span><br>    <span class="hljs-meta">@Bean(name = &quot;xxxSqlSessionFactory&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> SqlSessionFactory <span class="hljs-title">xxxSqlSessionFactory</span><span class="hljs-params">(<span class="hljs-meta">@Qualifier(&quot;xxxDataSource&quot;)</span> DataSource dataSource,</span></span><br><span class="hljs-function"><span class="hljs-params">                                                     <span class="hljs-meta">@Qualifier(&quot;xxxMybatisConfig&quot;)</span> MybatisConfiguration config)</span> </span>&#123;<br>        <span class="hljs-comment">// 数据库配置</span><br>        MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean = <span class="hljs-keyword">new</span> MybatisSqlSessionFactoryBean();<br>        mybatisSqlSessionFactoryBean.setDataSource(dataSource);<br>        mybatisSqlSessionFactoryBean.setConfiguration(config);<br><br>        <span class="hljs-comment">// 分页器配置 MybatisPlusInterceptor</span><br>        Interceptor[] plugins = &#123;mybatisPlusInterceptor&#125;;<br>        mybatisSqlSessionFactoryBean.setPlugins(plugins);<br><br>        <span class="hljs-comment">// MetaObjectHandler 配置</span><br>        GlobalConfig globalConfig = <span class="hljs-keyword">new</span> GlobalConfig();<br>        globalConfig.setMetaObjectHandler(<span class="hljs-keyword">new</span> MyBatisPlusMetaObjectHandler());<br>        mybatisSqlSessionFactoryBean.setGlobalConfig(globalConfig);<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            ResourcePatternResolver resolver = <span class="hljs-keyword">new</span> PathMatchingResourcePatternResolver();<br>            mybatisSqlSessionFactoryBean.setMapperLocations(resolver.getResources(<span class="hljs-string">&quot;classpath:/mapper/*Mapper.xml&quot;</span>));<br>            <span class="hljs-keyword">return</span> mybatisSqlSessionFactoryBean.getObject();<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            e.printStackTrace();<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);<br>        &#125;<br>    &#125;<br><br>&#125;<br><br></code></pre></div></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> Java </category>
+          
+          <category> MyBatis-Plus </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> MyBatis-Plus </tag>
+            
+        </tags>
       
     </entry>
     
@@ -233,31 +262,6 @@
     
     
     <entry>
-      <title>软件架构文档</title>
-      <link href="2022/03/16/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9E%B6%E6%9E%84%E5%B8%88%E8%AE%AD%E7%BB%83%E8%90%A5/%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95/1-5%E3%80%81%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%96%87%E6%A1%A3/"/>
-      <url>2022/03/16/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9E%B6%E6%9E%84%E5%B8%88%E8%AE%AD%E7%BB%83%E8%90%A5/%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95/1-5%E3%80%81%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%96%87%E6%A1%A3/</url>
-      
-        <content type="html"><![CDATA[<h2 id="架构设计⽂档模板"><a href="#架构设计⽂档模板" class="headerlink" title="架构设计⽂档模板"></a>架构设计⽂档模板</h2><div class="hljs code-wrapper"><pre><code>在软件设计的不同阶段应该设计不同的UML模型，将不同阶段输出的UML模型图放在⼀个⽂ 档中，对每张模型图配以适当的⽂字说明，就构成⼀篇设计⽂档。 对于规模不太⼤的软件系统，我们可以将概要设计⽂档和详细设计⽂档合并成⼀个设计⽂档。 这⾥，我会展现⼀个设计⽂档示例模板，你可以参考这个模板编写你的设计⽂档。 ⽂档开头是设计概述，简单描述业务场景要解决的核⼼问题领域是什么。⾄于业务场景，应该 在专⻔的需求⽂档中描述，但是在设计⽂档中，必须要再简单描述⼀下，以保证设计⽂档的完 整性，这样，即使脱离需求⽂档，阅读者也能理解主要的设计。 此外，在设计概述中，还需要描述设计的⾮功能约束，⽐如关于性能、可⽤性、维护性、安全 性，甚⾄开发和部署成本⽅⾯的设计⽬标。 然后就是具体的设计了，第⼀张设计图应该是部署图，通过部署图描述系统整个物理模型蓝 图，包括未来系统⻓什么样。 如果系统中包含⼏个⼦系统，那么还需要描述⼦系统间的关系，可以通过⼦系统序列图，⼦系 统活动图进⾏描述。 ⼦系统内部的最顶层设计就是组件图，描述⼦系统由哪些组件组成，不同场景中，组件之间的 调⽤序列图是什么样的。 每个组件内部，需要⽤类图进⾏建模描述，对于不同场景，⽤时序图描述类之间的动态调⽤关 系，对于有复杂状态的类，⽤状态图描述其状态转换。 具体示例模板如下： </code></pre></div><h3 id="1-设计概述-……系统是⼀个……的系统，是公司……战略的核⼼系统，承担着公司……的⽬标任务。"><a href="#1-设计概述-……系统是⼀个……的系统，是公司……战略的核⼼系统，承担着公司……的⽬标任务。" class="headerlink" title="1 设计概述 ……系统是⼀个……的系统，是公司……战略的核⼼系统，承担着公司……的⽬标任务。"></a>1 设计概述 ……系统是⼀个……的系统，是公司……战略的核⼼系统，承担着公司……的⽬标任务。</h3><h4 id="1-1-功能概述"><a href="#1-1-功能概述" class="headerlink" title="1.1 功能概述"></a>1.1 功能概述</h4><p>  系统主要功能包括……，使⽤者包括……。 </p><h4 id="1-2-⾮功能约束"><a href="#1-2-⾮功能约束" class="headerlink" title="1.2 ⾮功能约束"></a>1.2 ⾮功能约束</h4><p>  ……系统未来预计⼀年⽤户量达到……，⽇订单量达到……，⽇PV达到……，图⽚数量达到 ……。 </p><ol><li>查询性能⽬标：平均响应时间&lt;300ms，95%响应时间&lt;500ms，单机TPS&gt;100；</li><li>下单性能⽬标：平均响应时间&lt;800ms，95%响应时间&lt;1000ms，单机TPS&gt;30； </li><li>……性能⽬标：平均响应时间&lt;800ms，95%响应时间&lt;1000ms，单机TPS&gt;30； </li><li>系统核⼼功能可⽤性⽬标：&gt;99.97%； </li><li>系统安全性⽬标：系统可拦截…… 、……、……攻击，密码数据散列加密，客户端数据 HTTPS加密，外部系统间通信对称加密； </li><li>数据持久化⽬标：&gt;99.99999%。 </li></ol><h3 id="2-系统部署图与整体设计"><a href="#2-系统部署图与整体设计" class="headerlink" title="2 系统部署图与整体设计"></a>2 系统部署图与整体设计</h3><p>  系统上线时预计部署……台物理机，……个⼦系统，和公司……系统交互，和外部第三⽅…… 个系统交互。 </p><h4 id="2-1-系统部署图-⼦系统1的功能职责为……，部署……台服务器，依赖……和……⼦系统，实现-……功能。-⼦系统2参照⼦系统1来写。"><a href="#2-1-系统部署图-⼦系统1的功能职责为……，部署……台服务器，依赖……和……⼦系统，实现-……功能。-⼦系统2参照⼦系统1来写。" class="headerlink" title="2.1 系统部署图 ⼦系统1的功能职责为……，部署……台服务器，依赖……和……⼦系统，实现 ……功能。 ⼦系统2参照⼦系统1来写。"></a>2.1 系统部署图 ⼦系统1的功能职责为……，部署……台服务器，依赖……和……⼦系统，实现 ……功能。 ⼦系统2参照⼦系统1来写。</h4><h4 id="2-2-下单场景⼦系统序列图"><a href="#2-2-下单场景⼦系统序列图" class="headerlink" title="2.2 下单场景⼦系统序列图"></a>2.2 下单场景⼦系统序列图</h4><ol><li>下单时，⼦系统先发送……消息到⼦系统3，⼦系统3需要执⾏……完成……处理，然后发 送……消息到财务系统，消息中包含……数据。 </li><li>收到……的处理结果……后，⼦系统1发送……消息到……⼦系统2……。 </li></ol><h4 id="2-3-退款场景⼦系统序列图"><a href="#2-3-退款场景⼦系统序列图" class="headerlink" title="2.3 退款场景⼦系统序列图"></a>2.3 退款场景⼦系统序列图</h4><ol><li>退款⼦系统先发送……消息到⼦系统3，⼦系统3需要执⾏……完成……处理，然后发 送……消息到财务系统，消息中包含……数据。</li><li>收到……的处理结果……后，⼦系统1发送……消息到……⼦系统2……。</li></ol><h4 id="2-4-退款场景⼦系统活动图"><a href="#2-4-退款场景⼦系统活动图" class="headerlink" title="2.4 退款场景⼦系统活动图"></a>2.4 退款场景⼦系统活动图</h4><p>如图所示： </p><ol><li>退款开始时，⼦系统1处理XXX，然后判断m的状态，如果m为真，请求⼦系统3处理 ZZZ，如果m为假，⼦系统继续处理ZZZ并结束。 </li><li>⼦系统3处理ZZZ后，⼀⽅⾯继续处理XYZ，⼀⽅⾯将……消息发送给财务通进⾏AAA处 理。 </li><li>⼦系统在处理完XYZ后，返回⼦系统继续梳理YYY，然后退款处理结束。 </li></ol><h3 id="3-⼦系统1设计"><a href="#3-⼦系统1设计" class="headerlink" title="3 ⼦系统1设计"></a>3 ⼦系统1设计</h3><p>⼦系统1的主要功能职责是……，其中主要包含了……组件。 </p><h4 id="3-1-⼦系统1组件图-⼦系统1包含6个组件：-组件1的功能主要是……，需要依赖组件2完成……，是⼦系统1的核⼼组件，⽤户……请求主-要通过组件1完成。-同样的，组件2也可以参照组件1来这样写。"><a href="#3-1-⼦系统1组件图-⼦系统1包含6个组件：-组件1的功能主要是……，需要依赖组件2完成……，是⼦系统1的核⼼组件，⽤户……请求主-要通过组件1完成。-同样的，组件2也可以参照组件1来这样写。" class="headerlink" title="3.1 ⼦系统1组件图 ⼦系统1包含6个组件： 组件1的功能主要是……，需要依赖组件2完成……，是⼦系统1的核⼼组件，⽤户……请求主 要通过组件1完成。 同样的，组件2也可以参照组件1来这样写。"></a>3.1 ⼦系统1组件图 ⼦系统1包含6个组件： 组件1的功能主要是……，需要依赖组件2完成……，是⼦系统1的核⼼组件，⽤户……请求主 要通过组件1完成。 同样的，组件2也可以参照组件1来这样写。</h4><h5 id="3-1-1-场景A组件序列图"><a href="#3-1-1-场景A组件序列图" class="headerlink" title="3.1.1 场景A组件序列图"></a>3.1.1 场景A组件序列图</h5><p>对于场景A，⾸先组件1收到⽤户消息CCC，然后组件1调⽤组件2的XXX⽅法……。 </p><h4 id="3-1-2-场景B组件活动图"><a href="#3-1-2-场景B组件活动图" class="headerlink" title="3.1.2 场景B组件活动图"></a>3.1.2 场景B组件活动图</h4><p>在场景B中，⾸先组件收到……消息，开始处理……，然后判断……，如果为true，那 么……，如果为false，那么……。 </p><h4 id="3-2-组件1设计-组件1的主要功能职责是……，其中主要包含了……类。"><a href="#3-2-组件1设计-组件1的主要功能职责是……，其中主要包含了……类。" class="headerlink" title="3.2 组件1设计 组件1的主要功能职责是……，其中主要包含了……类。"></a>3.2 组件1设计 组件1的主要功能职责是……，其中主要包含了……类。</h4><h5 id="3-2-1-组件1-类图"><a href="#3-2-1-组件1-类图" class="headerlink" title="3.2.1 组件1 类图"></a>3.2.1 组件1 类图</h5><p>Class1实现接⼝Interface1，主要功能是……，Class1聚合了Class2和Class3，共同对外提 供……服务，Class1依赖Class4实现……功能，Class4……。 </p><h5 id="3-2-2-场景A-类序列图"><a href="#3-2-2-场景A-类序列图" class="headerlink" title="3.2.2 场景A 类序列图"></a>3.2.2 场景A 类序列图</h5><p>在场景A中，当外部应⽤调⽤类1的create⽅法时，类1……。 </p><h5 id="3-2-3-对象1状态图"><a href="#3-2-3-对象1状态图" class="headerlink" title="3.2.3 对象1状态图"></a>3.2.3 对象1状态图</h5><p>对象1运⾏时有4种状态，初始状态是状态1，当条件1满⾜是，状态1转换为状态2，当条件3 满⾜时，状态2转换为状态4……。 </p><h4 id="3-3-组件2设计-重复上⾯的格式。"><a href="#3-3-组件2设计-重复上⾯的格式。" class="headerlink" title="3.3 组件2设计 重复上⾯的格式。"></a>3.3 组件2设计 重复上⾯的格式。</h4><h3 id="4-⼦系统2设计-重复上⾯的格式。"><a href="#4-⼦系统2设计-重复上⾯的格式。" class="headerlink" title="4 ⼦系统2设计 重复上⾯的格式。"></a>4 ⼦系统2设计 重复上⾯的格式。</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> 架构 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 架构 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>UML建模工具和方法</title>
       <link href="2022/03/16/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9E%B6%E6%9E%84%E5%B8%88%E8%AE%AD%E7%BB%83%E8%90%A5/%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95/1-4%E3%80%81UML%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%E5%92%8C%E6%96%B9%E6%B3%95/"/>
       <url>2022/03/16/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9E%B6%E6%9E%84%E5%B8%88%E8%AE%AD%E7%BB%83%E8%90%A5/%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95/1-4%E3%80%81UML%E5%BB%BA%E6%A8%A1%E5%B7%A5%E5%85%B7%E5%92%8C%E6%96%B9%E6%B3%95/</url>
@@ -279,6 +283,31 @@
             <tag> 架构 </tag>
             
             <tag> UML </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软件架构文档</title>
+      <link href="2022/03/16/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9E%B6%E6%9E%84%E5%B8%88%E8%AE%AD%E7%BB%83%E8%90%A5/%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95/1-5%E3%80%81%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%96%87%E6%A1%A3/"/>
+      <url>2022/03/16/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%9E%B6%E6%9E%84%E5%B8%88%E8%AE%AD%E7%BB%83%E8%90%A5/%E6%9E%B6%E6%9E%84%E6%96%B9%E6%B3%95/1-5%E3%80%81%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E6%96%87%E6%A1%A3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="架构设计⽂档模板"><a href="#架构设计⽂档模板" class="headerlink" title="架构设计⽂档模板"></a>架构设计⽂档模板</h2><div class="hljs code-wrapper"><pre><code>在软件设计的不同阶段应该设计不同的UML模型，将不同阶段输出的UML模型图放在⼀个⽂ 档中，对每张模型图配以适当的⽂字说明，就构成⼀篇设计⽂档。 对于规模不太⼤的软件系统，我们可以将概要设计⽂档和详细设计⽂档合并成⼀个设计⽂档。 这⾥，我会展现⼀个设计⽂档示例模板，你可以参考这个模板编写你的设计⽂档。 ⽂档开头是设计概述，简单描述业务场景要解决的核⼼问题领域是什么。⾄于业务场景，应该 在专⻔的需求⽂档中描述，但是在设计⽂档中，必须要再简单描述⼀下，以保证设计⽂档的完 整性，这样，即使脱离需求⽂档，阅读者也能理解主要的设计。 此外，在设计概述中，还需要描述设计的⾮功能约束，⽐如关于性能、可⽤性、维护性、安全 性，甚⾄开发和部署成本⽅⾯的设计⽬标。 然后就是具体的设计了，第⼀张设计图应该是部署图，通过部署图描述系统整个物理模型蓝 图，包括未来系统⻓什么样。 如果系统中包含⼏个⼦系统，那么还需要描述⼦系统间的关系，可以通过⼦系统序列图，⼦系 统活动图进⾏描述。 ⼦系统内部的最顶层设计就是组件图，描述⼦系统由哪些组件组成，不同场景中，组件之间的 调⽤序列图是什么样的。 每个组件内部，需要⽤类图进⾏建模描述，对于不同场景，⽤时序图描述类之间的动态调⽤关 系，对于有复杂状态的类，⽤状态图描述其状态转换。 具体示例模板如下： </code></pre></div><h3 id="1-设计概述-……系统是⼀个……的系统，是公司……战略的核⼼系统，承担着公司……的⽬标任务。"><a href="#1-设计概述-……系统是⼀个……的系统，是公司……战略的核⼼系统，承担着公司……的⽬标任务。" class="headerlink" title="1 设计概述 ……系统是⼀个……的系统，是公司……战略的核⼼系统，承担着公司……的⽬标任务。"></a>1 设计概述 ……系统是⼀个……的系统，是公司……战略的核⼼系统，承担着公司……的⽬标任务。</h3><h4 id="1-1-功能概述"><a href="#1-1-功能概述" class="headerlink" title="1.1 功能概述"></a>1.1 功能概述</h4><p>  系统主要功能包括……，使⽤者包括……。 </p><h4 id="1-2-⾮功能约束"><a href="#1-2-⾮功能约束" class="headerlink" title="1.2 ⾮功能约束"></a>1.2 ⾮功能约束</h4><p>  ……系统未来预计⼀年⽤户量达到……，⽇订单量达到……，⽇PV达到……，图⽚数量达到 ……。 </p><ol><li>查询性能⽬标：平均响应时间&lt;300ms，95%响应时间&lt;500ms，单机TPS&gt;100；</li><li>下单性能⽬标：平均响应时间&lt;800ms，95%响应时间&lt;1000ms，单机TPS&gt;30； </li><li>……性能⽬标：平均响应时间&lt;800ms，95%响应时间&lt;1000ms，单机TPS&gt;30； </li><li>系统核⼼功能可⽤性⽬标：&gt;99.97%； </li><li>系统安全性⽬标：系统可拦截…… 、……、……攻击，密码数据散列加密，客户端数据 HTTPS加密，外部系统间通信对称加密； </li><li>数据持久化⽬标：&gt;99.99999%。 </li></ol><h3 id="2-系统部署图与整体设计"><a href="#2-系统部署图与整体设计" class="headerlink" title="2 系统部署图与整体设计"></a>2 系统部署图与整体设计</h3><p>  系统上线时预计部署……台物理机，……个⼦系统，和公司……系统交互，和外部第三⽅…… 个系统交互。 </p><h4 id="2-1-系统部署图-⼦系统1的功能职责为……，部署……台服务器，依赖……和……⼦系统，实现-……功能。-⼦系统2参照⼦系统1来写。"><a href="#2-1-系统部署图-⼦系统1的功能职责为……，部署……台服务器，依赖……和……⼦系统，实现-……功能。-⼦系统2参照⼦系统1来写。" class="headerlink" title="2.1 系统部署图 ⼦系统1的功能职责为……，部署……台服务器，依赖……和……⼦系统，实现 ……功能。 ⼦系统2参照⼦系统1来写。"></a>2.1 系统部署图 ⼦系统1的功能职责为……，部署……台服务器，依赖……和……⼦系统，实现 ……功能。 ⼦系统2参照⼦系统1来写。</h4><h4 id="2-2-下单场景⼦系统序列图"><a href="#2-2-下单场景⼦系统序列图" class="headerlink" title="2.2 下单场景⼦系统序列图"></a>2.2 下单场景⼦系统序列图</h4><ol><li>下单时，⼦系统先发送……消息到⼦系统3，⼦系统3需要执⾏……完成……处理，然后发 送……消息到财务系统，消息中包含……数据。 </li><li>收到……的处理结果……后，⼦系统1发送……消息到……⼦系统2……。 </li></ol><h4 id="2-3-退款场景⼦系统序列图"><a href="#2-3-退款场景⼦系统序列图" class="headerlink" title="2.3 退款场景⼦系统序列图"></a>2.3 退款场景⼦系统序列图</h4><ol><li>退款⼦系统先发送……消息到⼦系统3，⼦系统3需要执⾏……完成……处理，然后发 送……消息到财务系统，消息中包含……数据。</li><li>收到……的处理结果……后，⼦系统1发送……消息到……⼦系统2……。</li></ol><h4 id="2-4-退款场景⼦系统活动图"><a href="#2-4-退款场景⼦系统活动图" class="headerlink" title="2.4 退款场景⼦系统活动图"></a>2.4 退款场景⼦系统活动图</h4><p>如图所示： </p><ol><li>退款开始时，⼦系统1处理XXX，然后判断m的状态，如果m为真，请求⼦系统3处理 ZZZ，如果m为假，⼦系统继续处理ZZZ并结束。 </li><li>⼦系统3处理ZZZ后，⼀⽅⾯继续处理XYZ，⼀⽅⾯将……消息发送给财务通进⾏AAA处 理。 </li><li>⼦系统在处理完XYZ后，返回⼦系统继续梳理YYY，然后退款处理结束。 </li></ol><h3 id="3-⼦系统1设计"><a href="#3-⼦系统1设计" class="headerlink" title="3 ⼦系统1设计"></a>3 ⼦系统1设计</h3><p>⼦系统1的主要功能职责是……，其中主要包含了……组件。 </p><h4 id="3-1-⼦系统1组件图-⼦系统1包含6个组件：-组件1的功能主要是……，需要依赖组件2完成……，是⼦系统1的核⼼组件，⽤户……请求主-要通过组件1完成。-同样的，组件2也可以参照组件1来这样写。"><a href="#3-1-⼦系统1组件图-⼦系统1包含6个组件：-组件1的功能主要是……，需要依赖组件2完成……，是⼦系统1的核⼼组件，⽤户……请求主-要通过组件1完成。-同样的，组件2也可以参照组件1来这样写。" class="headerlink" title="3.1 ⼦系统1组件图 ⼦系统1包含6个组件： 组件1的功能主要是……，需要依赖组件2完成……，是⼦系统1的核⼼组件，⽤户……请求主 要通过组件1完成。 同样的，组件2也可以参照组件1来这样写。"></a>3.1 ⼦系统1组件图 ⼦系统1包含6个组件： 组件1的功能主要是……，需要依赖组件2完成……，是⼦系统1的核⼼组件，⽤户……请求主 要通过组件1完成。 同样的，组件2也可以参照组件1来这样写。</h4><h5 id="3-1-1-场景A组件序列图"><a href="#3-1-1-场景A组件序列图" class="headerlink" title="3.1.1 场景A组件序列图"></a>3.1.1 场景A组件序列图</h5><p>对于场景A，⾸先组件1收到⽤户消息CCC，然后组件1调⽤组件2的XXX⽅法……。 </p><h4 id="3-1-2-场景B组件活动图"><a href="#3-1-2-场景B组件活动图" class="headerlink" title="3.1.2 场景B组件活动图"></a>3.1.2 场景B组件活动图</h4><p>在场景B中，⾸先组件收到……消息，开始处理……，然后判断……，如果为true，那 么……，如果为false，那么……。 </p><h4 id="3-2-组件1设计-组件1的主要功能职责是……，其中主要包含了……类。"><a href="#3-2-组件1设计-组件1的主要功能职责是……，其中主要包含了……类。" class="headerlink" title="3.2 组件1设计 组件1的主要功能职责是……，其中主要包含了……类。"></a>3.2 组件1设计 组件1的主要功能职责是……，其中主要包含了……类。</h4><h5 id="3-2-1-组件1-类图"><a href="#3-2-1-组件1-类图" class="headerlink" title="3.2.1 组件1 类图"></a>3.2.1 组件1 类图</h5><p>Class1实现接⼝Interface1，主要功能是……，Class1聚合了Class2和Class3，共同对外提 供……服务，Class1依赖Class4实现……功能，Class4……。 </p><h5 id="3-2-2-场景A-类序列图"><a href="#3-2-2-场景A-类序列图" class="headerlink" title="3.2.2 场景A 类序列图"></a>3.2.2 场景A 类序列图</h5><p>在场景A中，当外部应⽤调⽤类1的create⽅法时，类1……。 </p><h5 id="3-2-3-对象1状态图"><a href="#3-2-3-对象1状态图" class="headerlink" title="3.2.3 对象1状态图"></a>3.2.3 对象1状态图</h5><p>对象1运⾏时有4种状态，初始状态是状态1，当条件1满⾜是，状态1转换为状态2，当条件3 满⾜时，状态2转换为状态4……。 </p><h4 id="3-3-组件2设计-重复上⾯的格式。"><a href="#3-3-组件2设计-重复上⾯的格式。" class="headerlink" title="3.3 组件2设计 重复上⾯的格式。"></a>3.3 组件2设计 重复上⾯的格式。</h4><h3 id="4-⼦系统2设计-重复上⾯的格式。"><a href="#4-⼦系统2设计-重复上⾯的格式。" class="headerlink" title="4 ⼦系统2设计 重复上⾯的格式。"></a>4 ⼦系统2设计 重复上⾯的格式。</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 架构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 架构 </tag>
             
         </tags>
       
@@ -1617,6 +1646,35 @@
     
     
     <entry>
+      <title>Restful API</title>
+      <link href="2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Restful%20API/"/>
+      <url>2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Restful%20API/</url>
+      
+        <content type="html"><![CDATA[<p>课程地址：<a href="https://coding.imooc.com/class/122.html">https://coding.imooc.com/class/122.html</a><br><img src="https://img-blog.csdnimg.cn/2019060415535131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 微服务 </category>
+          
+          <category> Restful </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微服务 </tag>
+            
+            <tag> Restful </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微服务理念</title>
       <link href="2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%90%86%E5%BF%B5/"/>
       <url>2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%90%86%E5%BF%B5/</url>
@@ -1684,35 +1742,6 @@
         <tags>
             
             <tag> 微服务 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Restful API</title>
-      <link href="2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Restful%20API/"/>
-      <url>2020/12/22/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Restful%20API/</url>
-      
-        <content type="html"><![CDATA[<p>课程地址：<a href="https://coding.imooc.com/class/122.html">https://coding.imooc.com/class/122.html</a><br><img src="https://img-blog.csdnimg.cn/2019060415535131.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 微服务 </category>
-          
-          <category> Restful </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 微服务 </tag>
-            
-            <tag> Restful </tag>
             
         </tags>
       
@@ -1979,6 +2008,64 @@
     
     
     <entry>
+      <title>Redis 高可用解决方案总结</title>
+      <link href="2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/"/>
+      <url>2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<p>Redis 高可用解决方案总结：<a href="https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+          <category> Redis </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> Redis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深入理解 Mysql 索引底层原理</title>
+      <link href="2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/"/>
+      <url>2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<p>深入理解 Mysql 索引底层原理 - <a href="https://zhuanlan.zhihu.com/p/113917726">https://zhuanlan.zhihu.com/p/113917726</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mysql查看建表的注释</title>
       <link href="2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/"/>
       <url>2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/mysql%E6%9F%A5%E7%9C%8B%E5%BB%BA%E8%A1%A8%E7%9A%84%E6%B3%A8%E9%87%8A/</url>
@@ -2066,35 +2153,6 @@
     
     
     <entry>
-      <title>redis-list</title>
-      <link href="2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/"/>
-      <url>2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/</url>
-      
-        <content type="html"><![CDATA[<ul><li>控制List的长度，每次push或者pop的时候，可以使用ltrim()函数让list保持固定长度</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数据库 </category>
-          
-          <category> Redis </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据库 </tag>
-            
-            <tag> Redis </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>MySQL数据库性能分析和优化</title>
       <link href="2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/"/>
       <url>2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96/</url>
@@ -2124,40 +2182,11 @@
     
     
     <entry>
-      <title>深入理解 Mysql 索引底层原理</title>
-      <link href="2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/"/>
-      <url>2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20Mysql%20%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</url>
+      <title>redis-list</title>
+      <link href="2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/"/>
+      <url>2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/redis-list/</url>
       
-        <content type="html"><![CDATA[<p>深入理解 Mysql 索引底层原理 - <a href="https://zhuanlan.zhihu.com/p/113917726">https://zhuanlan.zhihu.com/p/113917726</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 数据库 </category>
-          
-          <category> MySQL </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 数据库 </tag>
-            
-            <tag> MySQL </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Redis 高可用解决方案总结</title>
-      <link href="2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/"/>
-      <url>2019/10/18/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E9%AB%98%E5%8F%AF%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93/</url>
-      
-        <content type="html"><![CDATA[<p>Redis 高可用解决方案总结：<a href="https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA==&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW">https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&amp;mid=2247487221&amp;idx=1&amp;sn=1c3182ad46e8781a04f49ec8ad53f482&amp;chksm=eb538bc3dc2402d5df24a37ec0c0c31099d152df6d3b62380ccebf7f4ec04e64a8dadd83fd7b&amp;mpshare=1&amp;scene=24&amp;srcid=05031WU0aEvCwiVHBCld65XU&amp;key=bf4cf7f356eb2752d8a578bd21d61203d7e72957a4125eb1fe25f0b2384de21e8c81b4a3811eb1285d479714fea7aaa1aa4249cb83cdd5c96b083e77b1c3747440db1862d7b543a903029fb6330afa7a&amp;ascene=14&amp;uin=MTkwNjk4NjAxMA%3D%3D&amp;devicetype=Windows+10&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=JogDaVDjKXx9W3zQZ2sl6TAUdMDS7rKA0Zb9hMwwVMC4ALxeAySdvq8JADMCeINW</a></p>]]></content>
+        <content type="html"><![CDATA[<ul><li>控制List的长度，每次push或者pop的时候，可以使用ltrim()函数让list保持固定长度</li></ul>]]></content>
       
       
       <categories>
@@ -2199,6 +2228,64 @@
         <tags>
             
             <tag> ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HTTPS 比 HTTP 更安全</title>
+      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/"/>
+      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/</url>
+      
+        <content type="html"><![CDATA[<p>为什么 HTTPS 比 HTTP 更安全？：<a href="https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882">https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机相关 </category>
+          
+          <category> HTTP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机相关 </tag>
+            
+            <tag> HTTP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TensorFlow学习笔记3</title>
+      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p><strong>Variable变量的简单使用</strong></p><p>在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的</p><figure class="highlight pf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pf">import tensorflow as tf<br><br><span class="hljs-keyword">state</span> = tf.Variable(<span class="hljs-number">0</span>,name = &#x27;counter&#x27;)<br>print(<span class="hljs-keyword">state</span>.name)<br><br>one = tf.constant(<span class="hljs-number">1</span>)<br><br>new_vaule = tf.add(<span class="hljs-keyword">state</span>,one)<br>update = tf.assign(<span class="hljs-keyword">state</span>,new_vaule)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br>init = tf.global_variables_initializer()<br><br><br>sess = tf.Session()<br>sess.run(init)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    sess.run(update)<br>    print(sess.run(<span class="hljs-keyword">state</span>))<br>sess.close()<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">counter</span>:<span class="hljs-number">0</span><br><br><span class="hljs-attribute">1</span><br><span class="hljs-attribute">2</span><br><span class="hljs-attribute">3</span><br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机相关 </category>
+          
+          <category> TensorFlow </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机相关 </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
@@ -2261,35 +2348,6 @@
     
     
     <entry>
-      <title>TensorFlow学习笔记6</title>
-      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/"/>
-      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/</url>
-      
-        <content type="html"><![CDATA[<h2 id="TensorFlow搭建神经网络可视化结果"><a href="#TensorFlow搭建神经网络可视化结果" class="headerlink" title="TensorFlow搭建神经网络可视化结果"></a>TensorFlow搭建神经网络可视化结果</h2><figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">import tensorflow <span class="hljs-keyword">as</span> tf<br>import numpy <span class="hljs-keyword">as</span> np<br>import matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>def add<span class="hljs-constructor">_layer(<span class="hljs-params">inputs</span>, <span class="hljs-params">in_size</span>, <span class="hljs-params">out_size</span>, <span class="hljs-params">activation_function</span> = None)</span>:<br>    Weights = tf.<span class="hljs-constructor">Variable(<span class="hljs-params">tf</span>.<span class="hljs-params">random_normal</span>([<span class="hljs-params">in_size</span>, <span class="hljs-params">out_size</span>])</span>)<br>    biases = tf.<span class="hljs-constructor">Variable(<span class="hljs-params">tf</span>.<span class="hljs-params">zeros</span>([1, <span class="hljs-params">out_size</span>])</span> + <span class="hljs-number">0.1</span>)<br>    Wx_plus_b = tf.matmul(inputs, Weights) + biases<br>    <span class="hljs-keyword">if</span> activation_function is None:<br>        outputs = Wx_plus_b<br>    <span class="hljs-keyword">else</span>:<br>        outputs = activation<span class="hljs-constructor">_function(Wx_plus_b)</span><br>    return outputs<br><br>x_data = np.linspace(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">300</span>)<span class="hljs-literal">[:,<span class="hljs-identifier">np</span>.<span class="hljs-identifier">newaxis</span>]</span><br>noise = np.random.normal(<span class="hljs-number">0</span>,<span class="hljs-number">0.05</span>,x_data.shape)<br>y_data = np.square(x_data) - <span class="hljs-number">0.5</span> + noise<br><br><br>xs = tf.placeholder(tf.float32,<span class="hljs-literal">[N<span class="hljs-identifier">one</span>,<span class="hljs-number">1</span>]</span>)<br>ys = tf.placeholder(tf.float32,<span class="hljs-literal">[N<span class="hljs-identifier">one</span>,<span class="hljs-number">1</span>]</span>)<br>l1 = add<span class="hljs-constructor">_layer(<span class="hljs-params">xs</span>,1,10,<span class="hljs-params">activation_function</span> = <span class="hljs-params">tf</span>.<span class="hljs-params">nn</span>.<span class="hljs-params">relu</span>)</span><br>prediction = add<span class="hljs-constructor">_layer(<span class="hljs-params">l1</span>,10,1,<span class="hljs-params">activation_function</span>=None)</span><br><br><br>loss =tf.reduce<span class="hljs-constructor">_mean(<span class="hljs-params">tf</span>.<span class="hljs-params">reduce_sum</span>(<span class="hljs-params">tf</span>.<span class="hljs-params">square</span>(<span class="hljs-params">ys</span> - <span class="hljs-params">prediction</span>)</span>,<br>                    reduction_indices=<span class="hljs-literal">[<span class="hljs-number">1</span>]</span>))<br><br>train_step = tf.train.<span class="hljs-constructor">GradientDescentOptimizer(0.1)</span>.minimize(loss)<br><br># init = tf.initialize<span class="hljs-constructor">_all_variables()</span><br>init = tf.global<span class="hljs-constructor">_variables_initializer()</span><br><br>sess = tf.<span class="hljs-constructor">Session()</span><br>sess.run(init)<br><br>fig = plt.figure<span class="hljs-literal">()</span><br>ax = fig.add<span class="hljs-constructor">_subplot(1,1,1)</span><br>ax.scatter(x_data,y_data)<br><br>plt.ion<span class="hljs-literal">()</span><br>plt.show<span class="hljs-literal">()</span><br># plt.close<span class="hljs-literal">()</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):<br>    sess.run(train_step,feed_dict=&#123;xs:x_data,ys:y_data&#125;)<br>    <span class="hljs-keyword">if</span> i % <span class="hljs-number">50</span><span class="hljs-operator"> == </span><span class="hljs-number">0</span>:<br>        # print(sess.run(loss,feed_dict=&#123;xs:x_data,ys:y_data&#125;))<br><br>        <span class="hljs-keyword">try</span>:<br>            ax.lines.remove(lines<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>)<br>        except Exception:<br>            pass<br><br>        prediction_value = sess.run(prediction,feed_dict=&#123;xs:x_data&#125;)<br>        lines = ax.plot(x_data,prediction_value,&#x27;r-&#x27;,lw = <span class="hljs-number">3</span>)<br>        plt.pause(<span class="hljs-number">0.5</span>)<br><br><br></code></pre></div></td></tr></table></figure><p>运行的效果<br><img src="https://img-blog.csdn.net/20180407000723874?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机相关 </category>
-          
-          <category> TensorFlow </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 计算机相关 </tag>
-            
-            <tag> TensorFlow </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ubuntu 20.04 设置不见了</title>
       <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/"/>
       <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/%E5%B7%A5%E5%85%B7/ubuntu%2020.04%20%E8%AE%BE%E7%BD%AE%E4%B8%8D%E8%A7%81%E4%BA%86/</url>
@@ -2307,35 +2365,6 @@
         <tags>
             
             <tag> ubuntu </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HTTPS 比 HTTP 更安全</title>
-      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/"/>
-      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTPS%20%E6%AF%94%20HTTP%20%E6%9B%B4%E5%AE%89%E5%85%A8/</url>
-      
-        <content type="html"><![CDATA[<p>为什么 HTTPS 比 HTTP 更安全？：<a href="https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882">https://mp.weixin.qq.com/s/xAXiY_7Lvog-Xrq6qEokUQ?client=tim&amp;ADUIN=1348954449&amp;ADSESSION=1561252296&amp;ADTAG=CLIENT.QQ.5603_.0&amp;ADPUBNO=26882</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机相关 </category>
-          
-          <category> HTTP </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 计算机相关 </tag>
-            
-            <tag> HTTP </tag>
             
         </tags>
       
@@ -2373,11 +2402,11 @@
     
     
     <entry>
-      <title>TensorFlow学习笔记3</title>
-      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+      <title>TensorFlow学习笔记4</title>
+      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
+      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p><strong>Variable变量的简单使用</strong></p><p>在 Tensorflow 中，定义了某字符串是变量，它才是变量，这一点是与 Python 所不同的</p><figure class="highlight pf"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pf">import tensorflow as tf<br><br><span class="hljs-keyword">state</span> = tf.Variable(<span class="hljs-number">0</span>,name = &#x27;counter&#x27;)<br>print(<span class="hljs-keyword">state</span>.name)<br><br>one = tf.constant(<span class="hljs-number">1</span>)<br><br>new_vaule = tf.add(<span class="hljs-keyword">state</span>,one)<br>update = tf.assign(<span class="hljs-keyword">state</span>,new_vaule)<br><br><span class="hljs-comment"># 2018-4-6记录</span><br><span class="hljs-comment"># 莫烦的视频中用的是老版本 initialize_all_variables()</span><br><span class="hljs-comment"># 现在新版的函数是 global_variables_initializer()</span><br><span class="hljs-comment"># init = tf.initialize_all_variables()</span><br>init = tf.global_variables_initializer()<br><br><br>sess = tf.Session()<br>sess.run(init)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):<br>    sess.run(update)<br>    print(sess.run(<span class="hljs-keyword">state</span>))<br>sess.close()<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">counter</span>:<span class="hljs-number">0</span><br><br><span class="hljs-attribute">1</span><br><span class="hljs-attribute">2</span><br><span class="hljs-attribute">3</span><br></code></pre></div></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p><strong>placeholder传值</strong></p><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">import tensorflow <span class="hljs-keyword">as</span> <span class="hljs-keyword">tf</span><br><br>input1 = <span class="hljs-keyword">tf</span>.placeholder(<span class="hljs-keyword">tf</span>.float32)<br>input2 = <span class="hljs-keyword">tf</span>.placeholder(<span class="hljs-keyword">tf</span>.float32)<br><br>output = <span class="hljs-keyword">tf</span>.multiply(input1,input2)<br><br># with <span class="hljs-keyword">tf</span>.Session <span class="hljs-keyword">as</span> ses<span class="hljs-variable">s:</span><br>sess = <span class="hljs-keyword">tf</span>.Session()<br><span class="hljs-keyword">print</span>(sess.run(output,feed_dict=&#123;input1:[<span class="hljs-number">7</span>.],input2:[<span class="hljs-number">2</span>.]&#125;))<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">[<span class="hljs-number">14.</span>]<br></code></pre></div></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -2427,18 +2456,18 @@
     
     
     <entry>
-      <title>TensorFlow学习笔记4</title>
-      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/"/>
-      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+      <title>HTTP 返回码详解</title>
+      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
+      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
       
-        <content type="html"><![CDATA[<p><strong>placeholder传值</strong></p><figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">import tensorflow <span class="hljs-keyword">as</span> <span class="hljs-keyword">tf</span><br><br>input1 = <span class="hljs-keyword">tf</span>.placeholder(<span class="hljs-keyword">tf</span>.float32)<br>input2 = <span class="hljs-keyword">tf</span>.placeholder(<span class="hljs-keyword">tf</span>.float32)<br><br>output = <span class="hljs-keyword">tf</span>.multiply(input1,input2)<br><br># with <span class="hljs-keyword">tf</span>.Session <span class="hljs-keyword">as</span> ses<span class="hljs-variable">s:</span><br>sess = <span class="hljs-keyword">tf</span>.Session()<br><span class="hljs-keyword">print</span>(sess.run(output,feed_dict=&#123;input1:[<span class="hljs-number">7</span>.],input2:[<span class="hljs-number">2</span>.]&#125;))<br></code></pre></div></td></tr></table></figure><p>运行的结果</p><figure class="highlight json"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs json">[<span class="hljs-number">14.</span>]<br></code></pre></div></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p> HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。</p><p>##1xx（临时响应）<br><strong>表示临时响应并需要请求者继续执行操作的状态代码。</strong></p><ul><li>100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。  </li><li>101（切换协议）请求者已要求服务器切换协议，服务器已确认并准备切换。</li></ul><p>##2xx （成功）<br><strong>表示成功处理了请求的状态代码。</strong></p><ul><li><p>200（成功）服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</p></li><li><p>201（已创建）请求成功并且服务器创建了新的资源。</p></li><li><p>202（已接受） 服务器已接受请求，但尚未处理。</p></li><li><p>203（非授权信息）服务器已成功处理了请求，但返回的信息可能来自另一来源。</p></li><li><p>204（无内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>205（重置内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>206（部分内容）服务器成功处理了部分 GET 请求。</p></li></ul><p>##3xx （重定向）<br><strong>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</strong></p><ul><li><p>300（多种选择）针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p></li><li><p>301（永久移动）请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p></li><li><p>302（临时移动）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li><li><p>303（查看其他位置）请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p></li><li><p>304（未修改）自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</p></li><li><p>305（使用代理）请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</p></li><li><p>307（临时重定向）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li></ul><p>##4xx（请求错误）<br><strong>这些状态代码表示请求可能出错，妨碍了服务器的处理。</strong></p><ul><li><p>400（错误请求）服务器不理解请求的语法。</p></li><li><p>401（未授权）请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</p></li><li><p>403（禁止）服务器拒绝请求。</p></li><li><p>404（未找到）服务器找不到请求的网页。</p></li><li><p>405（方法禁用）禁用请求中指定的方法。</p></li><li><p>406（不接受）无法使用请求的内容特性响应请求的网页。</p></li><li><p>407（需要代理授权）此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p></li><li><p>408（请求超时）服务器等候请求时发生超时。</p></li><li><p>409（冲突）服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</p></li><li><p>410（已删除）如果请求的资源已永久删除，服务器就会返回此响应。</p></li><li><p>411（需要有效长度）服务器不接受不含有效内容长度标头字段的请求。</p></li><li><p>412（未满足前提条件）服务器未满足请求者在请求中设置的其中一个前提条件。</p></li><li><p>413（请求实体过大）服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</p></li><li><p>414（请求的 URI 过长）请求的 URI（通常为网址）过长，服务器无法处理。</p></li><li><p>415（不支持的媒体类型）请求的格式不受请求页面的支持。</p></li><li><p>416（请求范围不符合要求）如果页面无法提供请求的范围，则服务器会返回此状态代码。</p></li><li><p>417（未满足期望值）服务器未满足”期望”请求标头字段的要求。</p></li></ul><p>##5xx（服务器错误）<br><strong>这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</strong></p><ul><li>500（服务器内部错误）服务器遇到错误，无法完成请求。</li></ul><p>501（尚未实施）服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</p><ul><li><p>502（错误网关）服务器作为网关或代理，从上游服务器收到无效响应。</p></li><li><p>503（服务不可用）服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</p></li><li><p>504（网关超时）服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p></li><li><p>505（HTTP 版本不受支持）服务器不支持请求中所用的 HTTP 协议版本。</p></li></ul>]]></content>
       
       
       <categories>
           
           <category> 计算机相关 </category>
           
-          <category> TensorFlow </category>
+          <category> HTTP </category>
           
       </categories>
       
@@ -2447,7 +2476,7 @@
             
             <tag> 计算机相关 </tag>
             
-            <tag> TensorFlow </tag>
+            <tag> HTTP </tag>
             
         </tags>
       
@@ -2485,18 +2514,18 @@
     
     
     <entry>
-      <title>HTTP 返回码详解</title>
-      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/"/>
-      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/HTTP/HTTP%20%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%A6%E8%A7%A3/</url>
+      <title>TensorFlow学习笔记6</title>
+      <link href="2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/"/>
+      <url>2019/09/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/TensorFlow/TensorFlow%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p> HTTP状态码（HTTP Status Code）是用以表示网页服务器HTTP响应状态的3位数字代码。它由 RFC 2616 规范定义的，并得到RFC 2518、RFC 2817、RFC 2295、RFC 2774、RFC 4918等规范扩展。</p><p>##1xx（临时响应）<br><strong>表示临时响应并需要请求者继续执行操作的状态代码。</strong></p><ul><li>100（继续）请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。  </li><li>101（切换协议）请求者已要求服务器切换协议，服务器已确认并准备切换。</li></ul><p>##2xx （成功）<br><strong>表示成功处理了请求的状态代码。</strong></p><ul><li><p>200（成功）服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。</p></li><li><p>201（已创建）请求成功并且服务器创建了新的资源。</p></li><li><p>202（已接受） 服务器已接受请求，但尚未处理。</p></li><li><p>203（非授权信息）服务器已成功处理了请求，但返回的信息可能来自另一来源。</p></li><li><p>204（无内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>205（重置内容）服务器成功处理了请求，但没有返回任何内容。</p></li><li><p>206（部分内容）服务器成功处理了部分 GET 请求。</p></li></ul><p>##3xx （重定向）<br><strong>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</strong></p><ul><li><p>300（多种选择）针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p></li><li><p>301（永久移动）请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p></li><li><p>302（临时移动）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li><li><p>303（查看其他位置）请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p></li><li><p>304（未修改）自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</p></li><li><p>305（使用代理）请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</p></li><li><p>307（临时重定向）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p></li></ul><p>##4xx（请求错误）<br><strong>这些状态代码表示请求可能出错，妨碍了服务器的处理。</strong></p><ul><li><p>400（错误请求）服务器不理解请求的语法。</p></li><li><p>401（未授权）请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</p></li><li><p>403（禁止）服务器拒绝请求。</p></li><li><p>404（未找到）服务器找不到请求的网页。</p></li><li><p>405（方法禁用）禁用请求中指定的方法。</p></li><li><p>406（不接受）无法使用请求的内容特性响应请求的网页。</p></li><li><p>407（需要代理授权）此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p></li><li><p>408（请求超时）服务器等候请求时发生超时。</p></li><li><p>409（冲突）服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</p></li><li><p>410（已删除）如果请求的资源已永久删除，服务器就会返回此响应。</p></li><li><p>411（需要有效长度）服务器不接受不含有效内容长度标头字段的请求。</p></li><li><p>412（未满足前提条件）服务器未满足请求者在请求中设置的其中一个前提条件。</p></li><li><p>413（请求实体过大）服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</p></li><li><p>414（请求的 URI 过长）请求的 URI（通常为网址）过长，服务器无法处理。</p></li><li><p>415（不支持的媒体类型）请求的格式不受请求页面的支持。</p></li><li><p>416（请求范围不符合要求）如果页面无法提供请求的范围，则服务器会返回此状态代码。</p></li><li><p>417（未满足期望值）服务器未满足”期望”请求标头字段的要求。</p></li></ul><p>##5xx（服务器错误）<br><strong>这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</strong></p><ul><li>500（服务器内部错误）服务器遇到错误，无法完成请求。</li></ul><p>501（尚未实施）服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</p><ul><li><p>502（错误网关）服务器作为网关或代理，从上游服务器收到无效响应。</p></li><li><p>503（服务不可用）服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</p></li><li><p>504（网关超时）服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p></li><li><p>505（HTTP 版本不受支持）服务器不支持请求中所用的 HTTP 协议版本。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="TensorFlow搭建神经网络可视化结果"><a href="#TensorFlow搭建神经网络可视化结果" class="headerlink" title="TensorFlow搭建神经网络可视化结果"></a>TensorFlow搭建神经网络可视化结果</h2><figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">import tensorflow <span class="hljs-keyword">as</span> tf<br>import numpy <span class="hljs-keyword">as</span> np<br>import matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>def add<span class="hljs-constructor">_layer(<span class="hljs-params">inputs</span>, <span class="hljs-params">in_size</span>, <span class="hljs-params">out_size</span>, <span class="hljs-params">activation_function</span> = None)</span>:<br>    Weights = tf.<span class="hljs-constructor">Variable(<span class="hljs-params">tf</span>.<span class="hljs-params">random_normal</span>([<span class="hljs-params">in_size</span>, <span class="hljs-params">out_size</span>])</span>)<br>    biases = tf.<span class="hljs-constructor">Variable(<span class="hljs-params">tf</span>.<span class="hljs-params">zeros</span>([1, <span class="hljs-params">out_size</span>])</span> + <span class="hljs-number">0.1</span>)<br>    Wx_plus_b = tf.matmul(inputs, Weights) + biases<br>    <span class="hljs-keyword">if</span> activation_function is None:<br>        outputs = Wx_plus_b<br>    <span class="hljs-keyword">else</span>:<br>        outputs = activation<span class="hljs-constructor">_function(Wx_plus_b)</span><br>    return outputs<br><br>x_data = np.linspace(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">300</span>)<span class="hljs-literal">[:,<span class="hljs-identifier">np</span>.<span class="hljs-identifier">newaxis</span>]</span><br>noise = np.random.normal(<span class="hljs-number">0</span>,<span class="hljs-number">0.05</span>,x_data.shape)<br>y_data = np.square(x_data) - <span class="hljs-number">0.5</span> + noise<br><br><br>xs = tf.placeholder(tf.float32,<span class="hljs-literal">[N<span class="hljs-identifier">one</span>,<span class="hljs-number">1</span>]</span>)<br>ys = tf.placeholder(tf.float32,<span class="hljs-literal">[N<span class="hljs-identifier">one</span>,<span class="hljs-number">1</span>]</span>)<br>l1 = add<span class="hljs-constructor">_layer(<span class="hljs-params">xs</span>,1,10,<span class="hljs-params">activation_function</span> = <span class="hljs-params">tf</span>.<span class="hljs-params">nn</span>.<span class="hljs-params">relu</span>)</span><br>prediction = add<span class="hljs-constructor">_layer(<span class="hljs-params">l1</span>,10,1,<span class="hljs-params">activation_function</span>=None)</span><br><br><br>loss =tf.reduce<span class="hljs-constructor">_mean(<span class="hljs-params">tf</span>.<span class="hljs-params">reduce_sum</span>(<span class="hljs-params">tf</span>.<span class="hljs-params">square</span>(<span class="hljs-params">ys</span> - <span class="hljs-params">prediction</span>)</span>,<br>                    reduction_indices=<span class="hljs-literal">[<span class="hljs-number">1</span>]</span>))<br><br>train_step = tf.train.<span class="hljs-constructor">GradientDescentOptimizer(0.1)</span>.minimize(loss)<br><br># init = tf.initialize<span class="hljs-constructor">_all_variables()</span><br>init = tf.global<span class="hljs-constructor">_variables_initializer()</span><br><br>sess = tf.<span class="hljs-constructor">Session()</span><br>sess.run(init)<br><br>fig = plt.figure<span class="hljs-literal">()</span><br>ax = fig.add<span class="hljs-constructor">_subplot(1,1,1)</span><br>ax.scatter(x_data,y_data)<br><br>plt.ion<span class="hljs-literal">()</span><br>plt.show<span class="hljs-literal">()</span><br># plt.close<span class="hljs-literal">()</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):<br>    sess.run(train_step,feed_dict=&#123;xs:x_data,ys:y_data&#125;)<br>    <span class="hljs-keyword">if</span> i % <span class="hljs-number">50</span><span class="hljs-operator"> == </span><span class="hljs-number">0</span>:<br>        # print(sess.run(loss,feed_dict=&#123;xs:x_data,ys:y_data&#125;))<br><br>        <span class="hljs-keyword">try</span>:<br>            ax.lines.remove(lines<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>)<br>        except Exception:<br>            pass<br><br>        prediction_value = sess.run(prediction,feed_dict=&#123;xs:x_data&#125;)<br>        lines = ax.plot(x_data,prediction_value,&#x27;r-&#x27;,lw = <span class="hljs-number">3</span>)<br>        plt.pause(<span class="hljs-number">0.5</span>)<br><br><br></code></pre></div></td></tr></table></figure><p>运行的效果<br><img src="https://img-blog.csdn.net/20180407000723874?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>]]></content>
       
       
       <categories>
           
           <category> 计算机相关 </category>
           
-          <category> HTTP </category>
+          <category> TensorFlow </category>
           
       </categories>
       
@@ -2505,32 +2534,7 @@
             
             <tag> 计算机相关 </tag>
             
-            <tag> HTTP </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Go语言学习笔记5-面向接口</title>
-      <link href="2019/06/15/Golang/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3/"/>
-      <url>2019/06/15/Golang/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3/</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20190625095314114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="接口的定义和实现"><a href="#接口的定义和实现" class="headerlink" title="接口的定义和实现"></a>接口的定义和实现</h5><p><img src="https://img-blog.csdnimg.cn/20190625130255954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190625134807481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/201906251348495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190625135221955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> golang </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> golang </tag>
+            <tag> TensorFlow </tag>
             
         </tags>
       
@@ -2698,6 +2702,31 @@
       <url>2019/06/15/Golang/GO%E8%AF%AD%E8%A8%80%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88/Google%E8%B5%84%E6%B7%B1%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%B7%B1%E5%BA%A6%E8%AE%B2%E8%A7%A3Go%E8%AF%AD%E8%A8%804-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
       
         <content type="html"><![CDATA[<h5 id="接口体和方法"><a href="#接口体和方法" class="headerlink" title="接口体和方法"></a>接口体和方法</h5><p><img src="https://img-blog.csdnimg.cn/20190624231127111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190624232338909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190624232702781.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="包和封装"><a href="#包和封装" class="headerlink" title="包和封装"></a>包和封装</h5><p><img src="https://img-blog.csdnimg.cn/2019062501212967.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190625013051362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190625013022974.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190625013557977.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="GOPATH以及目录结构"><a href="#GOPATH以及目录结构" class="headerlink" title="GOPATH以及目录结构"></a>GOPATH以及目录结构</h5><p><img src="https://img-blog.csdnimg.cn/20190625092642885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> golang </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> golang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Go语言学习笔记5-面向接口</title>
+      <link href="2019/06/15/Golang/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3/"/>
+      <url>2019/06/15/Golang/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://img-blog.csdnimg.cn/20190625095314114.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h5 id="接口的定义和实现"><a href="#接口的定义和实现" class="headerlink" title="接口的定义和实现"></a>接口的定义和实现</h5><p><img src="https://img-blog.csdnimg.cn/20190625130255954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190625134807481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/201906251348495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190625135221955.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dmazI5NzUwMTk2NzE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>]]></content>
       
       
       <categories>
@@ -4010,11 +4039,11 @@
     
     
     <entry>
-      <title>Laravel 查询构造器的使用（三）</title>
-      <link href="2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-      <url>2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+      <title>Laravel 查询构造器的使用（一）</title>
+      <link href="2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+      <url>2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p>查询构造器中的构造函数</p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">//聚合函数</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query5</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">   </span>&#123;<br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;count();<br>       var_dump(<span class="hljs-variable">$num</span>);<br><br>       <span class="hljs-variable">$max</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;max(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       var_dump(<span class="hljs-variable">$max</span>);<br><br>       <span class="hljs-variable">$min</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;min(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       var_dump(<span class="hljs-variable">$min</span>);<br><br>       <span class="hljs-variable">$avg</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;avg(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       var_dump(<span class="hljs-variable">$avg</span>);<br><br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;sum(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       var_dump(<span class="hljs-variable">$sum</span>);<br>   &#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>使用查询构造器对数据库的 增 - 删 - 改 操作</p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">//使用查询构造器新增数据</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query1</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">   </span>&#123;<br>       <span class="hljs-variable">$bool</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;insert(<br>           [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;mohuani&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">19</span>]<br>       );<br>       var_dump(<span class="hljs-variable">$bool</span>);<br><br>       <span class="hljs-variable">$id</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;insertGetId(<br>           [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;sean&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">18</span>]<br>       );<br>       var_dump(<span class="hljs-variable">$id</span>);<br><br><br>       <span class="hljs-variable">$id</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;insert([<br>           [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;name1&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">21</span>],<br>           [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;name2&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">22</span>]<br>       ]);<br>       var_dump(<span class="hljs-variable">$id</span>);<br><br>   &#125;<br><br><br>   <span class="hljs-comment">//使用查询构造器更新数据</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query2</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">   </span>&#123;<br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-number">1001</span>)<br>           -&gt;update([<span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">30</span>]);<br>       var_dump(<span class="hljs-variable">$sum</span>);<br><br>       <span class="hljs-comment">//实现自增</span><br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;increment(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;increment(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">3</span>);<br><br>       <span class="hljs-comment">//实现自减</span><br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;decrement(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;decrement(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">3</span>);<br><br>       <span class="hljs-comment">//使用where条件更新</span><br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-number">1004</span>)<br>           -&gt;decrement(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">3</span>);<br>       var_dump(<span class="hljs-variable">$num</span>);<br><br>       <span class="hljs-comment">//使用where条件更新</span><br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-number">1004</span>)<br>           -&gt;decrement(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">3</span>, [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;iimooc&#x27;</span>]);<br>       var_dump(<span class="hljs-variable">$num</span>);<br>   &#125;<br><br>   <span class="hljs-comment">//使用查询构造器删除数据</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query3</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">   </span>&#123;<br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>,<span class="hljs-number">1008</span>)<br>           -&gt;delete();<br>       var_dump(<span class="hljs-variable">$num</span>);<br><br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-string">&#x27;&gt;=&#x27;</span>, <span class="hljs-number">1008</span>)<br>           -&gt;delete();<br>       var_dump(<span class="hljs-variable">$num</span>);<br><br>       DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;truncate();<br>   &#125;<br></code></pre></div></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -4068,11 +4097,11 @@
     
     
     <entry>
-      <title>Laravel 查询构造器的使用（一）</title>
-      <link href="2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-      <url>2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      <title>Laravel 查询构造器的使用（三）</title>
+      <link href="2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+      <url>2015/12/04/PHP/Laravel/Laravel%20%E6%9F%A5%E8%AF%A2%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p>使用查询构造器对数据库的 增 - 删 - 改 操作</p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">//使用查询构造器新增数据</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query1</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">   </span>&#123;<br>       <span class="hljs-variable">$bool</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;insert(<br>           [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;mohuani&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">19</span>]<br>       );<br>       var_dump(<span class="hljs-variable">$bool</span>);<br><br>       <span class="hljs-variable">$id</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;insertGetId(<br>           [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;sean&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">18</span>]<br>       );<br>       var_dump(<span class="hljs-variable">$id</span>);<br><br><br>       <span class="hljs-variable">$id</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;insert([<br>           [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;name1&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">21</span>],<br>           [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;name2&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">22</span>]<br>       ]);<br>       var_dump(<span class="hljs-variable">$id</span>);<br><br>   &#125;<br><br><br>   <span class="hljs-comment">//使用查询构造器更新数据</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query2</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">   </span>&#123;<br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-number">1001</span>)<br>           -&gt;update([<span class="hljs-string">&#x27;age&#x27;</span> =&gt; <span class="hljs-number">30</span>]);<br>       var_dump(<span class="hljs-variable">$sum</span>);<br><br>       <span class="hljs-comment">//实现自增</span><br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;increment(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;increment(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">3</span>);<br><br>       <span class="hljs-comment">//实现自减</span><br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;decrement(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;decrement(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">3</span>);<br><br>       <span class="hljs-comment">//使用where条件更新</span><br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-number">1004</span>)<br>           -&gt;decrement(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">3</span>);<br>       var_dump(<span class="hljs-variable">$num</span>);<br><br>       <span class="hljs-comment">//使用where条件更新</span><br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-number">1004</span>)<br>           -&gt;decrement(<span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-number">3</span>, [<span class="hljs-string">&#x27;name&#x27;</span> =&gt; <span class="hljs-string">&#x27;iimooc&#x27;</span>]);<br>       var_dump(<span class="hljs-variable">$num</span>);<br>   &#125;<br><br>   <span class="hljs-comment">//使用查询构造器删除数据</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query3</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">   </span>&#123;<br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>,<span class="hljs-number">1008</span>)<br>           -&gt;delete();<br>       var_dump(<span class="hljs-variable">$num</span>);<br><br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)<br>           -&gt;where(<span class="hljs-string">&#x27;id&#x27;</span>, <span class="hljs-string">&#x27;&gt;=&#x27;</span>, <span class="hljs-number">1008</span>)<br>           -&gt;delete();<br>       var_dump(<span class="hljs-variable">$num</span>);<br><br>       DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;truncate();<br>   &#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>查询构造器中的构造函数</p><figure class="highlight php"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs php"><span class="hljs-comment">//聚合函数</span><br>   <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query5</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function">   </span>&#123;<br>       <span class="hljs-variable">$num</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;count();<br>       var_dump(<span class="hljs-variable">$num</span>);<br><br>       <span class="hljs-variable">$max</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;max(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       var_dump(<span class="hljs-variable">$max</span>);<br><br>       <span class="hljs-variable">$min</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;min(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       var_dump(<span class="hljs-variable">$min</span>);<br><br>       <span class="hljs-variable">$avg</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;avg(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       var_dump(<span class="hljs-variable">$avg</span>);<br><br>       <span class="hljs-variable">$sum</span> = DB::table(<span class="hljs-string">&#x27;student&#x27;</span>)-&gt;sum(<span class="hljs-string">&#x27;age&#x27;</span>);<br>       var_dump(<span class="hljs-variable">$sum</span>);<br>   &#125;<br></code></pre></div></td></tr></table></figure>]]></content>
       
       
       <categories>
