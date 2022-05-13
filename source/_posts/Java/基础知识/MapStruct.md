@@ -1,10 +1,10 @@
 ---
 title: "MapStruct"
-date: 2016-06-15 21:22:30
+date: 2022-05-13 14:22:30
 draft: true
-tags: [Java]
+tags: [Java, MapStruct]
 categories:
-- [Java]
+- [Java, MapStruct]
 ---
 
 ### 官方文档：
@@ -139,20 +139,3 @@ Maven 引入对应的dependency
 - https://github.com/mapstruct/mapstruct-examples
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-  
-  
-  
-  
-  
