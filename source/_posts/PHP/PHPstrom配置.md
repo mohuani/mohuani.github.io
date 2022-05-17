@@ -49,3 +49,4 @@ categories:
 
 - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
 - [Git Commit Template](https://blog.csdn.net/noaman_wgs/article/details/103429171)
+- [.ignore](https://plugins.jetbrains.com/plugin/7495--ignore)
