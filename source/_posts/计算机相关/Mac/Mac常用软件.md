@@ -30,3 +30,7 @@ categories:
 - Postman
 - [Downie4](https://macwk.com/soft/downie)
 - [shottr](https://shottr.cc/)
+- 语雀
+- QQ影音
+- 剪映
+- [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)
