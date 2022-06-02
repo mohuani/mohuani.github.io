@@ -16,21 +16,26 @@ categories:
 
 ### App
 
-- [OBS](https://obsproject.com/)
+- [OBS](https://github.com/obsproject/obs-studio/releases/)
+- [达芬奇](http://www.blackmagicdesign.com/cn/products/davinciresolve)
 - 超级右键
 - [Stats (网络小工具)](https://github.com/exelban/stats)
-- Docker
-- XMind
+- [Docker](https://www.docker.com/get-started/)
+- [XMind](https://www.xmind.cn/download/)
 - Typora
 - JetBrains全家桶
 - Notion
+- [VSCode](https://code.visualstudio.com/)
 - [The Unarchiver](https://www.theunarchiver.com/)
 - [ScreenFlow](https://macwk.com/soft/screenflow)
 - [IINA](https://www.iina.io/)
-- Postman
+- [Postman](https://www.postman.com/downloads/)
 - [Downie4](https://macwk.com/soft/downie)
 - [shottr](https://shottr.cc/)
-- 语雀
-- QQ影音
-- 剪映
+- [语雀](https://www.yuque.com/download)
+- [QQ影音](https://player.qq.com/)
+- [剪映](https://lv.ulikecam.com/)
+- [QQ音乐]([https://y.qq.com/](https://y.qq.com/download/download.html))
+- [网易云音乐](https://music.163.com/#/download)
 - [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)
+- [V2rayU](https://github.com/babyaries/V2rayU)
