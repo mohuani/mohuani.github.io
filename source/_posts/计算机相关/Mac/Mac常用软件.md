@@ -14,7 +14,7 @@ categories:
 - https://macwk.com/
 
 
-### App
+### MAC App
 
 - [OBS](https://github.com/obsproject/obs-studio/releases/)
 - [达芬奇](http://www.blackmagicdesign.com/cn/products/davinciresolve)
@@ -39,3 +39,13 @@ categories:
 - [网易云音乐](https://music.163.com/#/download)
 - [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)
 - [V2rayU](https://github.com/babyaries/V2rayU)
+
+
+### 安卓APP
+- [V2rayNG](https://github.com/2dust/v2rayNG)
+
+### IOS APP
+- [OneClick](https://oneclick.earth/#/)
+
+
+
