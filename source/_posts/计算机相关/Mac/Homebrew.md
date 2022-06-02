@@ -11,5 +11,31 @@ categories:
  
  国内镜像安装方法 ：https://brew.idayer.com/
 
+
+---
+
+### 通常可以用过brew安装的软件
+
+
+- php
+- golang
+- java
+- maven
+- etcd
+- redis
+- mysql
+- docker
+- minikube
+- protobuf
+- protoc-gen-go
+
+
+
+
+
+
+
+
+
   
 
