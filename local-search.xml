@@ -1472,7 +1472,7 @@
     <link href="/2021/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Mac/Homebrew/"/>
     <url>/2021/04/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9B%B8%E5%85%B3/Mac/Homebrew/</url>
     
-    <content type="html"><![CDATA[<p> <del>传送门： <a href="https://getgrav.org/blog/macos-bigsur-apache-multiple-php-versions">https://getgrav.org/blog/macos-bigsur-apache-multiple-php-versions</a></del></p><p> 国内镜像安装方法 ：<a href="https://brew.idayer.com/">https://brew.idayer.com/</a></p>]]></content>
+    <content type="html"><![CDATA[<p> <del>传送门： <a href="https://getgrav.org/blog/macos-bigsur-apache-multiple-php-versions">https://getgrav.org/blog/macos-bigsur-apache-multiple-php-versions</a></del></p><p> 国内镜像安装方法 ：<a href="https://brew.idayer.com/">https://brew.idayer.com/</a></p><hr><h3 id="通常可以用过brew安装的软件"><a href="#通常可以用过brew安装的软件" class="headerlink" title="通常可以用过brew安装的软件"></a>通常可以用过brew安装的软件</h3><ul><li>php</li><li>golang</li><li>java</li><li>maven</li><li>etcd</li><li>redis</li><li>mysql</li><li>docker</li><li>minikube</li><li>protobuf</li><li>protoc-gen-go</li></ul>]]></content>
     
     
     <categories>
