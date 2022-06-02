@@ -19,6 +19,10 @@ categories:
 - [OBS](https://github.com/obsproject/obs-studio/releases/)
 - [达芬奇](http://www.blackmagicdesign.com/cn/products/davinciresolve)
 - 超级右键
+- [draw.io](https://github.com/jgraph/drawio-desktop/releases/)
+- [WPS](https://platform.wps.cn/)
+- [百度网盘](https://pan.baidu.com/download#pan)
+- [阿里网盘](https://www.aliyundrive.com/download)
 - [Stats (网络小工具)](https://github.com/exelban/stats)
 - [Docker](https://www.docker.com/get-started/)
 - [XMind](https://www.xmind.cn/download/)
