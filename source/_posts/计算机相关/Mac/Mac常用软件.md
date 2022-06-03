@@ -45,6 +45,34 @@ categories:
 - [V2rayU](https://github.com/babyaries/V2rayU)
 
 
+### mac zsh 支持ll命令
+```
+第一步：打开bash_profile 配置文件
+
+vim ~/.bash_profile
+
+第二步：在文件中添加配置：alias ll='ls -alF'
+
+键盘按下 I 键进入编辑模式
+
+输入：alias ll='ls -alF'
+
+添加完配置后，按ESC键退出编辑模式
+
+输入 :wq 保存并退出
+
+第三步：更新配置文件，使配置生效
+
+source ~/.bash_profile
+
+解决后测试
+
+命令可以正常使用了！！！
+```
+
+
+
+
 ### 安卓APP
 - [V2rayNG](https://github.com/2dust/v2rayNG)
 
