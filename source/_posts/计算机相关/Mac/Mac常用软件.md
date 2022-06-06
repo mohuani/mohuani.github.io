@@ -41,6 +41,7 @@ categories:
 - [剪映](https://lv.ulikecam.com/)
 - [QQ音乐]([https://y.qq.com/](https://y.qq.com/download/download.html))
 - [网易云音乐](https://music.163.com/#/download)
+- [PotPlayer X - 音视频播放器](https://apps.apple.com/cn/app/id1612400976)
 - [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)
 - [V2rayU](https://github.com/babyaries/V2rayU)
 
