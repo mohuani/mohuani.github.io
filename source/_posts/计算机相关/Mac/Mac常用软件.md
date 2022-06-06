@@ -42,6 +42,7 @@ categories:
 - [QQ音乐]([https://y.qq.com/](https://y.qq.com/download/download.html))
 - [网易云音乐](https://music.163.com/#/download)
 - [PotPlayer X - 音视频播放器](https://apps.apple.com/cn/app/id1612400976)
+- [录屏专家Omi - 屏幕录制工具](https://apps.apple.com/cn/app/%E5%BD%95%E5%B1%8F%E4%B8%93%E5%AE%B6omi-%E5%B1%8F%E5%B9%95%E5%BD%95%E5%88%B6%E5%B7%A5%E5%85%B7/id1592987853)
 - [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)
 - [V2rayU](https://github.com/babyaries/V2rayU)
 
