@@ -934,44 +934,44 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://unpkg.com/npm/anchor-js@4.3.0/
+  anchor: https://unpkg.com//anchor-js@4.3.0/
 
-  github_markdown: https://unpkg.com/npm/github-markdown-css@4.0.0/
+  github_markdown: https://unpkg.com//github-markdown-css@4.0.0/
 
-  jquery: https://unpkg.com/npm/jquery@3.5.1/dist/
+  jquery: https://unpkg.com//jquery@3.5.1/dist/
 
-  bootstrap: https://unpkg.com/npm/bootstrap@4.5.3/dist/
+  bootstrap: https://unpkg.com//bootstrap@4.5.3/dist/
 
-  highlightjs: https://unpkg.com/npm/highlight.js@10.4.0/
+  highlightjs: https://unpkg.com//highlight.js@10.4.0/
 
-  prismjs: https://unpkg.com/npm/prismjs@1.22.0/
+  prismjs: https://unpkg.com//prismjs@1.22.0/
 
-  tocbot: https://unpkg.com/npm/tocbot@4.12.0/dist/
+  tocbot: https://unpkg.com//tocbot@4.12.0/dist/
 
-  typed: https://unpkg.com/npm/typed.js@2.0.11/lib/
+  typed: https://unpkg.com//typed.js@2.0.11/lib/
 
-  fancybox: https://unpkg.com/npm/@fancyapps/fancybox@3.5.7/dist/
+  fancybox: https://unpkg.com//@fancyapps/fancybox@3.5.7/dist/
 
-  nprogress: https://unpkg.com/npm/nprogress@0.2.0/
+  nprogress: https://unpkg.com//nprogress@0.2.0/
 
-  mathjax: https://unpkg.com/npm/mathjax@3.1.2/es5/
+  mathjax: https://unpkg.com//mathjax@3.1.2/es5/
 
-  katex: https://unpkg.com/npm/katex@0.12.0/dist/
+  katex: https://unpkg.com//katex@0.12.0/dist/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://unpkg.com/npm/clipboard@2.0.6/dist/
+  clipboard: https://unpkg.com//clipboard@2.0.6/dist/
 
-  mermaid: https://unpkg.com/npm/mermaid@8.8.3/dist/
+  mermaid: https://unpkg.com//mermaid@8.8.3/dist/
 
-  valine: https://unpkg.com/npm/valine@1.4.14/dist/
+  valine: https://unpkg.com//valine@1.4.14/dist/
 
-  waline: https://unpkg.com/npm/@waline/client@0.14.8/dist/
+  waline: https://unpkg.com//@waline/client@0.14.8/dist/
 
-  gitalk: https://unpkg.com/npm/gitalk@1.7.0/dist/
+  gitalk: https://unpkg.com//gitalk@1.7.0/dist/
 
-  disqusjs: https://unpkg.com/npm/disqusjs@1.0/dist/
+  disqusjs: https://unpkg.com//disqusjs@1.0/dist/
 
-  twikoo: https://unpkg.com/npm/twikoo@1.3.0/dist/
+  twikoo: https://unpkg.com//twikoo@1.3.0/dist/
 
   hint: /lib/hint/
